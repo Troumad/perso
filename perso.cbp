@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Perso4" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="perso" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters=" " />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="`pkg-config gtk+-3.0 --cflags` -Wimplicit-function-declaration -rdynamic" />
+				</Compiler>
+				<Linker>
+					<Add option="-rdynamic" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="test_glade" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="`pkg-config gtk+-3.0 --cflags`  -lzip -g -Wextra -Wshadow  -Winit-self  -Wredundant-decls  -Wcast-align  -Wundef  -Wfloat-equal  -Winline  -Wunreachable-code  -Wmissing-declarations  -Wmissing-include-dirs  -Wswitch-enum  -Wswitch-default  -Wmain  -Wall -Wstrict-aliasing" />
+		</Compiler>
+		<Linker>
+			<Add option="`pkg-config gtk+-3.0 --libs` -lzip -lm" />
+		</Linker>
+		<Unit filename="LibO/content.xml" />
+		<Unit filename="LibO/groupe.xml" />
+		<Unit filename="LibO/sortie.xml" />
+		<Unit filename="aide_modif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ajouter_enlever_modif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="chaine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="change_modif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dieux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="enregistre.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="envp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fichiers/dieux.add" />
+		<Unit filename="fichiers/glade/ChoixTirage.glade" />
+		<Unit filename="fichiers/glade/info_modif.glade" />
+		<Unit filename="fichiers/glade/menu_perso.glade" />
+		<Unit filename="fichiers/glade/modification.glade" />
+		<Unit filename="fichiers/glade/ouverture.glade" />
+		<Unit filename="fichiers/mongtk.css" />
+		<Unit filename="gestion_fenetre_perso.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gestion_glade.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="groupe.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include.h" />
+		<Unit filename="lecture_fichier.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lire_odc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="messages.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="modif_perso.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ouverture.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="poids_taille.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sorts.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="style.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tableaux.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tirage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="utile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="verif_modif.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="xml.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="zip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Debug" />
+	<File name="groupe.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="41898" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="utile.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10151" topLine="327" />
+		</Cursor>
+	</File>
+	<File name="fichiers/mongtk.css" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="302" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="ajouter_enlever_modif.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="15110" topLine="400" />
+		</Cursor>
+	</File>
+	<File name="tableaux.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11998" topLine="285" />
+		</Cursor>
+	</File>
+	<File name="ouverture.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4817" topLine="112" />
+		</Cursor>
+		<Folding>
+			<Collapse line="290" />
+			<Collapse line="367" />
+			<Collapse line="401" />
+			<Collapse line="445" />
+			<Collapse line="476" />
+			<Collapse line="484" />
+			<Collapse line="507" />
+			<Collapse line="516" />
+			<Collapse line="560" />
+			<Collapse line="575" />
+			<Collapse line="596" />
+			<Collapse line="601" />
+			<Collapse line="746" />
+			<Collapse line="808" />
+			<Collapse line="928" />
+		</Folding>
+	</File>
+	<File name="include.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3080" topLine="147" />
+		</Cursor>
+	</File>
+	<File name="sorts.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="72491" topLine="1639" />
+		</Cursor>
+	</File>
+	<File name="change_modif.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5324" topLine="157" />
+		</Cursor>
+	</File>
+	<File name="enregistre.c" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="79680" topLine="1750" />
+		</Cursor>
+	</File>
+	<File name="dieux.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="38485" topLine="813" />
+		</Cursor>
+	</File>
+	<File name="lecture_fichier.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="39266" topLine="1368" />
+		</Cursor>
+	</File>
+	<File name="modif_perso.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="58142" topLine="1590" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3642" topLine="69" />
+		</Cursor>
+	</File>
+	<File name="gestion_glade.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="466" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="xml.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="21863" topLine="643" />
+		</Cursor>
+	</File>
+	<File name="verif_modif.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="40861" topLine="940" />
+		</Cursor>
+	</File>
+	<File name="style.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7153" topLine="241" />
+		</Cursor>
+	</File>
+	<File name="gestion_fenetre_perso.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9989" topLine="231" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,18 @@
+CC=gcc
+ 
+ CFLAGS= -Wshadow  -Winit-self  -Wredundant-decls  -Wcast-align  -Wundef  -Wfloat-equal  -Winline  -Wunreachable-code  -Wmissing-declarations  -Wmissing-include-dirs  -Wswitch-enum  -Wswitch-default  -Wmain  -Wall  `pkg-config gtk+-3.0 --cflags` -export-dynamic
+  
+  LDFLAGS=`pkg-config gtk+-3.0 --libs` -export-dynamic  -lzip -lm
+   
+   EXEC=perso
+   SRC= $(wildcard *.c)
+OBJ= $(SRC:.c=.o)
+	 
+all: $(EXEC)
+	 
+$(EXEC) : $(OBJ)
+		$(CC) -o $@ $^ $(LDFLAGS)
+		 
+		  
+%.o: %.c include.h
+		$(CC) -o $@ -c $< $(CFLAGS)

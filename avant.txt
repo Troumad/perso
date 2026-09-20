@@ -1,0 +1,6 @@
+Merci d'installer le programme de création de personnages de Donjons & Dragons.
+
+Programme fait pour Les règles avancées de Donjon et Dragon version 1 et 2 (ADD1 et ADD2).
+Ce programme utilise gtk3, les dll sont installées avec le programme.
+
+Troumad Alias Bernard SIAUD

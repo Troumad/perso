@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.18.3 -->
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <object class="GtkWindow" id="window">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Explication Perso</property>
+    <property name="icon">Images/1d8.png</property>
+    <child>
+      <object class="GtkLabel" id="label1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="label" translatable="yes">Tirage aléatoire de personnages
+Choisisser votre ordre de préférance des caractéristiques
+Choisissez les classes et la feuille sera remplie
+
+Gestion de personnages et de groupes de personnages
+&lt;a href="http://troumad.org/Mes_regles/perso.php"&gt;Mode d'emploi&lt;/a&gt;
+
+Vous pouvez ensuite tout modifier à partir du bouton modifier
+pour faire la feuille du personnage de votre choix
+(caractérisques, classes, niveaux, armes,...)</property>
+        <property name="use_markup">True</property>
+        <property name="justify">center</property>
+      </object>
+    </child>
+  </object>
+</interface>

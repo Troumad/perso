@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.18.3 -->
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <object class="GtkWindow" id="window">
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkLabel" id="label1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Génération de feuilles de personnage complète AD&amp;amp;D 1 &amp;amp; 2 et Génération aléatoire de personnage
+Copyright (C) 2011-2015 Bernard SIAUD
+
+This program is free software:
+you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program. 
+If not, see &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;
+
+Lien officiel vers la licence : &lt;a href="http://www.gnu.org/licenses/gpl.html"&gt;http://www.gnu.org/licenses/gpl.html&lt;/a&gt;
+Vous pouvez voir la VF ici : &lt;a href="http://org.rodage.com//gpl-3.0.fr.html"&gt;http://org.rodage.com//gpl-3.0.fr.html&lt;/a&gt;</property>
+        <property name="use_markup">True</property>
+        <property name="justify">center</property>
+      </object>
+    </child>
+  </object>
+</interface>
