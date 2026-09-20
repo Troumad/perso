@@ -85,7 +85,7 @@ void verif_race(FenetrePerso * _perso)
 
 void verif_voleur(FenetrePerso * _perso)
 {
-    signed short i,j,cl, total=0, manque=0,tmp;
+    signed short i,j,cl, total=0, tmp;
     signed char dext;
     signed short comp[FEUILLE_LAR_VOL];
     short _version=_perso->version_modif;
@@ -163,19 +163,6 @@ void verif_voleur(FenetrePerso * _perso)
                     {
                         for(i=0; i<FEUILLE_LAR_VOL; i++)
                         {
-                            if (i<7)
-                            {
-                                if (comp[i]!=0)
-                                { /* si ce n'est pas la première profesion qui accepte les capacités de voleur */
-                                    manque+=ABS(comp[i]-CLASSE[classe[cl]].add[ADD2].tab_voleur[j][i]);
-                                }
-                                else
-                                { /* c'est la première profession qui a des capacités de voleur */
-                                }
-                            }
-                            else
-                            {   /* je ne prends en compte que les capacités de base du voleur, les autres ne sont pas "encore" comptées */
-                            }
                             comp[i]=max(comp[i],CLASSE[classe[cl]].add[ADD2].tab_voleur[j][i]);
                         }
                     }
@@ -388,7 +375,7 @@ void verif_alignement(FenetrePerso * _perso)
 
 void verif_psi(FenetrePerso * _perso)
 { /* science 1, devotion : 0 */
-    signed short i,j,k,l,natif,niv,natif_p,pt_psi=0,niv_psi=0,pt_psi_nat=0;
+    signed short i,j,k,l,natif,niv,natif_p,niv_psi=0;
     char _nom[32];
     GtkWidget * wid, * wid_util;
     signed short * classe=_perso->classe_modif;
@@ -437,12 +424,10 @@ void verif_psi(FenetrePerso * _perso)
                     niv=gtk_spin_button_get_value(GTK_SPIN_BUTTON(wid));
                     if ( natif!=0 || niv!=0)
                     {
-                        pt_psi-=max(0,niv-natif); /* décompte des points utilisés */
                         if (natif!=0)
                         { /* décompte des points psi pour un talent natif */
                             if (sscanf(TALENTS_PSI[i][j][k].cout,"(i:%hu",&l)==1)
                             { /* une fois le coût de lancement */
-                                pt_psi_nat+=l;
                             }
                             else
                             { /* pas de coût de lancement */
@@ -451,20 +436,6 @@ void verif_psi(FenetrePerso * _perso)
                             {
                              ; /* recherche du : dans la chaîne */
                             }
-                            if (TALENTS_PSI[i][j][k].cout[l]==':') /* cout du maintient */
-                            {
-                                if (sscanf(TALENTS_PSI[i][j][k].cout+l+1,"%hu",&l)==1)
-                                {
-                                    pt_psi_nat+=4*l;
-                                }
-                                else
-                                { /* lecture du coût de maintient ratée */
-                                }
-                            }
-                            else
-                            { /* pas de maintient */
-                            }
-
                         }
                         else
                         { /* ce n'est pas une compétence native */
@@ -1385,7 +1356,7 @@ void verif_competence(FenetrePerso * _perso)
     signed short * niveau=_perso->niv_classe_modif;
     GtkWidget * wid_util;
     char ch[LONG];
-    signed short nb_comp=0, nb_comp_max=0,nb,k;
+    signed short nb_comp=0, nb,k;
 
     for (k=0;classe[k]!=-1;k++)
     {
@@ -1393,7 +1364,6 @@ void verif_competence(FenetrePerso * _perso)
         {
             nb=CLASSE[classe[k]].add[ADD2].progression_competences[0]+niveau[k]/CLASSE[classe[k]].add[ADD2].progression_competences[1];
             nb_comp=max(nb_comp,nb);
-            nb_comp_max+=nb;
         }
         else
         { /* classe uniquement ADD1 => pas de compét"ences */
@@ -1401,7 +1371,6 @@ void verif_competence(FenetrePerso * _perso)
     }
     nb=gtk_spin_button_get_value(GTK_SPIN_BUTTON(GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,nom_min[INTELLIGENCE]))));
     sscanf(tabl_inte2[nb-1][0],"%hd",&k);
-    nb_comp_max+=k;
     nb_comp+=k;
     nb=nb_comp;
 
