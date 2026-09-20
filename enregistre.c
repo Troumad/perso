@@ -584,7 +584,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
     signed short _version=_perso->perso.version,vers_race;
     signed short sexe=_perso->perso.sexe;
     signed short niv,mag=0,clerc=0,bonus_init=0;
-    const struct_race * race=RACE+_perso->perso.race;
+    struct_race * race=RACE+_perso->perso.race;
     signed short * arme=_perso->perso.arme;
     signed short * competence=_perso->perso.competence;
     struct_classe * _classe=CLASSE;
