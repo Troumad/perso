@@ -1,0 +1,41 @@
+#CC=c:\msys32\mingw32\bin\i686-w64-mingw32-gcc
+#CC=c:\msys32\mingw64\bin\x86_64-w64-mingw32-gcc.exe
+#CC=/mingw64/bin/x86_64-w64-mingw32-gcc
+#CC=/mingw32/bin/i686-w64-mingw32-gcc
+#CC=i686-w64-mingw32-gcc
+CC=x86_64-w64-mingw32-gcc
+
+ 
+#CFLAGS= -Wshadow  -Winit-self  -Wredundant-decls  -Wcast-align  -Wundef  -Wfloat-equal  -Winline  -Wunreachable-code  -Wmissing-declarations  -Wmissing-include-dirs  -Wswitch-enum  -Wswitch-default  -Wmain  -Wall -mms-bitfields -pthread -mms-bitfields -I/usr/i686-w64-mingw32/sys-root/mingw/include/gtk-3.0 -I/usr/i686-w64-mingw32/sys-root/mingw/include/cairo -I/usr/i686-w64-mingw32/sys-root/mingw/include -I/usr/i686-w64-mingw32/sys-root/mingw/include/pango-1.0 -I/usr/i686-w64-mingw32/sys-root/mingw/include/atk-1.0 -I/usr/i686-w64-mingw32/sys-root/mingw/include/cairo -I/usr/i686-w64-mingw32/sys-root/mingw/include/pixman-1 -I/usr/i686-w64-mingw32/sys-root/mingw/include -I/usr/i686-w64-mingw32/sys-root/mingw/include/freetype2 -I/usr/i686-w64-mingw32/sys-root/mingw/include/libpng16 -I/usr/i686-w64-mingw32/sys-root/mingw/include/harfbuzz -I/usr/i686-w64-mingw32/sys-root/mingw/include/glib-2.0 -I/usr/i686-w64-mingw32/sys-root/mingw/lib/glib-2.0/include -I/usr/i686-w64-mingw32/sys-root/mingw/include -I/usr/i686-w64-mingw32/sys-root/mingw/include/freetype2 -I/usr/i686-w64-mingw32/sys-root/mingw/include -I/usr/i686-w64-mingw32/sys-root/mingw/include/harfbuzz -I/usr/i686-w64-mingw32/sys-root/mingw/include/libpng16 -I/usr/i686-w64-mingw32/sys-root/mingw/include/gdk-pixbuf-2.0 -I/usr/i686-w64-mingw32/sys-root/mingw/include/libpng16 -I/usr/i686-w64-mingw32/sys-root/mingw/include/glib-2.0 -I/usr/i686-w64-mingw32/sys-root/mingw/lib/glib-2.0/include -I/usr/i686-w64-mingw32/sys-root/mingw/include -export-dynamic -mwindows
+
+CFLAGS= -Wshadow  -Winit-self  -Wredundant-decls  -Wcast-align  -Wundef  -Wfloat-equal  -Winline  -Wunreachable-code  -Wmissing-declarations  -Wmissing-include-dirs  -Wswitch-enum  -Wswitch-default  -Wmain  -Wall -mms-bitfields -pthread -mms-bitfields -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/gtk-3.0 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/cairo -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/pango-1.0 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/atk-1.0 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/cairo -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/pixman-1 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/freetype2 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libpng16 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/harfbuzz -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/glib-2.0 -I/usr/x86_64-w64-mingw32/sys-root/mingw/lib/glib-2.0/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/freetype2 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/harfbuzz -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libpng16 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/gdk-pixbuf-2.0 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/libpng16 -I/usr/x86_64-w64-mingw32/sys-root/mingw/include/glib-2.0 -I/usr/x86_64-w64-mingw32/sys-root/mingw/lib/glib-2.0/include -I/usr/x86_64-w64-mingw32/sys-root/mingw/include -export-dynamic -mwindows
+
+ 
+#CFLAGS= -Wshadow  -Winit-self  -Wredundant-decls  -Wcast-align  -Wundef  -Wfloat-equal  -Winline  -Wunreachable-code  -Wmissing-declarations  -Wmissing-include-dirs  -Wswitch-enum  -Wswitch-default  -Wmain  -Wall  `c:\msys32\mingw32\bin\pkg-config.exe --cflags gtk+-3.0` -export-dynamic -mwindows  
+
+#LDFLAGS=-L/usr/i686-w64-mingw32/sys-root/mingw/lib -lgtk-3 -lgdk-3 -lgdi32 -limm32 -lshell32 -lole32 -Wl,-luuid -lwinmm -ldwmapi -lz -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl -lzip -mwindows -Wl,--export-all-symbols
+
+LDFLAGS=-L/usr/x86_64-w64-mingw32/sys-root/mingw/lib -lgtk-3 -lgdk-3 -lgdi32 -limm32 -lshell32 -lole32 -Wl,-luuid -lwinmm -ldwmapi -lz -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -latk-1.0 -lcairo-gobject -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl -lzip -mwindows -Wl,--export-all-symbols -fstack-protector-all
+
+  
+#LDFLAGS=`c:\msys32\mingw32\bin\pkg-config.exe --libs gtk+-3.0` -lzip -mwindows -Wl,--export-all-symbols
+   
+   EXEC=perso.exe
+   SRC= $(wildcard *.c)
+
+OBJ= $(SRC:.c=.obj)
+	 
+all: $(EXEC)
+	 
+$(EXEC) : $(OBJ)
+		x86_64-w64-mingw32-windres icone.rc icone.obj
+		$(CC) -o $@ icone.obj $^ $(LDFLAGS)
+		wine "c:\Program Files\Inno Setup 6\iscc.exe" /q perso4_64.iss
+		#wine "c:\Program Files\Inno Setup 5\Compil32.exe" /cc perso4_64.iss
+		rm -f perso.exe
+		
+		  
+%.obj: %.c include.h
+		$(CC) -o $@ -c $< $(CFLAGS)
+
+

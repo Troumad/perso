@@ -1,0 +1,2954 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" office:version="1.2" grddl:transformation="http://docs.oasis-open.org/office/1.2/xslt/odf2rdf.xsl">
+	<office:scripts/>
+	<office:font-face-decls>
+		<style:font-face style:name="Times New Roman" svg:font-family="'Times New Roman'" style:font-family-generic="roman" style:font-pitch="variable"/>
+		<style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="swiss" style:font-pitch="variable"/>
+		<style:font-face style:name="Tahoma" svg:font-family="Tahoma" style:font-family-generic="swiss" style:font-pitch="variable"/>
+		<style:font-face style:name="Tolkien" svg:font-family="Tolkien" style:font-family-generic="swiss" style:font-pitch="variable"/>
+		<style:font-face style:name="DejaVu Sans" svg:font-family="'DejaVu Sans'" style:font-family-generic="system" style:font-pitch="variable"/>
+</office:font-face-decls>
+	<office:automatic-styles>
+		<style:style style:name="SautePage" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:break-before="page"/>
+</style:style>
+		<style:style style:name="Tableau1" style:family="table">
+			<style:table-properties style:width="9.652cm" fo:margin-left="0.125cm" fo:margin-right="-0.36cm" table:align="margins" style:may-break-between-rows="false"/>
+</style:style>
+		<style:style style:name="Tableau1.A" style:family="table-column">
+			<style:table-column-properties style:column-width="1.61cm" style:rel-column-width="913*"/>
+</style:style>
+		<style:style style:name="Tableau1.VD" style:family="table-column">
+			<style:table-column-properties style:column-width="0.21cm" style:rel-column-width="400*"/>
+</style:style>
+		<style:style style:name="Tableau1.VDL" style:family="table-column">
+			<style:table-column-properties style:column-width="0.61cm" style:rel-column-width="1213*"/>
+</style:style>
+		<style:style style:name="Tableau1.C" style:family="table-column">
+			<style:table-column-properties style:column-width="0.804cm" style:rel-column-width="456*"/>
+</style:style>
+		<style:style style:name="Tableau1.CL" style:family="table-column">
+			<style:table-column-properties style:column-width="1.804cm" style:rel-column-width="1587*"/>
+</style:style>
+		<style:style style:name="Tableau1.VDAE" style:family="table-column">
+			<style:table-column-properties style:column-width="0.604cm" style:rel-column-width="300*"/>
+</style:style>
+		<style:style style:name="Tableau1.VDA" style:family="table-column">
+			<style:table-column-properties style:column-width="1.804cm" style:rel-column-width="856*"/>
+</style:style>
+		<style:style style:name="Tableau1.VDA_L" style:family="table-column">
+			<style:table-column-properties style:column-width="1.804cm" style:rel-column-width="1156*"/>
+</style:style>
+		<style:style style:name="Tableau1.VDA1" style:family="table-column">
+			<style:table-column-properties style:column-width="1.804cm" style:rel-column-width="1056*"/>
+</style:style>
+		<style:style style:name="Tableau1.D" style:family="table-column">
+			<style:table-column-properties style:column-width="0.215cm" style:rel-column-width="122*"/>
+</style:style>
+		<style:style style:name="Tableau1.E" style:family="table-column">
+			<style:table-column-properties style:column-width="0.053cm" style:rel-column-width="30*"/>
+</style:style>
+		<style:style style:name="Tableau1.F" style:family="table-column">
+			<style:table-column-properties style:column-width="0.538cm" style:rel-column-width="305*"/>
+</style:style>
+		<style:style style:name="Tableau1.H" style:family="table-column">
+			<style:table-column-properties style:column-width="0.806cm" style:rel-column-width="457*"/>
+</style:style>
+		<style:style style:name="Tableau1.I" style:family="table-column">
+			<style:table-column-properties style:column-width="0.429cm" style:rel-column-width="243*"/>
+</style:style>
+		<style:style style:name="Tableau1.J" style:family="table-column">
+			<style:table-column-properties style:column-width="0.108cm" style:rel-column-width="61*"/>
+</style:style>
+		<style:style style:name="Tableau1.K" style:family="table-column">
+			<style:table-column-properties style:column-width="1.074cm" style:rel-column-width="609*"/>
+</style:style>
+		<style:style style:name="Tableau1.L" style:family="table-column">
+			<style:table-column-properties style:column-width="1.6cm" style:rel-column-width="907*"/>
+</style:style>
+		<style:style style:name="Tableau1.VDB" style:family="table-column">
+			<style:table-column-properties style:column-width="0.6cm" style:rel-column-width="657*"/>
+</style:style>
+		<style:style style:name="Tableau1.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD11" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD21" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0cm" fo:padding-bottom="0cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD31" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD11.n" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#ffffc0" fo:padding-left="0.123cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD21.n" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#ffffc0" fo:padding-left="0.1cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD31.n" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#ffffc0" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.B1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.0123cm" fo:padding-right="0.0123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.L1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.0123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD4" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.B2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.VD5" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.L2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.B3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau1.L3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau2" style:family="table">
+			<style:table-properties style:width="9.525cm" fo:margin-left="0.25cm" table:align="left" style:may-break-between-rows="false"/>
+</style:style>
+		<style:style style:name="Tableau2.A" style:family="table-column">
+			<style:table-column-properties style:column-width="8cm"/>
+</style:style>
+		<style:style style:name="Tableau2.B" style:family="table-column">
+			<style:table-column-properties style:column-width=".9cm"/>
+</style:style>
+		<style:style style:name="Tableau2.C" style:family="table-column">
+			<style:table-column-properties style:column-width=".9cm"/>
+</style:style>
+		<style:style style:name="Tableau2.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau2.B1" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau2.C1" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau2.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau2.B2" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border="none"/>
+</style:style>
+		<style:style style:name="Tableau2.C2" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau2.B3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border="none"/>
+</style:style>
+		<style:style style:name="Tableau2.C3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau2.A5" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau2.B5" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.035cm solid #000000" fo:background-color="#ffffd8"/>
+</style:style>
+		<style:style style:name="Tableau2.C5" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau3" style:family="table">
+			<style:table-properties style:width="9.003cm" fo:margin-left="-0.123cm" table:align="left" style:may-break-between-rows="false"/>
+</style:style>
+		<style:style style:name="Tableau3.A" style:family="table-column">
+			<style:table-column-properties style:column-width="4.501cm"/>
+</style:style>
+		<style:style style:name="Tableau3.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau3.B1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau3.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau3.B2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau3.A4" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau3.B4" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4" style:family="table">
+			<style:table-properties style:width="9.345cm" fo:margin-left="-0.123cm" table:align="left" style:may-break-between-rows="false"/>
+</style:style>
+		<style:style style:name="Tableau4.A" style:family="table-column">
+			<style:table-column-properties style:column-width="5.375cm"/>
+</style:style>
+		<style:style style:name="Tableau4.B" style:family="table-column">
+			<style:table-column-properties style:column-width="1.75cm"/>
+</style:style>
+		<style:style style:name="Tableau4.C" style:family="table-column">
+			<style:table-column-properties style:column-width="2.221cm"/>
+</style:style>
+		<style:style style:name="Tableau4.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.B1" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.C1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.A2.1.1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.A2.2.1" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.A2.1.2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau4.A2.2.2" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border="none"/>
+</style:style>
+		<style:style style:name="Tableau4.C2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau4.A3.1.1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.A3.2.1" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.A3.1.2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.A3.2.2" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau4.C3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.002cm solid #000000" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5" style:family="table">
+			<style:table-properties style:width="20.32cm" fo:margin-left="0cm" fo:margin-right="0cm" table:align="margins" style:may-break-between-rows="false"/>
+</style:style>
+		<style:style style:name="TableauVD" style:family="table">
+			<style:table-properties fo:margin-left="0cm" fo:margin-right="0cm" table:align="margins" style:may-break-between-rows="false"/>
+</style:style>
+		<style:style style:name="Tableau5.A" style:family="table-column">
+			<style:table-column-properties style:column-width="1.8cm" style:rel-column-width="5400*"/>
+</style:style>
+		<style:style style:name="Tableau5.B" style:family="table-column">
+			<style:table-column-properties style:column-width="4cm" style:rel-column-width="12000*"/>
+</style:style>
+		<style:style style:name="Tableau5.C" style:family="table-column">
+			<style:table-column-properties style:column-width="1cm" style:rel-column-width="3000*"/>
+</style:style>
+		<style:style style:name="Tableau5.L" style:family="table-column">
+			<style:table-column-properties style:column-width=".8cm" style:rel-column-width="2400*"/>
+</style:style>
+		<style:style style:name="Tableau5.A1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau5.B1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.1" style:family="table-column">
+			<style:table-column-properties style:column-width="1.5cm" style:rel-column-width="5000*"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.2" style:family="table-column">
+			<style:table-column-properties style:column-width="1.5cm" style:rel-column-width="5000*"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.6" style:family="table-column">
+			<style:table-column-properties style:column-width="1.5cm" style:rel-column-width="5000*"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.1.1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.5.1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.1.2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.002cm solid #000000" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.2.2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.002cm solid #000000" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.5.2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border="none"/>
+</style:style>
+		<style:style style:name="Tableau5.C1.6.2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau5.K1.2.2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="none"/>
+</style:style>
+		<style:style style:name="Tableau5.A2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.C2" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.D2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.G2" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.I2" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="0.035cm solid #000000" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.A3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.1" style:family="table-column">
+			<style:table-column-properties style:column-width="3cm" style:rel-column-width="10000*"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.2" style:family="table-column">
+			<style:table-column-properties style:column-width="1.5cm" style:rel-column-width="5000*"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.3" style:family="table-column">
+			<style:table-column-properties style:column-width="1.5cm" style:rel-column-width="5000*"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.8" style:family="table-column">
+			<style:table-column-properties style:column-width="1.8cm" style:rel-column-width="6500*"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.9" style:family="table-column">
+			<style:table-column-properties style:column-width="1.5cm" style:rel-column-width="5000*"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.10" style:family="table-column">
+			<style:table-column-properties style:column-width="1cm" style:rel-column-width="3000*"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.11" style:family="table-column">
+			<style:table-column-properties style:column-width="1cm" style:rel-column-width="3000*"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.1.1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#e6e6e6" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.2.1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#e6e6e6" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.3.1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#e6e6e6" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.8.1" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#e6e6e6" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.9.1" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#e6e6e6" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.2.2" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:background-color="#e6e6e6" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.1.1A" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.2.1A" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.3.1A" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.8.1A" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0cm" fo:padding-right="0cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.9.1A" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.2.2A" style:family="table-cell" style:data-style-name="N0">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.002cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.1.3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.035cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.2.3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.3.3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="0.002cm solid #000000" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Tableau5.B3.8.3" style:family="table-cell">
+			<style:table-cell-properties style:vertical-align="middle" fo:padding-left="0.123cm" fo:padding-right="0.123cm" fo:padding-top="0.032cm" fo:padding-bottom="0.032cm" fo:border-left="none" fo:border-right="0.035cm solid #000000" fo:border-top="none" fo:border-bottom="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="P1" style:family="paragraph" style:parent-style-name="Footer">
+			<style:paragraph-properties>
+				<style:tab-stops>
+					<style:tab-stop style:position="10.001cm" style:type="center"/>
+					<style:tab-stop style:position="20.003cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+</style:style>
+		<style:style style:name="P2" style:family="paragraph" style:parent-style-name="Footer">
+			<style:paragraph-properties fo:break-before="page">
+				<style:tab-stops>
+					<style:tab-stop style:position="10.001cm" style:type="center"/>
+					<style:tab-stop style:position="20.003cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+</style:style>
+		<style:style style:name="P3" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:margin-left="-0.123cm" fo:margin-right="-0.123cm"/>
+</style:style>
+		<style:style style:name="P4" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties>
+				<style:tab-stops>
+					<style:tab-stop style:position="20.003cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+</style:style>
+		<style:style style:name="P5" style:family="paragraph" style:parent-style-name="Standard">
+			<style:text-properties fo:font-size="6pt" style:font-size-asian="6pt"/>
+</style:style>
+		<style:style style:name="P6" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+			<style:text-properties fo:font-size="6pt" style:font-size-asian="6pt"/>
+</style:style>
+		<style:style style:name="P61" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+			<style:text-properties fo:font-size="5.5pt" style:font-size-asian="5.5pt"/>
+</style:style>
+		<style:style style:name="P7" style:family="paragraph" style:parent-style-name="Standard">
+			<style:text-properties fo:font-size="6pt" style:font-size-asian="6pt" style:font-size-complex="6pt"/>
+</style:style>
+		<style:style style:name="P8" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+</style:style>
+		<style:style style:name="ecole" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:padding="0cm"/>
+			<style:text-properties fo:color="#cccccc"/>
+</style:style>
+		<style:style style:name="sort" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:padding="0cm"/>
+</style:style>
+		<style:style style:name="pas_compris" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:padding="0cm"/>
+			<style:text-properties style:text-line-through-style="solid" style:text-line-through-type="double"/>
+</style:style>
+		<style:style style:name="pas_lu" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+			<style:text-properties fo:background-color="#e6e6e6" fo:color="#000000"/>
+</style:style>
+		<style:style style:name="ecole_OK" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+			<style:text-properties fo:background-color="#408000" fo:color="#ffffff"/>
+</style:style>
+		<style:style style:name="pas_ecole" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+			<style:text-properties style:text-line-through-style="solid" style:text-line-through-type="double" fo:background-color="#e6e6e6" fo:color="#000000"/>
+</style:style>
+		<style:style style:name="PVD" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:padding="0cm"/>
+</style:style>
+		<style:style style:name="Bon_Dom" style:family="paragraph" style:parent-style-name="Standard">
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="7pt"/>
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:padding="0cm"/>
+</style:style>
+		<style:style style:name="PVD1" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:padding="0cm"/>
+			<style:text-properties fo:font-size="6pt" style:font-size-asian="6pt"/>
+</style:style>
+		<style:style style:name="PVD1_5" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:padding="0cm"/>
+			<style:text-properties fo:font-size="5pt" style:font-size-asian="5pt"/>
+</style:style>
+		<style:style style:name="P9" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties>
+				<style:tab-stops>
+					<style:tab-stop style:position="9.502cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-size="4pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" style:font-size-asian="4pt"/>
+</style:style>
+		<style:style style:name="P10" style:family="paragraph" style:parent-style-name="Standard">
+			<style:text-properties fo:font-size="8pt" style:font-size-asian="8pt"/>
+</style:style>
+		<style:style style:name="P11" style:family="paragraph" style:parent-style-name="Standard">
+			<style:text-properties fo:font-size="1pt" style:font-size-asian="1pt"/>
+</style:style>
+		<style:style style:name="P12" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center" style:justify-single-word="false" fo:margin-left="-0.123cm" fo:margin-right="-0.123cm"/>
+</style:style>
+		<style:style style:name="P13" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties>
+				<style:tab-stops>
+					<style:tab-stop style:position="1.778cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+</style:style>
+		<style:style style:name="P14" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties>
+				<style:tab-stops>
+					<style:tab-stop style:position="11.001cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+</style:style>
+		<style:style style:name="P15" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="center"/>
+</style:style>
+		<style:style style:name="P16" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+			<style:text-properties fo:font-size="10pt" style:font-size-asian="10pt" style:font-size-complex="10pt"/>
+</style:style>
+		<style:style style:name="P17" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="end" style:justify-single-word="false"/>
+			<style:text-properties fo:font-size="9pt" style:font-size-asian="9pt" style:font-size-complex="9pt"/>
+</style:style>
+		<style:style style:name="P18" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="6.001cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="7.001cm" style:type="center"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-size="1pt" style:font-size-asian="1pt"/>
+</style:style>
+		<style:style style:name="P19" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:break-before="column"/>
+</style:style>
+		<style:style style:name="P20" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="-0.501cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="10.003cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-size="4pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" style:font-size-asian="4pt"/>
+</style:style>
+		<style:style style:name="P21" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="-0.25cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="20.253cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-size="4pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" style:font-size-asian="4pt"/>
+</style:style>
+		<style:style style:name="P22" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="20.253cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:language="zxx" fo:country="none" style:language-asian="zxx" style:country-asian="none"/>
+</style:style>
+		<style:style style:name="P23" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="-0.25cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="2.773cm"/>
+					<style:tab-stop style:position="4.805cm"/>
+					<style:tab-stop style:position="6.731cm"/>
+					<style:tab-stop style:position="8.805cm"/>
+					<style:tab-stop style:position="10.774cm"/>
+					<style:tab-stop style:position="12.764cm"/>
+					<style:tab-stop style:position="14.732cm"/>
+					<style:tab-stop style:position="16.849cm"/>
+					<style:tab-stop style:position="18.796cm"/>
+					<style:tab-stop style:position="20.253cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-size="16pt" style:font-size-asian="16pt"/>
+</style:style>
+		<style:style style:name="P24" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="-0.019cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="4.974cm" style:type="right"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
+</style:style>
+		<style:style style:name="P25" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="start" style:justify-single-word="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="12.912cm"/>
+					<style:tab-stop style:position="16.843cm"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-style="normal" style:font-style-asian="normal" style:font-style-complex="normal"/>
+</style:style>
+		<style:style style:name="P26" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="start" style:justify-single-word="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="12.968cm"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-style="normal" style:font-style-asian="normal" style:font-style-complex="normal"/>
+</style:style>
+		<style:style style:name="P27" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:text-align="start" style:justify-single-word="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="12.931cm"/>
+					<style:tab-stop style:position="16.843cm"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-style="normal" style:font-style-asian="normal" style:font-style-complex="normal"/>
+</style:style>
+		<style:style style:name="P28" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties>
+				<style:tab-stops>
+					<style:tab-stop style:position="4.454cm"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-size="8pt" fo:font-weight="bold"/>
+</style:style>
+		<style:style style:name="P30" style:family="paragraph" style:parent-style-name="Standard">
+			<style:paragraph-properties fo:margin-left="-0.037cm" fo:margin-right="0cm" fo:text-align="start" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false">
+				<style:tab-stops>
+					<style:tab-stop style:position="16.9cm"/>
+</style:tab-stops>
+</style:paragraph-properties>
+			<style:text-properties fo:font-style="normal" style:font-style-asian="normal" style:font-style-complex="normal"/>
+</style:style>
+		<style:style style:name="P31" style:family="paragraph" style:parent-style-name="Standard" style:master-page-name="Conversion_20_1">
+			<style:paragraph-properties fo:text-align="start" style:justify-single-word="false" style:page-number="auto">
+				<style:tab-stops>
+					<style:tab-stop style:position="16.806cm"/>
+</style:tab-stops>
+</style:paragraph-properties>
+</style:style>
+		<style:style style:name="P32" style:family="paragraph" style:parent-style-name="Frame_20_contents">
+			<style:text-properties style:font-name="Tolkien" fo:font-size="48pt"/>
+</style:style>
+		<style:style style:name="P39" style:family="paragraph">
+			<style:paragraph-properties fo:text-align="center"/>
+			<style:text-properties fo:font-size="9pt" style:font-size-asian="9pt" style:font-size-complex="9pt"/>
+</style:style>
+		<style:style style:name="P40" style:family="paragraph">
+			<style:paragraph-properties fo:line-height="150%" fo:text-align="center"/>
+			<style:text-properties fo:font-size="9pt" style:font-size-asian="9pt" style:font-size-complex="9pt"/>
+</style:style>
+		<style:style style:name="P41" style:family="paragraph">
+			<style:paragraph-properties fo:line-height="150%" fo:text-align="left"/>
+			<style:text-properties fo:font-size="5pt" style:font-size-asian="5pt" style:font-size-complex="5pt"/>
+</style:style>
+		<style:style style:name="T1" style:family="text">
+			<style:text-properties fo:font-size="8pt" fo:font-style="italic" style:font-style-asian="italic" fo:font-weight="normal"/>
+</style:style>
+		<style:style style:name="T2" style:family="text">
+			<style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+</style:style>
+		<style:style style:name="T3" style:family="text">
+			<style:text-properties fo:font-size="1pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" style:font-size-asian="1pt"/>
+</style:style>
+		<style:style style:name="T4" style:family="text">
+			<style:text-properties fo:font-size="4pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" style:font-size-asian="4pt"/>
+</style:style>
+		<style:style style:name="T5" style:family="text">
+			<style:text-properties fo:font-size="9pt" fo:background-color="#ffb2b2" style:font-size-asian="9pt"/>
+</style:style>
+		<style:style style:name="T6" style:family="text">
+			<style:text-properties fo:font-size="9pt" style:font-size-asian="9pt"/>
+</style:style>
+		<style:style style:name="T6b" style:family="text">
+			<style:text-properties fo:font-size="7pt" style:font-size-asian="9pt"/>
+</style:style>
+		<style:style style:name="T7" style:family="text">
+			<style:text-properties fo:font-size="9pt" fo:background-color="#ffffb2" style:font-size-asian="9pt"/>
+</style:style>
+		<style:style style:name="T8" style:family="text">
+			<style:text-properties fo:font-size="9pt" fo:background-color="#b2ffb2" style:font-size-asian="9pt"/>
+</style:style>
+		<style:style style:name="T9" style:family="text">
+			<style:text-properties fo:font-size="5pt" style:font-size-asian="5pt" style:font-size-complex="5pt"/>
+</style:style>
+		<style:style style:name="T10" style:family="text">
+			<style:text-properties fo:font-style="normal" style:font-style-asian="normal" style:font-style-complex="normal"/>
+</style:style>
+		<style:style style:name="T11" style:family="text">
+			<style:text-properties fo:font-size="5pt" style:font-size-asian="6pt" style:font-size-complex="5pt"/>
+</style:style>
+		<style:style style:name="T12" style:family="text">
+			<style:text-properties style:text-position="super 80%" officeooo:rsid="001b8cd7"/>
+</style:style>
+		<style:style style:name="T13" style:family="text">
+			<style:text-properties fo:font-weight="bold" fo:font-style="normal" style:font-style-asian="normal" style:font-style-complex="normal"/>
+</style:style>
+		<style:style style:name="fr1" style:family="graphic" style:parent-style-name="Frame">
+			<style:graphic-properties style:vertical-pos="from-top" style:vertical-rel="page" style:horizontal-pos="from-left" style:horizontal-rel="page">
+				<style:background-image/>
+				<style:columns fo:column-count="1" fo:column-gap="0cm"/>
+</style:graphic-properties>
+</style:style>
+		<style:style style:name="fr2" style:family="graphic" style:parent-style-name="Frame">
+			<style:graphic-properties style:wrap="none" style:vertical-pos="from-top" style:vertical-rel="paragraph" style:horizontal-pos="from-left" style:horizontal-rel="paragraph" fo:background-color="transparent" style:background-transparency="100%" fo:padding="0cm" fo:border="0.035cm solid #000000">
+				<style:background-image/>
+</style:graphic-properties>
+</style:style>
+		<style:style style:name="fr3" style:family="graphic" style:parent-style-name="Frame">
+			<style:graphic-properties style:wrap="parallel" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:vertical-rel="paragraph" style:horizontal-pos="from-left" style:horizontal-rel="paragraph" fo:background-color="transparent" style:background-transparency="100%" fo:padding="0cm" fo:border="0.035cm solid #000000">
+				<style:background-image/>
+</style:graphic-properties>
+</style:style>
+		<style:style style:name="fr4" style:family="graphic" style:parent-style-name="Frame">
+			<style:graphic-properties style:wrap="parallel" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:vertical-rel="paragraph" style:horizontal-pos="from-left" style:horizontal-rel="paragraph" fo:padding="0.101cm" fo:border="0.035cm solid #000000"/>
+</style:style>
+		<style:style style:name="Sect1" style:family="section">
+			<style:section-properties style:editable="false">
+				<style:columns fo:column-count="2">
+					<style:column-sep style:width="0.002cm" style:color="#000000" style:height="100%"/>
+					<style:column style:rel-width="32761*" fo:start-indent="0cm" fo:end-indent="0.499cm"/>
+					<style:column style:rel-width="32773*" fo:start-indent="0.499cm" fo:end-indent="0cm"/>
+</style:columns>
+</style:section-properties>
+</style:style>
+		<style:style style:name="Sect2" style:family="section">
+			<style:section-properties style:editable="false">
+				<style:columns fo:column-count="1" fo:column-gap="0cm"/>
+</style:section-properties>
+</style:style>
+		<style:style style:name="Sect3" style:family="section">
+			<style:section-properties text:dont-balance-text-columns="false" style:editable="false">
+				<style:columns fo:column-count="4">
+					<style:column-sep style:width="0.002cm" style:color="#000000" style:height="100%"/>
+					<style:column style:rel-width="2847*" fo:start-indent="0cm" fo:end-indent="0cm"/>
+					<style:column style:rel-width="2847*" fo:start-indent="0cm" fo:end-indent="0cm"/>
+					<style:column style:rel-width="2847*" fo:start-indent="0cm" fo:end-indent="0cm"/>
+					<style:column style:rel-width="2848*" fo:start-indent="0cm" fo:end-indent="0cm"/>
+</style:columns>
+</style:section-properties>
+</style:style>
+		<style:style style:name="gr1" style:family="graphic">
+			<style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" fo:min-height=".511cm" style:run-through="foreground" style:wrap="run-through" style:number-wrapped-paragraphs="no-limit" style:vertical-pos="from-top" style:vertical-rel="paragraph" style:horizontal-pos="from-left" style:horizontal-rel="paragraph"/>
+</style:style>
+		<number:number-style style:name="N0">
+			<number:number number:min-integer-digits="1"/>
+</number:number-style>
+</office:automatic-styles>
+	<office:body>
+		<office:text>
+			<office:forms form:automatic-focus="false" form:apply-design-mode="false" name="formulaire_perso">
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_0" form:id="control_0">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Force Fantasmatique"/>
+						<form:option form:label="Invisibilité mineure"/>
+						<form:option form:label="Projectile Magique"/>
+						<form:option form:label="Rupture hasardeuse de Nahal"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_1" form:id="control_1">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Bouclier du chaos"/>
+						<form:option form:label="Déblocage / Blocage"/>
+						<form:option form:label="Force fantasmatique majeure"/>
+						<form:option form:label="Pluie de feu"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_2" form:id="control_2">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Force Fantasmatique"/>
+						<form:option form:label="Invisibilité mineure"/>
+						<form:option form:label="Projectile Magique"/>
+						<form:option form:label="Rupture hasardeuse de Nahal"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_3" form:id="control_3">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Bouclier du chaos"/>
+						<form:option form:label="Déblocage / Blocage"/>
+						<form:option form:label="Force fantasmatique majeure"/>
+						<form:option form:label="Pluie de feu"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_4" form:id="control_4">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Force Fantasmatique"/>
+						<form:option form:label="Invisibilité mineure"/>
+						<form:option form:label="Projectile Magique"/>
+						<form:option form:label="Rupture hasardeuse de Nahal"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_5" form:id="control_5">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Bouclier du chaos"/>
+						<form:option form:label="Déblocage / Blocage"/>
+						<form:option form:label="Force fantasmatique majeure"/>
+						<form:option form:label="Pluie de feu"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_6" form:id="control_6">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Force Fantasmatique"/>
+						<form:option form:label="Invisibilité mineure"/>
+						<form:option form:label="Projectile Magique"/>
+						<form:option form:label="Rupture hasardeuse de Nahal"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_7" form:id="control_7">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Force Fantasmatique"/>
+						<form:option form:label="Invisibilité mineure"/>
+						<form:option form:label="Projectile Magique"/>
+						<form:option form:label="Rupture hasardeuse de Nahal"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_8" form:id="control_8">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Force Fantasmatique"/>
+						<form:option form:label="Invisibilité mineure"/>
+						<form:option form:label="Projectile Magique"/>
+						<form:option form:label="Rupture hasardeuse de Nahal"/>
+</form:listbox>
+</form:form>
+				<form:form form:name="Formulaire" form:apply-filter="true" form:command-type="table" form:control-implementation="ooo:com.sun.star.form.component.Form" office:target-frame="" xlink:href="" xlink:type="simple" name="exemple_formulaire_perso">
+					<form:properties>
+						<form:property form:property-name="PropertyChangeNotificationEnabled" office:value-type="boolean" office:boolean-value="true"/>
+</form:properties>
+					<form:listbox form:name="Zone de liste 1" form:control-implementation="ooo:com.sun.star.form.component.ListBox" form:dropdown="true" form:printable="true" form:size="10" form:bound-column="1" xml:id="control_9" form:id="control_9">
+						<form:properties>
+							<form:property form:property-name="ControlTypeinMSO" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="DefaultControl" office:value-type="string" office:string-value="com.sun.star.form.control.ListBox"/>
+							<form:property form:property-name="MouseWheelBehavior" office:value-type="float" office:value="0"/>
+							<form:property form:property-name="ObjIDinMSO" office:value-type="float" office:value="65535"/>
+							<form:list-property form:property-name="TypedItemList" office:value-type="float"/>
+</form:properties>
+						<form:option form:label="" form:current-selected="true"/>
+						<form:option form:label="Force Fantasmatique"/>
+						<form:option form:label="Invisibilité mineure"/>
+						<form:option form:label="Projectile Magique"/>
+						<form:option form:label="Rupture hasardeuse de Nahal"/>
+</form:listbox>
+</form:form>
+</office:forms>
+			<text:sequence-decls>
+				<text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
+				<text:sequence-decl text:display-outline-level="0" text:name="Table"/>
+				<text:sequence-decl text:display-outline-level="0" text:name="Text"/>
+				<text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
+</text:sequence-decls>
+			<draw:frame draw:style-name="fr1" draw:name="Cadre8" text:anchor-type="page" text:anchor-page-number="1" svg:x="0.76cm" svg:y="0.36cm" svg:width="7.803cm" draw:z-index="3">
+				<draw:text-box fo:min-height="2.766cm">
+					<text:p text:style-name="P32" name="nom">
+						test</text:p>
+</draw:text-box>
+</draw:frame>
+			<text:p text:style-name="P31">
+				<draw:frame text:anchor-type="paragraph" draw:z-index="4" draw:style-name="gr1" draw:text-style-name="P39" svg:width="1.408cm" svg:height="0.7011cm" draw:transform="rotate (0.7853981633973) translate (21.12cm 29cm)">
+					<draw:text-box>
+						<text:p text:style-name="P40">
+							<text:span text:style-name="T9">
+								--alignement--</text:span>
+</text:p>
+						<text:p text:style-name="P39">
+							<text:span text:style-name="T8" name="alignement">
+								BL</text:span>
+</text:p>
+</draw:text-box>
+</draw:frame>
+				<text:span text:style-name="T10" name="classe">
+					Classe : Entropiste, Illusionniste					<text:tab/>
+					<text:span name="niveau">
+						Niveau : 4, 2</text:span>
+</text:span>
+</text:p>
+			<text:p text:style-name="P30" name="race">
+				Race : Humain				<text:tab/>
+				Age :				<text:span name="age">
+					0</text:span>
+</text:p>
+			<text:p text:style-name="P25" name="sexe">
+				Sexe : Masculin				<text:tab/>
+				Taille :				<text:span name="taille">
+					0 cm</text:span>
+				<text:tab/>
+				Poids :				<text:span name="poids">
+					0 kg</text:span>
+</text:p>
+			<text:p text:style-name="P27">
+				Couleur - peau :				<text:span name="peau">
+					 - </text:span>
+				<text:tab/>
+				- yeux :				<text:span name="yeux">
+					 - </text:span>
+				<text:tab/>
+				- cheveux :				<text:span name="cheveux">
+					 - </text:span>
+</text:p>
+			<text:p text:style-name="P26">
+				Classe sociale :				<text:span name="classe sociale">
+					 - </text:span>
+				<text:tab/>
+				Nom du joueur :				<text:span name="joueur">
+					 - </text:span>
+</text:p>
+			<text:p text:style-name="P27" name="pantheon">
+				Panthéon : Général				<text:tab/>
+				<text:span name="dieu">
+					Dieu : Druide</text:span>
+</text:p>
+			<text:p text:style-name="P4">
+				<draw:frame draw:style-name="fr2" draw:name="Cadre2" text:anchor-type="paragraph" svg:x="7.936cm" svg:y="0.034cm" svg:width="11.903cm" draw:z-index="2">
+					<draw:text-box>
+						<text:p text:style-name="P28">
+							Vision :							<text:span text:style-name="T1" name="vision">
+								 - </text:span>
+							<text:tab/>
+							Résistance :							<text:span text:style-name="T1" name="resistance">
+								 - </text:span>
+</text:p>
+						<text:p text:style-name="P28">
+							Détection :							<text:span text:style-name="T1" name="detection">
+								 - </text:span>
+							<text:tab/>
+							Écoute :							<text:span text:style-name="T1" name="ecoute">
+								 - </text:span>
+</text:p>
+</draw:text-box>
+</draw:frame>
+				<text:span text:style-name="T4"/>
+</text:p>
+			<text:section text:style-name="Sect1" text:name="Section1">
+				<text:p text:style-name="P18"/>
+				<table:table table:name="Tableau1" table:style-name="Tableau1">
+					<table:table-column table:style-name="Tableau1.A" table:number-columns-repeated="2"/>
+					<table:table-column table:style-name="Tableau1.C"/>
+					<table:table-column table:style-name="Tableau1.D"/>
+					<table:table-column table:style-name="Tableau1.E"/>
+					<table:table-column table:style-name="Tableau1.F"/>
+					<table:table-column table:style-name="Tableau1.C"/>
+					<table:table-column table:style-name="Tableau1.H"/>
+					<table:table-column table:style-name="Tableau1.I"/>
+					<table:table-column table:style-name="Tableau1.J"/>
+					<table:table-column table:style-name="Tableau1.K"/>
+					<table:table-column table:style-name="Tableau1.L"/>
+					<table:table-row name="ligne_force">
+						<table:table-cell table:style-name="Tableau1.A1" office:value-type="string">
+							<text:p text:style-name="P6">
+								Force</text:p>
+							<text:p text:style-name="Standard" name="force1">
+								10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B1" office:value-type="string">
+							<text:p text:style-name="P6">
+								Toucher</text:p>
+							<text:p text:style-name="P8" name="force2">
+								</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B1" table:number-columns-spanned="4" office:value-type="string">
+							<text:p text:style-name="P6">
+								Dommage</text:p>
+							<text:p text:style-name="P8" name="force3">
+								</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B1" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="P6">
+								poids</text:p>
+							<text:p text:style-name="P8" name="force4">
+								40/115</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B1" table:number-columns-spanned="3" office:value-type="string">
+							<text:p text:style-name="P6">
+								défonçage</text:p>
+							<text:p text:style-name="P8" name="force5">
+								6</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.L1" office:value-type="string">
+							<text:p text:style-name="P6">
+								Torsion</text:p>
+							<text:p text:style-name="P8" name="force6">
+								2%</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row name="ligne_dexterite">
+						<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Dextérité</text:p>
+							<text:p text:style-name="Standard" name="dexterite1">
+								10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B2" table:number-columns-spanned="4" office:value-type="string">
+							<text:p text:style-name="P6">
+								Réaction</text:p>
+							<text:p text:style-name="P8" name="dexterite2">
+								</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B2" table:number-columns-spanned="5" office:value-type="string">
+							<text:p text:style-name="P6">
+								Projectile</text:p>
+							<text:p text:style-name="P8" name="dexterite3">
+								</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.L2" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="P6">
+								CA</text:p>
+							<text:p text:style-name="P8" name="dexterite4">
+								</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+</table:table-row>
+					<table:table-row name="ligne_constitution">
+						<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Constitution</text:p>
+							<text:p text:style-name="Standard" name="constitution1">
+								10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+							<text:p text:style-name="P6">
+								PDV</text:p>
+							<text:p text:style-name="P8" name="constitution2">
+								</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B2" table:number-columns-spanned="4" office:value-type="string">
+							<text:p text:style-name="P6">
+								Système choc</text:p>
+							<text:p text:style-name="P16" name="constitution3">
+								70%</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B2" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Chance survie</text:p>
+							<text:p text:style-name="P8" name="constitution4">
+								75%</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B2" table:number-columns-spanned="3" office:value-type="string">
+							<text:p text:style-name="P6">
+								Svg poison</text:p>
+							<text:p text:style-name="P16" name="constitution5">
+								</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.L2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Régénération</text:p>
+							<text:p text:style-name="P8" name="constitution6">
+								</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row name="ligne_intelligence">
+						<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Intelligence</text:p>
+							<text:p text:style-name="Standard" name="intelligence1">
+								10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+							<text:p text:style-name="P6" name="nb_lang_int">
+								Nb langues</text:p>
+							<text:p text:style-name="P8" name="intelligence2">
+								2</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B2" table:number-columns-spanned="4" office:value-type="string">
+							<text:p text:style-name="P6">
+								Niveau de sort</text:p>
+							<text:p text:style-name="P16" name="intelligence3">
+								5</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B2" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="P61">
+								Comprendre sort</text:p>
+							<text:p text:style-name="P8" name="intelligence4">
+								40%</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B2" table:number-columns-spanned="3" office:value-type="string">
+							<text:p text:style-name="P6">
+								Nb sorts/niv</text:p>
+							<text:p text:style-name="P16" name="intelligence5">
+								7</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.L2" office:value-type="string">
+							<text:p text:style-name="P6" name="intelligence6_com">
+								<text:span text:style-name="T9">
+									Immunité illusion</text:span>
+</text:p>
+							<text:p text:style-name="P8" name="intelligence6">
+								</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row name="ligne_sagesse">
+						<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Sagesse</text:p>
+							<text:p text:style-name="Standard" name="sagesse1">
+								10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B3" office:value-type="string">
+							<text:p text:style-name="P7">
+								Contre magie</text:p>
+							<text:p text:style-name="P8" name="sagesse2">
+								0</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B3" office:value-type="string">
+							<text:p text:style-name="P7">
+								S								<text:s/>
+								n1</text:p>
+							<text:p text:style-name="P8" name="sagesse3">
+								0</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B3" table:number-columns-spanned="3" office:value-type="string">
+							<text:p text:style-name="P7">
+								S								<text:s/>
+								n2</text:p>
+							<text:p text:style-name="P16" name="sagesse4">
+								0</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B3" office:value-type="string">
+							<text:p text:style-name="P7">
+								S								<text:p/>
+								n3</text:p>
+							<text:p text:style-name="P8" name="sagesse5">
+								0</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B3" office:value-type="string">
+							<text:p text:style-name="P7">
+								S
+
+														n4+</text:p>
+							<text:p text:style-name="P16" name="sagesse6">
+								0</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B3" table:number-columns-spanned="3" office:value-type="string">
+							<text:p text:style-name="P7">
+								Échec aux sorts</text:p>
+							<text:p text:style-name="P8" name="sagesse7">
+								15%</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.L3" office:value-type="string">
+							<text:p text:style-name="P7">
+								<text:span text:style-name="T9">
+									Nv max sort clerc</text:span>
+</text:p>
+							<text:p text:style-name="P8" name="sagesse8">
+								5</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row name="ligne_charisme">
+						<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Charisme</text:p>
+							<text:p text:style-name="Standard" name="charisme1">
+								10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B3" table:number-columns-spanned="3" office:value-type="string">
+							<text:p text:style-name="P6">
+								Max Suivants</text:p>
+							<text:p text:style-name="P8" name="charisme2">
+								4</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B3" table:number-columns-spanned="5" office:value-type="string">
+							<text:p text:style-name="P6">
+								Loyauté</text:p>
+							<text:p text:style-name="P17" name="charisme3">
+								</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.L3" table:number-columns-spanned="3" office:value-type="string">
+							<text:p text:style-name="P6">
+								Ajustement de réaction</text:p>
+							<text:p text:style-name="P16" name="charisme4">
+								</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Beauté</text:p>
+							<text:p text:style-name="Standard" name="beaute1">
+								10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B3" office:value-type="string">
+							<text:p text:style-name="Standard"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau1.B3" table:number-columns-spanned="4" office:value-type="string">
+							<text:p text:style-name="Standard"/>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B3" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="Standard"/>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.B3" table:number-columns-spanned="3" office:value-type="string">
+							<text:p text:style-name="Standard"/>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau1.L3" office:value-type="string">
+							<text:p text:style-name="P6">
+								Humour</text:p>
+							<text:p text:style-name="Standard" name="humour1">
+								10</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+				<text:p text:style-name="P9">
+					<text:tab/>
+</text:p>
+				<text:p text:style-name="Standard" name="bilan_ca">
+					Classe d’armure : +10 / +10</text:p>
+				<table:table table:name="Tableau2" table:style-name="Tableau2">
+					<table:table-column table:style-name="Tableau2.A"/>
+					<table:table-column table:style-name="Tableau2.B"/>
+					<table:table-column table:style-name="Tableau2.C"/>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau2.A1" office:value-type="string">
+							<text:p text:style-name="Standard">
+								Armure :								<text:span name="armure">
+									Aucune/Aucune</text:span>
+</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.B1">
+							<text:p text:style-name="Standard" name="armure1">
+								+10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.C1">
+							<text:p text:style-name="P10" name="armure2">
+								+10</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau2.A2" office:value-type="string">
+							<text:p text:style-name="Standard">
+								Autres protections :								<text:span name="bague_CA">
+									-</text:span>
+</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.B2">
+							<text:p text:style-name="Standard" name="autre_CA1">
+								-</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.C2">
+							<text:p text:style-name="Standard" name="autre_CA2">
+								-</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau2.A2" office:value-type="string">
+							<text:p text:style-name="Standard" name="bouclier"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.B3" office:value-type="string">
+							<text:p text:style-name="Standard" name="bouclier1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.C3" office:value-type="string">
+							<text:p text:style-name="Standard" name="bouclier2"/>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau2.A2" office:value-type="string">
+							<text:p text:style-name="Standard" name="prot_spe"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.B3" office:value-type="string">
+							<text:p text:style-name="Standard" name="prot_spe1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.C3" office:value-type="string">
+							<text:p text:style-name="Standard" name="prot_spe2"/>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau2.A2" office:value-type="string">
+							<text:p text:style-name="Standard" name="ca_dext">
+								Dextérité :</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.B2">
+							<text:p text:style-name="Standard" name="dext1">
+								</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.C2">
+							<text:p text:style-name="Standard" name="dext2">
+								</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau2.A5" office:value-type="string">
+							<text:h text:style-name="Heading_20_2" text:outline-level="2">
+								TOTAL</text:h>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.B5">
+							<text:p text:style-name="Heading_20_2" name="ca1">
+								+10</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau2.C5">
+							<text:p text:style-name="Standard" name="ca2">
+								+10</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+				<text:p text:style-name="P19">
+					Talents de Voleur</text:p>
+				<table:table table:name="Tableau3" table:style-name="Tableau3">
+					<table:table-column table:style-name="Tableau3.A" table:number-columns-repeated="2"/>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau3.A1" office:value-type="string">
+							<text:p text:style-name="P6">
+								Pickpocket</text:p>
+							<text:p text:style-name="P8">
+								<text:span text:style-name="T11" name="pickpoket_ar1"/>
+								<text:span/>
+								<text:span text:style-name="T11" name="pickpoket_ar2"/>
+								<text:span name="pickpoket">
+									0</text:span>
+</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau3.B1" office:value-type="string">
+							<text:p text:style-name="P6">
+								Dissimulation dans l’ombre</text:p>
+							<text:p text:style-name="P8">
+								<text:span text:style-name="T11" name="dis_ombre_ar1"/>
+								<text:span/>
+								<text:span text:style-name="T11" name="dis_ombre_ar2"/>
+								<text:span name="dis_ombre">
+									0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau3.A2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Crochetage des serrures</text:p>
+							<text:p text:style-name="P8">
+								<text:span text:style-name="T11" name="crochetage_ar1"/>
+								<text:span/>
+								<text:span text:style-name="T11" name="crochetage_ar2"/>
+								<text:span name="crochetage">
+									0</text:span>
+</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau3.B2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Écoute aux portes</text:p>
+							<text:p text:style-name="P8">
+								<text:span text:style-name="T11" name="ecoute_porte_ar1"/>
+								<text:span/>
+								<text:span text:style-name="T11" name="ecoute_porte_ar2"/>
+								<text:span name="ecoute_porte">
+									0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau3.A2" office:value-type="string">
+							<text:p text:style-name="P6">
+								Repérage – désamorçage pièges</text:p>
+							<text:p text:style-name="P8">
+								<text:span text:style-name="T11" name="reperage_ar1"/>
+								<text:span/>
+								<text:span text:style-name="T11" name="reperage_ar2"/>
+								<text:span name="reperage">
+									0</text:span>
+</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau3.B2" office:value-type="string">
+							<text:p text:style-name="P6">
+								escalade</text:p>
+							<text:p text:style-name="P8">
+								<text:span text:style-name="T11" name="escalade_ar1"/>
+								<text:span/>
+								<text:span text:style-name="T11" name="escalade_ar2"/>
+								<text:span name="escalade">
+									0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau3.A4" office:value-type="string">
+							<text:p text:style-name="P6">
+								Déplacement silencieux</text:p>
+							<text:p text:style-name="P8">
+								<text:span text:style-name="T9" name="dpl_sil_ar1"/>
+								<text:span/>
+								<text:span text:style-name="T9" name="dpl_sil_ar2"/>
+								<text:span name="dpl_sil">
+									0</text:span>
+</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau3.B4" office:value-type="string">
+							<text:p text:style-name="P6">
+								Lecture des langages</text:p>
+							<text:p text:style-name="P8" name="lecture">
+								0</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+				<text:p text:style-name="P20">
+					<text:tab/>
+</text:p>
+				<text:p text:style-name="Standard">
+					Jets de Protection</text:p>
+				<table:table table:name="Tableau4" table:style-name="Tableau4">
+					<table:table-column table:style-name="Tableau4.A"/>
+					<table:table-column table:style-name="Tableau4.B"/>
+					<table:table-column table:style-name="Tableau4.C"/>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau4.A1" office:value-type="string">
+							<text:p text:style-name="Standard">
+								Paralysie – Mort magique – Poison</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau4.B1">
+							<text:p text:style-name="Standard" name="spmp">
+								14</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau4.C1" office:value-type="string">
+							<text:p text:style-name="Standard">
+								Bonus</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:number-columns-spanned="2">
+							<table:table table:is-sub-table="true">
+								<table:table-column table:style-name="Tableau4.A"/>
+								<table:table-column table:style-name="Tableau4.B"/>
+								<table:table-row name="ligne_baguette">
+									<table:table-cell table:style-name="Tableau4.A2.1.2" office:value-type="string">
+										<text:p text:style-name="Standard">
+											Baguettes &amp; bâtons magiques</text:p>
+</table:table-cell>
+									<table:table-cell table:style-name="Tableau4.A2.2.2">
+										<text:p text:style-name="Standard" name="sbb">
+											11</text:p>
+</table:table-cell>
+</table:table-row>
+								<table:table-row name="ligne_petrification">
+									<table:table-cell table:style-name="Tableau4.A2.1.1" office:value-type="string">
+										<text:p text:style-name="Standard">
+											Pétrification / Polymorphose</text:p>
+</table:table-cell>
+									<table:table-cell table:style-name="Tableau4.A2.2.1">
+										<text:p text:style-name="Standard" name="spp">
+											13</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau4.C2" office:value-type="string">
+							<text:p text:style-name="Standard">
+								Magique</text:p>
+							<text:p text:style-name="Standard" name="ssag">
+								0</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:number-columns-spanned="2">
+							<table:table table:is-sub-table="true">
+								<table:table-column table:style-name="Tableau4.A"/>
+								<table:table-column table:style-name="Tableau4.B"/>
+								<table:table-row>
+									<table:table-cell table:style-name="Tableau4.A3.1.1" office:value-type="string">
+										<text:p text:style-name="Standard">
+											Souffles</text:p>
+</table:table-cell>
+									<table:table-cell table:style-name="Tableau4.A3.2.1">
+										<text:p text:style-name="Standard" name="ssou">
+											15</text:p>
+</table:table-cell>
+</table:table-row>
+								<table:table-row>
+									<table:table-cell table:style-name="Tableau4.A3.1.2" office:value-type="string">
+										<text:p text:style-name="Standard">
+											Sortilèges</text:p>
+</table:table-cell>
+									<table:table-cell table:style-name="Tableau4.A3.2.2">
+										<text:p text:style-name="Standard" name="ssor">
+											12</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau4.C3" office:value-type="string">
+							<text:p text:style-name="Standard">
+								Dextérité</text:p>
+							<text:p text:style-name="Standard" name="sdext">
+								+0</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+				<text:p text:style-name="P20">
+					<text:tab/>
+</text:p>
+				<text:p text:style-name="Standard" name="pdv">
+					<draw:frame draw:style-name="fr3" draw:name="Cadre3" text:anchor-type="paragraph" svg:x="-0.412cm" svg:y="0.406cm" svg:width="9.75cm" draw:z-index="0">
+						<draw:text-box fo:min-height="1.254cm">
+							<text:p text:style-name="Standard">
+								<text:span text:style-name="T5">
+									-9</text:span>
+								<text:span text:style-name="T7">
+									–8 –7 –6 –5 –4 –3 –2 –1</text:span>
+								<text:span text:style-name="T8">
+									0</text:span>
+								<text:span text:style-name="T6" name="ligne_pdv">
+									1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90</text:span>
+</text:p>
+</draw:text-box>
+</draw:frame>
+					Points de vie : =0</text:p>
+				<text:p text:style-name="P11" name="pointdevie"/>
+</text:section>
+			<text:section text:style-name="Sect2" text:name="Section2">
+				<text:p text:style-name="P21">
+					<text:tab/>
+</text:p>
+				<text:p text:style-name="Standard">
+					Armes</text:p>
+				<table:table table:name="Tableau5" table:style-name="Tableau5" name="tableau_arme">
+					<table:table-column table:style-name="Tableau5.A"/>
+					<table:table-column table:style-name="Tableau5.B"/>
+					<table:table-column table:style-name="Tableau5.C" table:number-columns-repeated="8"/>
+					<table:table-column table:style-name="Tableau5.L" table:number-columns-repeated="2"/>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau5.A1" office:value-type="string" table:number-rows-spanned="2">
+							<text:p text:style-name="P3">
+								TAC0</text:p>
+							<text:p text:style-name="P3" name="taco">
+								19</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B1" office:value-type="string" table:number-rows-spanned="2">
+							<text:p text:style-name="P3">
+								Nom de l’arme</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.1.1" office:value-type="string" table:number-rows-spanned="2">
+							<text:p text:style-name="P3">
+								TAC0 réel</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.5.1" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="P3">
+								Dégât</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.1.1" office:value-type="string" table:number-rows-spanned="2">
+							<text:p text:style-name="Bon_Dom">
+								Bonus Dommages</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.1.1" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="P3">
+								Bonus Toucher</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau5.C1.1.1" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="Bon_Dom">
+								Bonus Dommages</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+						<table:table-cell table:style-name="Tableau5.C1.1.1" table:number-columns-spanned="2" office:value-type="string">
+							<text:p text:style-name="Standard">
+								Initiative</text:p>
+</table:table-cell>
+						<table:covered-table-cell/>
+</table:table-row>
+					<table:table-row name="init">
+						<table:table-cell table:style-name="Tableau5.C1.5.2" office:value-type="string">
+							<text:p text:style-name="P3">
+								P/M</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.6.2" office:value-type="string">
+							<text:p text:style-name="P3">
+								G</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.1.2" office:value-type="string">
+							<text:p text:style-name="Bon_Dom">
+								Force/SP</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.2.2" office:value-type="string">
+							<text:p text:style-name="P12">
+								Magie</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.1.2" office:value-type="string">
+							<text:p text:style-name="Bon_Dom">
+								Force/SP</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.2.2" office:value-type="string">
+							<text:p text:style-name="P3">
+								Magie</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.5.2" office:value-type="string">
+							<text:p text:style-name="P3" name="pres">
+								Long.</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.K1.2.2" office:value-type="string">
+							<text:p text:style-name="P3" name="loin">
+								FV</text:p>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau5.A2" office:value-type="string">
+							<text:p text:style-name="P3" name="nonmaitrise">
+								n.m : -5</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B2" office:value-type="string">
+							<text:p text:style-name="P3" name="nom_arme1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.I2">
+							<text:p text:style-name="P3" name="taco_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.G2" office:value-type="string">
+							<text:p text:style-name="P3" name="d_p/m_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.D2" office:value-type="string">
+							<text:p text:style-name="P3" name="d_g_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.I2">
+							<text:p text:style-name="P3" name="bd_t_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C2">
+							<text:p text:style-name="P3" name="bt_f_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.D2" office:value-type="string">
+							<text:p text:style-name="P3" name="bt_m_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C2">
+							<text:p text:style-name="P3" name="bd_f_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.D2" office:value-type="string">
+							<text:p text:style-name="P3" name="bd_m_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.G2" office:value-type="string">
+							<text:p text:style-name="P3" name="cap_a1"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.C1.5.1" office:value-type="string">
+							<text:p text:style-name="P3" name="cr_a1"/>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau5.A3" office:value-type="string" name="attaque_dos" table:number-rows-spanned="4">
+							<text:p text:style-name="Text_20_body">
+								Attaque dans le dos</text:p>
+							<text:p text:style-name="P3" name="backstab">
+								+4 , x1</text:p>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.1.1" office:value-type="string">
+							<text:p text:style-name="P3" name="nom_arme2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.9.1">
+							<text:p text:style-name="P3" name="taco_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1" office:value-type="string">
+							<text:p text:style-name="P3" name="d_p/m_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1" office:value-type="string">
+							<text:p text:style-name="P3" name="d_g_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.9.1">
+							<text:p text:style-name="P3" name="bd_t_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.2">
+							<text:p text:style-name="P3" name="bt_f_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1" office:value-type="string">
+							<text:p text:style-name="P3" name="bt_m_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1" office:value-type="string">
+							<text:p text:style-name="P3" name="bd_f_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1" office:value-type="string">
+							<text:p text:style-name="P3" name="bd_m_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1" office:value-type="string">
+							<text:p text:style-name="P3" name="cap_a2"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.8.1" office:value-type="string">
+							<text:p text:style-name="P3" name="cr_a2"/>
+</table:table-cell>
+</table:table-row>
+					<table:table-row name="ligne_arme">
+						<table:table-cell table:style-name="Tableau5.B3.1.1A" office:value-type="string">
+							<text:p text:style-name="P3" name="nom_arme3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.9.1A">
+							<text:p text:style-name="P3" name="taco_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1A" office:value-type="string">
+							<text:p text:style-name="P3" name="d_p/m_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1A" office:value-type="string">
+							<text:p text:style-name="P3" name="d_g_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.9.1A">
+							<text:p text:style-name="P3" name="bd_t_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.2A">
+							<text:p text:style-name="P3" name="bt_f_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1A" office:value-type="string">
+							<text:p text:style-name="P3" name="bt_m_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1A" office:value-type="string">
+							<text:p text:style-name="P3" name="bd_f_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1A" office:value-type="string">
+							<text:p text:style-name="P3" name="bd_m_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1A" office:value-type="string">
+							<text:p text:style-name="P3" name="cap_a3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.8.1A" office:value-type="string">
+							<text:p text:style-name="P3" name="cr_a3"/>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau5.B3.1.1" office:value-type="string">
+							<text:p text:style-name="P3" name="nom_arme4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.9.1">
+							<text:p text:style-name="P3" name="taco_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1" office:value-type="string">
+							<text:p text:style-name="P3" name="d_p/m_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1" office:value-type="string">
+							<text:p text:style-name="P3" name="d_g_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.9.1">
+							<text:p text:style-name="P3" name="bd_t_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.2">
+							<text:p text:style-name="P3" name="bt_f_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1" office:value-type="string">
+							<text:p text:style-name="P3" name="bt_m_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1" office:value-type="string">
+							<text:p text:style-name="P3" name="bd_f_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.1" office:value-type="string">
+							<text:p text:style-name="P3" name="bd_m_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.1" office:value-type="string">
+							<text:p text:style-name="P3" name="cap_a4"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.8.1" office:value-type="string">
+							<text:p text:style-name="P3" name="cr_a4"/>
+</table:table-cell>
+</table:table-row>
+					<table:table-row>
+						<table:table-cell table:style-name="Tableau5.B3.1.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.8.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.8.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.3.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.2.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+						<table:table-cell table:style-name="Tableau5.B3.8.3" office:value-type="string">
+							<text:p text:style-name="P3"/>
+</table:table-cell>
+</table:table-row>
+</table:table>
+				<text:p text:style-name="P21">
+					<text:tab/>
+</text:p>
+</text:section>
+			<text:section text:style-name="Sect3" text:name="Section3" name="Connaissance">
+				<text:p text:style-name="Heading_20_2">
+					Connaissance</text:p>
+</text:section>
+			<text:p text:style-name="P21">
+				<text:tab/>
+</text:p>
+			<text:section text:style-name="Sect2" text:name="Section2" name="section_sorts">
+				<text:section text:style-name="Sect2" text:name="Section2" name="section_sorts_mag">
+					<table:table table:name="Tableaumag" table:style-name="Tableau5" name="suppr_mag1">
+						<table:table-column table:style-name="Tableau1.A" table:number-columns-repeated="10"/>
+						<table:table-row name="magicien">
+							<table:table-cell table:style-name="Tableau1.VD1" office:value-type="string">
+								<text:p text:style-name="P15">
+									Illusionniste</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 1 : 3</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 2 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 3 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 4 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 5 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 6 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 7 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 8 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD3" office:value-type="string">
+								<text:p text:style-name="P15">
+									m : 2</text:p>
+</table:table-cell>
+</table:table-row>
+						<table:table-row>
+							<table:table-cell table:style-name="Tableau3.A2">
+								<text:p text:style-name="P15">
+									sort n°1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_7"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD31.n"/>
+</table:table-row>
+						<table:table-row>
+							<table:table-cell table:style-name="Tableau3.A2">
+								<text:p text:style-name="P15">
+									sort n°2</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_8"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD31.n"/>
+</table:table-row>
+						<table:table-row>
+							<table:table-cell table:style-name="Tableau3.A2">
+								<text:p text:style-name="P15">
+									sort n°3</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_9"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD31.n"/>
+</table:table-row>
+						<table:table-row name="mag_tps">
+							<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									30 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									30 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									0 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									0 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									0 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									0 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									13:1; 14:1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									15:1; 16:1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									17:1; 18:1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.L2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									-</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+					<table:table table:name="Tableaumag" table:style-name="Tableau5" name="suppr_mag1">
+						<table:table-column table:style-name="Tableau1.A" table:number-columns-repeated="10"/>
+						<table:table-row name="magicien">
+							<table:table-cell table:style-name="Tableau1.VD1" office:value-type="string">
+								<text:p text:style-name="P15">
+									Entropiste</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 1 : 4</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 2 : 3</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 3 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 4 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 5 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 6 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 7 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+								<text:p text:style-name="P15">
+									niv 8 : 0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD3" office:value-type="string">
+								<text:p text:style-name="P15">
+									m : 4</text:p>
+</table:table-cell>
+</table:table-row>
+						<table:table-row>
+							<table:table-cell table:style-name="Tableau3.A2">
+								<text:p text:style-name="P15">
+									sort n°1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_0"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_1"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD31.n"/>
+</table:table-row>
+						<table:table-row>
+							<table:table-cell table:style-name="Tableau3.A2">
+								<text:p text:style-name="P15">
+									sort n°2</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_2"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_3"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD31.n"/>
+</table:table-row>
+						<table:table-row>
+							<table:table-cell table:style-name="Tableau3.A2">
+								<text:p text:style-name="P15">
+									sort n°3</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_4"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_5"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD31.n"/>
+</table:table-row>
+						<table:table-row>
+							<table:table-cell table:style-name="Tableau3.A2">
+								<text:p text:style-name="P15">
+									sort n°4</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21">
+								<text:p>
+									<draw:control text:anchor-type="as-char" draw:z-index="5" draw:name="Forme1" draw:style-name="gr2" draw:text-style-name="P41" svg:width="2cm" svg:height="0.6cm" draw:control="control_6"/>
+									<text:s/>
+</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD21.n"/>
+							<table:table-cell table:style-name="Tableau1.VD31.n"/>
+</table:table-row>
+						<table:table-row name="mag_tps">
+							<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									1h40min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									40 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									1h</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									0 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									0 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									0 min</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom"/>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom"/>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom"/>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.L2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									-</text:p>
+</table:table-cell>
+</table:table-row>
+						<table:table-row name="mag_tps">
+							<table:table-cell table:style-name="Tableau1.A2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									1:-2; 2:-2</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									3:-1; 4:-1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									5:-1; 6:-1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									7:-1; 8:-1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									9:0; 10:0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									11:0; 12:0</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									13:1; 14:1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									15:1; 16:1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.B2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									17:1; 18:1</text:p>
+</table:table-cell>
+							<table:table-cell table:style-name="Tableau1.L2" office:value-type="string">
+								<text:p text:style-name="Bon_Dom">
+									19:2; 20:2</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+					<text:p text:style-name="P25" name="suppr_mag0">
+						<text:span text:style-name="T13">
+							Niveau 1 : </text:span>
+						Force Fantasmatique ; Invisibilité mineure ; Projectile Magique ; Rupture hasardeuse de Nahal						<text:line-break/>
+</text:p>
+					<text:p text:style-name="P24" name="suppr_mag0">
+						<text:span text:style-name="T13">
+							Niveau 1 : </text:span>
+						Force Fantasmatique ; Invisibilité mineure ; Projectile Magique ; Rupture hasardeuse de Nahal						<text:line-break/>
+						<text:span text:style-name="T13">
+							Niveau 2 : </text:span>
+						Bouclier du chaos ; Déblocage / Blocage ; Force fantasmatique majeure ; Pluie de feu						<text:line-break/>
+</text:p>
+</text:section>
+				<text:section text:style-name="Sect2" text:name="Section2" name="section_sorts_clerc"/>
+</text:section>
+			<text:section name="dern_sect">
+				<text:p text:style-name="P21">
+					<text:tab/>
+</text:p>
+				<text:p text:style-name="P22" name="symbole_dieu">
+					Symbole de Druide : (null)</text:p>
+				<text:p text:style-name="Standard" name="commentaire_dieu">
+					</text:p>
+				<text:p text:style-name="P21">
+					<text:tab/>
+</text:p>
+				<text:p text:style-name="P14">
+					Points d’expérience					<text:tab/>
+					<draw:frame draw:style-name="fr4" draw:name="Cadre6" text:anchor-type="paragraph" svg:x="3cm" svg:y="0.04cm" fo:min-width="6cm" draw:z-index="1">
+						<draw:text-box fo:min-height="1cm">
+							<text:p text:style-name="Standard">
+								But :								<text:span name="but_xp">
+									20000-5000</text:span>
+								<text:tab/>
+								Bonus :								<text:span name="bonus_xp">
+									 0 % - 0 % -</text:span>
+</text:p>
+							<text:p text:style-name="Standard">
+								Actuel :								<text:tab/>
+								<text:span name="actu_xp">
+									1-1</text:span>
+</text:p>
+</draw:text-box>
+</draw:frame>
+</text:p>
+				<text:p text:style-name="Standard"/>
+				<text:p text:style-name="Standard"/>
+				<text:p text:style-name="P21">
+					<text:tab/>
+</text:p>
+				<text:p text:style-name="P22" name="commentaires"/>
+				<text:p text:style-name="P21">
+					<text:tab/>
+</text:p>
+				<text:p text:style-name="P22" name="pages_mag">
+					Le livre de sort contient 12 pages et le personnage comprend tout.</text:p>
+				<text:p text:style-name="P23"/>
+</text:section>
+			<text:p troumad="1"/>
+			<table:table>
+				<table:table-column table:style-name="Tableau1.VDL"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDAE"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.C"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.C"/>
+				<table:table-column table:style-name="Tableau1.CL"/>
+				<table:table-column table:style-name="Tableau1.VDB"/>
+				<table:table-column table:style-name="Tableau1.VDAE"/>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD1" office:value-type="string">
+						<text:p>
+							Sorts mago niv 1</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Portée</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							vsm</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Durée</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							T lancé</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Z effet</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Save</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Composant</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD3" office:value-type="string">
+						<text:p>
+							École</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Voy</text:p>
+</table:table-cell>
+</table:table-row>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD11" office:value-type="string">
+						<text:p text:style-name="ecole_OK">
+							Force Fantasmatique</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							60 m + 10 m/niveau</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								V,S,M</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							Spéciale</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p text:style-name="PVD">
+							1</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6">
+								45 mètres carrés + 10 mètres carrés/niveau</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							Spécial</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6b">
+								un morceau de la toison d&apos;un mouton</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD31" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								Illusion/Fantasme</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21">
+						<text:p>
+							<text:span>
+								0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD11.n" office:value-type="string">
+						<text:p text:style-name="ecole_OK">
+							Invisibilité mineure</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							toucher</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								S,M</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							maximum 1 jour</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							1</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6">
+								une créature</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							Aucun</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6b">
+								une boulette de gomme arabique</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD31.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								Illusion/Fantasme</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n">
+						<text:p>
+							<text:span>
+								0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD11" office:value-type="string">
+						<text:p text:style-name="sort_">
+							Projectile Magique</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							60 m + 10 m niveau</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								V,S</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							Instantanée</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p text:style-name="PVD">
+							1</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6">
+								1 créature ou plus dans un cube de 3 mètres d&apos;arête</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							Aucun</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6b">
+								-</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD31" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								Invocation/Évocation</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21">
+						<text:p>
+							<text:span>
+								0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD11.n" office:value-type="string">
+						<text:p text:style-name="ecole_OK">
+							Rupture hasardeuse de Nahal</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							spéciale</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								V,S</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							spéciale</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							5</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6">
+								spéciale</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							Spécial</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6b">
+								-</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD31.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								Invocation/Évocation Magie Entropique</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n">
+						<text:p>
+							<text:span>
+								0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+			<text:p>
+				Le livre contient 4 pages de sorts de niveau 1. Toutes les pages sont comprises.</text:p>
+			<text:p/>
+			<table:table>
+				<table:table-column table:style-name="Tableau1.VDA_L"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD1" office:value-type="string">
+						<text:p>
+							Légende : couleur des sorts</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p text:style-name="sort">
+							Compris</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p text:style-name="pas_compris">
+							Pas compris</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p text:style-name="pas_lu">
+							Pas regardé</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p text:style-name="pas_ecole">
+							Mauvaise École</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD3" office:value-type="string">
+						<text:p text:style-name="ecole_OK">
+							École Spécialiste</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+			<text:p troumad="1"/>
+			<table:table>
+				<table:table-column table:style-name="Tableau1.VDL"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDAE"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.C"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.C"/>
+				<table:table-column table:style-name="Tableau1.CL"/>
+				<table:table-column table:style-name="Tableau1.VDB"/>
+				<table:table-column table:style-name="Tableau1.VDAE"/>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD1" office:value-type="string">
+						<text:p>
+							Sorts mago niv 2</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Portée</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							vsm</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Durée</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							T lancé</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Z effet</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Save</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Composant</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD3" office:value-type="string">
+						<text:p>
+							École</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p>
+							Voy</text:p>
+</table:table-cell>
+</table:table-row>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD11" office:value-type="string">
+						<text:p text:style-name="ecole_OK">
+							Bouclier du chaos</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							0</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								V,S</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							1d10 rounds + 2 rounds/niveau</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p text:style-name="PVD">
+							2</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6">
+								Lanceur</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							Spécial</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6b">
+								-</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD31" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								Abjuration Magie Entropique</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21">
+						<text:p>
+							<text:span>
+								0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD11.n" office:value-type="string">
+						<text:p text:style-name="sort_">
+							Déblocage / Blocage</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							60 m</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								V</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							spéciale</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							1</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6">
+								un mètre carré/niveau</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							Aucun</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6b">
+								-</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD31.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								Altération</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n">
+						<text:p>
+							<text:span>
+								0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD11" office:value-type="string">
+						<text:p text:style-name="ecole_OK">
+							Force fantasmatique majeure</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							60 m + 10 m/niveau</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								V,S,M</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							spéciale</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p text:style-name="PVD">
+							2</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6">
+								20 mètres carrés + 5 mètres carrés par niveau</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							Spécial</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6b">
+								un morceau de toison d&apos;un mouton</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD31" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								Illusion/Fantasme</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21">
+						<text:p>
+							<text:span>
+								0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD11.n" office:value-type="string">
+						<text:p text:style-name="sort_">
+							Pluie de feu</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							10 m</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								V,S,M</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							1 tour/niveau</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							5</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6">
+								rayon de 30 centimètres</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							Spécial</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n" office:value-type="string">
+						<text:p>
+							<text:span text:style-name="T6b">
+								un petit tas de branches ou tout autre matériau formant le combustible du feu. L&apos;élément n&apos;a pas besoin d&apos;être sec pour être allumé, mais aucun autre feu ne peut être allumé à partir de ce feu magique, car les flammes ne dépassent pas 30 centimètres</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD31.n" office:value-type="string">
+						<text:p text:style-name="PVD">
+							<text:span text:style-name="T6b">
+								Conjuration</text:span>
+</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD21.n">
+						<text:p>
+							<text:span>
+								0</text:span>
+</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+			<text:p>
+				Le livre contient 8 pages de sorts de niveau 2. Toutes les pages sont comprises.</text:p>
+			<text:p/>
+			<table:table>
+				<table:table-column table:style-name="Tableau1.VDA_L"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-column table:style-name="Tableau1.VDA"/>
+				<table:table-row>
+					<table:table-cell table:style-name="Tableau1.VD1" office:value-type="string">
+						<text:p>
+							Légende : couleur des sorts</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p text:style-name="sort">
+							Compris</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p text:style-name="pas_compris">
+							Pas compris</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p text:style-name="pas_lu">
+							Pas regardé</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD2" office:value-type="string">
+						<text:p text:style-name="pas_ecole">
+							Mauvaise École</text:p>
+</table:table-cell>
+					<table:table-cell table:style-name="Tableau1.VD3" office:value-type="string">
+						<text:p text:style-name="ecole_OK">
+							École Spécialiste</text:p>
+</table:table-cell>
+</table:table-row>
+</table:table>
+</office:text>
+</office:body>
+</office:document-content>

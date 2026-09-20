@@ -1,0 +1,4004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+<pan>
+ Général
+ <die>
+  Clerc
+  <maj>
+    0 2 3 4 6 7 8 9 15 16 17 18 19 20 21 22 23 24 26 27
+  </maj>
+  <min>
+    10 11 12 13 14
+  </min>
+  <symbole />
+  <commentaire />
+  <vd />
+  <alignement>BL BN BC NL NN NC ML MN MC</alignement>
+ </die>
+ <die>ShamanG
+  <maj>
+    0  1  5  7  9  15  18  21  22  25
+  </maj>
+  <min>
+    2  3  10  23
+  </min>
+  <symbole />
+  <commentaire />
+  <vd>
+    neutre
+  </vd>
+  <vd_delta>
+    0
+  </vd_delta>
+  <alignement>
+    BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc>
+    <item>5 - droit à Prière, sort du troisième niveau, de la liste combat</item>
+  </pc>
+ </die>
+ <die>
+  Druide
+  <maj>
+    0 1 5 10 11 12 13 14 22 25
+  </maj>
+  <min>
+    9
+  </min>
+  <symbole />
+  <commentaire />
+  <vd>neutre</vd>
+  <alignement>NN</alignement>
+ </die>
+ <die>
+  Paladin
+  <maj>
+    6 9 17 21 22
+  </maj>
+  <min />
+  <symbole />
+  <commentaire />
+  <vd />
+  <alignement>BL</alignement>
+ </die>
+ <die>
+  Rodeur
+  <maj />
+  <min>
+    1 25
+  </min>
+  <symbole />
+  <commentaire />
+  <vd />
+  <alignement>BL BN BC</alignement>
+ </die>
+ <die>Chaman
+  <maj>
+   0  1  7  21  26  27
+  </maj>
+  <min>
+   22  25
+  </min>
+  <symbole />
+  <commentaire />
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc>
+   <item>1 -  Esprit immature</item>
+   <item>5 -  Esprit mature</item>
+   <item>9 -  Esprit avisé</item>
+  </pc>
+ </die>
+ <die>Chaman barbare
+  <maj>
+   0  1  6  9  22  25
+  </maj>
+  <min>
+   4  5  10  18  21  23
+  </min>
+  <symbole />
+  <commentaire />
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN
+  </alignement>
+  <pc />
+</die>
+</pan>
+<pan>Amerindien
+ <die>Corbeau
+  <maj>
+   0  1  4
+  </maj>
+  <min />
+  <symbole>
+   plume noire
+  </symbole>
+  <commentaire>
+   Dieu mineur
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   -1
+  </vd_delta>
+  <alignement>
+   BC  NC  MC
+  </alignement>
+  <pc>
+   <item>3 -  parler avec les corbeaux</item>
+   <item>15 -  vol (vitesse de déplacement=15)</item>
+  </pc>
+ </die>
+ <die>Coyote
+  <maj>
+   0  1  4  7
+  </maj>
+  <min />
+  <symbole>
+   queue touffue pendante
+  </symbole>
+  <commentaire>
+   Dieu mineur
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC  NC  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Étoile du Matin
+  <maj>
+   0  8  22
+  </maj>
+  <min>
+   1  9  21  25
+  </min>
+  <symbole>
+   une étoile au dessus du soleil levant
+  </symbole>
+  <commentaire>
+   dieu intermédiare
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Feu
+  <maj>
+   0  6  9  11  12  13  14
+  </maj>
+  <min>
+   7  15  18
+  </min>
+  <symbole>
+   torche brulante
+  </symbole>
+  <commentaire>
+   dieu intermédiaire
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Grand Esprit
+  <maj>
+   0  1  5  11  12  13  14  15  21  23  25
+  </maj>
+  <min />
+  <symbole>
+   globe brillant
+  </symbole>
+  <commentaire>
+   dieu supérieur
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Lune
+  <maj>
+   0  21  22
+  </maj>
+  <min>
+   4
+  </min>
+  <symbole>
+   disque argenté
+  </symbole>
+  <commentaire>
+   déesse intermédiaire
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Serpent
+  <maj>
+   0  1  4  21  22
+  </maj>
+  <min>
+   18
+  </min>
+  <symbole>
+   serpent contorsionné
+  </symbole>
+  <commentaire>
+   Dieu mineur
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc />
+ </die>
+ <die>Soleil
+  <maj>
+   0  23
+  </maj>
+  <min>
+   21  22
+  </min>
+  <symbole>
+   soleil
+  </symbole>
+  <commentaire>
+   dieu intermédiaire
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Terre
+  <maj>
+   0  1  25
+  </maj>
+  <min>
+   5  7  11  12  13  14
+  </min>
+  <symbole>
+   épis de maïs
+  </symbole>
+  <commentaire>
+   dieu intermédiaire
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc />
+ </die>
+ <die>Tonnerre
+  <maj>
+   0  9  21
+  </maj>
+  <min>
+   5  15  22
+  </min>
+  <symbole>
+   aigle noir
+  </symbole>
+  <commentaire>
+   dieu intermédiaire
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Vent
+  <maj>
+   0  5  6  11  12  13  14
+  </maj>
+  <min />
+  <symbole>
+   tornade
+  </symbole>
+  <commentaire>
+   dieu intermédiare
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC  NC  MC
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Aztèque
+ <die>Centeotl
+  <maj>
+   10  11  12  13  14  25
+  </maj>
+  <min>
+   0  5
+  </min>
+  <symbole>
+   épi de maïs
+  </symbole>
+  <commentaire>
+   Déesse de l'agriculture
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Chalchihuitlicue
+  <maj>
+   0  4  8  15  21  22
+  </maj>
+  <min>
+   5  9
+  </min>
+  <symbole>
+   jupon
+  </symbole>
+  <commentaire>
+   divinité de l'eau
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Huitzilopochtli
+  <maj>
+   2  5  18  23
+  </maj>
+  <min />
+  <symbole>
+   aigle
+  </symbole>
+  <commentaire>
+   Divinité tutélaire des Aztèques
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Ixtlilton
+  <maj>
+   18  22
+  </maj>
+  <min>
+   0  21
+  </min>
+  <symbole>
+   branche de sumac
+  </symbole>
+  <commentaire>
+   Dieu des oins et de la médecine
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Metzli
+  <maj>
+   1  2  6  18
+  </maj>
+  <min>
+   21
+  </min>
+  <symbole>
+   Croisant de lune
+  </symbole>
+  <commentaire>
+   Dame de la nuit
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc />
+ </die>
+ <die>Mictlantecuhtli
+  <maj>
+   6  9  18
+  </maj>
+  <min>
+   10  11  12  13  14
+  </min>
+  <symbole>
+   crâne et os croisés
+  </symbole>
+  <commentaire>
+   dieu des morts
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  NL  NN  NC  MN
+  </alignement>
+  <pc />
+ </die>
+ <die>Ometeotl
+  <maj>
+   0
+  </maj>
+  <min />
+  <symbole>
+   empreinte de pied
+  </symbole>
+  <commentaire>
+   Dieu au dessus de tout
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Quetzalcoatl
+  <maj>
+   0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27
+  </maj>
+  <min />
+  <symbole>
+   serpent à plumes ailé
+  </symbole>
+  <commentaire>
+   Dieu de la sagesse, des enseignements
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Tezcatlipoca
+  <maj>
+   0  6  7  9  18
+  </maj>
+  <min>
+   10  11  12  13  14
+  </min>
+  <symbole>
+   miroir noir
+  </symbole>
+  <commentaire>
+   dieu du soleil et des combattants contre la nuit
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Tlaloc
+  <maj>
+   0  1  5  10  11  12  13  14  22  25
+  </maj>
+  <min />
+  <symbole>
+   un serpent se mordant la queue
+  </symbole>
+  <commentaire>
+   dieu de la pluie et de l'humidité
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Tlazolteotl
+  <maj>
+   4  9  18
+  </maj>
+  <min>
+   6  22
+  </min>
+  <symbole>
+   Tête de serpent rouge
+  </symbole>
+  <commentaire>
+   Déesse des amours coupables, du plaisir et du vice.
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Xochipilli
+  <maj>
+   0  4  8  9  22
+  </maj>
+  <min>
+   6
+  </min>
+  <symbole>
+   Fleur
+  </symbole>
+  <commentaire>
+   Prince des fleurs
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Xochiqueral
+  <maj>
+   0  4  8  21  22
+  </maj>
+  <min>
+   9  15
+  </min>
+  <symbole>
+   Une rose
+  </symbole>
+  <commentaire>
+   Déesse des fleurs
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Celte
+ <die>Arawn
+  <maj>
+   0  2  7  8  9  15  18
+  </maj>
+  <min />
+  <symbole>
+   Crâne de Guerrier
+  </symbole>
+  <commentaire>
+   Dieu de la mort
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc>
+   <item>1 -  communication avec les morts</item>
+   <item>10 -  animation des morts, une fois par heure</item>
+  </pc>
+ </die>
+ <die>Belenos
+  <maj>
+   0  1  5  10  11  12  13  14  22  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   disque solaire et pierres levées
+  </symbole>
+  <commentaire>
+   dieu du soleil
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NN BN
+  </alignement>
+  <pc>
+   <item>1 -  lumière</item>
+   <item>10 -  enchentement des pierres</item>
+  </pc>
+ </die>
+ <die>Brigantia
+  <maj>
+   0  1  4  5  8  9  10  11  12  13  14  21  22  25
+  </maj>
+  <min />
+  <symbole>
+   un pont
+  </symbole>
+  <commentaire>
+   déesse des rivières et de la vie campagnarde
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc>
+   <item>1 -  soigner un point de dégât par niveau avec de l'eau et du fumier</item>
+   <item>5 -  soins des blessures légères une fois par jour si dans l'eau d'un cours d'eau béni par Brigantia</item>
+   <item>10 -  croissance animale une fois par jour</item>
+  </pc>
+ </die>
+ <die>Dagda
+  <maj>
+   0  1  5  10  11  12  13  14  22  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   bouclier celte
+  </symbole>
+  <commentaire>
+   dieu des druides
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NN
+  </alignement>
+  <pc>
+   <item>1 -  prédiction du temps avec précision une semaine à l'avance</item>
+   <item>8 -  festin des héros une fois pas jour</item>
+  </pc>
+ </die>
+ <die>Diancecht
+  <maj>
+   0  1  8  9  21  22  25
+  </maj>
+  <min />
+  <symbole>
+   une feuille
+  </symbole>
+  <commentaire>
+   dieu des soins
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc>
+   <item>1 -  tous les sorts de la sphère des soins sont lancés comme s'il s'agissait de sorts inférieurs d'un niveau à la normale (par exemple soins des blessures graves devient un sort de 3e niveau)</item>
+  </pc>
+ </die>
+ <die>Goïbniu
+  <maj>
+   0  2  4  5  6  7  8  9  10  11  12  13  14  15  21  22  23  25
+  </maj>
+  <min />
+  <symbole>
+   enclume
+  </symbole>
+  <commentaire>
+   Dieu des forgerons
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  NL  NN  NC  MN
+  </alignement>
+  <pc>
+   <item>1 -  festin des héros une fois par semaine</item>
+   <item>10 -  forger des armes, des boucliers, ou des armures avec un enchantement de +2 (nécessite un mois pour chaque objet)</item>
+  </pc>
+ </die>
+ <die>Lug
+  <maj>
+   0  1  2  4  5  6  7  8  9  15  21  22  23
+  </maj>
+  <min />
+  <symbole>
+   étoile à 8 branches
+  </symbole>
+  <commentaire>
+   dieu de l'excellence
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  NL  NN  NC  MN
+  </alignement>
+  <pc>
+   <item>1 -  création de ténèbre ou de lumière dans un rayon de 30m, une fois par jour.</item>
+   <item>3 -  voyager à trois fois la vitesse normale pendant 4 heures par jour</item>
+   <item>9 -  enchantement d'un objet une fois par semaine</item>
+  </pc>
+ </die>
+ <die>Manannan mac Lir
+  <maj>
+   0  1  2  5  6  7  8  10  11  12  13  14  15  22  25
+  </maj>
+  <min />
+  <symbole>
+   un poisson
+  </symbole>
+  <commentaire>
+   dieu de la mer
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc>
+   <item>1 -  création d'eau salée (comme le sort de création d'eau)</item>
+   <item>5 -  respirer sous l'eau une heure par niveau et par jour</item>
+  </pc>
+ </die>
+ <die>Math Mathonwy
+  <maj>
+   0  1  2  5  6  7  8  10  11  12  13  14  15  18  21  23  25
+  </maj>
+  <min>
+   4  9  22
+  </min>
+  <symbole>
+   Le bâton
+  </symbole>
+  <commentaire>
+   dieu de la sorcellerie
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  NL  NN  NC  MN
+  </alignement>
+  <pc>
+   <item>6 -  lancer des sorts de magicien comme s'ils étaient de 5 niveaux de moins en expérience</item>
+  </pc>
+ </die>
+ <die>Morrigan
+  <maj>
+   0  2  6  10  11  12  13  14  15  21
+  </maj>
+  <min />
+  <symbole>
+   Garde d'épée celte
+  </symbole>
+  <commentaire>
+   dieu de la guerre
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc>
+   <item>1 -  Morrigan soignera ses prêtres pendant la nuit à raison de 5 points de vie par niveau s'ils ont tué quelqu'un la veille</item>
+  </pc>
+ </die>
+ <die>Oghma
+  <maj>
+   0  1  4  6  7  8  9  10  11  12  13  14  15  21  22  23  25
+  </maj>
+  <min />
+  <symbole>
+   calice celte
+  </symbole>
+  <commentaire>
+   dieu de l'éloquence et du langage
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc>
+   <item>1 -  amitié une fois pas jour</item>
+   <item>3 -  charme-personnes une fois par jour</item>
+   <item>8 -  charme de masse un fois par jour</item>
+  </pc>
+ </die>
+ <die>Toutatis
+  <maj>
+   0  6  15  21  26
+  </maj>
+  <min>
+   19  20  22  25
+  </min>
+  <symbole />
+  <commentaire />
+  <vd />
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement />
+  <pc />
+ </die>
+</pan>
+<pan>Chinois
+ <die>Ch'eng Huang
+  <maj>
+   0  4  9  15  21
+  </maj>
+  <min>
+   10  11  12  13  14  22
+  </min>
+  <symbole>
+   variable
+  </symbole>
+  <commentaire>
+   localité spécifiée
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Chih-Nii
+  <maj>
+   0  4  7  21  22
+  </maj>
+  <min>
+   9  10  11  12  13  14
+  </min>
+  <symbole>
+   métier à tisser
+  </symbole>
+  <commentaire>
+   tissage et filage, amour
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Chung Kuel
+  <maj>
+   0  9  21  22
+  </maj>
+  <min>
+   4  7
+  </min>
+  <symbole>
+   règle et pinceau de caligraphie
+  </symbole>
+  <commentaire />
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Fu Hsing
+  <maj>
+   0  4  8  22
+  </maj>
+  <min />
+  <symbole>
+   chauve-souris
+  </symbole>
+  <commentaire>
+   bonheur et joie
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>K'ung Fu-Tzu
+  <maj>
+   0  4  22
+  </maj>
+  <min>
+   15  21
+  </min>
+  <symbole>
+   rouleau et pinceau de calligraphie
+  </symbole>
+  <commentaire>
+   comportement socialn vénération du passé
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Kuan Yin
+  <maj>
+   0  4  8  21  22
+  </maj>
+  <min>
+   15
+  </min>
+  <symbole>
+   un enfant dans une fleur de lotus
+  </symbole>
+  <commentaire>
+   naissance des enfants et pitié
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Kuan-Ti
+  <maj>
+   0  6  15  21
+  </maj>
+  <min>
+   22
+  </min>
+  <symbole>
+   Char ailé noir
+  </symbole>
+  <commentaire />
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Lao Tseu
+  <maj>
+   0  5  10  11  12  13  14  22  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   cercle du yin-yang
+  </symbole>
+  <commentaire>
+   pénétration mystique, nature
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  NL  NN  NC  MN
+  </alignement>
+  <pc />
+ </die>
+ <die>Lei Kung
+  <maj>
+   0  5  10  11  12  13  14
+  </maj>
+  <min>
+   6  23
+  </min>
+  <symbole>
+   marteau et burin
+  </symbole>
+  <commentaire>
+   tonnerre, vengence
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Les Rois-Dragons
+  <maj />
+  <min />
+  <symbole>
+   dragon
+  </symbole>
+  <commentaire>
+   mer et pluie
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Liu
+  <maj>
+   0  5  22  23  25
+  </maj>
+  <min>
+   1
+  </min>
+  <symbole>
+   un éli de chacune des 5 céréales ensembles
+  </symbole>
+  <commentaire>
+   moissons et nourriture
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Lu Hsing
+  <maj>
+   0  4  7  9  22
+  </maj>
+  <min />
+  <symbole>
+   cerf
+  </symbole>
+  <commentaire>
+   récompense juste
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  NL  ML
+  </alignement>
+  <pc />
+ </die>
+ <die>Shang-Ti
+  <maj>
+   0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27
+  </maj>
+  <min />
+  <symbole>
+   dragon de jade
+  </symbole>
+  <commentaire />
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  NL  ML
+  </alignement>
+  <pc />
+ </die>
+ <die>Shou Hsing
+  <maj>
+   0  2  8  18  21  22
+  </maj>
+  <min>
+   4  6
+  </min>
+  <symbole>
+   longue vie
+  </symbole>
+  <commentaire>
+   une pêche
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Sung Chiang
+  <maj>
+   4  6  15  18
+  </maj>
+  <min>
+   9  22
+  </min>
+  <symbole>
+   une dague dans un bracelet en argent
+  </symbole>
+  <commentaire>
+   vol
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Yen-Wang-Yeh
+  <maj>
+   0  18  21
+  </maj>
+  <min>
+   7  9
+  </min>
+  <symbole>
+   Heaume enveloppé de rubans
+  </symbole>
+  <commentaire>
+   dieu de la mort, servant sans humour dévoué à la démocratie
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Égyptien
+ <die>Anhur
+  <maj>
+   0  6  23
+  </maj>
+  <min>
+   15  18  21  22
+  </min>
+  <symbole>
+   oiseau de proie
+  </symbole>
+  <commentaire>
+   guerre
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Bast
+  <maj>
+   0  1  4  7
+  </maj>
+  <min>
+   6  21  22
+  </min>
+  <symbole>
+   chat
+  </symbole>
+  <commentaire>
+   chats et hédonistes
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Geb
+  <maj>
+   0  2  7  10  11  12  13  14  15  21
+  </maj>
+  <min>
+   6  8
+  </min>
+  <symbole>
+   montagne
+  </symbole>
+  <commentaire>
+   La terre
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NN
+  </alignement>
+  <pc />
+ </die>
+ <die>Horus
+  <maj>
+   0  6  23
+  </maj>
+  <min>
+   15  18  21  22
+  </min>
+  <symbole>
+   tête de faucon
+  </symbole>
+  <commentaire>
+   le soleil, la revanche, la guerre et le ciel
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Isis
+  <maj>
+   0  2  4  6  8  9  10  11  12  13  14  15  21  22  23
+  </maj>
+  <min>
+   18
+  </min>
+  <symbole>
+   Oeil et larme
+  </symbole>
+  <commentaire />
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Nephthys
+  <maj>
+   0  4  6  15  21  22  23
+  </maj>
+  <min>
+   5
+  </min>
+  <symbole>
+   lune et ankh
+  </symbole>
+  <commentaire>
+   les morts et la richesse
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Nout
+  <maj>
+   0  2  4  5  9  15  21
+  </maj>
+  <min>
+   22
+  </min>
+  <symbole>
+   Étoiles dans le ciel nocturne
+  </symbole>
+  <commentaire />
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Osiris
+  <maj>
+   0  2  15  18  21  22
+  </maj>
+  <min>
+   4  6
+  </min>
+  <symbole>
+   Fléau
+  </symbole>
+  <commentaire>
+   végétation et la mort
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   2
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Ptah
+  <maj>
+   0  2  4  8  9  10  11  12  13  14  23
+  </maj>
+  <min>
+   7
+  </min>
+  <symbole>
+   Main momifiée
+  </symbole>
+  <commentaire>
+   artistes, artisans et voyageus
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Rê
+  <maj>
+   0  2  4  8  10  11  12  13  14  23
+  </maj>
+  <min>
+   5
+  </min>
+  <symbole>
+   ankh sur un disque solaire
+  </symbole>
+  <commentaire>
+   le soleil, les rois
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Seth
+  <maj>
+   0  2  6  7  15  18
+  </maj>
+  <min>
+   21  22
+  </min>
+  <symbole>
+   Cobra lové
+  </symbole>
+  <commentaire>
+   Mal, tempête du désert, sécheresse et chaos
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Shou
+  <maj>
+   0  2  10  11  12  13  14  23
+  </maj>
+  <min>
+   5  15  21
+  </min>
+  <symbole>
+   plume d'autruche
+  </symbole>
+  <commentaire>
+   vents, atmosphère
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Tefnout
+  <maj>
+   0  2  5  8  10  11  12  13  14  21  23
+  </maj>
+  <min>
+   4  9
+  </min>
+  <symbole>
+   pyramide et soleil.
+  </symbole>
+  <commentaire>
+   Tempête, pluie et eau vive.
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Thot
+  <maj>
+   0  2  4  15  21  22  23
+  </maj>
+  <min>
+   5  9
+  </min>
+  <symbole>
+   ibis
+  </symbole>
+  <commentaire>
+   connaissances
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Elfe
+ <die>AErdrië Faenya
+  <maj>
+   0  1  5  11  21  23  27
+  </maj>
+  <min>
+   4  7  22
+  </min>
+  <symbole>
+   un nuage avec une silouhette d'oiseau
+  </symbole>
+  <commentaire>
+   Déesse elfique de l'air et de l'eau
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC  NC
+  </alignement>
+  <pc>
+   <item>3 - chute de plume</item>
+   <item>5 - vol</item>
+   <item>9 - invoquer 1d4 aigles géants 2/sem</item>
+   <item>12 - invoquer élémental de l'air 16DV 2/sem (doit être lancé en vol)</item>
+  </pc>
+ </die>
+ <die>Corellon Larethian
+  <maj>
+   0  4  6  8  15  16  18  21  22  23  26
+  </maj>
+  <min>
+   2  3  7  20
+  </min>
+  <symbole>
+   croissant de lune
+  </symbole>
+  <commentaire>
+   il est l'incarnation des plus hauts idéaux elfiques
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc>
+   <item>1 - +2 cha envers les autres elfes</item>
+   <item>5 - +2 svg/poison, réussite automatique contre venin d'araignée</item>
+   <item>9 - les gobelinoïdes  ont - 2  au svg contre les sorts de ce prêtre</item>
+  </pc>
+ </die>
+ <die>Erevan Ileserë
+  <maj>
+   0  3  4  8  15
+  </maj>
+  <min>
+   7  20  21  22
+  </min>
+  <symbole>
+   Étoile nova aux rayons asymétriques.
+  </symbole>
+  <commentaire>
+   espièglerie, changement, roublard.
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NC
+  </alignement>
+  <pc>
+   <item>1 - +2 svg sorts provenant de créatures loyales</item>
+   <item>3 - +5% à 1d6 talentzs de voleur si biclassé</item>
+   <item>7 - changement d'apparence 2/jour</item>
+   <item>9 - détection faussée, non-détection</item>
+  </pc>
+ </die>
+ <die>Fenmarel Mestarine
+  <maj>
+   0  1  3  4  5  10  11  12  13  14  15  21  22  23  25
+  </maj>
+  <min>
+   18
+  </min>
+  <symbole>
+   paire d'yeux elfe dans les ténèbres
+  </symbole>
+  <commentaire>
+   elfes sauvages, bous émissaires, éternel étrangé (uniquement chamans)
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  BC  NC
+  </alignement>
+  <pc>
+   <item>1 - pister comme rodeur de même niveau, se cacher dans l'ombre 15%, seulement en milieu rural</item>
+  </pc>
+ </die>
+ <die>Hanali Celanil
+  <maj>
+   0  4  8  15  18  21  22  23  25
+  </maj>
+  <min>
+   5  26
+  </min>
+  <symbole>
+   coeur d'or
+  </symbole>
+  <commentaire>
+   déesse de la romance, la beauté et l'amour
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   -2
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc>
+   <item>1 - amitié</item>
+   <item>3 - charme personne (du sexe opposé)</item>
+   <item>7 - cha 16 (+1 si déjà 16)</item>
+   <item>10 - brasse des philtre d'amour 1/semaine</item>
+  </pc>
+ </die>
+ <die>Labelas Enoreth
+  <maj>
+   0  1  2  4  9  19  20  21  24  25
+  </maj>
+  <min>
+   5  22
+  </min>
+  <symbole>
+   soleil couchant
+  </symbole>
+  <commentaire>
+   Dieu de la longévité des elfes
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc>
+   <item>1 - +2 svg sorts empêchant ou gênant le déplacement</item>
+   <item>5 - hâte ou lenteur</item>
+   <item>9 - vieillissement à la moitié de la vitesse normale</item>
+  </pc>
+ </die>
+ <die>Sehanine (Archelune)
+  <maj>
+   0  2  4  9  15  18  21  22  27
+  </maj>
+  <min>
+   20  26
+  </min>
+  <symbole>
+   pleine lune avec "archelune"
+  </symbole>
+  <commentaire>
+   Déesse de la lune
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  BC
+  </alignement>
+  <pc>
+   <item>1 - +2 svg mort magique</item>
+   <item>3 - infravision 40m</item>
+   <item>5 - claire d'étoile</item>
+   <item>7 - rayon de lune</item>
+   <item>9 - rêve (1/sem)</item>
+  </pc>
+ </die>
+ <die>Solonor Thelandira
+  <maj>
+   0  1  5  10  11  12  13  14  23  25
+  </maj>
+  <min>
+   18  22
+  </min>
+  <symbole>
+   coeur d'or
+  </symbole>
+  <commentaire>
+   Dieu de la chasse, des archets et de la survie en mileu hostile
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc>
+   <item>1 - +1 au toucher avec tous les arcs</item>
+   <item>3 - parler avec les animaux 2/jours</item>
+   <item>7 - +2 toucher avec tous les arcs et épieux lancés</item>
+   <item>9 - +1 Dex ou Con</item>
+  </pc>
+ </die>
+</pan>
+<pan>Gnome
+ <die>Baervan Ermiterrant
+  <maj>
+   0  1  4  5  12  14  22  23  25  27
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   face de ratons laveurs
+  </symbole>
+  <commentaire>
+   dieu des gnomes forestiers et des voleurs
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   -4
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc>
+   <item>1 -  passage sans trace 2/jour</item>
+   <item>3 -  ne peut être enchevêtré</item>
+   <item>7 -  peau d'écorce donne CA de -2 et jet de sauvegarde à +2</item>
+   <item>9 -  tout compagnon animal gagne +1 pv/DV</item>
+  </pc>
+ </die>
+ <die>Baervan Ermiterrant souterrain
+  <maj>
+   0  1  4  7  12  14  21  22  25  26
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   face de ratons laveurs
+  </symbole>
+  <commentaire>
+   dieu des gnomes forestiers et des voleurs
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   -4
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc>
+   <item>1 -  passage sans trace 2/jour</item>
+   <item>3 -  ne peut être enchevêtré</item>
+   <item>7 -  peau d'écorce donne CA de -2 et jet de sauvegarde à +2</item>
+   <item>9 -  tout compagnon animal gagne +1 pv/DV</item>
+  </pc>
+ </die>
+ <die>Baravar Sombretoge
+  <maj>
+   0  8  15  21
+  </maj>
+  <min>
+   2  4  22  27
+  </min>
+  <symbole>
+   Cape et dague
+  </symbole>
+  <commentaire>
+   Illusion, protection, tromperie
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NN
+  </alignement>
+  <pc />
+ </die>
+ <die>Callarduran Maindouce
+  <maj>
+   0  4  21  26
+  </maj>
+  <min>
+   6
+  </min>
+  <symbole>
+   anneau d'or avec un motif en étoile
+  </symbole>
+  <commentaire>
+   dieu des gnomes des cavernes
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   -4
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc>
+   <item>1 -  +2 jet de sauvegarde/sorts drows</item>
+   <item>4 -  enlève 5%/niv de résistance aux drows</item>
+   <item>7 -  5%/niv d'invoquer élémental de terre de 16 DV, 6 tours</item>
+  </pc>
+ </die>
+ <die>Flandal Peaudacier
+  <maj>
+   0  8  13  14  15  21
+  </maj>
+  <min>
+   9  22
+  </min>
+  <symbole>
+   marteau enflammé
+  </symbole>
+  <commentaire>
+   dieu des gnomes des mines et des forges
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Gaerdal Maindefer
+  <maj>
+   0  6  15  16  21
+  </maj>
+  <min>
+   9  16  22  26
+  </min>
+  <symbole>
+   bande de fer
+  </symbole>
+  <commentaire>
+   dieu protecteur des gnomes
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   -2
+  </vd_delta>
+  <alignement>
+   BL  BN
+  </alignement>
+  <pc />
+ </die>
+ <die>Garl Brilledor
+  <maj>
+   0  1  4  6  8  14  15  18  21  22  25  26
+  </maj>
+  <min>
+   5  9  23
+  </min>
+  <symbole>
+   une pépite d'or
+  </symbole>
+  <commentaire>
+   père de la race gnome
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   -2
+  </vd_delta>
+  <alignement>
+   BL  BN
+  </alignement>
+  <pc />
+ </die>
+ <die>Nebelub (le Mêle-Tout)
+  <maj>
+   0  8  9  20  24
+  </maj>
+  <min>
+   3  4  15  21  22
+  </min>
+  <symbole>
+   soufflets et queue de lézard
+  </symbole>
+  <commentaire>
+   dieu dieu errant sans relache
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Segojan Hanteterre
+  <maj>
+   0  1  14  15  21  25
+  </maj>
+  <min>
+   9  22  23  26  27
+  </min>
+  <symbole>
+   gemme brillante
+  </symbole>
+  <commentaire>
+   déesse de la nature
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   -4
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Urdlen
+  <maj>
+   0  6  14  22  23
+  </maj>
+  <min>
+   1  3  7  18
+  </min>
+  <symbole>
+   taupe blanche
+  </symbole>
+  <commentaire>
+   dieu mauvais
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   -2
+  </vd_delta>
+  <alignement>
+   MC
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Grec
+ <die>Aphrodite
+  <maj>
+   0  4  15  22
+  </maj>
+  <min>
+   8
+  </min>
+  <symbole>
+   coquillage
+  </symbole>
+  <commentaire>
+   déesse de la beauté et de l'amour
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Apollon
+  <maj>
+   0  9  22  23
+  </maj>
+  <min>
+   4
+  </min>
+  <symbole>
+   lyre
+  </symbole>
+  <commentaire>
+   dieu de la lumière, des prophéties, de la musique...
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Arès
+  <maj>
+   5  6  22
+  </maj>
+  <min>
+   10  11  12  13  14
+  </min>
+  <symbole>
+   lance de fantassin
+  </symbole>
+  <commentaire>
+   dieu de la bataille, de la tuerie, du combat
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Artémis
+  <maj>
+   0  1  5  10  11  12  13  14  21  22
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   arc et flèche sur un disque lunaire
+  </symbole>
+  <commentaire>
+   patronne des jeunes filles, maÃ®tresse des bêtes
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NN
+  </alignement>
+  <pc />
+ </die>
+ <die>Athéna
+  <maj>
+   0  4  6  9  21  22
+  </maj>
+  <min />
+  <symbole>
+   chouette
+  </symbole>
+  <commentaire>
+   déesse du combat noble, de l'architecture,...
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Chronos
+  <maj>
+   24
+  </maj>
+  <min />
+  <symbole>
+   faucille
+  </symbole>
+  <commentaire>
+   le plus jeune des Titans
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Déméter
+  <maj>
+   0  1  5  10  11  12  13  14  22  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   tête de jument
+  </symbole>
+  <commentaire>
+   déesse de l'agriculture
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Dionysos
+  <maj>
+   0  4  8  22  25
+  </maj>
+  <min>
+   5
+  </min>
+  <symbole>
+   bâton surmonté d'un cône de pin et entouré d'une vigne
+  </symbole>
+  <commentaire>
+   dieu du vin
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Gaïa
+  <maj>
+   0  1  5  10  11  12  13  14  22  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   Corbeille de fruits
+  </symbole>
+  <commentaire>
+   la mère de toute vie
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NN
+  </alignement>
+  <pc />
+ </die>
+ <die>Hadès
+  <maj>
+   0  4  7  8  9  18  21
+  </maj>
+  <min />
+  <symbole>
+   bélier noir
+  </symbole>
+  <commentaire>
+   dieu de la mort et de la fortune
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Hécate
+  <maj />
+  <min />
+  <symbole>
+   lune se couchant
+  </symbole>
+  <commentaire>
+   déesse de la lune, de la magie et de l'abondance
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement />
+  <pc />
+ </die>
+ <die>Hêphaistos
+  <maj>
+   0  5  6  8  9  10  11  12  13  14  15  22  23
+  </maj>
+  <min />
+  <symbole>
+   marteau et enclume
+  </symbole>
+  <commentaire>
+   dieu de la forge, patron des artisans et des mécanismes
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Héra
+  <maj>
+   0  4  9  21  22
+  </maj>
+  <min>
+   6
+  </min>
+  <symbole>
+   éventail en plume de pan
+  </symbole>
+  <commentaire>
+   déesse du mariage, des femmes, reine des cieux
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Hermès
+  <maj>
+   0  4  7  21  22
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   caducée
+  </symbole>
+  <commentaire>
+   messager des dieux
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Ouranos
+  <maj>
+   1  6  21
+  </maj>
+  <min>
+   9  22
+  </min>
+  <symbole>
+   étoiles
+  </symbole>
+  <commentaire>
+   dieu primitif du ciel
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Poséïdon
+  <maj>
+   0  5  12  22  25
+  </maj>
+  <min>
+   1  9
+  </min>
+  <symbole>
+   trident
+  </symbole>
+  <commentaire>
+   dieu des mers, océans, rivières, lacs et tremblements de terre.
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Rhéa
+  <maj>
+   0  1  4  15  21  22  25
+  </maj>
+  <min>
+   8
+  </min>
+  <symbole>
+   visage féminin
+  </symbole>
+  <commentaire>
+   Mère des dieux
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc />
+ </die>
+ <die>Zeus
+  <maj>
+   0  5  6  21  22
+  </maj>
+  <min>
+   1  9  10  11  12  13  14
+  </min>
+  <symbole>
+   poing plein d'éclairs
+  </symbole>
+  <commentaire>
+   le roi des dieux
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Greyhawk
+ <die>Béory
+  <maj>
+   1  5  9  10  11  12  13  14  22  23  25
+  </maj>
+  <min>
+   4  7  15  21
+  </min>
+  <symbole>
+   épis de maïs
+  </symbole>
+  <commentaire>
+   dieu intermédiaire
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NN
+  </alignement>
+  <pc />
+ </die>
+ <die>Boccob
+  <maj>
+   2  4  9  19  20
+  </maj>
+  <min>
+   7  8  9  10  11  12  13  14  15  24
+  </min>
+  <symbole>
+   épis de maïs
+  </symbole>
+  <commentaire>
+   dieu intermédiaire
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NN
+  </alignement>
+  <pc />
+ </die>
+ <die>Incabulos
+  <maj>
+   2  7  18  22  23
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   épis de maïs
+  </symbole>
+  <commentaire>
+   dieu intermédiaire
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Pélor
+  <maj>
+   4  8  11  15  21  22  23
+  </maj>
+  <min>
+   7  16
+  </min>
+  <symbole />
+  <commentaire />
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Indienne
+ <die>Agni
+  <maj>
+   0  6  10  11  12  13  14  21  22  23
+  </maj>
+  <min>
+   8
+  </min>
+  <symbole>
+   flammes
+  </symbole>
+  <commentaire>
+   feu, messages
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc>
+   <item>1 -  production de feu</item>
+   <item>5 -  repousser les morts vivants</item>
+   <item>10 -  immunité contre tous les dégâts dus à des feus non magiques</item>
+   <item>15 -  entendre tout ce qu est dit à portée d'oreille d'un feu (il faut spécifier la localisation du feu)</item>
+  </pc>
+ </die>
+ <die>Brahma
+  <maj />
+  <min />
+  <symbole>
+   masse rouge
+  </symbole>
+  <commentaire>
+   lance des sorts de magie
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  NL
+  </alignement>
+  <pc />
+ </die>
+ <die>Indra
+  <maj>
+   5  6  10  11  12  13  14  15  22
+  </maj>
+  <min>
+   7
+  </min>
+  <symbole>
+   éléphant blanc
+  </symbole>
+  <commentaire>
+   ne jamais reculer devant une occasion d'engager un combat
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Mitra
+  <maj>
+   0  4  8  10  11  12  13  14  21  22  23  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   une plante dans le soleil
+  </symbole>
+  <commentaire>
+   amitié, contrats, chaleur, lumière, croissance
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Savitrî
+  <maj>
+   0  6  8  10  11  12  13  14  21  22  23
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   plein de soleil
+  </symbole>
+  <commentaire>
+   vie, lumière
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc />
+ </die>
+ <die>Soma
+  <maj>
+   0  8  21  22  25
+  </maj>
+  <min>
+   1  4
+  </min>
+  <symbole>
+   Lune
+  </symbole>
+  <commentaire>
+   Lune, plantes, prophétie
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc />
+ </die>
+ <die>Sûrya
+  <maj>
+   0  9  21  22  23
+  </maj>
+  <min>
+   4
+  </min>
+  <symbole>
+   demi soleil
+  </symbole>
+  <commentaire>
+   matin et soir
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc>
+   <item>3 -  immunité à la maladie</item>
+   <item>5 -  Guérison des maladies</item>
+   <item>10 -  rayon de soleil</item>
+  </pc>
+ </die>
+ <die>Ushas
+  <maj>
+   0  4  8  15  21  22  23
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   soleil levant
+  </symbole>
+  <commentaire>
+   lumière, vigilance, serrures
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   5
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc>
+   <item>3 -  immunité à la maladie</item>
+   <item>5 -  Guérison des maladies</item>
+  </pc>
+ </die>
+ <die>Varuna
+  <maj>
+   0  2  4  9  21  22  23
+  </maj>
+  <min>
+   6  15
+  </min>
+  <symbole>
+   nuages
+  </symbole>
+  <commentaire>
+   ordre cosmique
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL
+  </alignement>
+  <pc />
+ </die>
+ <die>Yama
+  <maj>
+   0  18  22
+  </maj>
+  <min>
+   8  9  10  11  12  13  14
+  </min>
+  <symbole>
+   masse rouge
+  </symbole>
+  <commentaire>
+   jugement des morts
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Japon
+ <die>Amaterasu
+  <maj>
+   0  2  4  9  10  21  22  23
+  </maj>
+  <min>
+   8
+  </min>
+  <symbole>
+   Soleil
+  </symbole>
+  <commentaire>
+   Dévotion à l'empereur
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc>
+   <item>3 -  lumière</item>
+   <item>10 -  vol à volonté VD=15</item>
+  </pc>
+ </die>
+ <die>Amatsu-Mikaboshi 
+  <maj>
+   0  4  6  7  8  9  15  18  21
+  </maj>
+  <min />
+  <symbole>
+   ombre d'un homme au nez crochu
+  </symbole>
+  <commentaire>
+   mal
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML
+  </alignement>
+  <pc>
+   <item>1 - connaissance des alignements</item>
+   <item>10 - lire les pensées superficielles seulement, save pour réaliser la lecture</item>
+  </pc>
+ </die>
+ <die>Hachiman
+  <maj>
+   0  5  6  22
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   Épée de samouraï
+  </symbole>
+  <commentaire>
+   Soldat professionnel, toujours combattre pour son maître, ne jamais éviter un combat, être au 1er rang
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL
+  </alignement>
+  <pc>
+   <item>1 -  TAC0 et save comme guerrier</item>
+   <item>10 -  don d'un kami à l'épée favorite du prêtre : épée +3</item>
+  </pc>
+ </die>
+ <die>Ho Masubi
+  <maj>
+   0  8  22  23  25
+  </maj>
+  <min>
+   6
+  </min>
+  <symbole>
+   sanglier
+  </symbole>
+  <commentaire>
+   conservr un feu pur dans leur maison
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NC
+  </alignement>
+  <pc>
+   <item>2 - Altération des feux (comme feu n'aturel, mais aussi pour feu magique)</item>
+   <item>5 - Création de feu (zone de 30 cm)</item>
+   <item>12 - Lancer des flammes avec les mains (portée 7,5 m, dégâts 2d10)</item>
+  </pc>
+ </die>
+ <die>Inari
+  <maj>
+   0  1  5  10  22  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   plant de riz
+  </symbole>
+  <commentaire>
+   plantation et récolte du riz
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc>
+   <item>1 - mouvement silencieux comme u rôdeur de même niveau</item>
+   <item>4 - se cacher dans les ombres comme un rôdeur de même niveau</item>
+   <item>8 - trouvé/désamorcer pièges (5% par niveau)</item>
+   <item>12 - crocheter des serrure (5% par niveau)</item>
+   <item>16 - détecter des bruits (5% par niveau)</item>
+   <item>20 - grimper (5% par niveau)</item>
+  </pc>
+ </die>
+ <die>Izanagi et Izanami
+  <maj>
+   0  1  8  10  18  22
+  </maj>
+  <min />
+  <symbole>
+   Arc-en-ciel
+  </symbole>
+  <commentaire>
+   Prodiguer les soins
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL
+  </alignement>
+  <pc />
+ </die>
+ <die>Kura Okami
+  <maj>
+   0  4  5  9  10  22
+  </maj>
+  <min />
+  <symbole>
+   brouillard odscurcissant un arbre
+  </symbole>
+  <commentaire>
+   pluie et neige
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc>
+   <item>5 - création d'eau (20 litres)</item>
+   <item>15 - forme ectoplasmique</item>
+  </pc>
+ </die>
+ <die>Nai No Kami
+  <maj>
+   0  5  6  7  10  21  22
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   Poing écrasant un bâtiment
+  </symbole>
+  <commentaire>
+   Séismes
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL
+  </alignement>
+  <pc>
+   <item>10 - séisme</item>
+  </pc>
+ </die>
+ <die>O-Kuni-Nushi
+  <maj>
+   0  1  5  10  22  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   Aucun
+  </symbole>
+  <commentaire>
+   Médecine, sorcellerie, les terres
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc>
+   <item>5 - charme-animaux</item>
+   <item>12 - lancer des sortsde magiciens tirés d'une école au choix du joueur</item>
+  </pc>
+ </die>
+ <die>O-Wata-Tsu-Mi
+  <maj>
+   0  1  5  10  22  25
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   poisson
+  </symbole>
+  <commentaire>
+   créatures de l'océan, marées
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc>
+   <item>10 - respirer sous l'eau</item>
+   <item>15 - conjurer et contrôler n'importe quelle créature maritime de 10DV ou moins</item>
+  </pc>
+ </die>
+ <die>Raiden
+  <maj>
+   0  5  6  7  10  18  22
+  </maj>
+  <min />
+  <symbole>
+   Masse noire accompégnée d'éclairs croisés
+  </symbole>
+  <commentaire>
+   garder leur dieu paisible pour protéger le village
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   MC
+  </alignement>
+  <pc>
+   <item>1 -  TAC0 comme guerrier</item>
+  </pc>
+ </die>
+ <die>Shichifukujin
+  <maj>
+   0  4  5  8  9  15  21  22
+  </maj>
+  <min />
+  <symbole>
+   Soleil
+  </symbole>
+  <commentaire>
+   La gaité
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Shina-Tsu-Hiko
+  <maj>
+   0  2  5  6  7  9  10  18  21  22
+  </maj>
+  <min />
+  <symbole>
+   3 lignes courbées
+  </symbole>
+  <commentaire>
+   vents
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NC
+  </alignement>
+  <pc>
+   <item>10 - vol</item>
+  </pc>
+ </die>
+ <die>Susanowo
+  <maj>
+   0  5  6  8  10  23
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   Éclair
+  </symbole>
+  <commentaire>
+   subir les terribles tempêtes hors de tout abri
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NC
+  </alignement>
+  <pc>
+   <item>10 -  calmer un orage (vitesse -16/km/h par niv et -2,5 cm pluie par niveau)</item>
+  </pc>
+ </die>
+ <die>Tsoki-Yomi
+  <maj>
+   4  9  18  22  23
+  </maj>
+  <min>
+   8
+  </min>
+  <symbole>
+   Lapin dans la lune
+  </symbole>
+  <commentaire>
+   Passage du temps
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Nain
+ <die>Abbathor
+  <maj>
+   0  4  6  7  15  23
+  </maj>
+  <min>
+   8  9
+  </min>
+  <symbole>
+   dague incrustée de gemmes
+  </symbole>
+  <commentaire>
+   Incarne la vénalité, majeur faiblesse naine
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc />
+ </die>
+ <die>Berronar Purargent
+  <maj>
+   0  6  8  9  14  15  17  18  21  22  26
+  </maj>
+  <min>
+   1  4
+  </min>
+  <symbole>
+   deux anneaux d'argents
+  </symbole>
+  <commentaire>
+   déesse naine des soins
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Clangeddin Barbedargent
+  <maj>
+   0  6  15  16  17  21
+  </maj>
+  <min>
+   4  14  22  26
+  </min>
+  <symbole>
+   deux haches de batailles croisées
+  </symbole>
+  <commentaire>
+   père de la bataille
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Dugmaren Brilletoge
+  <maj>
+   0  2  4  9  15  19  20  21  26
+  </maj>
+  <min>
+   3  8  22
+  </min>
+  <symbole>
+   livre ouvert
+  </symbole>
+  <commentaire>
+   dieu errant
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN  BC  NN
+  </alignement>
+  <pc />
+ </die>
+ <die>Dumathoïn
+  <maj>
+   0  8  13  14  21  26
+  </maj>
+  <min>
+   6  9  22  27
+  </min>
+  <symbole>
+   gemmes à l'intérieur d'une montagne
+  </symbole>
+  <commentaire>
+   gardien des secrets sous la montagne
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NL  NN
+  </alignement>
+  <pc />
+ </die>
+ <die>Moradin
+  <maj>
+   0  6  8  13  14  15  16  17  18  21  22  26
+  </maj>
+  <min>
+   9
+  </min>
+  <symbole>
+   marteau et enclume
+  </symbole>
+  <commentaire>
+   dieu créateur de la race naine
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc />
+ </die>
+ <die>Muamman Duathal
+  <maj>
+   0  4  8  9  14  15  21  27
+  </maj>
+  <min>
+   1  5  6  7  11  12  22  23  25
+  </min>
+  <symbole>
+   masse tenue par un poing en gantelets
+  </symbole>
+  <commentaire>
+   protecteur des aventuriers, voyageurs
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BN
+  </alignement>
+  <pc />
+ </die>
+ <die>Vergadïn
+  <maj>
+   0  4  8  15  21
+  </maj>
+  <min>
+   9  22  24  27
+  </min>
+  <symbole>
+   pièce d'or
+  </symbole>
+  <commentaire>
+   patronne des marchands et voleur (non mauvais)
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   NN  NC
+  </alignement>
+  <pc />
+ </die>
+</pan>
+<pan>Nehwon
+ <die>Dieu Rouge
+  <maj>
+   0  5  6  21  22  23
+  </maj>
+  <min />
+  <symbole>
+   le sabre de cavalerie
+  </symbole>
+  <commentaire>
+   combat et guerre
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc>
+   <item>1 -  utiliser des dés à 10 faces pour déterminer les points de vie</item>
+  </pc>
+ </die>
+ <die>Dieux du Trouble
+  <maj>
+   0  4  7  10
+  </maj>
+  <min />
+  <symbole>
+   étoile à trois pointes
+  </symbole>
+  <commentaire>
+   actions chaotiques
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   MC
+  </alignement>
+  <pc>
+   <item>1 -  regard d'échec (la cible doit réussir un jet de saivegarde contre les sorts sous peine de rater tout ce qu'elle était en train d'entreprendre)</item>
+   <item>8 -  parcours de l'ombre</item>
+  </pc>
+ </die>
+ <die>Haine
+  <maj>
+   0  4  6  7
+  </maj>
+  <min />
+  <symbole>
+   image brumeuse sur laquelle flottent des yeux
+  </symbole>
+  <commentaire>
+   haines émotionnelles
+  </commentaire>
+  <vd>
+   attire
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   MC
+  </alignement>
+  <pc>
+   <item>1 -  charme-personnes</item>
+  </pc>
+ </die>
+ <die>Issek-de-la-Cruche
+  <maj>
+   0  10  21  22
+  </maj>
+  <min />
+  <symbole>
+   amphore
+  </symbole>
+  <commentaire>
+   âmes torturées
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc>
+   <item>1 -  échappe de tout objet de torture en 1-4 rounds</item>
+   <item>2 -  crée 4 litres de tout liquide une fois par jour</item>
+  </pc>
+ </die>
+ <die>Kos
+  <maj>
+   0  6  9  21  22
+  </maj>
+  <min />
+  <symbole>
+   hache et épée croisées
+  </symbole>
+  <commentaire>
+   ordre
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc />
+ </die>
+ <die>Tyaa
+  <maj>
+   0  1  7
+  </maj>
+  <min />
+  <symbole>
+   grande tête de corbeau ou une plume noire
+  </symbole>
+  <commentaire>
+   aviens
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   ML  MN  MC
+  </alignement>
+  <pc>
+   <item>1 -  lorsqu'il est tué, le personnage est métamorphosé en oiseau deTyaa</item>
+   <item>5 -  changement de forme en un oiseau de Tyaa géant (deux fois le nombre normal de dés de vie et de dégâts par attaque) une foie par semaine</item>
+  </pc>
+ </die>
+</pan>
+<pan>Nordique
+ <die>ARgir
+  <maj>
+   0  5
+  </maj>
+  <min>
+   9  15
+  </min>
+  <symbole>
+   houle océanique
+  </symbole>
+  <commentaire>
+   mer
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc>
+   <item>1 - utilisation des sorts comme un prêtre</item>
+   <item>10 - respirer dans l'eau</item>
+  </pc>
+ </die>
+ <die>Balder
+  <maj>
+   0  4  7  9  21
+  </maj>
+  <min />
+  <symbole>
+   calice incrusté d gemmes
+  </symbole>
+  <commentaire>
+   beauté et charisme
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc>
+   <item>5 -  élévation du charisme à 18</item>
+   <item>12 -  les membres du sexe opposé regardant le prêtre doivent réussir un jet de sauvegarde contre les sorts, sous peine d'être charmés de manière permanente (comme le sort) par le prêtre.</item>
+  </pc>
+ </die>
+ <die>Bragi
+  <maj>
+   0  9  21  22
+  </maj>
+  <min />
+  <symbole>
+   harpe
+  </symbole>
+  <commentaire>
+   poésie, musique
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC
+  </alignement>
+  <pc>
+   <item>3 -  mémoire infaillible (peut se rappeler de tout ce qu'il a entendu)</item>
+   <item>12 -  dominer (comme le sort de domination) avec une chanson</item>
+  </pc>
+ </die>
+ <die>Forseti
+  <maj>
+   0  4  6  9  21
+  </maj>
+  <min />
+  <symbole>
+   balance
+  </symbole>
+  <commentaire>
+   justice
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL
+  </alignement>
+  <pc>
+   <item>5 -  détection des mensonges</item>
+   <item>12 -  poser une question par semaine à Forseti</item>
+  </pc>
+ </die>
+ <die>Freyja
+  <maj />
+  <min>
+   0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28
+  </min>
+  <symbole>
+   feu en forme de femme
+  </symbole>
+  <commentaire>
+   amour, passion, fertilité humaine
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC  NC  MC
+  </alignement>
+  <pc>
+   <item>3 -  métamorphose en cheval</item>
+   <item>6 -  prédiction de l'avenir de n'importe quel individu avec précision de 10% par niveau (95% maximum)</item>
+   <item>9 -  création d'un filtre d'amour à chaque fois qu'elle progresse d'un niveau</item>
+  </pc>
+ </die>
+ <die>Freyr
+  <maj>
+   0  4  5  9  21  23
+  </maj>
+  <min />
+  <symbole>
+   nuage en forme de bateau
+  </symbole>
+  <commentaire>
+   éclat du soleil, pluie, fertilité, chevaux
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC
+  </alignement>
+  <pc>
+   <item>5 -  charme-chevaux</item>
+   <item>10 - disspation ou conjuration de pluie sur une surface de 5000m² par niveau</item>
+  </pc>
+ </die>
+ <die>Frigga
+  <maj>
+   0  4  5  8  9  23  25
+  </maj>
+  <min>
+   1
+  </min>
+  <symbole>
+   épée brandie
+  </symbole>
+  <commentaire>
+   excellence
+  </commentaire>
+  <vd>
+   neutre
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  NL  ML
+  </alignement>
+  <pc>
+   <item>1 - détection des mensonges</item>
+   <item>10 - conjuration de tempête (faisant 1d6 de points de dégâts pour tous les gens et les structures exposés, et durant 1 tour/niveau)</item>
+  </pc>
+ </die>
+ <die>Heimdall
+  <maj>
+   0  6  7  9  15  21  23
+  </maj>
+  <min />
+  <symbole>
+   cor
+  </symbole>
+  <commentaire>
+   lumière et garde
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  NL  ML
+  </alignement>
+  <pc>
+   <item>5 -  vision jusqu'à 100 mètres de nuit comme de jour (quelque soit le climat)</item>
+   <item>10 -  entendre n'importe quel son dans les 500 mètres</item>
+  </pc>
+ </die>
+ <die>Hel
+  <maj>
+   0  4  9  18  22
+  </maj>
+  <min>
+   8
+  </min>
+  <symbole>
+   son visage
+  </symbole>
+  <commentaire>
+   mort, maladie
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BL  BN  BC  NL  NN  NC  ML  MN  MC
+  </alignement>
+  <pc>
+   <item>5 - immunité aux maladies et aus poisons</item>
+   <item>10 - parler avec n'importe quelle personne morte dans les dix dernières années</item>
+   <item>15 - ne subit que la moitié des dégâts infligés par les attaques physiques</item>
+  </pc>
+ </die>
+ <die>Odin
+  <maj>
+   0  6  7  9  21
+  </maj>
+  <min>
+   1  10
+  </min>
+  <symbole>
+   oeil bleu
+  </symbole>
+  <commentaire>
+   guerre, sagesse, poésie, connaissance
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc>
+   <item>1 -  un p.v. supplémentaire par niveau</item>
+   <item>10 -  TAC0 d'un guerrier de même niveau</item>
+  </pc>
+ </die>
+ <die>Thor
+  <maj>
+   0  5  6  10  21  23
+  </maj>
+  <min>
+   4
+  </min>
+  <symbole>
+   marteau
+  </symbole>
+  <commentaire>
+   tonnerre, climat, ciel, moisson
+  </commentaire>
+  <vd>
+   repousse
+  </vd>
+  <vd_delta>
+   0
+  </vd_delta>
+  <alignement>
+   BC
+  </alignement>
+  <pc>
+   <item>1 -  conjuration de la pluie sur une surface de 5.000 m²</item>
+   <item>12 -  éclair de 1d4/niveau</item>
+  </pc>
+ </die>
+</pan>
+<pan>
+ Royaumes Oubliés
+ <die>Le forestier/Maïlikki
+   <maj>
+    1 6 22 23 25
+    </maj>        
+   <min />
+   <symbole>
+   </symbole>
+   <commentaire>
+   </commentaire>
+   <vd>
+    neutre
+   </vd>
+   <vd_delta>
+   </vd_delta>
+   <alignement>
+    BN
+   </alignement>
+   <pc>
+    <item>2 -  espèce ennemie (+4 aux jets d’attaque, –4 aux jets de réaction)</item>
+   </pc>
+ </die>
+ <die>L'ami des arbres/Maïlikki
+   <maj>
+    0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 16 17 19 20 21 22 23 24 25 26 27
+    </maj>        
+   <min />
+   <symbole>
+   </symbole>
+   <commentaire>
+   </commentaire>
+   <vd>
+    neutre
+   </vd>
+   <vd_delta>
+   </vd_delta>
+   <alignement>
+    BN
+   </alignement>
+   <pc>
+    <item>3 -  Parler avec les plantes</item>
+    <item>5 -  Cape elfique</item>
+    <item>7 -  Côte de maille elfique</item>
+   </pc>
+ </die>
+</pan>
+</document>

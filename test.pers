@@ -1,0 +1,113 @@
+<document type="perso">
+ <caracteristique>
+  <c name="force">10</c>
+  <c name="intelligence">10</c>
+  <c name="sagesse">10</c>
+  <c name="dexterite">10</c>
+  <c name="constitution">10</c>
+  <c name="charisme">10</c>
+  <c name="beaute">10</c>
+  <c name="humour">10</c>
+  <c name="pourcentage">10</c>
+ </caracteristique>
+ <race>Humain</race>
+ <sexe>Masculin</sexe>
+ <version>ADD2</version>
+ <profession>
+ <p niv="4" xp="1">Entropiste</p>
+ <p niv="2" xp="1">Illusionniste</p>
+ <p niv="1" xp="0">Clerc</p>
+ <p niv="3" xp="0">Druide</p>
+ </profession>
+ <armure>
+  <armure1 mag='0' ac='10'>Aucune</armure1>
+  <armure2 mag='0' ac='10'>Aucune</armure2>
+ </armure>
+ <save spmp='10' sbb='11' spp='13' ssor='12' ssoo='15' />
+ <armes>
+ </armes>
+ <pdv>
+ </pdv>
+ <competence>
+ </competence>
+ <voleur>
+  <vol name='pickpoket'>0</vol>
+  <vol name='crochetage'>0</vol>
+  <vol name='reperage'>0</vol>
+  <vol name='dpl_sil'>0</vol>
+  <vol name='dis_ombre'>0</vol>
+  <vol name='ecoute_porte'>0</vol>
+  <vol name='escalade'>0</vol>
+  <vol name='lecture'>0</vol>
+  <vol name='marcher_corde_raide'>0</vol>
+  <vol name='saut_perche'>0</vol>
+  <vol name='saut_hauteur'>0</vol>
+  <vol name='saut_longueur_sans_elan'>0</vol>
+  <vol name='saut_longueur_elan'>0</vol>
+  <vol name='man_acrobat_attaque'>0</vol>
+  <vol name='man_acrobat_evasion'>0</vol>
+  <vol name='man_acrobat_chute'>0</vol>
+  <vol name='Pickpocket'>0</vol>
+ </voleur>
+ <pantheon>
+  <dieu>  Druide</dieu>
+ Général
+ </pantheon>
+ <com>
+
+ </com>
+ <mag>
+  <niv niv='1'>
+  <sort niv="1" clef="8" voyage="0">Agrandissement / Réduction</sort>
+  <sort niv="2" clef="9" voyage="0">Alarme</sort>
+  <sort niv="3" clef="10" voyage="0">Altération des Feux Naturels</sort>
+  <sort niv="3" clef="23" voyage="0">Armure</sort>
+  <sort niv="2" clef="30" voyage="0">Aura Magique de Nystul</sort>
+  <sort niv="1" clef="35" voyage="0">Bouclier</sort>
+  <sort niv="2" clef="44" voyage="0">Changement d'Apparence</sort>
+  <sort niv="3" clef="45" voyage="0">Charme Personnes</sort>
+  <sort niv="1" clef="96" voyage="0">Force Fantasmatique</sort>
+  <sort niv="1" clef="145" voyage="0">Projectile Magique</sort>
+  </niv>
+  <niv niv='2'>
+  <sort niv="1" clef="311" voyage="0">Déblocage / Blocage</sort>
+  <sort niv="1" clef="343" voyage="0">Force fantasmatique majeure</sort>
+  </niv>
+ </mag>
+ <taille>0</taille>
+ <poids>0</poids>
+ <nom>
+  <perso>test  </perso>
+  <joueur>  </joueur>
+ </nom>
+ <couleur>
+  <cheveux></cheveux>
+  <peau></peau>
+  <yeux></yeux>
+ </couleur>
+ <classoc></classoc>
+ <age>0 ans</age>
+ <alignement>BN</alignement>
+ <cap>n</cap>
+ <origines>
+  <version>1</version>
+  <add1>
+   <ori>1</ori>
+   <ori>ind</ori>
+   <ori>arc</ori>
+  </add1>
+  <add2>
+   <ori>2</ori>
+   <ori>perso</ori>
+   <ori>RO</ori>
+   <ori>magie</ori>
+   <ori>psi</ori>
+   <ori>nain</ori>
+   <ori>gnome</ori>
+   <ori>ind</ori>
+   <ori>bar</ori>
+   <ori>humanoide</ori>
+   <ori>elfe</ori>
+  </add2>
+ </origines>
+</document>
