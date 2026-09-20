@@ -132,26 +132,26 @@ struct_niv_classe * lecture_lim_racce_add2(GMarkupDomNode * node);
 struct_niv_classe * lecture_lim_racce_add1(GMarkupDomNode * node);
 
 /* static pour protéger encore plus : même un "externe struct_classe * classe" ne peut pas lui donner un accès en écriture dans un autre fichier */
-static struct_classe * classe=NULL;
+static const struct_classe * classe=NULL;
 static unsigned short nb_classe=0;
-static struct_psi_c * psi=NULL;
+static const struct_psi_c * psi=NULL;
 static unsigned short nb_psi=0;
-static struct_save * save=NULL;
+static const struct_save * save=NULL;
 static unsigned short nb_save=0;
-static struct_sort * sort=NULL;
+static const struct_sort * sort=NULL;
 static unsigned short nb_sort=0;
-static struct_armure * armures=NULL;
+static const struct_armure * armures=NULL;
 static unsigned short nb_armures=0;
-static struct_armes * armes=NULL;
+static const struct_armes * armes=NULL;
 static unsigned short nb_armes=0;
-static struct_race * race=NULL;
+static const struct_race * race=NULL;
 static unsigned short nb_race=0;
-static struct_competences * competences=NULL;
+static const struct_competences * competences=NULL;
 static unsigned short nb_competences=0;
 static unsigned long masque_compentence_primaire=0,masque_compentence_secondaire=0;
 static unsigned short nb_groupe_competences_primaires;
 static char ** liste_competences_primaires=NULL, ** liste_competences_secondaires=NULL;
-static struct_origine ** origine=NULL;
+static const struct_origine ** origine=NULL;
 static unsigned short nb_origine_[2];
 
 
@@ -162,12 +162,12 @@ unsigned short * nb_origine()
     return nb_origine_;
 }
 
-struct_origine ** donne_origine()
+const struct_origine ** donne_origine()
 {
     return origine;
 }
 
-struct_competences * donne_competences()
+const struct_competences * donne_competences()
 {
     return competences;
 }
@@ -192,7 +192,7 @@ unsigned short donne_masque_compentence_secondaire()
     return masque_compentence_secondaire;
 }
 
-struct_race * donne_race()
+const struct_race * donne_race()
 {
     return race;
 }
@@ -202,7 +202,7 @@ unsigned short donne_nb_race()
     return nb_race;
 }
 
-struct_armes * donne_armes()
+const struct_armes * donne_armes()
 {
     return armes;
 }
@@ -212,7 +212,7 @@ unsigned short donne_nb_arme()
     return nb_armes;
 }
 
-struct_armure * donne_armure()
+const struct_armure * donne_armure()
 {
     return armures;
 }
@@ -227,12 +227,12 @@ unsigned short donne_nb_sort()
     return 0;
 }
 
-struct_sort * donne_sort()
+const struct_sort * donne_sort()
 {
     return sort;
 }
 
-struct_save * donne_save()
+const struct_save * donne_save()
 {
     return save;
 }
@@ -247,12 +247,12 @@ unsigned short donne_nb_psi()
     return nb_psi;
 }
 
-struct_psi_c * donne_psi()
+const struct_psi_c * donne_psi()
 {
     return psi;
 }
 
-struct_classe * donne_classe()
+const struct_classe * donne_classe()
 {
     return classe;
 }

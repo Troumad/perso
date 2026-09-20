@@ -558,35 +558,35 @@ extern unsigned short nb_ecole;
 
 void lecture_fichiers(char * ici);
 
-struct_classe * donne_classe();
+const struct_classe * donne_classe();
 #define CLASSE donne_classe()
 unsigned short donne_nb_classe();
 #define NB_CLASSE donne_nb_classe()
 unsigned short donne_nb_psi(); /* nombre de classe utilisant les psi */
 #define NB_PSI donne_nb_psi()
-struct_psi_c * donne_psi(); /* classe utilisant les psi */
+const struct_psi_c * donne_psi(); /* classe utilisant les psi */
 #define PSI donne_psi()
-struct_save * donne_save();
+const struct_save * donne_save();
 #define SAVE donne_save
 unsigned short donne_nb_save();
 #define NB_SAVE donne_nb_save
-struct_sort * donne_sort();
+const struct_sort * donne_sort();
 #define SORT donne_sort()
 unsigned short donne_nb_sort(); /* nombre de tables de lanceurs de sorts */
 #define NB_SORT donne_nb_sort()
-struct_armes * donne_armes();
+const struct_armes * donne_armes();
 #define ARME donne_armes()
 unsigned short donne_nb_arme();
 #define NB_ARME donne_nb_arme()
-struct_armure * donne_armure();
+const struct_armure * donne_armure();
 #define ARMURE donne_armure()
 unsigned short donne_nb_armure();
 #define NB_ARMURE donne_nb_armure()
 unsigned short donne_nb_race();
 #define NB_RACE donne_nb_race()
-struct_race * donne_race();
+const struct_race * donne_race();
 #define RACE donne_race()
-struct_competences * donne_competences();
+const struct_competences * donne_competences();
 #define COMPETENCE donne_competences()
 unsigned short donne_nb_competence();
 #define NB_COMPETENCE donne_nb_competence()
@@ -596,7 +596,7 @@ unsigned short donne_masque_compentence_secondaire();
 #define MASQUE_COMPETENCE_SECONDAIRE donne_masque_compentence_secondaire()
 unsigned short donne_masque_compentence_primaire();
 #define MASQUE_COMPETENCE_PRIMAIRE donne_masque_compentence_primaire()
-struct_origine ** donne_origine();
+const struct_origine ** donne_origine();
 #define _ORIGINE donne_origine()
 unsigned short * nb_origine();
 #define NB_ORIGINE nb_origine()
