@@ -131,29 +131,32 @@ signed short * feuille_lire_ligne_arme(char * coordonnees,GMarkupDomNode * node)
 struct_niv_classe * lecture_lim_racce_add2(GMarkupDomNode * node);
 struct_niv_classe * lecture_lim_racce_add1(GMarkupDomNode * node);
 
-struct_classe * classe=NULL;
-unsigned short nb_classe=0;
-struct_psi_c * psi=NULL;
-unsigned short nb_psi=0;
-struct_save * save=NULL;
-unsigned short nb_save=0;
-struct_sort * sort=NULL;
-unsigned short nb_sort=0;
-struct_armure * armures=NULL;
-unsigned short nb_armures=0;
-struct_armes * armes=NULL;
-unsigned short nb_armes=0;
-struct_race * race=NULL;
-unsigned short nb_race=0;
-struct_competences * competences=NULL;
-unsigned short nb_competences=0;
-unsigned long masque_compentence_primaire=0,masque_compentence_secondaire=0;
-unsigned short nb_groupe_competences_primaires;
-char ** liste_competences_primaires=NULL, ** liste_competences_secondaires=NULL;
-struct_origine ** origine=NULL;
-unsigned short nb_origine_[2];
+/* static pour protéger encore plus : même un "externe struct_classe * classe" ne peut pas lui donner un accès en écriture dans un autre fichier */
+static struct_classe * classe=NULL;
+static unsigned short nb_classe=0;
+static struct_psi_c * psi=NULL;
+static unsigned short nb_psi=0;
+static struct_save * save=NULL;
+static unsigned short nb_save=0;
+static struct_sort * sort=NULL;
+static unsigned short nb_sort=0;
+static struct_armure * armures=NULL;
+static unsigned short nb_armures=0;
+static struct_armes * armes=NULL;
+static unsigned short nb_armes=0;
+static struct_race * race=NULL;
+static unsigned short nb_race=0;
+static struct_competences * competences=NULL;
+static unsigned short nb_competences=0;
+static unsigned long masque_compentence_primaire=0,masque_compentence_secondaire=0;
+static unsigned short nb_groupe_competences_primaires;
+static char ** liste_competences_primaires=NULL, ** liste_competences_secondaires=NULL;
+static struct_origine ** origine=NULL;
+static unsigned short nb_origine_[2];
 
 
+/* fonctions "getters" pour cacher aux autres fichiers que ce sont des constantes */
+/* Elles retournent les tableaux demandés */
 unsigned short * nb_origine()
 {
     return nb_origine_;

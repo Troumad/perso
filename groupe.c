@@ -447,7 +447,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                     tmp_node=g_markup_dom_nom(pers,nom_min[i],"name");
                     if (tmp_node && tmp_node->nb_texte!=0)
                     {
-                        modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,nom_min[i],"name"),tmp_node->texte->texte);
+                        if (node->nb_fils >= 3)
+                        {
+                            modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,nom_min[i],"name"),tmp_node->texte->texte);
+                        }
                         switch(i)
                         {
                             case 0 : /* force */
@@ -456,17 +459,26 @@ void feuille_groupe(FenetrePerso * fenetre)
                                     tmp_node=g_markup_dom_nom(pers,"pourcentage","name");
                                     if(strcmp(tmp_node->texte->texte,"00")!=0)
                                     {
-                                        modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,"pourcentage","name"),tmp_node->texte->texte);
+                                        if (node->nb_fils >= 3)
+                                        {
+                                            modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,"pourcentage","name"),tmp_node->texte->texte);
+                                        }
                                     }
                                 }
                                 break;
                             case 2 : /*sagesse */
                                  sscanf(tmp_node->texte->texte,"%hu",&caract); /* bonus save */
-                                 modif_xml(g_markup_dom_nom (node->fils+node->nb_fils-3,"ssag","name"),tabl_sagesse[caract-1][0]);
+                                 if (node->nb_fils >= 3)
+                                 {
+                                     modif_xml(g_markup_dom_nom (node->fils+node->nb_fils-3,"ssag","name"),tabl_sagesse[caract-1][0]);
+                                 }
                                  break;
                             case 3 : /* dexterité */
                                  sscanf(tmp_node->texte->texte,"%hu",&caract); /* bonus save */
-                                 modif_xml(g_markup_dom_nom (node->fils+node->nb_fils-3,"sdext","name"),tabl_dexterite[version_][caract-1][0]);
+                                 if (node->nb_fils >= 3)
+                                 {
+                                     modif_xml(g_markup_dom_nom (node->fils+node->nb_fils-3,"sdext","name"),tabl_dexterite[version_][caract-1][0]);
+                                 }
                                  break;
                             default :
                                  break;
@@ -484,7 +496,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                     tmp_node=g_markup_dom_nom(pers,nom_fac_vol[i],"name");
                     if (tmp_node!=NULL)
                     {
-                        modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,nom_fac_vol[i],"name"),tmp_node->texte->texte);
+                        if (node->nb_fils >= 3)
+                        {
+                            modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,nom_fac_vol[i],"name"),tmp_node->texte->texte);
+                        }
                         j=0;
                         sscanf(tmp_node->texte->texte,"%hd",&j);
                         vol+=j;
@@ -496,13 +511,19 @@ void feuille_groupe(FenetrePerso * fenetre)
                 }
                 if (vol==0)
                 {
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"voleur","name")); /* pas de talents de voleurs */
+                    if (node->nb_fils >= 3)
+                    {
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"voleur","name")); /* pas de talents de voleurs */
+                    }
                 }
                 else
                 { /* compétence de voleur : on ne supprime pas la ligne */
                 }
-                sscanf(g_markup_dom_nom(node->fils+node->nb_fils-3,"sagesse","name")->texte->texte,"%hd",&sage);
-                sscanf(g_markup_dom_nom(node->fils+node->nb_fils-3,"intelligence","name")->texte->texte,"%hd",&inte);
+                if (node->nb_fils >= 3)
+                {
+                    sscanf(g_markup_dom_nom(node->fils+node->nb_fils-3,"sagesse","name")->texte->texte,"%hd",&sage);
+                    sscanf(g_markup_dom_nom(node->fils+node->nb_fils-3,"intelligence","name")->texte->texte,"%hd",&inte);
+                }
 
                 tmp_node=g_markup_dom_node(pers,"perso");
                 if (tmp_node!=NULL)
@@ -593,7 +614,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                                             }
                                         }
                                     }
-                                    aff_nb_sort(node->fils+node->nb_fils-3,CLASSE+num_classe,&clerc,&mag,sage,inte,k,version_);
+                                    if (node->nb_fils >= 3)
+                                    {
+                                        aff_nb_sort(node->fils+node->nb_fils-3,CLASSE+num_classe,&clerc,&mag,sage,inte,k,version_);
+                                    }
                                     k=tmp_node->fils[i].nb_att; /* sortie de la boucle : on a trouvé le niveau */
                                 }
                             }
@@ -606,17 +630,26 @@ void feuille_groupe(FenetrePerso * fenetre)
                 }
                 if (mag==0 && clerc==0)
                 {
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"section_sorts","name"));
+                    if (node->nb_fils >= 3)
+                    {
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"section_sorts","name"));
+                    }
                 }
                 else if (mag==0)
                 {
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_mag0","name"));
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_mag1","name"));
+                    if (node->nb_fils >= 3)
+                    {
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_mag0","name"));
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_mag1","name"));
+                    }
                 }
                 else if (clerc==0)
                 {
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_clerc0","name"));
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_clerc1","name"));
+                    if (node->nb_fils >= 3)
+                    {
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_clerc0","name"));
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_clerc1","name"));
+                    }
                 }
                 else
                 {
@@ -714,7 +747,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                 {
                     printf("Erreur pour l'alignement du fichier%s\n",fenetre->uri[nb]);
                 }
-                modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,"nom","name"),ch); /* copie de la ligne complète */
+                if (node->nb_fils >= 3)
+                {
+                    modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,"nom","name"),ch); /* copie de la ligne complète */
+                }
 
                 tmp_node=g_markup_dom_node(pers,"pdv");
                 if (tmp_node!=NULL)
@@ -738,8 +774,11 @@ void feuille_groupe(FenetrePerso * fenetre)
                     ch[j]='=';
                     j++;
                     sprintf(ch+j,"%hd",vol);
-                    tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"pdv","name");
-                    modif_xml(tmp_node,ch);
+                    if (node->nb_fils >= 3)
+                    {
+                        tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"pdv","name");
+                        modif_xml(tmp_node,ch);
+                    }
                 }
                 else
                 {
@@ -750,8 +789,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                 tmp_node=g_markup_dom_node(pers,"armes");
                 if (tmp_node!=NULL)
                 {
-                    tmp1_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"armes","name");
-                    if (tmp_node->nb_fils>0)
+                    if (node->nb_fils >= 3)
+                    {
+                        tmp1_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"armes","name");
+                        if (tmp_node->nb_fils>0)
                     {
                         tmp2_node=tmp1_node->fils+3;
                         xml_ecrit_dernier_texte(tmp2_node->fils[0].fils,tmp_node->fils[0].texte->texte);
@@ -770,7 +811,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                                     xml_ajoute_fin(tmp1_node,"node");
                                     tmp2_node=tmp1_node->fils+tmp1_node->nb_fils-2;
                                     copie_node(tmp1_node->fils+tmp1_node->nb_fils-1,tmp2_node);
-                                    copie_node(tmp2_node,tmp1_node->fils+tmp1_node->nb_fils-3);
+                                    if (tmp1_node->nb_fils >= 3)
+                                    {
+                                        copie_node(tmp2_node,tmp1_node->fils+tmp1_node->nb_fils-3);
+                                    }
                                     xml_ecrit_dernier_texte(tmp2_node->fils[0].fils,tmp_node->fils[i].texte->texte);
                                     xml_ecrit_dernier_texte(tmp2_node->fils[1].fils,tmp_node->fils[i].attributs[3].value);
                                     xml_ecrit_dernier_texte(tmp2_node->fils[2].fils,tmp_node->fils[i].attributs[2].value);
@@ -782,7 +826,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                         }
                         else if (tmp_node->nb_fils==1)
                         {
-                             supprime_node(tmp1_node,tmp1_node->nb_fils-2);
+                            if (tmp1_node->nb_fils >= 2)
+                            {
+                                supprime_node(tmp1_node,tmp1_node->nb_fils-2);
+                            }
                         }
                         else
                         { /* pas d'arme */
@@ -790,7 +837,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                     }
                     else if (tmp_node->nb_fils==1)
                     {
-                         supprime_node(tmp1_node,tmp1_node->nb_fils-2);
+                        if (tmp1_node->nb_fils >= 2)
+                        {
+                            supprime_node(tmp1_node,tmp1_node->nb_fils-2);
+                        }
                     }
                     else
                     {
@@ -809,7 +859,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                 }
                 else
                 {
-                    xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"armure1","name"),ch);
+                    if (node->nb_fils >= 3)
+                    {
+                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"armure1","name"),ch);
+                    }
                 }
 
                 tmp_node=g_markup_dom_node(pers,"armure2");
@@ -820,18 +873,24 @@ void feuille_groupe(FenetrePerso * fenetre)
                 }
                 else
                 {
-                    xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"armure2","name"),ch);
+                    if (node->nb_fils >= 3)
+                    {
+                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"armure2","name"),ch);
+                    }
                 }
 
                 tmp_node=g_markup_dom_node(pers,"save");
                 if (tmp_node!=NULL)
                 {
                     /* très mauvaise méthode non xml : les attributs sont obligatoirement dans cet ordre :( */
-                    xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"spmp","name"),tmp_node->attributs[0].value);
-                    xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"sbb","name"),tmp_node->attributs[1].value);
-                    xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"spp","name"),tmp_node->attributs[2].value);
-                    xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"ssor","name"),tmp_node->attributs[3].value);
-                    xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"ssou","name"),tmp_node->attributs[4].value);
+                    if (node->nb_fils >= 3)
+                    {
+                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"spmp","name"),tmp_node->attributs[0].value);
+                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"sbb","name"),tmp_node->attributs[1].value);
+                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"spp","name"),tmp_node->attributs[2].value);
+                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"ssor","name"),tmp_node->attributs[3].value);
+                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"ssou","name"),tmp_node->attributs[4].value);
+                    }
                 }
                 else
                 {
@@ -843,13 +902,19 @@ void feuille_groupe(FenetrePerso * fenetre)
                     vd=_min(vd,13);
                     if (version_==ADD1)
                     {
-                        tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"liste_vd","name");
+                        if (node->nb_fils >= 3)
+                        {
+                            tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"liste_vd","name");
+                        }
                         for(i=0;i<13;i++)
                             xml_ecrit_dernier_texte(tmp_node->fils[i].fils,vd_add1[i][vd-1]);
                     }
                     else if (version_==ADD2)
                     {
-                        tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"liste_vd","name");
+                        if (node->nb_fils >= 3)
+                        {
+                            tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"liste_vd","name");
+                        }
                         for(i=0;i<13;i++)
                             xml_ecrit_dernier_texte(tmp_node->fils[i].fils,vd_add2[i][vd-1]);
                     }
@@ -860,9 +925,12 @@ void feuille_groupe(FenetrePerso * fenetre)
                 }
                 if (vd<=0)
                 {
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"vd0","name"));
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"vd1","name"));
-                    xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"VD","name"));
+                    if (node->nb_fils >= 3)
+                    {
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"vd0","name"));
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"vd1","name"));
+                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"VD","name"));
+                    }
                 }
                 else
                 { /* on avait rempli avant la table des vade-rétros */

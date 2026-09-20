@@ -551,18 +551,6 @@ extern const signed short add_niv_max_saurial[26];
 extern const signed short add_niv_max_humanoide[4];
 extern const signed short add_niv_max_demi_hum[4];
 
-
-/* à virer */
-extern unsigned short ** nb_talent_psi;
-extern unsigned short  nb_discipline_psi;
-extern unsigned short ** nb_sort_clerc;
-extern unsigned short ** nb_sort_mag;
-
-//extern struct_sortileges ** sortileges;
-//extern struct_sphere * sphere;
-
-//extern struct_sortileges ** sortileges_mag;
-//extern struct_sphere * ecole;
 extern unsigned long entropie;
 extern unsigned short nb_ecole;
 
@@ -612,12 +600,6 @@ struct_origine ** donne_origine();
 #define _ORIGINE donne_origine()
 unsigned short * nb_origine();
 #define NB_ORIGINE nb_origine()
-
-
-
-/*extern struct_psi *** talents_psi;
-extern struct_sphere * discipline_psi;
-extern unsigned short nb_psi;*/
 
 signed short race_entier(char * nom);
 signed short classe_entier(char * nom);
