@@ -670,7 +670,7 @@ void copie_node(GMarkupDomNode * arrive,GMarkupDomNode * modele)
   }
 }
 
-void modif_xml(GMarkupDomNode *item,const gchar * ch)
+void modif_xml(GMarkupDomNode *item,const gchar * ch) /* remplacer le texte en fin de node */
 {
   if (item)
   {
