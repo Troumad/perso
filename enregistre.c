@@ -38,16 +38,15 @@ void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch); /* Gestion des
 
 void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch1)
 {     /* avec gestion des sauts de ligne dans un texte */
-    char * ch0; /* mémoriser pour effacer à la fin */
+    char * ch0=g_strdup(ch1); /* mémoriser pour effacer à la fin */
     char * ch; /* le début de ce qu'il reste à afficher */
     char * pt=ch; /* pointe sur le caractère traité */
 
-    if (!(*ch))
+    if (!(*ch0))
     { /* vide */
     }
     else
     {
-        ch0=g_strdup(ch1);
         ch=ch0;
         while (* pt)
         {
