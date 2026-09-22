@@ -405,11 +405,11 @@ void verif_psi(FenetrePerso * _perso)
 
         ch=g_strdup("Bilan des choix :\n\n\n");
         wid_util=GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,"notebook_psi"));
-        ratio_psi=(signed short **)malloc(NB_DISCIPLINE_PSI*sizeof(signed short *));
+        ratio_psi=(signed short **)g_malloc(NB_DISCIPLINE_PSI*sizeof(signed short *));
         for(i=0;i<NB_DISCIPLINE_PSI;i++)
         { /* remise à zéro */
             discipline=0;
-            ratio_psi[i]=(signed short *)malloc(2*NB_DISCIPLINE_PSI*sizeof(signed short));
+            ratio_psi[i]=(signed short *)g_malloc(2*NB_DISCIPLINE_PSI*sizeof(signed short));
             wid_util=GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,"notebook_psi"));
             for (j=0;j<2;j++)
             { /* science dévotion */
