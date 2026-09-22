@@ -1139,15 +1139,8 @@ void lit_dieu(dieux * dieu,struct widgets * widgets)
     {
         if (sscanf(gtk_entry_get_text (GTK_ENTRY(wid)),"%hd",&k)==1)
         {
-            if (j<dieu->pc_nb)
-            { /* pas de nouvelles cases à mémoriser */
-                g_free(dieu->pc[j]);
-            }
-            else
-            { /* il faut étendre le tableau */
-                dieu->pc_niv=(unsigned short *)g_realloc(dieu->pc_niv,(j+1)*sizeof(unsigned short));
-                dieu->pc=(char **)g_realloc(dieu->pc,(j+1)*sizeof(char *));
-            }
+            dieu->pc_niv=(unsigned short *)g_realloc(dieu->pc_niv,(j+1)*sizeof(unsigned short));
+            dieu->pc=(char **)g_realloc(dieu->pc,(j+1)*sizeof(char *));
             dieu->pc_niv[j]=k;
             wid=gtk_grid_get_child_at (grille,1,i+1);
             dieu->pc[j]=g_strdup(gtk_entry_get_text (GTK_ENTRY(wid)));
@@ -1162,11 +1155,6 @@ void lit_dieu(dieux * dieu,struct widgets * widgets)
     }
 
 
-    while (dieu->pc_nb>j)
-    { /* vider les cases en trop */
-        dieu->pc_nb--;
-        g_free(dieu->pc[dieu->pc_nb]);
-    }
     dieu->pc_nb=j;
     /* diminution possible de la taille des tableaux : beaucoup de calcul pour presque rien */
     /*dieu->pc_niv=(unsigned short *)g_realloc(dieu->pc_niv,dieu->pc_nb*sizeof(unsigned short));

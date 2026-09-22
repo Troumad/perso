@@ -830,16 +830,16 @@ FenetrePerso * ouvre_perso(char * _nom)
                                                 {
                                                 }
                                             }
-                                            if (nv>0 && nv<=9 && _perso->perso.livre_sorts[nv]==NULL)
-                                            { /* parcours des sorts de niveau nv, premier passage : un second szerait une erreur */
+                                            if (nv>0 && nv<=9 && _perso->perso.livre_sorts[nv-1]==NULL)
+                                            { /* parcours des sorts de niveau nv, premier passage : un second serait une erreur */
                                                 nb=0;
                                                 for (j=0;j<noded->fils[i].nb_fils;j++)
                                                 {
                                                     if (compare_sans_casse("sort",noded->fils[i].fils[j].nom)==0)
                                                     { /* c'est bien une entrée sort */
                                                         nb++;
-                                                        _perso->perso.livre_sorts[nv-1]=(signed long *)realloc(_perso->perso.livre_sorts[nv-1],(nb+1)*sizeof(signed long));
-                                                        _perso->perso.sort_su[nv-1]=(signed short *)realloc(_perso->perso.sort_su[nv-1],(nb+1)*sizeof(signed short));
+                                                        _perso->perso.livre_sorts[nv-1]=(signed long *)g_realloc(_perso->perso.livre_sorts[nv-1],(nb+1)*sizeof(signed long));
+                                                        _perso->perso.sort_su[nv-1]=(signed short *)g_realloc(_perso->perso.sort_su[nv-1],(nb+1)*sizeof(signed short));
                                                         _perso->perso.livre_sorts[nv-1][nb-1]=NON;
                                                         _perso->perso.sort_su[nv-1][nb-1]=NON;
                                                         for (k=0;k<noded->fils[i].fils[j].nb_att;k++)
@@ -995,10 +995,10 @@ FenetrePerso * ouvre_perso(char * _nom)
                                 }
 
                                 /* origine : on initialise à tout, s'il y aurait un problème, on gère */
-                                _perso->origine=(char **)malloc(2*sizeof(char *));
+                                _perso->origine=(char **)g_malloc(2*sizeof(char *));
                                 for (i=0;i<2;i++)
                                 {
-                                    _perso->origine[i]=(char *)malloc(NB_ORIGINE[i]*sizeof(char));
+                                    _perso->origine[i]=(char *)g_malloc(NB_ORIGINE[i]*sizeof(char));
                                     _perso->origine[i][0]=1; /* OK : manuel du joueur */
                                     for (k=1;k<NB_ORIGINE[i];k++)
                                     {
