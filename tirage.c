@@ -39,14 +39,14 @@ void init_caract_voleur(FenetrePerso * _perso);
 
 void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
 {
-    FenetrePerso * _perso;
-    GtkWidget * wid;
-    char ch[16], * pt_ch;
+    FenetrePerso * _perso=NULL;
+    GtkWidget * wid=NULL;
+    char ch[16], * pt_ch=NULL;
     signed short * caract,caract_min[6]={3,3,3,3,3,3},caract_pref[6]={0,3,4,2,1,5},caract_max[7]={18,18,18,18,18,18,100};
     signed char pl_c_min_max[8]={0,1,2,3,4,5,6,7},pl_tr[8]={0,1,2,3,4,5,6,7};
     signed short niv=1,i,j,m,im,t,tmp,nb;
-    struct cl_add * classe;
-    signed short * tab_max, * tab_min, * tab_race;
+    struct cl_add * classe=NULL;
+    signed short * tab_max=NULL, * tab_min=NULL, * tab_race=NULL;
     unsigned short (*pf)()=NULL; /* pointeur sur la fonction de tirage de dès */
     unsigned short (*tirage_pdv)(unsigned short)=NULL; /* pointeur sur la méthode de tirage des pdv */
     unsigned short constit=0,constitg=0, ** pdv,nb_des,de;
@@ -96,13 +96,13 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
                     i=20;
                 }
             }
-            b_constit_add2=(signed short *)malloc(niv*sizeof(signed short *));
+            b_constit_add2=(signed short *)g_malloc(niv*sizeof(signed short));
 
             _perso->perso.race=trouve_race(widgets);   /* décompte du nombre de classe              */
             for (i=0;_perso->perso.classe[i]!=-1;i++); /* pour réserver la place mémoire nécessaire */
-            _perso->perso.niveau=(signed short *)malloc(i*sizeof(signed short));
-            _perso->perso.XP=(unsigned long *)malloc(i*sizeof(signed long));
-            pdv=(unsigned short **)malloc(i*sizeof(unsigned short *));
+            _perso->perso.niveau=(signed short *)g_malloc(i*sizeof(signed short));
+            _perso->perso.XP=(unsigned long *)g_malloc(i*sizeof(signed long));
+            pdv=(unsigned short **)g_malloc(i*sizeof(unsigned short *));
 
             for (i=0;_perso->perso.classe[i]!=-1;i++)
             {
@@ -317,10 +317,10 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
               constitg=constit;
             }
 
-            _perso->perso.pdv=(signed short *)malloc((_perso->perso.niveau[0]+1)*sizeof(signed short));
+            _perso->perso.pdv=(signed short *)g_malloc((_perso->perso.niveau[0]+1)*sizeof(signed short));
             for (i=0;_perso->perso.classe[i]!=-1;i++)
             {
-                pdv[i]=(unsigned short *)malloc(_perso->perso.niveau[i]*sizeof(unsigned short));
+                pdv[i]=(unsigned short *)g_malloc(_perso->perso.niveau[i]*sizeof(unsigned short));
                 for (j=0;j<_perso->perso.niveau[i];j++)
                 {
                     pt_ch=CLASSE[_perso->perso.classe[i]].add[_perso->perso.version].pdv[_min(j,19)];
@@ -385,6 +385,11 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
                 {
                 }
             }
+            for(m=1;m<i;m++)
+            {
+                g_free(pdv[m]);
+            }
+            g_free(pdv);
             _perso->perso.pdv[j]=0; /* marquer la fin du tirage des pdv */
 
 
