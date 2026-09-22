@@ -439,11 +439,12 @@ GMarkupDomNode * g_markup_dom_node (GMarkupDomNode *node,const gchar * nom_val)
 GMarkupDomNode *g_markup_dom_new (const gchar *filename, GError **error)
 {
                   /* sort de la fonction si filename ne pointe pas sur une chaîne de caractères */
+  GMarkupDomNode * pere;
   if (filename != NULL)
   {
    GMarkupParser markup_parser; /* http://library.gnome.org/devel/glib/stable/glib-Simple-XML-Subset-Parser.html#GMarkupParser */
    GMarkupParseContext *markup_parse_context=NULL;
-   GMarkupDomNode * pere= (GMarkupDomNode *)g_malloc(sizeof(GMarkupDomNode));
+   pere= (GMarkupDomNode *)g_malloc(sizeof(GMarkupDomNode));
    /* pere doit être alloué dynamiquement car il est utilisé par la fonction appelante */
    /* ce n'est pas le cas de context qui n'est utilisé que les fonctions appelées  */
    GMarkupDomContext * context=(GMarkupDomContext *)g_malloc(sizeof(GMarkupDomContext));
@@ -572,7 +573,6 @@ void copie_node(GMarkupDomNode * arrive,GMarkupDomNode * modele)
 {
   guint i;
 
-printf("Passage par copie_node pour %s\n",modele->nom);
   if (modele != NULL && arrive!=NULL) /* les deux nodes existent */
   {
     if (arrive->nb_att>0)

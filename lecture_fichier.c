@@ -970,24 +970,29 @@ void feuille_lire_compt_spe(char * coordonnees,GMarkupDomNode * node, signed cha
                 compt_spe[0]=(signed char **)g_realloc(compt_spe[0],(c+2)*sizeof(gchar *));
                 compt_spe[1]=(signed char **)g_realloc(compt_spe[1],(c+2)*sizeof(gchar *));
                 ((gchar ***)compt_spe)[0][c]=g_strdup(info->texte->texte);
-                compt_spe[1][c]=(signed char *)malloc(3*sizeof(gchar));
+                compt_spe[1][c]=(signed char *)g_malloc(3*sizeof(gchar));
                 if ((info=donne_case_ij(j,i-1+c,node)))
                 {
                     k=0; /* protection si erreur lecture */
                     l=1;
                     m=0;
-                    sscanf(info->texte->texte+1,"%hd/%hd%hd",&k,&l,&m);
-                    compt_spe[1][c][0]=(signed char)k;
-                    if (l==0)
-                    {   /* protection pour ne pas diviser par 0 */
-                        compt_spe[1][c][1]=1;
+                    if (sscanf(info->texte->texte+1,"%hd/%hd%hd",&k,&l,&m)==3)
+                    {
+                        compt_spe[1][c][0]=(signed char)k;
+                        if (l==0)
+                        {   /* protection pour ne pas diviser par 0 */
+                            compt_spe[1][c][1]=1;
+                        }
+                        else
+                        {
+                            compt_spe[1][c][1]=(signed char)l;
+                        }
+                        compt_spe[1][c][2]=(signed char)m;
                     }
                     else
                     {
-                        compt_spe[1][c][1]=(signed char)l;
+                        printf("Erreur de lecture de %s avec \"%%hd/%%hd%%hd\"\n dans  feuille_lire_compt_spe du fichier lecture_fichier\n",info->texte->texte+1);
                     }
-                    compt_spe[1][c][2]=(signed char)m;
-
                 }
                 else
                 {
@@ -1568,7 +1573,7 @@ void retourne_sort(struct_sort * sort_, char * fichier)
 
 
     ooo = g_markup_dom_new (fichier, NULL);
-    if (sort->type!=NULL)
+    if (sort_->type!=NULL)
     {
         g_free(sort_->type);
         sort_->type=NULL;
@@ -1722,7 +1727,10 @@ void retourne_save(struct_save * save_, char * fichier)
                 i=1;
                 dpt=feuille_lire_case_m(FEUILLE_DEPART_SAVE ,node,-1);
                 if (dpt==-1) /* la case est vide : un gros problème */
+                {
+                    g_markup_dom_free(ooo);
                     return;
+                }
                 if (dpt==0) i++; /* pour le cas du guerrier 0 qui est en fait un perso sans classe_ */
                 while(donne_case_ij(i,0,node)!=NULL)
                 {
@@ -1904,7 +1912,7 @@ struct_origine ** lire_struct_origine(char * fichier)
  GMarkupDomNode * node=NULL, *ooo1=NULL;
  struct_origine ** retour=NULL;
 
- retour=(struct_origine **)malloc(2*sizeof(struct_origine *));
+ retour=(struct_origine **)g_malloc(2*sizeof(struct_origine *));
  retour[0]=NULL;
  retour[1]=NULL;
  ooo1 = g_markup_dom_new (fichier, NULL);
@@ -3013,7 +3021,7 @@ struct_niv_classe * lecture_lim_racce_add2(GMarkupDomNode * node)
                               else
                               {
                                   /* chaine nulle => pas de limite */
-                                  sortie[i]._2[0]=0;
+                                  sortie[i]._2[num_classe]=0;
                               }
                           }
                           num_classe=nb_classe; /* on force la sortie de la boucle */
@@ -3058,6 +3066,7 @@ struct_niv_classe * lecture_lim_racce_add1(GMarkupDomNode * node)
     }
     if (node_lim==NULL)
     {
+        g_free(sortie);
         sortie=NULL; /* aucune lettre devant */
     }
     else
