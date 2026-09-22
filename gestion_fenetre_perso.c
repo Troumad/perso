@@ -133,11 +133,11 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
         retour->resume=ouverture_glade_retour("resume.glade",GLADE_NON_CONNECT);
         init_perso(&(retour->perso));
 
-        retour->origine=(char **)malloc(2*sizeof(char *));
+        retour->origine=(char **)g_malloc(2*sizeof(char *));
         retour->ori_add1_add2=1;
         for (i=0;i<2;i++)
         {
-            retour->origine[i]=(char *)malloc(NB_ORIGINE[i]*sizeof(char));
+            retour->origine[i]=(char *)g_malloc(NB_ORIGINE[i]*sizeof(char));
             for (j=0;j<NB_ORIGINE[i];j++)
             {
                 retour->origine[i][j]=1; /* par défaut, on autorise toutes les origines */
@@ -232,11 +232,11 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
         {
             retour->perso.tab_voleur[i]=0;
         }
-        retour->origine=(char **)malloc(2*sizeof(char *));
+        retour->origine=(char **)g_malloc(2*sizeof(char *));
         retour->ori_add1_add2=1;
         for (i=0;i<2;i++)
         {
-            retour->origine[i]=(char *)malloc(NB_ORIGINE[i]*sizeof(char));
+            retour->origine[i]=(char *)g_malloc(NB_ORIGINE[i]*sizeof(char));
             for (j=0;j<NB_ORIGINE[i];j++)
             {
                 retour->origine[i][j]=1; /* par défaut, on autorise toutes les origines */
@@ -631,8 +631,14 @@ void libere_fenetre_perso(FenetrePerso * f_p)
     g_free(f_p->couleur_classes);
     g_free(f_p->couleur_competence);
     g_free(f_p->couleur_races);
+    g_free(f_p->couleur_armure);
+    g_free(f_p->combo_classes);
+    g_free(f_p->combo_races);
+    g_free(f_p->classe_modif);
+    g_free(f_p->armes_modif);
+    g_free(f_p->competence_modif);
+    g_free(f_p->niv_classe_modif);
     libere_perso(&(f_p->perso));
-    /*g_free(f_p);*/
 }
 
 void libere_perso(perso * pers)
@@ -688,8 +694,11 @@ void libere_perso(perso * pers)
     g_free(pers->niv_psi);
     g_free(pers->sociale);
     g_free(pers->natif_psi);
-    g_free(pers->origine[0]);
-    g_free(pers->origine[1]);
+    if (pers->origine!=NULL)
+    {
+        g_free(pers->origine[0]);
+        g_free(pers->origine[1]);
+    }
     g_free(pers->origine);
     pers->origine=NULL;
 }
@@ -749,11 +758,11 @@ void init_perso(perso * pers)
     {
         pers->tab_voleur[i]=0;
     }
-    pers->origine=(char **)malloc(2*sizeof(char*));
+    pers->origine=(char **)g_malloc(2*sizeof(char*));
     pers->ori_add1_add2=1;
     for (j=0;j<2;j++)
     {
-        pers->origine[j]=(char *)malloc(sizeof(char)*NB_ORIGINE[j]);
+        pers->origine[j]=(char *)g_malloc(sizeof(char)*NB_ORIGINE[j]);
         for (i=0;i<NB_ORIGINE[j];i++)
         {
             pers->origine[j][i]=1; /* par défaut, on active toutes les origines */

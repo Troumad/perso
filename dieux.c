@@ -405,7 +405,15 @@ pant * genere_pantheon(char * fichier)
         }
     }
 
-    for(nb_pantheons=pan;pantheons[nb_pantheons].nom!=NULL;nb_pantheons++);
+    if (pantheon!=NULL)
+    {
+        for(nb_pantheons=pan;pantheons[nb_pantheons].nom!=NULL;nb_pantheons++);
+    }
+    else
+    {
+        printf("Fichier de configuration des dieux : dieux.add introuvable.\n");
+    }
+
 
     return pantheons;
 }
