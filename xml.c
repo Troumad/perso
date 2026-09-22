@@ -2,7 +2,7 @@
  *    Copyright (C) 2006 by JOSEPH Nicolas                                    *
  *    gege2061@redaction-developpez.com                                       *
  *    Copyright (C) 2010-2013 by SIAUD Bernard                                *
- *    troumad@libertysurf.fr                                                  *
+ *    troumad@siaud.org                                                       *
  *                                                                            *
  *    This program is free software; you can redistribute it and/or modify    *
  *    it under the terms of the GNU General Public License as published by    *

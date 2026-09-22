@@ -393,15 +393,15 @@ void feuille_groupe(FenetrePerso * fenetre)
 
     node=g_markup_dom_node (ooo,"office:text");
     if (node->nb_fils < 3)
-    {
+    { /* Fichier groupe invalide : node->nb_fils doit être >= 3 pour accéder à node->fils+node->nb_fils-3 */
         printf("Erreur dans le fichier %s\n",ch);
     }
     else
-    {
+    { /* À partir d'ici, node->nb_fils >= 3 est garanti → tous les accès à node->fils+node->nb_fils-3 sont sûrs */
         strcpy(ch,fenetre->perso.nom_fichier);
         tmp1=ch-1;
         for (tmp=ch;*tmp!=0;tmp++)
-        {
+        { /* isolé le nom du fichier de la chaîne complète */
             if (*tmp==SEPARATEUR)
             {
                 tmp1=tmp;
