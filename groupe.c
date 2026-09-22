@@ -391,399 +391,409 @@ void feuille_groupe(FenetrePerso * fenetre)
     FILE * fichier;
     signed short pan=0,die=0; /* mémorisation du dieu et du panthéon */
 
-    node=g_markup_dom_node (ooo,"office:text");
-    if (node->nb_fils < 3)
-    { /* Fichier groupe invalide : node->nb_fils doit être >= 3 pour accéder à node->fils+node->nb_fils-3 */
-        printf("Erreur dans le fichier %s\n",ch);
-    }
-    else
-    { /* À partir d'ici, node->nb_fils >= 3 est garanti → tous les accès à node->fils+node->nb_fils-3 sont sûrs */
-        strcpy(ch,fenetre->perso.nom_fichier);
-        tmp1=ch-1;
-        for (tmp=ch;*tmp!=0;tmp++)
-        { /* isolé le nom du fichier de la chaîne complète */
-            if (*tmp==SEPARATEUR)
-            {
-                tmp1=tmp;
-            }
-            else
-            {
-            }
+    if (ooo!=NULL)
+    {
+        node=g_markup_dom_node (ooo,"office:text");
+        if (node->nb_fils < 3)
+        { /* Fichier groupe invalide : node->nb_fils doit être >= 3 pour accéder à node->fils+node->nb_fils-3 */
+            printf("Erreur dans le fichier %s\n",ch);
         }
-        modif_xml(g_markup_dom_nom (ooo,"nom","name"),tmp1+1);
-
-        if (fenetre->uri!=NULL)
-        {
-            for(nb=0;fenetre->uri[nb]!=NULL;nb++)
-            {
-                strncpy(ch,fenetre->uri[nb],LONG-1);
-                vol=0;
-                vd=-1;
-                clerc=0;
-                mag=0;
-                xml_ajoute_fin(node,"text:section");
-                copie_node(node->fils+node->nb_fils-1,node->fils+node->nb_fils-2);
-                copie_node(node->fils+node->nb_fils-2,node->fils+node->nb_fils-3);
-                pers=g_markup_dom_new(ch,NULL);
-                if (pers!=NULL && pers->nb_fils!=0)
+        else
+        { /* À partir d'ici, node->nb_fils >= 3 est garanti → tous les accès à node->fils+node->nb_fils-3 sont sûrs */
+            strcpy(ch,fenetre->perso.nom_fichier);
+            tmp1=ch-1;
+            for (tmp=ch;*tmp!=0;tmp++)
+            { /* isolé le nom du fichier de la chaîne complète */
+                if (*tmp==SEPARATEUR)
                 {
-                    tmp_node=g_markup_dom_node(pers,"version");
-                    if (tmp_node!=NULL && tmp_node->nb_texte!=0)
+                    tmp1=tmp;
+                }
+                else
+                {
+                }
+            }
+            modif_xml(g_markup_dom_nom (ooo,"nom","name"),tmp1+1);
+
+            if (fenetre->uri!=NULL)
+            {
+                for(nb=0;fenetre->uri[nb]!=NULL;nb++)
+                {
+                    strncpy(ch,fenetre->uri[nb],LONG-1);
+                    vol=0;
+                    vd=-1;
+                    clerc=0;
+                    mag=0;
+                    xml_ajoute_fin(node,"text:section");
+                    copie_node(node->fils+node->nb_fils-1,node->fils+node->nb_fils-2);
+                    copie_node(node->fils+node->nb_fils-2,node->fils+node->nb_fils-3);
+                    pers=g_markup_dom_new(ch,NULL);
+                    if (pers!=NULL && pers->nb_fils!=0)
                     {
-                        for (i=0;i<3;i++)
+                        tmp_node=g_markup_dom_node(pers,"version");
+                        if (tmp_node!=NULL && tmp_node->nb_texte!=0)
                         {
-                            if (strcmp(tmp_node->texte->texte,vers[i])==0)
+                            for (i=0;i<3;i++)
                             {
-                                version_=i;
-                            }
-                            else
-                            {
-                            }
-                        }
-                    }
-                    else
-                    {
-                        strncpy(aff,"Fichier ",LONG-1);
-                        strncat(aff,fenetre->uri[nb],LONG-1);
-                        strncat(aff," sans version",LONG-1);
-                        dialogue(aff,0);
-                    }
-                    for (i=0;i<8;i++)
-                    {
-                        tmp_node=g_markup_dom_nom(pers,nom_min[i],"name");
-                        if (tmp_node && tmp_node->nb_texte!=0)
-                        {
-                            modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,nom_min[i],"name"),tmp_node->texte->texte);
-                            switch(i)
-                            {
-                                case 0 : /* force */
-                                    if(strcmp(tmp_node->texte->texte,"18")==0)
-                                    {
-                                        tmp_node=g_markup_dom_nom(pers,"pourcentage","name");
-                                        if(strcmp(tmp_node->texte->texte,"00")!=0)
-                                        {
-                                            modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,"pourcentage","name"),tmp_node->texte->texte);
-                                        }
-                                    }
-                                    break;
-                                case 2 : /*sagesse */
-                                     sscanf(tmp_node->texte->texte,"%hu",&caract); /* bonus save */
-                                     modif_xml(g_markup_dom_nom (node->fils+node->nb_fils-3,"ssag","name"),tabl_sagesse[caract-1][0]);
-                                     break;
-                                case 3 : /* dexterité */
-                                     sscanf(tmp_node->texte->texte,"%hu",&caract); /* bonus save */
-                                     modif_xml(g_markup_dom_nom (node->fils+node->nb_fils-3,"sdext","name"),tabl_dexterite[version_][caract-1][0]);
-                                     break;
-                                default :
-                                     break;
+                                if (strcmp(tmp_node->texte->texte,vers[i])==0)
+                                {
+                                    version_=i;
+                                }
+                                else
+                                {
+                                }
                             }
                         }
                         else
                         {
                             strncpy(aff,"Fichier ",LONG-1);
                             strncat(aff,fenetre->uri[nb],LONG-1);
-                            strncat(aff," sans ",LONG-1);
-                            strncat(aff,nom_min[i],LONG-1);
+                            strncat(aff," sans version",LONG-1);
                             dialogue(aff,0);
                         }
+                        for (i=0;i<8;i++)
+                        {
+                            tmp_node=g_markup_dom_nom(pers,nom_min[i],"name");
+                            if (tmp_node && tmp_node->nb_texte!=0)
+                            {
+                                modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,nom_min[i],"name"),tmp_node->texte->texte);
+                                switch(i)
+                                {
+                                    case 0 : /* force */
+                                        if(strcmp(tmp_node->texte->texte,"18")==0)
+                                        {
+                                            tmp_node=g_markup_dom_nom(pers,"pourcentage","name");
+                                            if(strcmp(tmp_node->texte->texte,"00")!=0)
+                                            {
+                                                modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,"pourcentage","name"),tmp_node->texte->texte);
+                                            }
+                                        }
+                                        break;
+                                    case 2 : /*sagesse */
+                                         sscanf(tmp_node->texte->texte,"%hu",&caract); /* bonus save */
+                                         modif_xml(g_markup_dom_nom (node->fils+node->nb_fils-3,"ssag","name"),tabl_sagesse[caract-1][0]);
+                                         break;
+                                    case 3 : /* dexterité */
+                                         sscanf(tmp_node->texte->texte,"%hu",&caract); /* bonus save */
+                                         modif_xml(g_markup_dom_nom (node->fils+node->nb_fils-3,"sdext","name"),tabl_dexterite[version_][caract-1][0]);
+                                         break;
+                                    default :
+                                         break;
+                                }
+                            }
+                            else
+                            {
+                                strncpy(aff,"Fichier ",LONG-1);
+                                strncat(aff,fenetre->uri[nb],LONG-1);
+                                strncat(aff," sans ",LONG-1);
+                                strncat(aff,nom_min[i],LONG-1);
+                                dialogue(aff,0);
+                            }
 
-                        tmp_node=g_markup_dom_nom(pers,nom_fac_vol[i],"name");
+                            tmp_node=g_markup_dom_nom(pers,nom_fac_vol[i],"name");
+                            if (tmp_node!=NULL)
+                            {
+                                modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,nom_fac_vol[i],"name"),tmp_node->texte->texte);
+                                j=0;
+                                sscanf(tmp_node->texte->texte,"%hd",&j);
+                                vol+=j;
+                            }
+                            else
+                            {
+                                printf("Erreur pour la compétence de voleur : %s du fichier%s\n",nom_fac_vol[i],fenetre->uri[nb]);
+                            }
+                        }
+                        if (vol==0)
+                        {
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"voleur","name")); /* pas de talents de voleurs */
+                        }
+                        else
+                        { /* compétence de voleur : on ne supprime pas la ligne */
+                        }
+                        sscanf(g_markup_dom_nom(node->fils+node->nb_fils-3,"sagesse","name")->texte->texte,"%hd",&sage);
+                        sscanf(g_markup_dom_nom(node->fils+node->nb_fils-3,"intelligence","name")->texte->texte,"%hd",&inte);
+
+                        tmp_node=g_markup_dom_node(pers,"perso");
                         if (tmp_node!=NULL)
                         {
-                            modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,nom_fac_vol[i],"name"),tmp_node->texte->texte);
-                            j=0;
-                            sscanf(tmp_node->texte->texte,"%hd",&j);
-                            vol+=j;
-                        }
-                        else
-                        {
-                            printf("Erreur pour la compétence de voleur : %s du fichier%s\n",nom_fac_vol[i],fenetre->uri[nb]);
-                        }
-                    }
-                    if (vol==0)
-                    {
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"voleur","name")); /* pas de talents de voleurs */
-                    }
-                    else
-                    { /* compétence de voleur : on ne supprime pas la ligne */
-                    }
-                    sscanf(g_markup_dom_nom(node->fils+node->nb_fils-3,"sagesse","name")->texte->texte,"%hd",&sage);
-                    sscanf(g_markup_dom_nom(node->fils+node->nb_fils-3,"intelligence","name")->texte->texte,"%hd",&inte);
-
-                    tmp_node=g_markup_dom_node(pers,"perso");
-                    if (tmp_node!=NULL)
-                    {
-                        ch[0]=0;
-                        if (tmp_node->nb_texte>0 && tmp_node->texte->texte!=0)
-                        {
-                            strcpy(ch,tmp_node->texte->texte);
-                        }
-                        else
-                        { /* Pas de nom de personnage */
-                        }
-                        j=0;
-                        while(ch[j]!=0)
-                        {
-                             j++;
-                        }
-                        ch[j]=' ';
-                        j++;
-                        ch[j]=':';
-                        j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]=0;
-                    }
-                    tmp_node=g_markup_dom_node(pers,"profession");
-                    if (tmp_node!=NULL)
-                    {
-                        for (i=0;i<tmp_node->nb_fils;i++)
-                        {
-                            if (strcmp("p",tmp_node->fils[i].nom)==0)
+                            ch[0]=0;
+                            if (tmp_node->nb_texte>0 && tmp_node->texte->texte!=0)
                             {
-                                num_classe=classe_entier(tmp_node->fils[i].texte->texte);
-                                while(ch[j]!=0) j++;
-                                ch[j]=' ';
-                                j++;
-                                ch[j]=0;
-                                strcpy(ch+j,tmp_node->fils[i].texte->texte);
-                                while(ch[j]!=0) j++;
-                                ch[j]=':';
-                                j++;
-                                ch[j]=0;
-                                for(k=0;k<tmp_node->fils[i].nb_att;k++)
+                                strcpy(ch,tmp_node->texte->texte);
+                            }
+                            else
+                            { /* Pas de nom de personnage */
+                            }
+                            j=0;
+                            while(ch[j]!=0)
+                            {
+                                 j++;
+                            }
+                            ch[j]=' ';
+                            j++;
+                            ch[j]=':';
+                            j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]=0;
+                        }
+                        tmp_node=g_markup_dom_node(pers,"profession");
+                        if (tmp_node!=NULL)
+                        {
+                            for (i=0;i<tmp_node->nb_fils;i++)
+                            {
+                                if (strcmp("p",tmp_node->fils[i].nom)==0)
                                 {
-                                    if (strcmp(tmp_node->fils[i].attributs[k].nom,"niv")==0)
+                                    num_classe=classe_entier(tmp_node->fils[i].texte->texte);
+                                    while(ch[j]!=0) j++;
+                                    ch[j]=' ';
+                                    j++;
+                                    ch[j]=0;
+                                    strcpy(ch+j,tmp_node->fils[i].texte->texte);
+                                    while(ch[j]!=0) j++;
+                                    ch[j]=':';
+                                    j++;
+                                    ch[j]=0;
+                                    for(k=0;k<tmp_node->fils[i].nb_att;k++)
                                     {
-                                        strcpy(ch+j,tmp_node->fils[i].attributs[k].value);
-                                        k=0;
-                                        sscanf(tmp_node->fils[i].attributs[k].value,"%hd",&k);
-
-
-                                        if (((CLASSE[num_classe].add[ADD2].nom==NULL || version_==ADD1) && CLASSE[num_classe].add[ADD].vade_retro!=NON) || ((CLASSE[num_classe].add[ADD].nom==NULL || version_==ADD2) && CLASSE[num_classe].add[ADD2].vade_retro!=NON))
+                                        if (strcmp(tmp_node->fils[i].attributs[k].nom,"niv")==0)
                                         {
-                                            if (CLASSE[num_classe].add[ADD2].nom==NULL || version_==ADD1)
+                                            strcpy(ch+j,tmp_node->fils[i].attributs[k].value);
+                                            k=0;
+                                            sscanf(tmp_node->fils[i].attributs[k].value,"%hd",&k);
+
+
+                                            if (((CLASSE[num_classe].add[ADD2].nom==NULL || version_==ADD1) && CLASSE[num_classe].add[ADD].vade_retro!=NON) || ((CLASSE[num_classe].add[ADD].nom==NULL || version_==ADD2) && CLASSE[num_classe].add[ADD2].vade_retro!=NON))
                                             {
-                                                vd=max(vd,k+CLASSE[num_classe].add[ADD].vade_retro);
-                                            }
-                                            else
-                                            {
-                                                if   ( CLASSE[num_classe].add[ADD2].vade_retro!=99)
+                                                if (CLASSE[num_classe].add[ADD2].nom==NULL || version_==ADD1)
                                                 {
-                                                    vd=max(vd,k+ CLASSE[num_classe].add[ADD2].vade_retro);
+                                                    vd=max(vd,k+CLASSE[num_classe].add[ADD].vade_retro);
                                                 }
                                                 else
                                                 {
-                                                    tmp1_node=g_markup_dom_node(pers,"pantheon");
-                                                    if (tmp1_node!=NULL && tmp1_node->nb_texte>0)
+                                                    if   ( CLASSE[num_classe].add[ADD2].vade_retro!=99)
                                                     {
-                                                        pan=pantheon_entier(tmp1_node->texte[0].texte);
-                                                        tmp1_node=g_markup_dom_node(tmp1_node,"dieu");
-                                                        if (pan!=0 && tmp1_node!=NULL && tmp1_node->nb_texte>0)
+                                                        vd=max(vd,k+ CLASSE[num_classe].add[ADD2].vade_retro);
+                                                    }
+                                                    else
+                                                    {
+                                                        tmp1_node=g_markup_dom_node(pers,"pantheon");
+                                                        if (tmp1_node!=NULL && tmp1_node->nb_texte>0)
                                                         {
-                                                            die=dieu_entier(tmp1_node->texte[0].texte,pan);
-                                                            if (compare_sans_casse(PANTHEONS[pan].dieu[die].vd,"repousse")==0 || compare_sans_casse(PANTHEONS[pan].dieu[die].vd,"attire")==0 )
+                                                            pan=pantheon_entier(tmp1_node->texte[0].texte);
+                                                            tmp1_node=g_markup_dom_node(tmp1_node,"dieu");
+                                                            if (pan!=0 && tmp1_node!=NULL && tmp1_node->nb_texte>0)
                                                             {
-                                                                vd=max(vd,PANTHEONS[pan].dieu[die].vd_delta+k);
+                                                                die=dieu_entier(tmp1_node->texte[0].texte,pan);
+                                                                if (compare_sans_casse(PANTHEONS[pan].dieu[die].vd,"repousse")==0 || compare_sans_casse(PANTHEONS[pan].dieu[die].vd,"attire")==0 )
+                                                                {
+                                                                    vd=max(vd,PANTHEONS[pan].dieu[die].vd_delta+k);
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                printf("Dieu inconnu pour un prêtre\n");
                                                             }
                                                         }
                                                         else
                                                         {
-                                                            printf("Dieu inconnu pour un prêtre\n");
+                                                            printf("Surprise : erreur de panthéon pour un prêtre\n");
                                                         }
-                                                    }
-                                                    else
-                                                    {
-                                                        printf("Surprise : erreur de panthéon pour un prêtre\n");
                                                     }
                                                 }
                                             }
+                                            aff_nb_sort(node->fils+node->nb_fils-3,CLASSE+num_classe,&clerc,&mag,sage,inte,k,version_);
+                                            k=tmp_node->fils[i].nb_att; /* sortie de la boucle : on a trouvé le niveau */
                                         }
-                                        aff_nb_sort(node->fils+node->nb_fils-3,CLASSE+num_classe,&clerc,&mag,sage,inte,k,version_);
-                                        k=tmp_node->fils[i].nb_att; /* sortie de la boucle : on a trouvé le niveau */
                                     }
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        printf("Erreur pour les professions du fichier%s\n",fenetre->uri[nb]);
-                    }
-                    if (mag==0 && clerc==0)
-                    {
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"section_sorts","name"));
-                    }
-                    else if (mag==0)
-                    {
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_mag0","name"));
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_mag1","name"));
-                    }
-                    else if (clerc==0)
-                    {
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_clerc0","name"));
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_clerc1","name"));
-                    }
-                    else
-                    {
-                    }
-                    while(ch[j]!=0) j++;
-                    ch[j]=' ';
-                    j++;
-                    ch[j]='-';
-                    j++;
-                    ch[j]=' ';
-                    j++;
-                    ch[j]=0;
-                    tmp_node=g_markup_dom_node(pers,"race");
-                    if (tmp_node!=NULL)
-                    {
-                        strcpy(ch+j,tmp_node->texte[0].texte);
-                        while(ch[j]!=0) j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]='-';
-                        j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]=0;
-                    }
-                    else
-                    {
-                        printf("Erreur pour la race du fichier%s\n",fenetre->uri[nb]);
-                    }
-                    tmp_node=g_markup_dom_node(pers,"sexe");
-                    if (tmp_node!=NULL)
-                    {
-                        strcpy(ch+j,tmp_node->texte[0].texte);
-                        while(ch[j]!=0) j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]='-';
-                        j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]=0;
-                    }
-                    else
-                    {
-                        printf("Erreur pour le sexe du fichier%s\n",fenetre->uri[nb]);
-                    }
-                    tmp_node=g_markup_dom_node(pers,"poids");
-                    if (tmp_node!=NULL)
-                    {
-                        strcpy(ch+j,tmp_node->texte[0].texte);
-                        while(ch[j]!=0) j++;
-                        ch[j]='k';
-                        j++;
-                        ch[j]='g';
-                        j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]='-';
-                        j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]=0;
-                    }
-                    else
-                    {
-                        printf("Erreur pour le poids du fichier%s\n",fenetre->uri[nb]);
-                    }
-                    tmp_node=g_markup_dom_node(pers,"taille");
-                    if (tmp_node!=NULL)
-                    {
-                        strcpy(ch+j,tmp_node->texte[0].texte);
-                        while(ch[j]!=0) j++;
-                        ch[j]='c';
-                        j++;
-                        ch[j]='m';
-                        j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]='-';
-                        j++;
-                        ch[j]=' ';
-                        j++;
-                        ch[j]=0;
-                    }
-                    else
-                    {
-                        printf("Erreur pour la taille du fichier%s\n",fenetre->uri[nb]);
-                    }
-                    tmp_node=g_markup_dom_node(pers,"alignement");
-                    if (tmp_node!=NULL)
-                    {
-                        strcpy(ch+j,tmp_node->texte[0].texte);
-                    }
-                    else
-                    {
-                        printf("Erreur pour l'alignement du fichier%s\n",fenetre->uri[nb]);
-                    }
-                    modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,"nom","name"),ch); /* copie de la ligne complète */
-
-                    tmp_node=g_markup_dom_node(pers,"pdv");
-                    if (tmp_node!=NULL)
-                    {
-                        ch[0]=0;
-                        j=0;
-                        vol=0;
-                        for (i=0;i<tmp_node->nb_fils;i++)
+                        else
                         {
-                            if (i!=0)
-                            {
-                                ch[j]='+';
-                                j++;
-                                ch[j]=0;
-                            }
-                            strcpy(ch+j,tmp_node->fils[i].texte->texte);
-                            k=0;sscanf(tmp_node->fils[i].texte->texte,"%hd",&k);
-                            vol+=k;
-                            while(ch[j]!=0) j++;
+                            printf("Erreur pour les professions du fichier%s\n",fenetre->uri[nb]);
                         }
-                        ch[j]='=';
-                        j++;
-                        sprintf(ch+j,"%hd",vol);
-                        tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"pdv","name");
-                        modif_xml(tmp_node,ch);
-                    }
-                    else
-                    {
-                        printf("Erreur pour les PDV du fichier%s\n",fenetre->uri[nb]);
-                    }
-
-
-                    tmp_node=g_markup_dom_node(pers,"armes");
-                    if (tmp_node!=NULL)
-                    {
-                        tmp1_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"armes","name");
-                        if (tmp_node->nb_fils>0)
+                        if (mag==0 && clerc==0)
                         {
-                            tmp2_node=tmp1_node->fils+3;
-                            xml_ecrit_dernier_texte(tmp2_node->fils[0].fils,tmp_node->fils[0].texte->texte);
-                            xml_ecrit_dernier_texte(tmp2_node->fils[1].fils,tmp_node->fils[0].attributs[3].value);
-                            xml_ecrit_dernier_texte(tmp2_node->fils[2].fils,tmp_node->fils[0].attributs[2].value);
-                            if (tmp_node->nb_fils>1)
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"section_sorts","name"));
+                        }
+                        else if (mag==0)
+                        {
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_mag0","name"));
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_mag1","name"));
+                        }
+                        else if (clerc==0)
+                        {
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_clerc0","name"));
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"suppr_clerc1","name"));
+                        }
+                        else
+                        {
+                        }
+                        while(ch[j]!=0) j++;
+                        ch[j]=' ';
+                        j++;
+                        ch[j]='-';
+                        j++;
+                        ch[j]=' ';
+                        j++;
+                        ch[j]=0;
+                        tmp_node=g_markup_dom_node(pers,"race");
+                        if (tmp_node!=NULL)
+                        {
+                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            while(ch[j]!=0) j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]='-';
+                            j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]=0;
+                        }
+                        else
+                        {
+                            printf("Erreur pour la race du fichier%s\n",fenetre->uri[nb]);
+                        }
+                        tmp_node=g_markup_dom_node(pers,"sexe");
+                        if (tmp_node!=NULL)
+                        {
+                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            while(ch[j]!=0) j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]='-';
+                            j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]=0;
+                        }
+                        else
+                        {
+                            printf("Erreur pour le sexe du fichier%s\n",fenetre->uri[nb]);
+                        }
+                        tmp_node=g_markup_dom_node(pers,"poids");
+                        if (tmp_node!=NULL)
+                        {
+                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            while(ch[j]!=0) j++;
+                            ch[j]='k';
+                            j++;
+                            ch[j]='g';
+                            j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]='-';
+                            j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]=0;
+                        }
+                        else
+                        {
+                            printf("Erreur pour le poids du fichier%s\n",fenetre->uri[nb]);
+                        }
+                        tmp_node=g_markup_dom_node(pers,"taille");
+                        if (tmp_node!=NULL)
+                        {
+                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            while(ch[j]!=0) j++;
+                            ch[j]='c';
+                            j++;
+                            ch[j]='m';
+                            j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]='-';
+                            j++;
+                            ch[j]=' ';
+                            j++;
+                            ch[j]=0;
+                        }
+                        else
+                        {
+                            printf("Erreur pour la taille du fichier%s\n",fenetre->uri[nb]);
+                        }
+                        tmp_node=g_markup_dom_node(pers,"alignement");
+                        if (tmp_node!=NULL)
+                        {
+                            strcpy(ch+j,tmp_node->texte[0].texte);
+                        }
+                        else
+                        {
+                            printf("Erreur pour l'alignement du fichier%s\n",fenetre->uri[nb]);
+                        }
+                        modif_xml(g_markup_dom_nom(node->fils+node->nb_fils-3,"nom","name"),ch); /* copie de la ligne complète */
+
+                        tmp_node=g_markup_dom_node(pers,"pdv");
+                        if (tmp_node!=NULL)
+                        {
+                            ch[0]=0;
+                            j=0;
+                            vol=0;
+                            for (i=0;i<tmp_node->nb_fils;i++)
                             {
-                                tmp2_node=tmp1_node->fils+4;
-                                xml_ecrit_dernier_texte(tmp2_node->fils[0].fils,tmp_node->fils[1].texte->texte);
-                                xml_ecrit_dernier_texte(tmp2_node->fils[1].fils,tmp_node->fils[1].attributs[3].value);
-                                xml_ecrit_dernier_texte(tmp2_node->fils[2].fils,tmp_node->fils[1].attributs[2].value);
-                                if (tmp_node->nb_fils>2)
+                                if (i!=0)
                                 {
-                                    for(i=2;i<tmp_node->nb_fils;i++)
+                                    ch[j]='+';
+                                    j++;
+                                    ch[j]=0;
+                                }
+                                strcpy(ch+j,tmp_node->fils[i].texte->texte);
+                                k=0;sscanf(tmp_node->fils[i].texte->texte,"%hd",&k);
+                                vol+=k;
+                                while(ch[j]!=0) j++;
+                            }
+                            ch[j]='=';
+                            j++;
+                            sprintf(ch+j,"%hd",vol);
+                            tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"pdv","name");
+                            modif_xml(tmp_node,ch);
+                        }
+                        else
+                        {
+                            printf("Erreur pour les PDV du fichier%s\n",fenetre->uri[nb]);
+                        }
+
+
+                        tmp_node=g_markup_dom_node(pers,"armes");
+                        if (tmp_node!=NULL)
+                        {
+                            tmp1_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"armes","name");
+                            if (tmp_node->nb_fils>0)
+                            {
+                                tmp2_node=tmp1_node->fils+3;
+                                xml_ecrit_dernier_texte(tmp2_node->fils[0].fils,tmp_node->fils[0].texte->texte);
+                                xml_ecrit_dernier_texte(tmp2_node->fils[1].fils,tmp_node->fils[0].attributs[3].value);
+                                xml_ecrit_dernier_texte(tmp2_node->fils[2].fils,tmp_node->fils[0].attributs[2].value);
+                                if (tmp_node->nb_fils>1)
+                                {
+                                    tmp2_node=tmp1_node->fils+4;
+                                    xml_ecrit_dernier_texte(tmp2_node->fils[0].fils,tmp_node->fils[1].texte->texte);
+                                    xml_ecrit_dernier_texte(tmp2_node->fils[1].fils,tmp_node->fils[1].attributs[3].value);
+                                    xml_ecrit_dernier_texte(tmp2_node->fils[2].fils,tmp_node->fils[1].attributs[2].value);
+                                    if (tmp_node->nb_fils>2)
                                     {
-                                        xml_ajoute_fin(tmp1_node,"node");
-                                        tmp2_node=tmp1_node->fils+tmp1_node->nb_fils-2;
-                                        copie_node(tmp1_node->fils+tmp1_node->nb_fils-1,tmp2_node);
-                                        copie_node(tmp2_node,tmp1_node->fils+tmp1_node->nb_fils-3);
-                                        xml_ecrit_dernier_texte(tmp2_node->fils[0].fils,tmp_node->fils[i].texte->texte);
-                                        xml_ecrit_dernier_texte(tmp2_node->fils[1].fils,tmp_node->fils[i].attributs[3].value);
-                                        xml_ecrit_dernier_texte(tmp2_node->fils[2].fils,tmp_node->fils[i].attributs[2].value);
+                                        for(i=2;i<tmp_node->nb_fils;i++)
+                                        {
+                                            xml_ajoute_fin(tmp1_node,"node");
+                                            tmp2_node=tmp1_node->fils+tmp1_node->nb_fils-2;
+                                            copie_node(tmp1_node->fils+tmp1_node->nb_fils-1,tmp2_node);
+                                            copie_node(tmp2_node,tmp1_node->fils+tmp1_node->nb_fils-3);
+                                            xml_ecrit_dernier_texte(tmp2_node->fils[0].fils,tmp_node->fils[i].texte->texte);
+                                            xml_ecrit_dernier_texte(tmp2_node->fils[1].fils,tmp_node->fils[i].attributs[3].value);
+                                            xml_ecrit_dernier_texte(tmp2_node->fils[2].fils,tmp_node->fils[i].attributs[2].value);
+                                        }
                                     }
+                                    else
+                                    { /* pas besoin de rajouter une ligne pour les armes */
+                                    }
+                                }
+                                else if (tmp_node->nb_fils==1)
+                                {
+                                     supprime_node(tmp1_node,tmp1_node->nb_fils-2);
                                 }
                                 else
-                                { /* pas besoin de rajouter une ligne pour les armes */
+                                { /* pas d'arme */
                                 }
                             }
                             else if (tmp_node->nb_fils==1)
@@ -791,181 +801,178 @@ void feuille_groupe(FenetrePerso * fenetre)
                                  supprime_node(tmp1_node,tmp1_node->nb_fils-2);
                             }
                             else
-                            { /* pas d'arme */
+                            {
                             }
                         }
-                        else if (tmp_node->nb_fils==1)
+                        else
                         {
-                             supprime_node(tmp1_node,tmp1_node->nb_fils-2);
+                            printf("Erreur pour les armes du fichier%s\n",fenetre->uri[nb]);
+                        }
+
+                        tmp_node=g_markup_dom_node(pers,"armure1");
+                        chaine_groupe_armure(tmp_node,ch);
+                        if (*ch==0)
+                        {
+                            printf("Erreur pour l'armure1 du fichier%s\n",fenetre->uri[nb]);
                         }
                         else
                         {
+                            xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"armure1","name"),ch);
                         }
-                    }
-                    else
-                    {
-                        printf("Erreur pour les armes du fichier%s\n",fenetre->uri[nb]);
-                    }
 
-                    tmp_node=g_markup_dom_node(pers,"armure1");
-                    chaine_groupe_armure(tmp_node,ch);
-                    if (*ch==0)
-                    {
-                        printf("Erreur pour l'armure1 du fichier%s\n",fenetre->uri[nb]);
-                    }
-                    else
-                    {
-                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"armure1","name"),ch);
-                    }
-
-                    tmp_node=g_markup_dom_node(pers,"armure2");
-                    chaine_groupe_armure(tmp_node,ch);
-                    if (*ch==0)
-                    {
-                        printf("Erreur pour l'armure2 du fichier%s\n",fenetre->uri[nb]);
-                    }
-                    else
-                    {
-                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"armure2","name"),ch);
-                    }
-
-                    tmp_node=g_markup_dom_node(pers,"save");
-                    if (tmp_node!=NULL)
-                    {
-                        /* très mauvaise méthode non xml : les attributs sont obligatoirement dans cet ordre :( */
-                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"spmp","name"),tmp_node->attributs[0].value);
-                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"sbb","name"),tmp_node->attributs[1].value);
-                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"spp","name"),tmp_node->attributs[2].value);
-                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"ssor","name"),tmp_node->attributs[3].value);
-                        xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"ssou","name"),tmp_node->attributs[4].value);
-                    }
-                    else
-                    {
-                        printf("Erreur pour les saves du fichier%s\n",fenetre->uri[nb]);
-                    }
-
-                    if (vd>0)
-                    {
-                        vd=_min(vd,13);
-                        if (version_==ADD1)
+                        tmp_node=g_markup_dom_node(pers,"armure2");
+                        chaine_groupe_armure(tmp_node,ch);
+                        if (*ch==0)
                         {
-                            tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"liste_vd","name");
-                            for(i=0;i<13;i++)
-                                xml_ecrit_dernier_texte(tmp_node->fils[i].fils,vd_add1[i][vd-1]);
-                        }
-                        else if (version_==ADD2)
-                        {
-                            tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"liste_vd","name");
-                            for(i=0;i<13;i++)
-                                xml_ecrit_dernier_texte(tmp_node->fils[i].fils,vd_add2[i][vd-1]);
+                            printf("Erreur pour l'armure2 du fichier%s\n",fenetre->uri[nb]);
                         }
                         else
-                        { /* ni ADD1 ni ADD2 ??? */
-                            vd=0;
+                        {
+                            xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"armure2","name"),ch);
+                        }
+
+                        tmp_node=g_markup_dom_node(pers,"save");
+                        if (tmp_node!=NULL)
+                        {
+                            /* très mauvaise méthode non xml : les attributs sont obligatoirement dans cet ordre :( */
+                            xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"spmp","name"),tmp_node->attributs[0].value);
+                            xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"sbb","name"),tmp_node->attributs[1].value);
+                            xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"spp","name"),tmp_node->attributs[2].value);
+                            xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"ssor","name"),tmp_node->attributs[3].value);
+                            xml_ecrit_dernier_texte(g_markup_dom_nom(node->fils+node->nb_fils-3,"ssou","name"),tmp_node->attributs[4].value);
+                        }
+                        else
+                        {
+                            printf("Erreur pour les saves du fichier%s\n",fenetre->uri[nb]);
+                        }
+
+                        if (vd>0)
+                        {
+                            vd=_min(vd,13);
+                            if (version_==ADD1)
+                            {
+                                tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"liste_vd","name");
+                                for(i=0;i<13;i++)
+                                    xml_ecrit_dernier_texte(tmp_node->fils[i].fils,vd_add1[i][vd-1]);
+                            }
+                            else if (version_==ADD2)
+                            {
+                                tmp_node=g_markup_dom_nom(node->fils+node->nb_fils-3,"liste_vd","name");
+                                for(i=0;i<13;i++)
+                                    xml_ecrit_dernier_texte(tmp_node->fils[i].fils,vd_add2[i][vd-1]);
+                            }
+                            else
+                            { /* ni ADD1 ni ADD2 ??? */
+                                vd=0;
+                            }
+                        }
+                        if (vd<=0)
+                        {
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"vd0","name"));
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"vd1","name"));
+                            xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"VD","name"));
+                        }
+                        else
+                        { /* on avait rempli avant la table des vade-rétros */
                         }
                     }
-                    if (vd<=0)
-                    {
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"vd0","name"));
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"vd1","name"));
-                        xml_sup_node(g_markup_dom_nom(node->fils+node->nb_fils-3,"VD","name"));
-                    }
                     else
-                    { /* on avait rempli avant la table des vade-rétros */
+                    {
+                        strncpy(aff,"Fichier ",LONG-1);
+                        strncat(aff,ch,LONG-1);
+                        strncat(aff," vide",LONG-1);
+                        dialogue(aff,0);
                     }
+                    g_markup_dom_free(pers);
                 }
-                else
-                {
-                    strncpy(aff,"Fichier ",LONG-1);
-                    strncat(aff,ch,LONG-1);
-                    strncat(aff," vide",LONG-1);
-                    dialogue(aff,0);
-                }
-                g_markup_dom_free(pers);
+                xml_sup_node(node->fils+node->nb_fils-2); /* suppression de la node modèle */
             }
-            xml_sup_node(node->fils+node->nb_fils-2); /* suppression de la node modèle */
-        }
-        else
-        {
-            /* personne dans le groupe ! */
-        }
-        nom_de_fichier=NULL;
-        fichier=enregistre_tmp_xml(ooo,&nom_de_fichier);
-        tmp1=chemin_exe();
-        sprintf(affichage,"%s%cLibO%cgroupe.zip",tmp1,SEPARATEUR,SEPARATEUR);
-        strcpy(aff,fenetre->perso.nom_fichier);
-        if (compare_sans_casse(aff+strlen(aff)-4,".grp")==0)
-        {
-            i=strlen(aff)-4;
-        }
-        else
-        {
-            i=strlen(aff);
-        }
-        strcpy(aff+i,"_grp.odt");
-        copie_fichier(aff,affichage);
-        if (nom_de_fichier)
-        { /* cas Linux */
-            fclose(fichier);
-            fichier=g_fopen(nom_de_fichier,"r");
-        }
-        else
-        { /* cas windows */
-        }
-        f_zip=zip_open(aff,ZIP_CREATE,NULL);
-        n_zip=zip_source_filep(f_zip,fichier,0,0); /* récupération du fichier sous forme FILE * sans avoir à le copier sur le disque */
-        if (nom_de_fichier)
-        { /* cas linux */
-            fclose(fichier);
-            g_free(nom_de_fichier);
+            else
+            {
+                /* personne dans le groupe ! */
+            }
             nom_de_fichier=NULL;
-        }
-        else
-        { /* cas windows */
-        }
-        zip_file_replace(f_zip,zip_name_locate(f_zip,"content.xml",ZIP_FL_NOCASE) ,n_zip,ZIP_FL_OVERWRITE);
-        zip_close(f_zip);
-        //fclose(fichier);
+            fichier=enregistre_tmp_xml(ooo,&nom_de_fichier);
+            tmp1=chemin_exe();
+            sprintf(affichage,"%s%cLibO%cgroupe.zip",tmp1,SEPARATEUR,SEPARATEUR);
+            strcpy(aff,fenetre->perso.nom_fichier);
+            if (compare_sans_casse(aff+strlen(aff)-4,".grp")==0)
+            {
+                i=strlen(aff)-4;
+            }
+            else
+            {
+                i=strlen(aff);
+            }
+            strcpy(aff+i,"_grp.odt");
+            copie_fichier(aff,affichage);
+            if (nom_de_fichier)
+            { /* cas Linux */
+                fclose(fichier);
+                fichier=g_fopen(nom_de_fichier,"r");
+            }
+            else
+            { /* cas windows */
+            }
+            f_zip=zip_open(aff,ZIP_CREATE,NULL);
+            n_zip=zip_source_filep(f_zip,fichier,0,0); /* récupération du fichier sous forme FILE * sans avoir à le copier sur le disque */
+            if (nom_de_fichier)
+            { /* cas linux */
+                fclose(fichier);
+                g_free(nom_de_fichier);
+                nom_de_fichier=NULL;
+            }
+            else
+            { /* cas windows */
+            }
+            zip_file_replace(f_zip,zip_name_locate(f_zip,"content.xml",ZIP_FL_NOCASE) ,n_zip,ZIP_FL_OVERWRITE);
+            zip_close(f_zip);
+            //fclose(fichier);
 
-        while (echange_node(g_markup_dom_nom (ooo,"case_dexterite","name"),g_markup_dom_nom (ooo,"case_intelligence","name")))
-        { /* passage à l'ordre de ADD2 */
-            echange_node(g_markup_dom_nom (ooo,"case_constitution","name"),g_markup_dom_nom (ooo,"case_sagesse","name"));
-            echange_node(g_markup_dom_nom (ooo,"case_petrification","name"),g_markup_dom_nom (ooo,"case_baguette","name"));
-            xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_dexterite","name"),"name","f_case_dexterite");
-            xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_intelligence","name"),"name","f_case_intelligence");
-            xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_constitution","name"),"name","f_case_constitution");
-            xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_sagesse","name"),"name","f_case_sagesse");
-            xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_petrification","name"),"name","f_case_petrification");
-            xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_baguette","name"),"name","f_case_baguette");
-        }
-        fichier=enregistre_tmp_xml(ooo,&nom_de_fichier);
-        strcpy(aff+i,"_grp_add2.odt");
-        copie_fichier(aff,affichage);
-        if (nom_de_fichier)
-        { /* cas linux */
-            fclose(fichier);
-            fichier=g_fopen(nom_de_fichier,"r");
-        }
-        else
-        { /* cas windows */
-        }
-        f_zip=zip_open(aff,ZIP_CREATE,NULL);
-        n_zip=zip_source_filep(f_zip,fichier,0,0); /* récupération du fichier sous forme FILE * sans avoir à le copier sur le disque */
-        if (nom_de_fichier)
-        {   /* cas linux */
-            fclose(fichier);
-            g_free(nom_de_fichier);
-            nom_de_fichier=NULL;
-        }
-        else
-        { /* cas windows*/
-        }
-        zip_file_replace(f_zip,zip_name_locate(f_zip,"content.xml",ZIP_FL_NOCASE) ,n_zip,ZIP_FL_OVERWRITE);
-        zip_close(f_zip);
+            while (echange_node(g_markup_dom_nom (ooo,"case_dexterite","name"),g_markup_dom_nom (ooo,"case_intelligence","name")))
+            { /* passage à l'ordre de ADD2 */
+                echange_node(g_markup_dom_nom (ooo,"case_constitution","name"),g_markup_dom_nom (ooo,"case_sagesse","name"));
+                echange_node(g_markup_dom_nom (ooo,"case_petrification","name"),g_markup_dom_nom (ooo,"case_baguette","name"));
+                xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_dexterite","name"),"name","f_case_dexterite");
+                xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_intelligence","name"),"name","f_case_intelligence");
+                xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_constitution","name"),"name","f_case_constitution");
+                xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_sagesse","name"),"name","f_case_sagesse");
+                xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_petrification","name"),"name","f_case_petrification");
+                xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_baguette","name"),"name","f_case_baguette");
+            }
+            fichier=enregistre_tmp_xml(ooo,&nom_de_fichier);
+            strcpy(aff+i,"_grp_add2.odt");
+            copie_fichier(aff,affichage);
+            if (nom_de_fichier)
+            { /* cas linux */
+                fclose(fichier);
+                fichier=g_fopen(nom_de_fichier,"r");
+            }
+            else
+            { /* cas windows */
+            }
+            f_zip=zip_open(aff,ZIP_CREATE,NULL);
+            n_zip=zip_source_filep(f_zip,fichier,0,0); /* récupération du fichier sous forme FILE * sans avoir à le copier sur le disque */
+            if (nom_de_fichier)
+            {   /* cas linux */
+                fclose(fichier);
+                g_free(nom_de_fichier);
+                nom_de_fichier=NULL;
+            }
+            else
+            { /* cas windows*/
+            }
+            zip_file_replace(f_zip,zip_name_locate(f_zip,"content.xml",ZIP_FL_NOCASE) ,n_zip,ZIP_FL_OVERWRITE);
+            zip_close(f_zip);
 
-        g_free(tmp1);
-    } /* fin du else : le fichier est le bon */
-    g_markup_dom_free(ooo);
+            g_free(tmp1);
+        } /* fin du else : le fichier est le bon */
+        g_markup_dom_free(ooo);
+    }
+    else
+    {
+        printf("Installation du logiciel à refaire. Le fichier %s a disparu.\n",ch);
+    }
 }
 
 void callback_suppr_perso_groupe(GtkButton *button, perso_groupe * p_gr)
