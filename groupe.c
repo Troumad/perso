@@ -873,7 +873,6 @@ void feuille_groupe(FenetrePerso * fenetre)
                     else
                     { /* on avait rempli avant la table des vade-rétros */
                     }
-                    g_markup_dom_free(pers);
                 }
                 else
                 {
@@ -882,6 +881,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                     strncat(aff," vide",LONG-1);
                     dialogue(aff,0);
                 }
+                g_markup_dom_free(pers);
             }
             xml_sup_node(node->fils+node->nb_fils-2); /* suppression de la node modèle */
         }
