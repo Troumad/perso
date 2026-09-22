@@ -1125,7 +1125,7 @@ void nouveau_groupe(GtkWidget *ChildWidget, FenetrePerso * _perso_appel)
     fp = g_fopen(nom_de_fichier, "rb");
     if (fp!=NULL) /* Le fichier existe déjà */
     {
-        fclose(fp);
+        fclose(fp); /* Le fclose(fp) est déjà protégé par le if (fp!=NULL) juste au-dessus => g_flose inutile */
         sprintf(ch,"Écraser le fichier\n%s",nom_de_fichier);
         p_dialog = gtk_message_dialog_new (NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_QUESTION,GTK_BUTTONS_YES_NO,"%s",ch);
         switch(gtk_dialog_run(GTK_DIALOG(p_dialog)))

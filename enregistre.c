@@ -38,8 +38,8 @@ void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch); /* Gestion des
 
 void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch1)
 {     /* avec gestion des sauts de ligne dans un texte */
-    char * ch0=g_strdup(ch1); /* mémoriser pour effacer à la fin */
-    char * ch=ch0; /* le début de ce qu'il reste à afficher */
+    char * ch0; /* mémoriser pour effacer à la fin */
+    char * ch; /* le début de ce qu'il reste à afficher */
     char * pt=ch; /* pointe sur le caractère traité */
 
     if (!(*ch))
@@ -47,6 +47,8 @@ void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch1)
     }
     else
     {
+        ch0=g_strdup(ch1);
+        ch=ch0;
         while (* pt)
         {
             if (*pt=='\n')
@@ -535,8 +537,6 @@ void enregistre_perso_sous(GtkWidget *ChildWidget, FenetrePerso * _perso)
         {
             case GTK_RESPONSE_NO:
                 gtk_widget_destroy(p_dialog);
-                g_free(nom_de_fichier);
-                nom_de_fichier=NULL;
                 break; /* on sort du programme */
             default :
                 gtk_widget_destroy(p_dialog);
@@ -588,7 +588,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
     signed short * arme=_perso->perso.arme;
     signed short * competence=_perso->perso.competence;
     struct_classe * _classe=CLASSE;
-    char ch[LONG],aff[LONG],affichage[LONG], * chemin, * tmp1, * nom_de_fichier;
+    char ch[LONG],aff[LONG],affichage[LONG], * chemin=NULL, * tmp1=NULL, * nom_de_fichier=NULL;
     FILE * fichier;
     GMarkupDomNode * ooo,* tmp_node, *tmp1_node,* node;
     signed short bonus=0,taco=20,taco_lan,spmp=20,spp=20,sbb=20,ssou=20,ssor=20,nm=-5,bt=1,taco_tmp=20,bt_tmp=1;
@@ -597,7 +597,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
     char actu_xp[LONG]={0};
     char bonus_xp[LONG]={0};
     char ch_tmp[16];
-    char ** save_race;
+    char ** save_race=NULL;
     unsigned short car;
     float coef;
     signed short vdr=0;
@@ -2090,7 +2090,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                         sprintf(affichage,"%hd",j);
                         sprintf(aff,"taco_a%hu",i+1);
                         modif_xml(g_markup_dom_nom (ooo,aff,"name"),affichage);
-                        taco_a=realloc(taco_a,(i+1)*sizeof(signed short));
+                        taco_a=g_realloc(taco_a,(i+1)*sizeof(signed short));
                         taco_a[i]=j;
 
                         sprintf(aff,"bd_f_a%hu",i+1);
@@ -2113,7 +2113,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                         sprintf(aff,"bd_t_a%hu",i+1);
                         sprintf(affichage,"%+hd",k+_perso->perso.mag_arme[i]+_perso->perso.arme_autre_d[i]);
                         modif_xml(g_markup_dom_nom (ooo,aff,"name"),affichage);
-                        degat_a=realloc(degat_a,(i+1)*sizeof(signed short));
+                        degat_a=g_realloc(degat_a,(i+1)*sizeof(signed short));
                         degat_a[i]=k+_perso->perso.mag_arme[i];
 
                         /* CAP-CR : éviter les calculs avec les armes non complètement remplies ou les armes de jet */
@@ -2284,9 +2284,9 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     }
                     else
                     {
-                        degat_a=realloc(degat_a,(i+1)*sizeof(signed short));
+                        degat_a=g_realloc(degat_a,(i+1)*sizeof(signed short));
                         degat_a[i]=0;
-                        taco_a=realloc(taco_a,(i+1)*sizeof(signed short));
+                        taco_a=g_realloc(taco_a,(i+1)*sizeof(signed short));
                         taco_a[i]=0;
                         if (ARME[arme[i]].groupe==2)
                         {
@@ -3151,9 +3151,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
          }
          g_fprintf(fichier," </origines>\n");
          g_fprintf(fichier,"</document>\n");
-         g_free(taco_a);
-         g_free(degat_a);
-        fclose(fichier);
+         g_fclose(fichier);
         _perso->d_r=0;
      }
      else
@@ -3162,6 +3160,8 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
             strncat(ch , _perso->perso.nom_fichier,LONG-1);
             dialogue(ch,0);
      }
+     g_free(taco_a);
+     g_free(degat_a);
      /* FIN DE LA SAUVEGARDE DU FICHIER .PERS */
     }
     else
