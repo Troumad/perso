@@ -277,15 +277,7 @@ pant * genere_pantheon(char * fichier)
                     if (ok==1) /* on veut modifier ce dieu */
                     {
                       /* vider le dieu dieu pour y mettre le nouveau dieu */
-                      g_free(pantheons[pan].dieu[dieu].nom);
-                      pantheons[pan].dieu[dieu].nom=NULL;
-                      pantheons[pan].dieu[dieu].alignement=0;
-                      g_free(pantheons[pan].dieu[dieu].vd);
-                      pantheons[pan].dieu[dieu].vd=NULL;
-                      g_free(pantheons[pan].dieu[dieu].symbole);
-                      pantheons[pan].dieu[dieu].symbole=NULL;
-                      g_free(pantheons[pan].dieu[dieu].commentaire);
-                      pantheons[pan].dieu[dieu].commentaire=NULL;
+                      libere_dieu(pantheons[pan].dieu+dieu);
 
                       if (nodep->fils[j].nb_texte>0)
                       {
@@ -694,6 +686,7 @@ void Suppr_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
             sprintf(ch,"Vous allez supprimer\nle dieu %s\ndu panthéon %s.\nÊtes-bien d'accord ?",pantheons[panth].dieu[dieu].nom,pantheons[panth].nom);
             if (demande_oui_non(ch)==1)
             {
+                libere_dieu(pantheons[panth].dieu+dieu);
                 for (j=dieu;pantheons[panth].dieu[j].nom!=NULL;j++)
                 {
                     pantheons[panth].dieu[j]=pantheons[panth].dieu[j+1];
@@ -712,12 +705,18 @@ void Suppr_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
         }
     }
     else
-    { /* il n'y a pas de dieu à supprimer à supprimer */
+    { /* il n'y a pas de dieu à supprimer */
         if (panth!=-1)
         { /* mais il peut il avoir un dieu */
             sprintf(ch,"Voulez-vous supprimer\nle panthéon %s qui est vide ?",pantheons[panth].nom);
             if (demande_oui_non(ch)==1)
             {
+                for (j=0;pantheons[panth].dieu[j].nom!=NULL;j++) /* vide : ne fait rien, */
+                {                                               /* par sécurité      */
+                    libere_dieu(pantheons[panth].dieu+j);
+                }
+                g_free(pantheons[panth].dieu);
+                g_free(pantheons[panth].nom);
                 for (j=panth;pantheons[j].nom!=NULL;j++)
                 {
                     pantheons[j]=pantheons[j+1];
@@ -1079,8 +1078,7 @@ void lit_dieu(dieux * dieu,struct widgets * widgets)
     GList * gl1=NULL, *gl=NULL;
     char ch[LONG], *s=NULL;
 
-    dieu->majeure=0;
-    dieu->mineure=0;
+    libere_dieu(dieu);
     grille = GTK_GRID((gtk_builder_get_object(widgets->builder,"Grille_Sphere")));
     gl1=gtk_container_get_children (GTK_CONTAINER(grille));
     for (gl=gl1; gl != NULL; gl = g_list_next(gl))
@@ -1104,10 +1102,8 @@ void lit_dieu(dieux * dieu,struct widgets * widgets)
     }
     g_list_free(gl1);
     dieu->nom=g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Dieu")))));
-    dieu->ori=PERSONNEL;
 
     strcpy(ch,"Al_");
-    dieu->alignement=0;
     for(i=0;i<9;i++)
     {
         strcat(ch,algnm[i]);
