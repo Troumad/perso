@@ -17,6 +17,8 @@ void Suppr_dieu (GtkWidget *ChildWidget , struct widgets * _widgets);
 void Appli_dieu (GtkWidget *ChildWidget , struct widgets * _widgets);
 void lit_dieu(dieux * dieu,struct widgets * widgets);
 void Aff_liste_pan(struct widgets *widgets,unsigned short num_pan);
+void init_dieu(dieux * dieu);
+void libere_dieu(dieux * dieu);
 void annuler_sphere(GtkWidget *ChildWidget, struct widgets *widgets);
 void finir_dieu(GtkWidget *ChildWidget, struct widgets *widgets);
 signed short dieu_alignement(GMarkupDomNode * node);
@@ -159,11 +161,7 @@ pant * genere_pantheon(char * fichier)
 
 
             }
-            pantheons[i].dieu[j].nom=NULL; /* on marque la fin par un nom NULL */
-            pantheons[i].dieu[j].alignement=0;
-            pantheons[i].dieu[j].vd=NULL;
-            pantheons[i].dieu[j].symbole=NULL;
-            pantheons[i].dieu[j].commentaire=NULL;
+            init_dieu(pantheons[i].dieu+j);
         }
         pantheons[i].nom=NULL; /* on marque la fin par un nom NULL */
         pantheons[i].dieu=NULL;
@@ -198,12 +196,7 @@ pant * genere_pantheon(char * fichier)
                   /* ne pas faire g_free(pantheons[pan].nom); ne pas vider cette mémoire car elle est pour le panthéon suivant */
                   pantheons[pan].nom=NULL;
                   pantheons[pan].dieu=(dieux *)g_malloc(sizeof(dieux)); /* on crée le premier dieu du panthéon pour dire que c'est le dernier : vide */
-                  pantheons[pan].dieu[0].nom=NULL;
-                  pantheons[pan].dieu[0].alignement=0;
-                  pantheons[pan].dieu[0].vd=NULL;
-                  pantheons[pan].dieu[0].symbole=NULL;
-                  pantheons[pan].dieu[0].commentaire=NULL;
-                  pantheons[pan].ori=PERSONNEL;
+                  init_dieu(pantheons[pan].dieu);
                   if (node->fils[i].nb_texte>0)
                   {
                       pantheons[pan].nom=g_strdup(node->fils[i].texte[0].texte);
@@ -634,22 +627,8 @@ void Appli_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
             pantheons[j].nom=_nom;
             pantheons[j].dieu=(dieux *)g_malloc(2*sizeof(dieux));
             pantheons[j].ori=PERSONNEL;
-            pantheons[j].dieu[0].nom=NULL;
-            pantheons[j].dieu[0].alignement=0;
-            pantheons[j].dieu[0].vd=NULL;
-            pantheons[j].dieu[0].symbole=NULL;
-            pantheons[j].dieu[0].commentaire=NULL;
-            pantheons[j].dieu[0].pc=NULL;
-            pantheons[j].dieu[0].pc_niv=NULL;
-            pantheons[j].dieu[0].pc_nb=0;
-            pantheons[j].dieu[1].nom=NULL;
-            pantheons[j].dieu[1].alignement=0;
-            pantheons[j].dieu[1].vd=NULL;
-            pantheons[j].dieu[1].symbole=NULL;
-            pantheons[j].dieu[1].commentaire=NULL;
-            pantheons[j].dieu[1].pc=NULL;
-            pantheons[j].dieu[1].pc_niv=NULL;
-            pantheons[j].dieu[1].pc_nb=0;
+            init_dieu(pantheons[j].dieu);
+            init_dieu(pantheons[j].dieu+1);
             lit_dieu(pantheons[j].dieu,widgets);
             Aff_liste_pan(widgets,j);
             Modif_Pan(ChildWidget,widgets,0);
@@ -665,14 +644,7 @@ void Appli_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
                 j--;
                 pantheons[panth].dieu[j+1]=pantheons[panth].dieu[j];
             }
-            pantheons[panth].dieu[j].nom=NULL;
-            pantheons[panth].dieu[j].alignement=0;
-            pantheons[panth].dieu[j].vd=NULL;
-            pantheons[panth].dieu[j].symbole=NULL;
-            pantheons[panth].dieu[j].commentaire=NULL;
-            pantheons[panth].dieu[j].pc=NULL;
-            pantheons[panth].dieu[j].pc_niv=NULL;
-            pantheons[panth].dieu[j].pc_nb=0;
+            init_dieu(pantheons[panth].dieu+j);
             lit_dieu(pantheons[panth].dieu+j,widgets);
             Modif_Pan(ChildWidget,widgets,j);
             g_free(_nom);
@@ -1067,14 +1039,45 @@ void ajuste_sphere(struct widgets *widgets,unsigned short etat)
     g_list_free(gl1);
 }
 
+void init_dieu(dieux * dieu)
+{
+    dieu->nom=NULL;
+    dieu->majeure=0;
+    dieu->mineure=0;
+    dieu->symbole=NULL;
+    dieu->commentaire=NULL;
+    dieu->vd=NULL;
+    dieu->vd_delta=0;
+    dieu->alignement=0;
+    dieu->ori=PERSONNEL;
+    dieu->pc_nb=0;
+    dieu->pc=NULL;
+    dieu->pc_niv=NULL;
+}
+
+void libere_dieu(dieux * dieu)
+{
+    unsigned short i;
+    for(i=0;i<dieu->pc_nb;i++)
+    {
+        g_free(dieu->pc[i]);
+    }
+    g_free(dieu->pc);
+    g_free(dieu->pc_niv);
+    g_free(dieu->nom);
+    g_free(dieu->vd);
+    g_free(dieu->symbole);
+    g_free(dieu->commentaire);
+    init_dieu(dieu);
+}
 
 void lit_dieu(dieux * dieu,struct widgets * widgets)
 {
     GtkGrid *grille=NULL;
-    GtkWidget * wid;
+    GtkWidget * wid+NULL;
     signed short i,j,k;
-    GList * gl1=NULL, *gl;
-    char ch[LONG], *s;
+    GList * gl1=NULL, *gl=NULL;
+    char ch[LONG], *s=NULL;
 
     dieu->majeure=0;
     dieu->mineure=0;
