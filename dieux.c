@@ -284,10 +284,14 @@ pant * genere_pantheon(char * fichier)
                     if (ok==1) /* on veut modifier ce dieu */
                     {
                       /* vider le dieu dieu pour y mettre le nouveau dieu */
+                      g_free(pantheons[pan].dieu[dieu].nom);
                       pantheons[pan].dieu[dieu].nom=NULL;
                       pantheons[pan].dieu[dieu].alignement=0;
+                      g_free(pantheons[pan].dieu[dieu].vd);
                       pantheons[pan].dieu[dieu].vd=NULL;
+                      g_free(pantheons[pan].dieu[dieu].symbole);
                       pantheons[pan].dieu[dieu].symbole=NULL;
+                      g_free(pantheons[pan].dieu[dieu].commentaire);
                       pantheons[pan].dieu[dieu].commentaire=NULL;
 
                       if (nodep->fils[j].nb_texte>0)
@@ -619,10 +623,10 @@ void Appli_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
         if (panth==-1) /* nouveau panthéon */
         {
             _nom=g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Pantheon")))));
-            for (j=1;pantheons[j].nom!=NULL;j++); /* chercher le dernier panthéon dans la liste */
-            pantheons=(pant *)g_realloc(pantheons,(j+2)*sizeof(pant));
-            pantheons[j+1]=pantheons[j];
-            while (compare_sans_casse(_nom,pantheons[j-1].nom)<0)
+            for (j=1;pantheons[j].nom!=NULL;j++);                       /* chercher le dernier panthéon dans la liste */
+            pantheons=(pant *)g_realloc(pantheons,(j+2)*sizeof(pant));  /* on commence la recherche à 1 car pantheon[0] est réservé pour le général */
+            pantheons[j+1]=pantheons[j];                                /* général : clerc, paladin... */
+            while (j>1 && compare_sans_casse(_nom,pantheons[j-1].nom)<0)
             {
                 j--;
                 pantheons[j+1]=pantheons[j];
@@ -656,7 +660,7 @@ void Appli_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
             for (j=1;pantheons[panth].dieu[j].nom!=NULL;j++); /* chercher le dernier dieu du panthéon dans la liste */
             pantheons[panth].dieu=(dieux *)g_realloc(pantheons[panth].dieu,(j+2)*sizeof(dieux));
             pantheons[panth].dieu[j+1]=pantheons[panth].dieu[j];
-            while (compare_sans_casse(_nom,pantheons[panth].dieu[j-1].nom)<0)
+            while (j>0 && compare_sans_casse(_nom,pantheons[panth].dieu[j-1].nom)<0)
             {
                 j--;
                 pantheons[panth].dieu[j+1]=pantheons[panth].dieu[j];
