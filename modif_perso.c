@@ -55,7 +55,6 @@ void modif_perso(GtkWidget * appel, FenetrePerso * _perso)
             gtk_window_set_title(GTK_WINDOW(gtk_builder_get_object(_perso->modif->builder,"window")),ch);
             /* origine */
 
-            /*_perso->origine=(char **)malloc(2*sizeof(char *));*/
             _perso->ori_add1_add2=_perso->perso.ori_add1_add2;
             wid_util=GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,"Boite_origine_add1"));
             for( k=0;k<2;k++)
@@ -402,7 +401,7 @@ void init_fichier_modif(GtkWidget *appel, FenetrePerso * _perso)
                 ajoute_ligne_classe(_perso,i,_perso->perso.classe[i],_perso->perso.niveau[i],_perso->perso.XP[i]);
             }
             g_free(_perso->classe_modif);
-            _perso->classe_modif=(signed short *)malloc((i+1)*sizeof(signed short));
+            _perso->classe_modif=(signed short *)g_malloc((i+1)*sizeof(signed short));
             _perso->classe_modif[i]=-1;
             while (i>0)
             {
@@ -1750,98 +1749,87 @@ void modif_perso_mag(GtkWidget *appel, FenetrePerso * _perso)
 
 void valid_perso_mag(FenetrePerso * _perso)
 {
-    signed short niv=_perso->mag-1,i,k,l;
+    signed short niv=_perso->mag-1,i,k;
     GtkWidget * wid_util=NULL, * wid=NULL;
     char _nom[LONG];
 
-            if (_perso->perso.livre_sorts==NULL)
-            {
-                _perso->perso.livre_sorts=(signed long **)g_malloc(9*sizeof(signed long *));
-                _perso->perso.sort_su=(signed short **)g_malloc(9*sizeof(signed short *));
-                for (i=0;i<9;i++)
-                {
-                    _perso->perso.livre_sorts[i]=NULL;
-                    _perso->perso.sort_su[i]=NULL;
-                }
+    if (_perso->perso.livre_sorts==NULL)
+    {
+        _perso->perso.livre_sorts=(signed long **)g_malloc(9*sizeof(signed long *));
+        _perso->perso.sort_su=(signed short **)g_malloc(9*sizeof(signed short *));
+        for (i=0;i<9;i++)
+        {
+            _perso->perso.livre_sorts[i]=NULL;
+            _perso->perso.sort_su[i]=NULL;
+        }
+    }
+    else
+    {
+        if (_perso->perso.livre_sorts[niv]!=NULL)
+        {
+            g_free(_perso->perso.sort_su[niv]);
+            g_free(_perso->perso.livre_sorts[niv]);
+            _perso->perso.sort_su[niv]=NULL;
+            _perso->perso.livre_sorts[niv]=NULL;
+        }
+        else
+        { /* livre de sort non initialisé : pas besoin de le vider */
+        }
+    }
+    wid_util=GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,"mag_grille"));
+    k=0;
+    for(i=0;i<NB_SORT_MAG[ADD2][niv];i++)
+    {
+        if (dans_source(SORTILEGE_MAG[ADD2][niv][i].source,_perso->perso.origine))
+        {
+            sprintf(_nom,"pas_livre_%hu_%lu",niv,SORTILEGE_MAG[ADD2][niv][i].clef);
+            wid=gtk_get_widget_by_name(GTK_CONTAINER(wid_util),_nom);
+            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wid)))
+            { /* sort pas dans le livre */
             }
             else
             {
-                if (_perso->perso.livre_sorts[niv]!=NULL)
+                _perso->perso.sort_su[niv]=(signed short *)g_realloc(_perso->perso.sort_su[niv],(k+2)*sizeof(unsigned short));
+                _perso->perso.livre_sorts[niv]=(signed long *)g_realloc(_perso->perso.livre_sorts[niv],(k+2)*sizeof(unsigned long));
+                sprintf(_nom,"compris_%hd_%ld",niv,SORTILEGE_MAG[ADD2][niv][i].clef);
+                _perso->perso.livre_sorts[niv][k]=SORTILEGE_MAG[ADD2][niv][i].clef;
+                if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gtk_get_widget_by_name(GTK_CONTAINER(wid_util),_nom)))) /* revoir */
                 {
-                    g_free(_perso->perso.sort_su[niv]);
-                    g_free(_perso->perso.livre_sorts[niv]);
-                    _perso->perso.sort_su[niv]=NULL;
-                    _perso->perso.livre_sorts[niv]=NULL;
+                    _perso->perso.sort_su[niv][k]=COMPRIS;
                 }
                 else
-                { /* livre de sort non initialisé : pas besoin de le vider */
+                {
+                    sprintf(_nom,"pas_compris_%hd_%ld",niv,SORTILEGE_MAG[ADD2][niv][i].clef);
+                    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gtk_get_widget_by_name(GTK_CONTAINER(wid_util),_nom))))
+                    {
+                        _perso->perso.sort_su[niv][k]=PAS_COMPRIS;
+                    }
+                    else
+                    {
+                        _perso->perso.sort_su[niv][k]=PAS_REGARDE;
+                    }
                 }
-            }
-            wid_util=GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,"mag_grille"));
-            k=0;
-            for(i=0;i<NB_SORT_MAG[ADD2][niv];i++)
-            if (dans_source(SORTILEGE_MAG[ADD2][niv][i].source,_perso->perso.origine))
-            {
-                sprintf(_nom,"pas_livre_%hu_%lu",niv,SORTILEGE_MAG[ADD2][niv][i].clef);
+                sprintf(_nom,"voyage_%hd_%lu",niv,SORTILEGE_MAG[ADD2][niv][i].clef);
                 wid=gtk_get_widget_by_name(GTK_CONTAINER(wid_util),_nom);
                 if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wid)))
-                { /* sort pas dans le livre */
+                { /* le sort est dans le livre de voyage */
                 }
                 else
                 {
-                    if (_perso->perso.livre_sorts==NULL)
-                    { /* il faut initialiser le livre de sorts */
-                        _perso->perso.livre_sorts=(signed long **)g_malloc(9*sizeof(signed long *));
-                        _perso->perso.sort_su=(signed short **)g_malloc(9*sizeof(signed short *));
-                        for(l=0;l<9;l++)
-                        {
-                            _perso->perso.sort_su[l]=NULL;
-                            _perso->perso.livre_sorts[l]=NULL;
-                        }
-                    }
-                    else
-                    { /* livre de sorts déjà initialisé */
-                    }
-                    _perso->perso.sort_su[niv]=(signed short *)g_realloc(_perso->perso.sort_su[niv],(k+2)*sizeof(unsigned short));
-                    _perso->perso.livre_sorts[niv]=(signed long *)g_realloc(_perso->perso.livre_sorts[niv],(k+2)*sizeof(unsigned long));
-                    sprintf(_nom,"compris_%hd_%ld",niv,SORTILEGE_MAG[ADD2][niv][i].clef);
-                    _perso->perso.livre_sorts[niv][k]=SORTILEGE_MAG[ADD2][niv][i].clef;
-                    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gtk_get_widget_by_name(GTK_CONTAINER(wid_util),_nom)))) /* revoir */
-                    {
-                        _perso->perso.sort_su[niv][k]=COMPRIS;
-                    }
-                    else
-                    {
-                        sprintf(_nom,"pas_compris_%hd_%ld",niv,SORTILEGE_MAG[ADD2][niv][i].clef);
-                        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gtk_get_widget_by_name(GTK_CONTAINER(wid_util),_nom))))
-                        {
-                            _perso->perso.sort_su[niv][k]=PAS_COMPRIS;
-                        }
-                        else
-                        {
-                            _perso->perso.sort_su[niv][k]=PAS_REGARDE;
-                        }
-                    }
-                    sprintf(_nom,"voyage_%hd_%lu",niv,SORTILEGE_MAG[ADD2][niv][i].clef);
-                    wid=gtk_get_widget_by_name(GTK_CONTAINER(wid_util),_nom);
-                    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wid)))
-                    { /* le sort est dans le livre de voyage */
-                    }
-                    else
-                    {
-                        _perso->perso.sort_su[niv][k]*=-1;
-                    }
-                    k++;
+                    _perso->perso.sort_su[niv][k]*=-1;
                 }
+                k++;
             }
-            if (_perso->perso.livre_sorts!=NULL  && _perso->perso.sort_su[niv]!=NULL)
-            {
-                _perso->perso.sort_su[niv][k]=0;
-                _perso->perso.livre_sorts[niv][k]=-1;
-            }
-            else
-            { /* pas encore de sorts ni de sort de ce niveau */
-            }
+        }
+    }
+    if (_perso->perso.livre_sorts!=NULL  && _perso->perso.sort_su[niv]!=NULL)
+    {
+        _perso->perso.sort_su[niv][k]=0;
+        _perso->perso.livre_sorts[niv][k]=-1;
+    }
+    else
+    { /* pas encore de sorts ni de sort de ce niveau */
+    }
 
 }
 
