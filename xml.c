@@ -438,33 +438,33 @@ GMarkupDomNode * g_markup_dom_node (GMarkupDomNode *node,const gchar * nom_val)
 /* public variables ========================================================= */
 GMarkupDomNode *g_markup_dom_new (const gchar *filename, GError **error)
 {
-  GMarkupParser markup_parser; /* http://library.gnome.org/devel/glib/stable/glib-Simple-XML-Subset-Parser.html#GMarkupParser */
-  GMarkupParseContext *markup_parse_context=NULL;
-  GMarkupDomNode * pere= (GMarkupDomNode *)g_malloc(sizeof(GMarkupDomNode));
+                  /* sort de la fonction si filename ne pointe pas sur une chaîne de caractères */
+  if (filename != NULL)
+  {
+   GMarkupParser markup_parser; /* http://library.gnome.org/devel/glib/stable/glib-Simple-XML-Subset-Parser.html#GMarkupParser */
+   GMarkupParseContext *markup_parse_context=NULL;
+   GMarkupDomNode * pere= (GMarkupDomNode *)g_malloc(sizeof(GMarkupDomNode));
    /* pere doit être alloué dynamiquement car il est utilisé par la fonction appelante */
    /* ce n'est pas le cas de context qui n'est utilisé que les fonctions appelées  */
-  GMarkupDomContext * context=(GMarkupDomContext *)g_malloc(sizeof(GMarkupDomContext));
+   GMarkupDomContext * context=(GMarkupDomContext *)g_malloc(sizeof(GMarkupDomContext));
 
-                  /* sort de la fonction si filename ne pointe pas sur une chaîne de caractères */
-  g_return_val_if_fail (filename != NULL, context->root);
+   pere->nom=NULL; /* initialisation de la racine du fichier xml */
+   pere->niveau=0;
+   pere->item=0;
+   pere->texte=NULL;
+   pere->nb_texte=0;
+   pere->attributs=NULL;
+   pere->nb_att=0;
+   pere->com=NULL;
+   pere->nb_com=0;
+   pere->parent=NULL;
+   pere->fils=NULL;
+   pere->nb_fils=0;
 
-  pere->nom=NULL; /* initialisation de la racine du fichier xml */
-  pere->niveau=0;
-  pere->item=0;
-  pere->texte=NULL;
-  pere->nb_texte=0;
-  pere->attributs=NULL;
-  pere->nb_att=0;
-  pere->com=NULL;
-  pere->nb_com=0;
-  pere->parent=NULL;
-  pere->fils=NULL;
-  pere->nb_fils=0;
-
-  context->item=0;
-  context->niveau=0;
-  context->current=pere;
-  context->root=pere;
+   context->item=0;
+   context->niveau=0;
+   context->current=pere;
+   context->root=pere;
 
            /* création du contexte : fonctions à appeler suivant la nature de l'élément traité */
 
@@ -478,24 +478,24 @@ GMarkupDomNode *g_markup_dom_new (const gchar *filename, GError **error)
                                                        context, NULL);
     /* http://library.gnome.org/devel/glib/stable/glib-Simple-XML-Subset-Parser.html#g-markup-parse-context-new */
     /* maintenant, on sait comment parcourir le fichier */
-  { /* ouverture du fichier */
-    gchar *text = NULL,*ch=NULL,*point=NULL;
-    gsize length = -1;
+   { /* ouverture du fichier */
+     gchar *text = NULL,*ch=NULL,*point=NULL;
+     gsize length = -1;
 
-    /* recherche de fichier libreoffice ou openoffice : touche personelle */
-    for (ch=(gchar *)filename;*ch!=0;ch++)
-    {
-        if (*ch==SEPARATEUR || *ch=='\\') point=NULL;
-        else if (*ch=='.') point=ch;
-    }
+     /* recherche de fichier libreoffice ou openoffice : touche personelle */
+     for (ch=(gchar *)filename;*ch!=0;ch++)
+     {
+         if (*ch==SEPARATEUR || *ch=='\\') point=NULL;
+         else if (*ch=='.') point=ch;
+     }
 
-    /* les fichiers repérés sont des .odt, .odc, .odp ou des .ods */
-    if (ch-point==4 && strncmp(point,".od",3)==0 && (point[3]=='t' || point[3]=='c' || point[3]=='p' || point[3]=='s') )
-    { /* ouverture avec décompression */
+     /* les fichiers repérés sont des .odt, .odc, .odp ou des .ods */
+     if (ch-point==4 && strncmp(point,".od",3)==0 && (point[3]=='t' || point[3]=='c' || point[3]=='p' || point[3]=='s') )
+     { /* ouverture avec décompression */
         text=content_libo((char *)filename,&length);
-    }
-    else
-    {
+     }
+     else
+     {
         if ( !g_file_get_contents (filename, &text, &length, error))
         {
             g_free(pere);
@@ -504,20 +504,25 @@ GMarkupDomNode *g_markup_dom_new (const gchar *filename, GError **error)
         else
         {  /* bien passé */
         }
-    }
+     }
 
-    /* passe tout le fichier filename dans la chaîne de caractères text dont la longueur sera dans lenght */
-    if (pere!=NULL && text != NULL) /* si on a récupéré le fichier */
-    {
+     /* passe tout le fichier filename dans la chaîne de caractères text dont la longueur sera dans lenght */
+     if (pere!=NULL && text != NULL) /* si on a récupéré le fichier */
+     {
         g_markup_parse_context_parse (markup_parse_context, text, length, error);  /* on lance le parsage du fichier xml */
         g_free (text), text = NULL;
-    }
+     }
 
-    g_free (markup_parse_context), markup_parse_context = NULL;
+     g_free (markup_parse_context), markup_parse_context = NULL;
+   }
+
+    g_free(context);
   }
-
-  g_free(context);
-  return pere;
+  else
+  {
+     pere=NULL;
+  }
+    return pere;
 }
 
 
@@ -567,6 +572,7 @@ void copie_node(GMarkupDomNode * arrive,GMarkupDomNode * modele)
 {
   guint i;
 
+printf("Passage par copie_node pour %s\n",modele->nom);
   if (modele != NULL && arrive!=NULL) /* les deux nodes existent */
   {
     if (arrive->nb_att>0)
@@ -627,11 +633,11 @@ void copie_node(GMarkupDomNode * arrive,GMarkupDomNode * modele)
     arrive->nb_com=modele->nb_com;
     if (arrive->nb_com>0)
     {
-         modele->com=(contenu *)g_malloc(modele->nb_com*sizeof(contenu));
+        arrive->com=(contenu *)g_malloc(modele->nb_com*sizeof(contenu));
     }
     else
     {
-         modele->com=NULL;
+        arrive->com=NULL;
     }
     for (i = 0; modele->nb_com>i; i++)
     {
@@ -746,18 +752,25 @@ void xml_ajoute_fin_texte(GMarkupDomNode * node) /* rajouter un élément texte 
 
 void xml_ecrit_dernier_texte(GMarkupDomNode * node,const char *ch)
 {                                                 /* remplace le dernier texte d'une node       */
-    if (node->nb_texte==0)                        /* vérifier s'il y a déjà un texte            */
+    if (node!=NULL)
     {
-      xml_ajoute_fin_texte(node);                  /* pour faire la place si besoin              */
-    }
-    else if (node->texte[node->nb_texte-1].texte!=NULL)
-    {
-      g_free(node->texte[node->nb_texte-1].texte); /* ou libérer la place si elle est déjà prise */
+        if (node->nb_texte==0)                        /* vérifier s'il y a déjà un texte            */
+        {
+          xml_ajoute_fin_texte(node);                  /* pour faire la place si besoin              */
+        }
+        else if (node->texte[node->nb_texte-1].texte!=NULL)
+        {
+          g_free(node->texte[node->nb_texte-1].texte); /* ou libérer la place si elle est déjà prise */
+        }
+        else
+        {
+        }
+        node->texte[node->nb_texte-1].texte=g_strdup(ch); /* copie du texte                         */
     }
     else
     {
+        printf("Impossible de rajouter le texte %s dans la node : elle est NULL.\nVoir fonction xml_ecrit_dernier_texte du fichier xml.c\n",ch);
     }
-    node->texte[node->nb_texte-1].texte=g_strdup(ch); /* copie du texte                         */
 }
 
 void xml_ajoute_fin_attribut(GMarkupDomNode * node) /* rajouter un élément attribut */
@@ -770,7 +783,7 @@ void xml_ajoute_fin_attribut(GMarkupDomNode * node) /* rajouter un élément att
 
 unsigned char xml_ecrit_dernier_attribut(GMarkupDomNode * node,char * nomm, char * val) /* remplace le dernier attribut : renvoie le nb d'attributs modifié */
 {
-    if (node==NULL || nomm==NULL || val==NULL) return 0; /* protection : au moins une valeur incohérente */
+    if (node==NULL || nomm==NULL || val==NULL || node->nb_att<1) return 0; /* protection : au moins une valeur incohérente */
     if (node->attributs[node->nb_att-1].nom!=NULL) g_free(node->attributs[node->nb_att-1].nom);     /* libère la place pouvant être occupée par le précédent nom                    */
     if (node->attributs[node->nb_att-1].value!=NULL) g_free(node->attributs[node->nb_att-1].value);   /* libère la place pouvant être occupée par la valeur de l'attribut précédent   */
     node->attributs[node->nb_att-1].nom=g_strdup(nomm);
@@ -845,10 +858,10 @@ void supprime_node(GMarkupDomNode * pere,guint i)          /* supprime la ième 
         pere->fils[j]=pere->fils[j+1];                     /* rappratrie le noeud suivant                                  */
         pere->fils[j].item--;                              /* décrémenter sa place                                         */
     }
-    for (i=0;i>pere->nb_texte;i++)                         /* parcourt des textes                                          */
+    for (i=0;i<pere->nb_texte;i++)                         /* parcourt des textes                                          */
         if (pere->texte[i].item>tmp)                       /* si le texte est après la place laissée libre                 */
             pere->texte[i].item--;                         /* décrémenter sa place                                         */
-    for (i=0;i>pere->nb_com;i++)                           /* parcourt des commentaires                                    */
+    for (i=0;i<pere->nb_com;i++)                           /* parcourt des commentaires                                    */
         if (pere->com[i].item>tmp)                         /* si le commentaire est après la place laissée libre           */
             pere->com[i].item--;                           /* décrémenter sa place                                         */
 }
@@ -874,13 +887,13 @@ GMarkupDomNode * ajoute_node(GMarkupDomNode * pere,guint i,char * texte)  /* ajo
         }
         tmp=pere->fils[i].item;                                /* tmp est l'indice de la nouvelle node                         */
         pere->nb_fils++;                                       /* la node mère aura un enfant de plus                          */
-        pere->fils=(GMarkupDomNode *)realloc(pere->fils,pere->nb_fils*sizeof(GMarkupDomNode)); /* place pour le nouveau        */
+        pere->fils=(GMarkupDomNode *)g_realloc(pere->fils,pere->nb_fils*sizeof(GMarkupDomNode)); /* place pour le nouveau        */
         for(j=pere->nb_fils-1;j>i;j--)
         {
-            pere->fils[j]=pere->fils[j-1];                     /* rappratrie le noeud suivant                                  */
+            pere->fils[j]=pere->fils[j-1];                     /* rapatrie le noeud suivant                                    */
             pere->fils[j].item++;                              /* incrémenter sa place                                         */
         }
-        for (j=0;j>pere->nb_texte;j++)                         /* parcours des textes                                          */
+        for (j=0;j<pere->nb_texte;j++)                         /* parcours des textes                                          */
         {
             if (pere->texte[j].item>tmp)                       /* si le texte est après la nouvelle place                      */
             {
@@ -888,16 +901,18 @@ GMarkupDomNode * ajoute_node(GMarkupDomNode * pere,guint i,char * texte)  /* ajo
             }
             else
             {
+                /* le texte est avant la nouvelle node : pas besoin de changer sa place */
             }
         }
-        for (j=0;j>pere->nb_com;j++)                           /* parcours des commentaires                                    */
+        for (j=0;j<pere->nb_com;j++)                           /* parcours des commentaires                                    */
         {
              if (pere->com[j].item>tmp)                        /* si le commentaire est après la nouvelle place                */
              {
-                  pere->com[j].item--;                         /* incrémenter sa place                                         */
+                  pere->com[j].item++;                         /* incrémenter sa place                                         */
              }
              else
              {
+                /* le commentaire est avant la nouvelle node : pas besoin de changer sa place */
              }
         }
         pere->fils[i].nom=g_strdup(texte);                     /* nom de la nouvelle node                                      */
