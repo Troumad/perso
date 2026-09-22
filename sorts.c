@@ -283,7 +283,7 @@ struct_sortileges *** lire_struct_sort(char *fichier,unsigned short nature) /* s
  }
 
  retour=(struct_sortileges ***)g_malloc(2*sizeof(struct_sortileges **));
- retour[ADD1]=NULL;
+ retour[ADD1]=NULL; /* pas utilisé pour le momment */
  retour[ADD2]=(struct_sortileges **)g_malloc(nb_niveau*sizeof(struct_sortileges *));
 
  nb_sort_=(unsigned short *)g_malloc(nb_niveau*sizeof(unsigned short));
@@ -593,8 +593,8 @@ struct_psi *** lire_struct_psi(char *fichier)
 { /* travail avec des variables globales qu'il initialise une fois pour toute */
      signed short j,x,y,z;
      unsigned short i=0,k,l=0;
-     GMarkupDomNode * node, *ooo, *ooo1;
-     char *c;
+     GMarkupDomNode * node=NULL, *ooo=NULL, *ooo1=NULL;
+     char *c=NULL;
      signed short discipline,science;
 
      if ((ooo1 = g_markup_dom_new (fichier, NULL)))
@@ -689,6 +689,7 @@ struct_psi *** lire_struct_psi(char *fichier)
                     { /* affichage de l'erreur */
                         printf("Lecture des psis : erreur pour le fichier psi.ods %s à la ligne %hu : discipline=%hu et science=%hu (fichier sorts.c)\n",c,i+3,discipline,science);
                         g_free(c);
+                        c=NULL;
                     }
                     else
                     {
@@ -2122,9 +2123,9 @@ void affiche_sort_pretre(char * pantheon,char * dieu,GMarkupDomNode * ooo,unsign
                         {
                             insere_ligne_pretre(node,sortileges[ADD2][niveau-1]+sort_,0);
                             sort_nb_sort_clerc_connu[niveau-1]++;
-                            liste_clerc[niveau-1]=(char **)realloc(liste_clerc[niveau-1],sort_nb_sort_clerc_connu[niveau-1]*sizeof(char *));
+                            liste_clerc[niveau-1]=(char **)g_realloc(liste_clerc[niveau-1],sort_nb_sort_clerc_connu[niveau-1]*sizeof(char *));
                             liste_clerc[niveau-1][sort_nb_sort_clerc_connu[niveau-1]-1]=sortileges[ADD2][niveau-1][sort_].nom;
-                            liste_clerc_id[niveau-1]=(signed long *)realloc(liste_clerc_id[niveau-1],sort_nb_sort_clerc_connu[niveau-1]*sizeof(signed long));
+                            liste_clerc_id[niveau-1]=(signed long *)g_realloc(liste_clerc_id[niveau-1],sort_nb_sort_clerc_connu[niveau-1]*sizeof(signed long));
                             liste_clerc_id[niveau-1][sort_nb_sort_clerc_connu[niveau-1]-1]=sortileges[ADD2][niveau-1][sort_].clef;
                         }
                         else
@@ -2143,9 +2144,9 @@ void affiche_sort_pretre(char * pantheon,char * dieu,GMarkupDomNode * ooo,unsign
                              {
                                 insere_ligne_pretre(node,sortileges[ADD2][niveau-1]+sort_,0);
                                 sort_nb_sort_clerc_connu[niveau-1]++;
-                                liste_clerc[niveau-1]=(char **)realloc(liste_clerc[niveau-1],sort_nb_sort_clerc_connu[niveau-1]*sizeof(char *));
+                                liste_clerc[niveau-1]=(char **)g_realloc(liste_clerc[niveau-1],sort_nb_sort_clerc_connu[niveau-1]*sizeof(char *));
                                 liste_clerc[niveau-1][sort_nb_sort_clerc_connu[niveau-1]-1]=sortileges[ADD2][niveau-1][sort_].nom;
-                                liste_clerc_id[niveau-1]=(signed long *)realloc(liste_clerc_id[niveau-1],sort_nb_sort_clerc_connu[niveau-1]*sizeof(signed long));
+                                liste_clerc_id[niveau-1]=(signed long *)g_realloc(liste_clerc_id[niveau-1],sort_nb_sort_clerc_connu[niveau-1]*sizeof(signed long));
                                 liste_clerc_id[niveau-1][sort_nb_sort_clerc_connu[niveau-1]-1]=sortileges[ADD2][niveau-1][sort_].clef;
                              }
                              else
@@ -2311,7 +2312,7 @@ void init_liste_sort()
         g_free(liste_clerc[i]);
         liste_clerc[i]=NULL;
         g_free(liste_clerc_id[i]);
-        liste_clerc_id[i]=0;
+        liste_clerc_id[i]=NULL;
         sort_nb_sort_clerc_connu[i]=0;
     }
 }
@@ -2326,7 +2327,7 @@ void init_liste_mag()
         g_free(liste_mag[i]);
         g_free(liste_mag_id[i]);
         liste_mag[i]=NULL;
-        liste_mag_id[i]=0;
+        liste_mag_id[i]=NULL;
         sort_nb_sort_mag_connu[i]=0;
     }
 }
