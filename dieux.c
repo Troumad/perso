@@ -226,7 +226,7 @@ pant * genere_pantheon(char * fichier)
                     if (pantheons[pan].dieu[dieu].nom==NULL || compare_sans_casse(pantheons[pan].dieu[dieu].nom,nodep->fils[j].texte[0].texte)!=0) /* le dieu n'existe pas encore */
                     {
                       nb_dieu++;
-                      pantheons[pan].dieu=realloc(pantheons[pan].dieu,(nb_dieu+1)*sizeof(dieux));
+                      pantheons[pan].dieu=g_realloc(pantheons[pan].dieu,(nb_dieu+1)*sizeof(dieux));
                       for (k=nb_dieu;k>dieu;k--) /* décallage des panthéons */
                         pantheons[pan].dieu[k]=pantheons[pan].dieu[k-1];
                       ok=1;
@@ -671,6 +671,7 @@ void Appli_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
             pantheons[panth].dieu[j].pc_nb=0;
             lit_dieu(pantheons[panth].dieu+j,widgets);
             Modif_Pan(ChildWidget,widgets,j);
+            g_free(_nom);
         }
         else /* modification d'un dieu existant */
         {
