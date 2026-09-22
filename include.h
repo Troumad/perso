@@ -355,7 +355,7 @@ typedef struct
   union
   {
 
-    signed char ** _1; /* dimention 1 : un max, dimension 2 le niveau max + les caract correspondantes */
+    signed char ** _1; /* dimension 1 : un max, dimension 2 le niveau max + les caract correspondantes */
     signed char _2[2]; /* case 1 le max, case 2 : option voir les DD2_NIV_MAX_ */
   };
 } struct_niv_classe;

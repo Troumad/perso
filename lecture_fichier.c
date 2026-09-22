@@ -3021,7 +3021,8 @@ struct_niv_classe * lecture_lim_racce_add2(GMarkupDomNode * node)
                               else
                               {
                                   /* chaine nulle => pas de limite */
-                                  sortie[i]._2[num_classe]=0;
+                                  sortie[num_classe]._2[0]=0;
+                                  sortie[num_classe]._2[1]=0; /* aussi par précaution */
                               }
                           }
                           num_classe=nb_classe; /* on force la sortie de la boucle */
