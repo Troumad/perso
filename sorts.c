@@ -2243,9 +2243,9 @@ unsigned short affiche_sort_mag(unsigned short niveau,FenetrePerso * _perso,GMar
                          { /* page sue */
                            pages++;
                            sort_nb_sort_mag_connu[niveau]++;
-                           liste_mag[niveau]=(char **)realloc(liste_mag[niveau],sort_nb_sort_mag_connu[niveau]*sizeof(char *));
+                           liste_mag[niveau]=(char **)g_realloc(liste_mag[niveau],sort_nb_sort_mag_connu[niveau]*sizeof(char *));
                            liste_mag[niveau][sort_nb_sort_mag_connu[niveau]-1]=sortileges_mag[ADD2][niveau][i].nom;
-                           liste_mag_id[niveau]=(signed long *)realloc(liste_mag_id[niveau],sort_nb_sort_mag_connu[niveau]*sizeof(signed long));
+                           liste_mag_id[niveau]=(signed long *)g_realloc(liste_mag_id[niveau],sort_nb_sort_mag_connu[niveau]*sizeof(signed long));
                            liste_mag_id[niveau][sort_nb_sort_mag_connu[niveau]-1]=sortileges_mag[ADD2][niveau][i].clef;
                          }
                          else
