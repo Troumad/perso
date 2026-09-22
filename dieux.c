@@ -1074,7 +1074,7 @@ void libere_dieu(dieux * dieu)
 void lit_dieu(dieux * dieu,struct widgets * widgets)
 {
     GtkGrid *grille=NULL;
-    GtkWidget * wid+NULL;
+    GtkWidget * wid=NULL;
     signed short i,j,k;
     GList * gl1=NULL, *gl=NULL;
     char ch[LONG], *s=NULL;
