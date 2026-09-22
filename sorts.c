@@ -190,7 +190,7 @@ signed short lire_sphere(char * fichier)
      {
      }
 
-     *sphere__=(struct_sphere **)malloc(2*sizeof(struct_sphere *));
+     *sphere__=(struct_sphere **)g_malloc(2*sizeof(struct_sphere *));
      (*sphere__)[ADD1]=NULL;
      (*sphere__)[ADD2]=NULL;
 
@@ -259,13 +259,13 @@ struct_sortileges *** lire_struct_sort(char *fichier,unsigned short nature) /* s
 
  if (nature==CLERC)
  {
-   nb_sort_clerc=(unsigned short **)malloc(2*sizeof(unsigned short *));
+   nb_sort_clerc=(unsigned short **)g_malloc(2*sizeof(unsigned short *));
    nb_sort_clerc[ADD1]=NULL;
    nb_sort_clerc[ADD2]=NULL;
  }
  else if (nature==MAGICIEN)
  {
-   nb_sort_mag=(unsigned short **)malloc(2*sizeof(unsigned short *));
+   nb_sort_mag=(unsigned short **)g_malloc(2*sizeof(unsigned short *));
    nb_sort_mag[ADD1]=NULL;
    nb_sort_mag[ADD2]=NULL;
  }

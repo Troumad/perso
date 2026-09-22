@@ -385,7 +385,7 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
                 {
                 }
             }
-            for(m=1;m<i;m++)
+            for(m=0;m<i;m++)
             {
                 g_free(pdv[m]);
             }
