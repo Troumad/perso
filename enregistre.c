@@ -40,7 +40,7 @@ void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch1)
 {     /* avec gestion des sauts de ligne dans un texte */
     char * ch0=g_strdup(ch1); /* mémoriser pour effacer à la fin */
     char * ch; /* le début de ce qu'il reste à afficher */
-    char * pt=ch; /* pointe sur le caractère traité */
+    char * pt; /* pointe sur le caractère traité */
 
     if (!(*ch0))
     { /* vide */
@@ -48,6 +48,7 @@ void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch1)
     else
     {
         ch=ch0;
+        pt=ch;
         while (* pt)
         {
             if (*pt=='\n')
