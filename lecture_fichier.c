@@ -775,8 +775,8 @@ void retourne_classe_version(struct cl_add * classe_add,GMarkupDomNode * node,un
         classe_add->sort_mago_ecole=ecole_id(feuille_lire_ligne(FEUILLE_SORT_M_S,node),&(classe_add->sort_mago_ecole_spe));
         classe_add->sort_clerc_sphere=feuille_lire_ligne(FEUILLE_SORT_C_S,node);
         feuille_lire_compt_spe(FEUILLE_COMP_C,node,classe_add->compt_spe);
-        classe_add->compt_spe[0]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_C,node); /* compétences particulière donnée à la classe */
-        classe_add->compt_spe[1]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_CP,node);
+        //classe_add->compt_spe[0]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_C,node); /* compétences particulière donnée à la classe */
+        //classe_add->compt_spe[1]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_CP,node);
         feuille_lire_competences(node,&(classe_add->liste_competences));
         classe_add->progression_competences[0]=feuille_lire_case_m(FEUILLE_COMP_I ,node,0);
         classe_add->progression_competences[1]=feuille_lire_case_m(FEUILLE_COMP_N ,node,0);
@@ -1002,7 +1002,7 @@ void feuille_lire_compt_spe(char * coordonnees,GMarkupDomNode * node, signed cha
                     compt_spe[1][c][2]=0;
                 }
             }
-            if (c==0)
+            if (c==0) /* sortie du for immédiate */
             {
                 compt_spe[0]=(signed char **)g_malloc(sizeof(gchar *));
                 compt_spe[1]=(signed char **)g_malloc(sizeof(gchar *));
@@ -1587,7 +1587,7 @@ void retourne_sort(struct_sort * sort_, char * fichier)
     strncpy(sort_->type,fichier+k,i-k); /* clerc, druide, mago ou druide */
     sort_->type[i-k]=0;
 
-    for (k=1;k<3;k++) /* pour une fois, les structures pour ADD1 et ADD2 sont semblables ! */
+    for (k=0;k<2;k++) /* pour une fois, les structures pour ADD1 et ADD2 sont semblables ! */
     {
         switch(k)
         {
@@ -1609,7 +1609,7 @@ void retourne_sort(struct_sort * sort_, char * fichier)
     }
     if (ooo)
     {
-        for (k=1;k<3;k++) /* pour une fois, les structures pour ADD1 et ADD2 sont semblables ! */
+        for (k=0;k<2;k++) /* pour une fois, les structures pour ADD1 et ADD2 sont semblables ! */
         {
             switch(k)
             {

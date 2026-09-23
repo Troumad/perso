@@ -148,7 +148,6 @@ signed short lire_sphere(char * fichier)
 {
  struct_sphere *** sphere__=NULL, ** sphere_=NULL;
  GMarkupDomNode * node=NULL, *ooo=NULL, *ooo1=NULL;
- ooo1 = g_markup_dom_new (fichier, NULL);
  char passe;
  unsigned short nature,i;
  signed short l;
@@ -238,8 +237,8 @@ signed short lire_sphere(char * fichier)
      }
  }
 
- return nb_ecole+nb_sphere;
-
+  g_markup_dom_free(ooo1);
+  return nb_ecole+nb_sphere;
 }
 
 
