@@ -405,7 +405,7 @@ pant * genere_pantheon(char * fichier)
         }
     }
 
-    if (pantheon!=NULL)
+    if (pantheons!=NULL)
     {
         for(nb_pantheons=pan;pantheons[nb_pantheons].nom!=NULL;nb_pantheons++);
     }
