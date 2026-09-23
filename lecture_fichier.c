@@ -1627,6 +1627,7 @@ void retourne_sort(struct_sort * sort_, char * fichier)
             {
              if ((tmp=lecture_case(FEUILLE_NOM,node)))
              {
+                g_free(etude->nom);
                 etude->nom=g_strdup(tmp); /* nom de la classe */
 
                 for(i=0;(info=donne_case_ij(1+i,0,node)) && info->nb_texte!=0;i++);
@@ -2050,6 +2051,7 @@ void retourne_psi(struct_psi_c * psi_, char * fichier)
     signed short i;
     char * ch;
     float reel;
+    char ** ligne;
 
     if ((ooo1 = g_markup_dom_new (fichier, NULL)))
     {
@@ -2067,10 +2069,18 @@ void retourne_psi(struct_psi_c * psi_, char * fichier)
                         psi_->add2.base[i]=donne_float_ij(1+i,2,ooo);
                         psi_->add2.bonus[i]=donne_float_ij(1+i,3,ooo);
                     }
-                    psi_->add2.debut.base=lire_caract(feuille_lire_ligne(FEUILLE_PSI_DB_BASE,ooo));
-                    psi_->add2.debut.bonus=lire_caract(feuille_lire_ligne(FEUILLE_PSI_DB_BONU,ooo));
-                    psi_->add2.niveau.base=lire_caract(feuille_lire_ligne(FEUILLE_PSI_NV_BASE,ooo));
-                    psi_->add2.niveau.bonus=lire_caract(feuille_lire_ligne(FEUILLE_PSI_NV_BONU,ooo));
+                    ligne=feuille_lire_ligne(FEUILLE_PSI_DB_BASE,ooo);
+                    psi_->add2.debut.base=lire_caract(ligne);
+                    g_strfreev(ligne);
+                    ligne=feuille_lire_ligne(FEUILLE_PSI_DB_BONU,ooo);
+                    psi_->add2.debut.bonus=lire_caract(ligne);
+                    g_strfreev(ligne);
+                    ligne=feuille_lire_ligne(FEUILLE_PSI_NV_BASE,ooo);
+                    psi_->add2.niveau.base=lire_caract(ligne);
+                    g_strfreev(ligne);
+                    ligne=feuille_lire_ligne(FEUILLE_PSI_NV_BONU,ooo);
+                    psi_->add2.niveau.bonus=lire_caract(ligne);
+                    g_strfreev(ligne);
                     reel=donne_float_ij(37,2,ooo);
                     i=0;
                     while (!isnan(reel))
