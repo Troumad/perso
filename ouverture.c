@@ -179,6 +179,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                 _perso->perso.nom=g_strdup("");
                                 _perso->perso.joueur=g_strdup("");
                                 _perso->perso.classe=(signed short *)g_malloc(sizeof(signed short));
+                                g_free(_perso->niv_classe_modif);
                                 _perso->niv_classe_modif=NULL;
                                 _perso->perso.niveau=(signed short *)g_malloc(sizeof(signed short));
                                 _perso->perso.XP=(unsigned long *)g_malloc(sizeof(unsigned long));
@@ -204,6 +205,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                 _perso->perso.niv_competence=(signed short *)g_malloc(sizeof(signed short));
                                 _perso->perso.competence[0]=-1;
                                 _perso->perso.niv_competence[0]=0;
+                                g_free(_perso->competence_modif);
                                 _perso->competence_modif=NULL;
 
                                 _perso->perso.arme=(signed short *)g_malloc(sizeof(signed short));
@@ -212,6 +214,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                 _perso->perso.arme_autre_t=(signed short *)g_malloc(sizeof(signed short));
                                 _perso->perso.arme_autre_d=(signed short *)g_malloc(sizeof(signed short));
                                 _perso->perso.arme[0]=-1;
+                                g_free(_perso->armes_modif);
                                 _perso->armes_modif=NULL;
                                 _perso->perso.niv_arme[0]=0;
                                 _perso->perso.mag_arme[0]=0;
@@ -296,6 +299,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                     _perso->perso.niveau[0]=0;
                                     _perso->perso.XP[0]=0;
                                 }
+                                g_free(_perso->niv_classe_modif);
                                 _perso->niv_classe_modif=NULL;
                                 noded=g_markup_dom_node(nodeo,"sexe");
                                 if (noded!=NULL && noded->nb_texte>0 && compare_sans_casse((char *)nom_sexe[0],noded->texte[0].texte)==0)
@@ -511,6 +515,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                     _perso->perso.competence[0]=-1;
                                     _perso->perso.niv_competence[0]=0;
                                 }
+                                g_free(_perso->competence_modif);
                                 _perso->competence_modif=NULL;
                                 noded=g_markup_dom_node(nodeo,"armes");
                                 if (noded!=NULL)
@@ -570,6 +575,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                     _perso->perso.arme_autre_t[0]=0;
                                     _perso->perso.arme_autre_d[0]=0;
                                 }
+                                g_free(_perso->armes_modif);
                                 _perso->armes_modif=NULL;
                                 noded=g_markup_dom_node(nodeo,"alignement");
                                 if (noded!=NULL)

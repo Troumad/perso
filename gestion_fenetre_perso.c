@@ -578,6 +578,7 @@ void init_fenetre_perso(FenetrePerso * _perso)
     _perso->resume=NULL;
     _perso->modif=NULL;
     _perso->uri=NULL;
+    _perso->origine=NULL;
     _perso->d_m=0;
     _perso->d_r=0;
     _perso->classe_modif=(signed short *)g_malloc(sizeof(unsigned short)); /* -1 pour le dernier */
@@ -638,6 +639,13 @@ void libere_fenetre_perso(FenetrePerso * f_p)
     g_free(f_p->armes_modif);
     g_free(f_p->competence_modif);
     g_free(f_p->niv_classe_modif);
+    if (f_p->origine!=NULL)
+    {
+        g_free(f_p->origine[0]);
+        g_free(f_p->origine[1]);
+        g_free(f_p->origine);
+        f_p->origine=NULL;
+    }
     libere_perso(&(f_p->perso));
 }
 
