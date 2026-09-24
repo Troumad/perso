@@ -404,6 +404,7 @@ struct ra_add
   char * var_taille[2];
   float poids[2];
   struct_niv_classe * niv;
+  char * pouvoir;
 };
 
 typedef struct

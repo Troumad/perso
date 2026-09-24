@@ -816,11 +816,14 @@
 		</text:p>
 		<text:p text:style-name="P4">
 			<draw:frame draw:style-name="fr2" draw:name="Cadre2" text:anchor-type="paragraph" svg:x="7.936cm" svg:y="0.034cm" svg:width="11.903cm" draw:z-index="2">
-				<draw:text-box>
+				<draw:text-box name="cadre_race">
 					<text:p text:style-name="P28">Vision :<text:span text:style-name="T1" name="vision">
 						</text:span>
 						<text:tab/>
 											Résistance :<text:span text:style-name="T1" name="resistance" />
+					</text:p>
+					<text:p text:style-name="P28" name="texte_pouvoir">
+											Pouvoir :<text:span text:style-name="T1" name="pouvoir" />
 					</text:p>
 					<text:p text:style-name="P28">
 						Détection :<text:span text:style-name="T1" name="detection" />

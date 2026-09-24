@@ -111,7 +111,7 @@ float donne_float_ij(unsigned long i, unsigned long j,GMarkupDomNode * ooo)
                         }
                     }
                     else
-                    { /* pas l'attribu recherché */
+                    { /* pas l'attribut recherché */
                     }
                 }
             }

@@ -699,14 +699,14 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                 strcat(ch,tabl_sagesse[18][9]);
                 for(i=19;i<caract[SAGESSE];i++)
                 {
-                    strcat(ch,", ");
+                    if (ch[0]!=0) strcat(ch,", ");
                     strcat(ch,tabl_sagesse[i][9]);
                 }
             }
 
             if (race->add[vers_race].resistance!=NULL)
             {
-                 strcat(ch," ,");
+                 if (ch[0]!=0) strcat(ch," ,");
                  strcat(ch,race->add[vers_race].resistance);
                  modif_xml(g_markup_dom_nom (ooo,"resistance","name"),ch);
             }
@@ -720,6 +720,14 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                 {
                     modif_xml(g_markup_dom_nom (ooo,"resistance","name"),ch);
                 }
+            }
+            if (race->add[vers_race].pouvoir!=NULL)
+            {
+                 modif_xml(g_markup_dom_nom (ooo,"pouvoir","name"),race->add[vers_race].pouvoir);
+            }
+            else
+            { /* pas de pouvoirs raciaux */
+                supprime_node(g_markup_dom_nom (ooo,"cadre_race","name"),1);
             }
             if (race->add[vers_race].vision!=NULL)
             {

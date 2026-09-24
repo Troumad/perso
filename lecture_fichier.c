@@ -28,6 +28,7 @@
 #define FEUILLE_VISION      "B17"
 #define FEUILLE_ECOUTE      "B18"
 #define FEUILLE_RESISTANCE  "B19"
+#define FEUILLE_POUVOIR     "B20"
 #define FEUILLE_BONUS_ARME  "B21"
 #define FEUILLE_SAVE_RACE   "B25"
 
@@ -2198,6 +2199,8 @@ void lecture_race(struct ra_add * race_v,GMarkupDomNode * node,unsigned short ve
     else                                                race_v->ecoute=NULL;
     if ((tmp=lecture_case(FEUILLE_RESISTANCE,node)))    race_v->resistance=g_strdup(tmp);
     else                                                race_v->resistance=NULL;
+    if ((tmp=lecture_case(FEUILLE_POUVOIR,node)))       race_v->pouvoir=g_strdup(tmp);
+    else                                                race_v->pouvoir=NULL;
     race_v->bonus_arme=feuille_lire_race_b_arme(FEUILLE_BONUS_ARME,node);
     feuille_lire_race_save(FEUILLE_SAVE_RACE,race_v->save,node);
     race_v->langue=feuille_lire_ligne(FEUILLE_LANGUE,node);
