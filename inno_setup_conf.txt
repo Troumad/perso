@@ -2,7 +2,7 @@
 #define MyAppPublisher "Troumad"
 #define MyAppURL "https://troumad.org"
 #define MyAppExeName "perso.exe"
-#define MyAppVersion "4.4.1.4"
+#define MyAppVersion "4.4.2.0"
 
 [Languages]
 Name: "french"; MessagesFile: "compiler:Languages\French.isl"

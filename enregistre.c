@@ -2673,7 +2673,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                 vdr=i; /*mémorisation du nombre de compétences sues */
             }
             else
-            { /* pas de competence */
+            { /* pas de compétence */
                 vdr=0;
             }
             if (classe!=NULL)
@@ -2802,7 +2802,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
          }
          else
          {
-             /* le fichier n'exite pas */
+             /* le fichier n'existe pas */
          }
          tmp1=chemin_exe();
          nom_de_fichier=NULL;
