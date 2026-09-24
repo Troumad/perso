@@ -514,7 +514,7 @@ GMarkupDomNode *g_markup_dom_new (const gchar *filename, GError **error)
         g_free (text), text = NULL;
      }
 
-     g_free (markup_parse_context), markup_parse_context = NULL;
+     g_markup_parse_context_free(markup_parse_context), markup_parse_context = NULL;
    }
 
     g_free(context);
