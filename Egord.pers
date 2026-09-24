@@ -1,0 +1,131 @@
+<document type="perso">
+ <caracteristique>
+  <c name="force">18</c>
+  <c name="intelligence">11</c>
+  <c name="sagesse">18</c>
+  <c name="dexterite">14</c>
+  <c name="constitution">18</c>
+  <c name="charisme">15</c>
+  <c name="beaute">13</c>
+  <c name="humour">10</c>
+  <c name="pourcentage">91</c>
+ </caracteristique>
+ <race>Demi-Orc</race>
+ <sexe>Féminin</sexe>
+ <version>ADD2</version>
+ <profession>
+ <p niv="6" xp="33500">Clerc</p>
+ <p niv="5" xp="33500">Rôdeur</p>
+ </profession>
+ <armure>
+   <bague mag='2' />
+   <autre_save value='2' />
+  <armure1 mag='0' ac='2'>Bracelets CA 4</armure1>
+  <armure2 mag='0' ac='8'>Aucune</armure2>
+ </armure>
+ <save spmp='5' sbb='9' spp='8' ssor='10' ssoo='9' />
+ <armes>
+  <arme niv='1' num='3' taco='16' degat='0' mag='0' autre_t='0' autre_d='0'>arc court</arme>
+  <arme niv='1' num='42' taco='14' degat='5' mag='0' autre_t='0' autre_d='0'>Dague</arme>
+  <arme niv='1' num='127' taco='0' degat='0' mag='0' autre_t='0' autre_d='0'>Lames</arme>
+  <arme niv='1' num='91' taco='14' degat='5' mag='0' autre_t='0' autre_d='0'>Marteau de guerre</arme>
+  <arme niv='1' num='48' taco='13' degat='6' mag='1' autre_t='0' autre_d='0'>Épée, courte</arme>
+  <arme niv='1' num='50' taco='12' degat='7' mag='2' autre_t='0' autre_d='0'>Épée, longue</arme>
+ </armes>
+ <pdv>
+  <pdv_n niv='1'>13</pdv_n>
+  <pdv_n niv='2'>12</pdv_n>
+  <pdv_n niv='3'>12</pdv_n>
+  <pdv_n niv='4'>12</pdv_n>
+  <pdv_n niv='5'>10</pdv_n>
+  <pdv_n niv='6'>10</pdv_n>
+ </pdv>
+ <competence>
+  <comp niv='1'>Chant</comp>
+  <comp niv='1'>Déguisement</comp>
+  <comp niv='1'>Herboristerie</comp>
+  <comp niv='1'>Premiers secours</comp>
+  <comp niv='1'>Survie plaine</comp>
+  <comp niv='1'>Survie forêt</comp>
+  <comp niv='0'>Survie ville</comp>
+ </competence>
+ <voleur>
+  <vol name='pickpoket'>0</vol>
+  <vol name='crochetage'>0</vol>
+  <vol name='reperage'>0</vol>
+  <vol name='dpl_sil'>40</vol>
+  <vol name='dis_ombre'>31</vol>
+  <vol name='ecoute_porte'>0</vol>
+  <vol name='escalade'>0</vol>
+  <vol name='lecture'>0</vol>
+  <vol name='marcher_corde_raide'>0</vol>
+  <vol name='saut_perche'>0</vol>
+  <vol name='saut_hauteur'>0</vol>
+  <vol name='saut_longueur_sans_elan'>0</vol>
+  <vol name='saut_longueur_elan'>0</vol>
+  <vol name='man_acrobat_attaque'>0</vol>
+  <vol name='man_acrobat_evasion'>0</vol>
+  <vol name='man_acrobat_chute'>0</vol>
+  <vol name='Pickpocket'>0</vol>
+ </voleur>
+ <pantheon>
+  <dieu>  Belenos</dieu>
+ Celte
+ </pantheon>
+ <com>
+Égord est une bâtarde dont on ne connait que la mère mort en couche, elle a été élevée par ses grands-parents, Garin et Maëline, des anciens aventuriers, avec l’aide du temple de Bélénos sans laquelle sa mère serait morte avant d'accoucher et ses grands-parents l’auraient sûrement répudiée à sa naissance. 
+ C’est suite à un pillage d’une bande d’orcs que sa mère a été violée dans les champs et qu’elle a été conçue. Toute sa jeunesse, elle l’a vécue comme étant la cause de la mort de sa mère, une jeune fille dont la puberté commençait juste, comme frêle pour accoucher du monstre qu'elle était. Le matin, elle étudiait au temple et travaillait à la ferme de son grand-père les après-midi. 
+ De cette enfance tiraillée, elle retient surtout une haine féroce contre les orcs qui ont tué sa mère, une femme que ces grands-parents lui ont toujours décrite comme parfaite, jolie, aimable, consciencieuse. Idéale quoi ! Bien mieux qu’elle avec ses canines protubérantes qui ressemblent à des crocs et son teint qui tire parfois vers le jaune-vert comme les enfants malades. 
+ Les seuls signes de tendresse qu’elle reçus, ce sont les prêtres qui lui donnèrent. Dès son plus jeune âge, ils sentirent en elle la sagesse d’un druide et la force d’un guerrier. Ils l’éduquèrent donc pour en faire un missionnaire sachant se défendre : une druidesse-rodeuse. 
+ De son grand-père avec qui elle devait travailler dur dans leur misérable exploitation pour mériter le couvert, elle a appris à gérer une exploitation : savoir reconnaître les plantes à laisser pousser et celles à arracher, savoir s’occuper des animaux, savoir réparer le matériel et gérer le petit bois pour affronter les hivers. 
+ Langues : Celte et commuun 
+
+ Carrière : guerrier, prêtre, fermier et bricoleur : 11
+
+Anneaux  :Anneau + 2, 	Anneau de libre action 
+	
+Armes	: Épée courte + 1 +2  vs créatures écailleuses 
+	Épée longue +2
+	Masse + 2
+	
+Armures 	Bracelets bouclier
+Lorsque ce sort est évoqué, une barrière invisible apparaît devant le magicien. Ce bouclier annule totalement les attaques par projectiles magiques, fournit une AC 2 face aux projectiles lancés à la main (hachettes, fléchettes, javelots, épieux, etc.), une AC 3 face aux petits projectiles lancés mécaniquement (flèches, carreaux, pierres de fronde, aiguilles de manticore, etc.), finalement une CA 4 face à toute autre attaque.
+Le bouclier ajoute également un bonus de +1 aux jets de sauvegarde du magicien.
+
+Divers 	Bottes de vitesse, Broche de protection	+ 1 au jet de protection,  jet de protection même quand non prévu, en fonction des objets portés, absorbe 8 drains de niveau ou attaques mortelles, sans jet 
+Parchemins :	Parchemin clerc	Soins légers, Parchemin clerc	Guérison, C6, guérison des maladies, et dissipation de la magie, au niveau 11	
+Potions	1 potion de soins sérieux	2d8 + 2
+Broche bouclier 62 charges
+Ami des sirènes : 1 bracelet : respiration aquatique, permet de se déplacer et combattre en milieu sous-marin comme sur terre, de communiquer par télépathie sous l’eau ou avec des sirènes, identifiant comme ami des Sirènes
+Biologie Marine : 2; Expertise Maritime : 60; Survie Marais : 20
+Richesse 400PO
+ </com>
+ <taille>185</taille>
+ <poids>94</poids>
+ <nom>
+  <perso>Égord  </perso>
+  <joueur>Bernard  </joueur>
+ </nom>
+ <couleur>
+  <cheveux>noirs</cheveux>
+  <peau>Vert maladif</peau>
+  <yeux>marron</yeux>
+ </couleur>
+ <classoc>petit paysan</classoc>
+ <age>23 ans</age>
+ <alignement>BN</alignement>
+ <cap>n</cap>
+ <origines>
+  <version>1</version>
+  <add1>
+   <ori>1</ori>
+   <ori>ind</ori>
+   <ori>arc</ori>
+  </add1>
+  <add2>
+   <ori>2</ori>
+   <ori>magie</ori>
+   <ori>humanoide</ori>
+  </add2>
+ </origines>
+</document>

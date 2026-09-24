@@ -2635,15 +2635,15 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                             for (j=0;_classe[classe[l]].add[ADD2].compt_spe[0][j]!=NULL;j++)
                             {
                                 if (compare_sans_casse((char *)_classe[classe[l]].add[ADD2].compt_spe[0][j],COMPETENCE[competence[i]].nom)==0)
-                                { /* competence spéciale de la classe trouvée */
+                                { /* compétence spéciale de la classe trouvée */
                                              k=_classe[classe[l]].add[ADD2].compt_spe[1][j][0]
                                                 *(_perso->perso.niveau[l]-1)/_classe[classe[l]].add[ADD2].compt_spe[1][j][1]
-                                                +1 /* +1 car la présence seule de la compétance augmente de 1 la maîtrise */
+                                                +1 /* +1 car la présence seule de la compétence augmente de 1 la maîtrise */
                                                 +_classe[classe[l]].add[ADD2].compt_spe[1][j][2];
                                 }
                                 else
                                 {
-                                    /* pas la bonne compétance */
+                                    /* pas la bonne compétence */
                                 }
                             }
                         }

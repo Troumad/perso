@@ -126,7 +126,6 @@ struct_competences * lire_struct_competences(char * chemin,char *** competencesl
 signed char feuille_lire_multiclasse(char * coordonnees,GMarkupDomNode * node);
 void feuille_lire_modif_CA(signed short * modif_CA,char * coordonnees,GMarkupDomNode * node);
 char ** feuille_lire_ligne(char * coordonnees,GMarkupDomNode * node);
-void feuille_lire_compt_spe(char * coordonnees,GMarkupDomNode * node, signed char *** compt_spe);
 signed short * feuille_lire_ligne_arme(char * coordonnees,GMarkupDomNode * node);
 struct_niv_classe * lecture_lim_racce_add2(GMarkupDomNode * node);
 struct_niv_classe * lecture_lim_racce_add1(GMarkupDomNode * node);
@@ -774,9 +773,8 @@ void retourne_classe_version(struct cl_add * classe_add,GMarkupDomNode * node,un
     {
         classe_add->sort_mago_ecole=ecole_id(feuille_lire_ligne(FEUILLE_SORT_M_S,node),&(classe_add->sort_mago_ecole_spe));
         classe_add->sort_clerc_sphere=feuille_lire_ligne(FEUILLE_SORT_C_S,node);
-        feuille_lire_compt_spe(FEUILLE_COMP_C,node,classe_add->compt_spe);
-        //classe_add->compt_spe[0]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_C,node); /* compétences particulière donnée à la classe */
-        //classe_add->compt_spe[1]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_CP,node);
+        classe_add->compt_spe[0]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_C,node); /* compétences particulière donnée à la classe */
+        classe_add->compt_spe[1]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_CP,node);
         feuille_lire_competences(node,&(classe_add->liste_competences));
         classe_add->progression_competences[0]=feuille_lire_case_m(FEUILLE_COMP_I ,node,0);
         classe_add->progression_competences[1]=feuille_lire_case_m(FEUILLE_COMP_N ,node,0);
@@ -935,89 +933,6 @@ char ** feuille_lire_ligne(char * coordonnees,GMarkupDomNode * node)
 
     return sortie;
 }
-
-void feuille_lire_compt_spe(char * coordonnees,GMarkupDomNode * node, signed char *** compt_spe)
-{
-    unsigned long i,j,c;
-    signed short k,l,m;
-    GMarkupDomNode * info;
-    compt_spe[0]=NULL;
-    compt_spe[1]=NULL;
-
-    for (i=0,j=0;*(coordonnees+j)>='A' && *(coordonnees+j)<='Z';j++)
-    {
-        i=i*26+*(coordonnees+j)-'A'+1;
-    }
-    if (j==0)
-    {
-        compt_spe[0]=NULL; /* aucune lettre devant */
-        compt_spe[1]=NULL; /* aucune lettre devant */
-    }
-    else
-    {
-        c=sscanf(coordonnees+j,"%lu",&j);
-        if (c!=1)
-        {
-            compt_spe[0]=NULL;
-            compt_spe[1]=NULL;
-        }
-        else
-        {
-            /* passage des coordonnées humaines aux coordonnées informatiques */
-
-            for(c=0;(info=donne_case_ij(j-1,i-1+c,node)) && info->nb_texte!=0;c++)
-            {   /* tant qu'il y a des cases, on lit le contenu */
-                compt_spe[0]=(signed char **)g_realloc(compt_spe[0],(c+2)*sizeof(gchar *));
-                compt_spe[1]=(signed char **)g_realloc(compt_spe[1],(c+2)*sizeof(gchar *));
-                ((gchar ***)compt_spe)[0][c]=g_strdup(info->texte->texte);
-                compt_spe[1][c]=(signed char *)g_malloc(3*sizeof(gchar));
-                if ((info=donne_case_ij(j,i-1+c,node)))
-                {
-                    k=0; /* protection si erreur lecture */
-                    l=1;
-                    m=0;
-                    if (sscanf(info->texte->texte+1,"%hd/%hd%hd",&k,&l,&m)==3)
-                    {
-                        compt_spe[1][c][0]=(signed char)k;
-                        if (l==0)
-                        {   /* protection pour ne pas diviser par 0 */
-                            compt_spe[1][c][1]=1;
-                        }
-                        else
-                        {
-                            compt_spe[1][c][1]=(signed char)l;
-                        }
-                        compt_spe[1][c][2]=(signed char)m;
-                    }
-                    else
-                    {
-                        printf("Erreur de lecture de %s avec \"%%hd/%%hd%%hd\"\n dans  feuille_lire_compt_spe du fichier lecture_fichier\n",info->texte->texte+1);
-                    }
-                }
-                else
-                {
-                        /* case vide */
-                    compt_spe[1][c][0]=0;
-                    compt_spe[1][c][1]=1;
-                    compt_spe[1][c][2]=0;
-                }
-            }
-            if (c==0) /* sortie du for immédiate */
-            {
-                compt_spe[0]=(signed char **)g_malloc(sizeof(gchar *));
-                compt_spe[1]=(signed char **)g_malloc(sizeof(gchar *));
-                compt_spe[0][0]=NULL;
-                compt_spe[1][0]=NULL;
-            }
-            else
-            { /* place déjà réservée */
-                compt_spe[0][c]=NULL;
-                compt_spe[1][c]=NULL;
-            }
-        }
-    }
-}
-
 
 signed short * feuille_lire_ligne_arme(char * coordonnees,GMarkupDomNode * node)
 {
