@@ -2628,7 +2628,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     xml_ajoute_fin_texte(tmp_node->fils+tmp_node->nb_fils-1);
                     k=0;
                     for (l=0;classe[l]>=0;l++) /* on vérifie si la compétence est aussi une compétence de classe */
-                    { /* bonus du à la classe */
+                    { /* bonus dû à la classe */
                         if (_classe[classe[l]].add[ADD2].nom!=NULL)
                         {
                             k=0;
@@ -2636,10 +2636,20 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                             {
                                 if (compare_sans_casse((char *)_classe[classe[l]].add[ADD2].compt_spe[0][j],COMPETENCE[competence[i]].nom)==0)
                                 { /* compétence spéciale de la classe trouvée */
-                                             k=_classe[classe[l]].add[ADD2].compt_spe[1][j][0]
-                                                *(_perso->perso.niveau[l]-1)/_classe[classe[l]].add[ADD2].compt_spe[1][j][1]
-                                                +1 /* +1 car la présence seule de la compétence augmente de 1 la maîtrise */
-                                                +_classe[classe[l]].add[ADD2].compt_spe[1][j][2];
+                                    signed short num=0,denom=1,_bonus=0;
+                                    if (sscanf((char *)_classe[classe[l]].add[ADD2].compt_spe[1][j],"'%hd/%hd%hd",&num,&denom,&_bonus)!=3)
+                                    {
+                                        printf("Erreur lecture compétence %s de la classe %s : %s\n",COMPETENCE[i].nom,_classe[classe[l]].add[ADD2].nom,_classe[classe[l]].add[ADD2].compt_spe[1][j]);
+                                    }
+                                    if (denom==0)
+                                    {
+                                        printf("Erreur lecture dénominateur compétence %s de la classe %s : %s\n",COMPETENCE[i].nom,_classe[classe[l]].add[ADD2].nom,_classe[classe[l]].add[ADD2].compt_spe[1][j]);
+                                        denom=1;
+                                    }
+                                    k=num*_perso->perso.niveau[l]/denom
+                                        +1 /* +1 car la présence seule de la compétence augmente de 1 la maîtrise */
+                                        +_bonus;
+printf("%s = > num*_perso->perso.niveau[l]/denom+1+bonus=%hd*%hd/%hd+1+%hd=%hd\n",_classe[classe[l]].add[ADD2].compt_spe[1][j],num,_perso->perso.niveau[l],_bonus,k);
                                 }
                                 else
                                 {
@@ -2707,7 +2717,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                                     xml_ajoute_fin_texte(tmp_node->fils+tmp_node->nb_fils-1);
                                     if (COMPETENCE[i].caract!=POURCENTAGE) /* % pour le cas NA */
                                     {
-                                        sprintf(ch,"%hd",caract[COMPETENCE[i].caract]+COMPETENCE[i].modif+num*(_perso->perso.niveau[n]-1)/denom+_bonus);
+                                        sprintf(ch,"%hd",caract[COMPETENCE[i].caract]+COMPETENCE[i].modif+num*_perso->perso.niveau[n]/denom+_bonus);
                                         xml_ecrit_dernier_texte(tmp_node->fils+tmp_node->nb_fils-1,ch);
                                         //xml_ecrit_dernier_texte(tmp_node,ch);
                                     }

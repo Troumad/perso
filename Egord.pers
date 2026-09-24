@@ -15,7 +15,7 @@
  <version>ADD2</version>
  <profession>
  <p niv="6" xp="33500">Clerc</p>
- <p niv="5" xp="33500">Rôdeur</p>
+ <p niv="15" xp="33500">Rôdeur</p>
  </profession>
  <armure>
    <bague mag='2' />
@@ -23,14 +23,14 @@
   <armure1 mag='0' ac='2'>Bracelets CA 4</armure1>
   <armure2 mag='0' ac='8'>Aucune</armure2>
  </armure>
- <save spmp='5' sbb='9' spp='8' ssor='10' ssoo='9' />
+ <save spmp='0' sbb='2' spp='1' ssor='3' ssoo='0' />
  <armes>
-  <arme niv='1' num='3' taco='16' degat='0' mag='0' autre_t='0' autre_d='0'>arc court</arme>
-  <arme niv='1' num='42' taco='14' degat='5' mag='0' autre_t='0' autre_d='0'>Dague</arme>
+  <arme niv='1' num='3' taco='6' degat='0' mag='0' autre_t='0' autre_d='0'>arc court</arme>
+  <arme niv='1' num='42' taco='4' degat='5' mag='0' autre_t='0' autre_d='0'>Dague</arme>
   <arme niv='1' num='127' taco='0' degat='0' mag='0' autre_t='0' autre_d='0'>Lames</arme>
-  <arme niv='1' num='91' taco='14' degat='5' mag='0' autre_t='0' autre_d='0'>Marteau de guerre</arme>
-  <arme niv='1' num='48' taco='13' degat='6' mag='1' autre_t='0' autre_d='0'>Épée, courte</arme>
-  <arme niv='1' num='50' taco='12' degat='7' mag='2' autre_t='0' autre_d='0'>Épée, longue</arme>
+  <arme niv='1' num='91' taco='4' degat='5' mag='0' autre_t='0' autre_d='0'>Marteau de guerre</arme>
+  <arme niv='1' num='48' taco='3' degat='6' mag='1' autre_t='0' autre_d='0'>Épée, courte</arme>
+  <arme niv='1' num='50' taco='2' degat='7' mag='2' autre_t='0' autre_d='0'>Épée, longue</arme>
  </armes>
  <pdv>
   <pdv_n niv='1'>13</pdv_n>
