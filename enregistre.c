@@ -2649,7 +2649,6 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                                     k=num*_perso->perso.niveau[l]/denom
                                         +1 /* +1 car la présence seule de la compétence augmente de 1 la maîtrise */
                                         +_bonus;
-printf("%s = > num*_perso->perso.niveau[l]/denom+1+bonus=%hd*%hd/%hd+1+%hd=%hd\n",_classe[classe[l]].add[ADD2].compt_spe[1][j],num,_perso->perso.niveau[l],_bonus,k);
                                 }
                                 else
                                 {
