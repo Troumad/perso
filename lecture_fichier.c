@@ -2221,6 +2221,7 @@ void lecture_race(struct ra_add * race_v,GMarkupDomNode * node,unsigned short ve
     race_v->var_taille[1]=lecture_case_up(FEUILLE_F_TAILLE_V,node);
     race_v->poids[0]=feuille_lire_case_f(FEUILLE_H_POIDS,node,0);
     race_v->poids[1]=feuille_lire_case_f(FEUILLE_F_POIDS,node,0);
+printf("%s => %f\n",race_v->nom, race_v->poids[0]);
 }
 
 liste_classe_race * feuille_lire_classerace(char * coordonnees,GMarkupDomNode * node)
