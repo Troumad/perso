@@ -46,6 +46,7 @@ float donne_float_ij(unsigned long i, unsigned long j,GMarkupDomNode * ooo)
     unsigned long type=0,x,y,ii,jj/*,l_nan=0xffffffff*/; /* représentation binaire d'un NaN */
     GMarkupDomNode * node, *tmp;
     float fnan=nanf(""),sortie;
+    char * tmp_ch;
 
     /*fnan =*((float*)&l_nan);*/ /* astuce pour créer un float NaN */
 
@@ -151,7 +152,7 @@ float donne_float_ij(unsigned long i, unsigned long j,GMarkupDomNode * ooo)
                           else
                           { /* cas par défaut : 0 */
                           }
-                          i=node->nb_att;
+                          //i=node->nb_att;
                     }
                     else
                     { /* aucun des deux cas cherchés */
@@ -167,7 +168,11 @@ float donne_float_ij(unsigned long i, unsigned long j,GMarkupDomNode * ooo)
         {
             if (ii==0 && node->nb_fils>0 && node->fils->nb_texte>0) /* on n'a pas trouvé de float => on renvoie un float qui pourrait être dans la case  */
             {                                                       /* en début de chaîne de caractères, mais le format dépend alors de la configuration */
-                ii=sscanf(node->fils->texte->texte,"%f",&sortie);   /* du PC qui a enregistré le document donc non universel                             */
+
+                tmp_ch=g_strdup(node->fils->texte->texte);
+                ii=sscanf(virgule_point(tmp_ch),"%f",&sortie);   /* du PC qui a enregistré le document donc non universel                             */
+                g_free(tmp_ch);
+                tmp_ch=NULL;
                 if (ii!=0)
                 {
                     fnan=sortie;
