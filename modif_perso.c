@@ -301,7 +301,7 @@ void ferme_modif_perso(GtkWidget *wid, FenetrePerso * _perso)
 {
     static char _drap=0;
 
-    if (_drap==0) /* éviter double appel et fenêtre déjà fermée/libérée */
+    if (_drap==0 && _perso->modif!=NULL) /* éviter double appel et fenêtre déjà fermée/libérée */
     {
         _drap=1;
         gtk_window_close(GTK_WINDOW(_perso->modif->window));
