@@ -1,5 +1,4 @@
 #include "include.h"
-
 #include <ctype.h>
 
 const gchar * accent     ="ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿÑñ";
@@ -35,24 +34,24 @@ signed char compare_sans_casse(char * s1,char * s2)
           if (*s1==-61 && *(s1+1)!=0)
           {
             s1++;
-            c1=toupper(*s1); /* éviter un retour comment le précédent */
+            c1=g_ascii_toupper(*s1); /* éviter un retour comment le précédent */
             for(i=0;sans_accent[i]!=0;i++)
               if (*s1==accent[2*i+1])
-                c1=toupper(sans_accent[i]);
+                c1=g_ascii_toupper(sans_accent[i]);
           }
           else
-            c1=toupper(*s1);
+            c1=g_ascii_toupper(*s1);
 
           if (*s2==-61 && *(s2+1)!=0)
           {
             s2++;
-            c2=toupper(*s2);
+            c2=g_ascii_toupper(*s2);
             for(i=0;sans_accent[i]!=0;i++)
               if (*s2==accent[2*i+1])
-                c2=toupper(sans_accent[i]);
+                c2=g_ascii_toupper(sans_accent[i]);
           }
           else
-            c2=toupper(*s2);
+            c2=g_ascii_toupper(*s2);
 
         }
         while(*s1!=0 && *s2!=0 && c1==c2);

@@ -792,10 +792,10 @@ void Modif_Sphere(GtkWidget *ChildWidget, struct widgets *widgets)
         }
         g_list_free(gl1);
 
-        strcpy(ch,"Al_");
+        g_strlcpy(ch,"Al_",32); /* 32 taille de ch */
         for(j=0;j<9;j++)
         {
-            strcat(ch,algnm[j]);
+            g_strlcat(ch,algnm[j],32);
             if ((((1<<j) & pantheons[panth].dieu[dieu].alignement))==0)
             {
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gtk_builder_get_object(widgets->builder,ch)),FALSE);
@@ -1111,10 +1111,10 @@ void lit_dieu(dieux * dieu,struct widgets * widgets)
     g_list_free(gl1);
     dieu->nom=g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Dieu")))));
 
-    strcpy(ch,"Al_");
+    g_strlcpy(ch,"Al_",32);
     for(i=0;i<9;i++)
     {
-        strcat(ch,algnm[i]);
+        g_strlcat(ch,algnm[i],32);
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gtk_builder_get_object(widgets->builder,ch))))
         {
             dieu->alignement|=(1<<i);
@@ -1475,7 +1475,7 @@ signed short dieu_alignement(GMarkupDomNode * node)
     noded=g_markup_dom_node(node,"alignement");
     if (noded && noded->nb_texte>0)
     {
-        strcpy(ch,noded->texte[0].texte);
+        g_strlcpy(ch,noded->texte[0].texte,32);
         for(s=ch;*s!=0;s++); /* s pointe sur la fin de la chaine */
         while (s>ch)
         {
