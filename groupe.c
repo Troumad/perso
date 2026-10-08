@@ -43,15 +43,15 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
     sprintf(aff,"%s",fenetre->perso.nom_fichier);
     if (compare_sans_casse(aff+strlen(aff)-4,".grp")==0)
     { /* aff a l'extension => on la supprime dans aff et la maintient dans ch*/
-        strncpy(ch,aff,LONG-1);
+        g_strlcpy(ch,aff,LONG);
         aff[strlen(aff)-4]=0;
     }
     else
     {/* aff n'a pas l'extension => on la rajoute dans ch*/
-        strncpy(ch,aff,LONG-1);
-        strncat(ch,".grp",LONG-1);
+        g_strlcpy(ch,aff,LONG);
+        g_strlcat(ch,".grp",LONG);
     }
-    strncpy(aff+strlen(aff),"_grp.odt",LONG-1-strlen(aff));
+    g_strlcpy(aff+strlen(aff),"_grp.odt",LONG-strlen(aff));
     fichier = g_fopen(aff, "rb");
     if (fichier!=NULL) /* Le fichier existe déjà */
     {
@@ -86,9 +86,9 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
     {
     }
     strcpy(chaine,"Fichiers de sauvegarde\n\nSauvegarde pour nouveau travail\n");
-    strncat(chaine,ch,LONG-1);
-    strncat(chaine,"\n\nRésumé du groupe\n",LONG-1);
-    strncat(chaine,aff,LONG-1);
+    g_strlcat(chaine,ch,LONG);
+    g_strlcat(chaine,"\n\nRésumé du groupe\n",LONG);
+    g_strlcat(chaine,aff,LONG);
 
     p_dialog = gtk_message_dialog_new (NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_OTHER,GTK_BUTTONS_OK,"%s",chaine);
     gtk_dialog_run(GTK_DIALOG(p_dialog));
@@ -183,7 +183,7 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
                                     }
                                     else
                                     {
-                                        aff[LONG-1]=0;
+                                        aff[LONG]=0;
                                     }
                                 }
                                 else
@@ -201,7 +201,7 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
                                     }
                                     else
                                     {
-                                        aff[LONG-1]=0;
+                                        aff[LONG]=0;
                                     }
                                 }
                                 strcpy(ch,aff);
@@ -237,7 +237,7 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
     }
     else
     {
-        strncat(ch," ne peut pas s'ouvrir",LONG-1);
+        g_strlcat(ch," ne peut pas s'ouvrir",LONG);
         dialogue(ch,0);
     }
     (void)ChildWidget;
@@ -418,7 +418,7 @@ void feuille_groupe(FenetrePerso * fenetre)
             {
                 for(nb=0;fenetre->uri[nb]!=NULL;nb++)
                 {
-                    strncpy(ch,fenetre->uri[nb],LONG-1);
+                    g_strlcpy(ch,fenetre->uri[nb],LONG);
                     vol=0;
                     vd=-1;
                     clerc=0;
@@ -445,9 +445,9 @@ void feuille_groupe(FenetrePerso * fenetre)
                         }
                         else
                         {
-                            strncpy(aff,"Fichier ",LONG-1);
-                            strncat(aff,fenetre->uri[nb],LONG-1);
-                            strncat(aff," sans version",LONG-1);
+                            g_strlcpy(aff,"Fichier ",LONG);
+                            g_strlcat(aff,fenetre->uri[nb],LONG);
+                            g_strlcat(aff," sans version",LONG);
                             dialogue(aff,0);
                         }
                         for (i=0;i<8;i++)
@@ -482,10 +482,10 @@ void feuille_groupe(FenetrePerso * fenetre)
                             }
                             else
                             {
-                                strncpy(aff,"Fichier ",LONG-1);
-                                strncat(aff,fenetre->uri[nb],LONG-1);
-                                strncat(aff," sans ",LONG-1);
-                                strncat(aff,nom_min[i],LONG-1);
+                                g_strlcpy(aff,"Fichier ",LONG);
+                                g_strlcat(aff,fenetre->uri[nb],LONG);
+                                g_strlcat(aff," sans ",LONG);
+                                g_strlcat(aff,nom_min[i],LONG);
                                 dialogue(aff,0);
                             }
 
@@ -548,7 +548,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                                     ch[j]=' ';
                                     j++;
                                     ch[j]=0;
-                                    strcpy(ch+j,tmp_node->fils[i].texte->texte);
+                                    g_strlcat(ch,tmp_node->fils[i].texte->texte,LONG);
                                     while(ch[j]!=0) j++;
                                     ch[j]=':';
                                     j++;
@@ -557,7 +557,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                                     {
                                         if (strcmp(tmp_node->fils[i].attributs[k].nom,"niv")==0)
                                         {
-                                            strcpy(ch+j,tmp_node->fils[i].attributs[k].value);
+                                            g_strlcat(ch+j,tmp_node->fils[i].attributs[k].value,LONG);
                                             k=0;
                                             sscanf(tmp_node->fils[i].attributs[k].value,"%hd",&k);
 
@@ -640,7 +640,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                         tmp_node=g_markup_dom_node(pers,"race");
                         if (tmp_node!=NULL)
                         {
-                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            g_strlcat(ch,tmp_node->texte[0].texte,LONG);
                             while(ch[j]!=0) j++;
                             ch[j]=' ';
                             j++;
@@ -657,7 +657,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                         tmp_node=g_markup_dom_node(pers,"sexe");
                         if (tmp_node!=NULL)
                         {
-                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            g_strlcat(ch,tmp_node->texte[0].texte,LONG);
                             while(ch[j]!=0) j++;
                             ch[j]=' ';
                             j++;
@@ -674,7 +674,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                         tmp_node=g_markup_dom_node(pers,"poids");
                         if (tmp_node!=NULL)
                         {
-                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            g_strlcat(ch,tmp_node->texte[0].texte,LONG);
                             while(ch[j]!=0) j++;
                             ch[j]='k';
                             j++;
@@ -695,7 +695,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                         tmp_node=g_markup_dom_node(pers,"taille");
                         if (tmp_node!=NULL)
                         {
-                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            g_strlcat(ch,tmp_node->texte[0].texte,LONG);
                             while(ch[j]!=0) j++;
                             ch[j]='c';
                             j++;
@@ -716,7 +716,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                         tmp_node=g_markup_dom_node(pers,"alignement");
                         if (tmp_node!=NULL)
                         {
-                            strcpy(ch+j,tmp_node->texte[0].texte);
+                            g_strlcat(ch,tmp_node->texte[0].texte,LONG);
                         }
                         else
                         {
@@ -738,7 +738,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                                     j++;
                                     ch[j]=0;
                                 }
-                                strcpy(ch+j,tmp_node->fils[i].texte->texte);
+                                g_strlcat(ch,tmp_node->fils[i].texte->texte,LONG);
                                 k=0;sscanf(tmp_node->fils[i].texte->texte,"%hd",&k);
                                 vol+=k;
                                 while(ch[j]!=0) j++;
@@ -878,9 +878,9 @@ void feuille_groupe(FenetrePerso * fenetre)
                     }
                     else
                     {
-                        strncpy(aff,"Fichier ",LONG-1);
-                        strncat(aff,ch,LONG-1);
-                        strncat(aff," vide",LONG-1);
+                        g_strlcpy(aff,"Fichier ",LONG);
+                        g_strlcat(aff,ch,LONG);
+                        g_strlcat(aff," vide",LONG);
                         dialogue(aff,0);
                     }
                     g_markup_dom_free(pers);
@@ -1192,7 +1192,7 @@ void nouveau_groupe(GtkWidget *ChildWidget, FenetrePerso * _perso_appel)
     else
     {
         strcpy(ch,"Impossible 'd'ouvrir le fichier ");
-        strncat(ch,tmp,LONG-1);
+        g_strlcat(ch,tmp,LONG);
         dialogue(ch,0);
     }
   }
@@ -1214,11 +1214,11 @@ char * chaine_groupe_armure(GMarkupDomNode * tmp_node, char * ch)
         {
             if (tmp_node->nb_texte>0)
             {
-                strncpy(ch,tmp_node->texte->texte,1023);
+                g_strlcpy(ch,tmp_node->texte->texte,1023);
             }
             else
             {
-                strncpy(ch,"armure sans nom",1023);
+                g_strlcpy(ch,"armure sans nom",1023);
             }
             for (i=0;i<tmp_node->nb_att;i++)
             {
