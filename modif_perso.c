@@ -1608,7 +1608,7 @@ void modif_perso_aff_mag(FenetrePerso * _perso)
                         {
                             if (strlen(SORTILEGE_MAG[ADD2][niv][ii].nom)>TAILLE_MAX_NOM_SORT)
                             {
-                                strcpy(_nom,SORTILEGE_MAG[ADD2][niv][ii].nom);
+                                g_strlcpy(_nom,SORTILEGE_MAG[ADD2][niv][ii].nom,LONG);
                                 for(j=TAILLE_MAX_NOM_SORT/3;j<strlen(_nom);j++)
                                 {
                                     if (_nom[j]=='/')

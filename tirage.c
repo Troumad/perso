@@ -85,7 +85,7 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
             {
                 _perso->perso.version=ADD2;
             }
-            strcpy(ch,"Niveau");
+            g_strlcpy(ch,"Niveau",16);
             for(i=0;i<=20;i++)
             {
                 sprintf(ch+6,"%hd",i);

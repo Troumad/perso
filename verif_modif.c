@@ -243,7 +243,7 @@ void verif_voleur(FenetrePerso * _perso)
     { /* le bon nombre de point de compétence ont été attribués */
         if (*ch==0)
         { /* tout est parfait */
-            strcpy(ch,"Bonne distribution des points de compétences.\n");
+            g_strlcpy(ch,"Bonne distribution des points de compétences.\n",LONG);
         }
         else
         {

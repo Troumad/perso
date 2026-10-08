@@ -136,9 +136,9 @@ void command_line (GtkApplication *app, GApplicationCommandLine *cmdline,gpointe
   {
     if (ouvre_perso(argv[i])==NULL)
     {   /* ouverture ligne de commande => on prend en compte l'emplacement de la commande */
-        g_stplcpy(chemin,argv[0],LONG);
+        g_strlcpy(chemin,argv[0],LONG);
         lo=strlen(chemin);
-        strcpy(chemin+lo+1,argv[i]);
+        g_strlcpy(chemin+lo+1,argv[i],LONG-lo-1);
         chemin[lo]=SEPARATEUR;
         ouvre_perso(chemin);
     }
