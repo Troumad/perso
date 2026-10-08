@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1789927383 source:/home/troumad/Documents/perso/aide_modif.c
+1791460220 source:/home/troumad/Documents/perso/aide_modif.c
 	<string.h>
 	"include.h"
 
@@ -3174,7 +3174,7 @@
 	<string.h>
 	<math.h>
 
-1789927383 source:/home/troumad/Documents/perso/main.c
+1791457092 source:/home/troumad/Documents/perso/main.c
 	"include.h"
 	<locale.h>
 
@@ -3196,7 +3196,7 @@
 1789927383 source:/home/troumad/Documents/perso/poids_taille.c
 	"include.h"
 
-1789927383 source:/home/troumad/Documents/perso/style.c
+1791460229 source:/home/troumad/Documents/perso/style.c
 	"include.h"
 
 1789927383 source:/home/troumad/Documents/perso/tableaux.c
@@ -3216,7 +3216,7 @@
 	<string.h>
 	<math.h>
 
-1790183569 source:/home/troumad/Documents/perso/xml.c
+1791460342 source:/home/troumad/Documents/perso/xml.c
 	"include.h"
 	<ctype.h>
 	<glib.h>

@@ -649,6 +649,8 @@ void copie_node(GMarkupDomNode * arrive,GMarkupDomNode * modele)
     {  /* on efface ce qui est déjà dans arrive */
         g_markup_dom_free(arrive->fils+i);
     }
+    g_free(arrive->fils);
+    arrive->fils=NULL;
     arrive->nb_fils=modele->nb_fils;
     if (arrive->nb_fils>0)
     {

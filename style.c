@@ -321,6 +321,6 @@ void couleur_item(GtkWidget *ChildWidget,signed short couleur)
                 break;
         }
         *pt_couleur=couleur; /* memorisation du style actuel */
-        g_object_set_data(G_OBJECT(ChildWidget), "couleur",pt_couleur);
+        g_object_set_data_full(G_OBJECT(ChildWidget), "couleur",pt_couleur,(GDestroyNotify)g_free);
     }
 }
