@@ -30,7 +30,7 @@ void modif_perso(GtkWidget * appel, FenetrePerso * _perso)
     if (_perso->modif==NULL)
     { /* ouverture de la fenêtre */
         drap=0;
-        _perso->modif=ouverture_glade_retour("modification.glade",GLADE_CONNECT);
+        _perso->modif=ouverture_glade_retour("modification.glade",GLADE_NON_CONNECT);
         g_object_set_data_full(G_OBJECT(_perso->modif->window),"widgets_modif",_perso->modif,libere_widgets);
         if (_perso->modif!=NULL)
         {
