@@ -516,6 +516,7 @@ void callback_color_arme_cellrender (GtkComboBox *combobox,FenetrePerso * _perso
       widget = gtk_accessible_get_widget ((GtkAccessible*)atk);
 
       g_signal_connect(G_OBJECT(widget), "draw",G_CALLBACK(couleur_combo) ,_perso->couleur_armes+i);
+      g_object_unref(atk);
   }
 }
 
@@ -535,30 +536,7 @@ void callback_couleur_competence (GtkComboBox *combobox,FenetrePerso * _perso)
       gtk_widget_get_allocation (widget, &allocation);
 
       g_signal_connect(G_OBJECT(widget), "draw",G_CALLBACK(couleur_combo) ,_perso->couleur_competence+i);
-
-      /*switch (_perso->couleur_competence[i])
-      {
-            case JAUNE  : cairo_set_source_rgba (&cr, 1, 0.85, 0,1);
-             break;
-            case BLEU   : cairo_set_source_rgba (&cr, 0.3, 0.3, 1,1);
-             break;
-            case VERT   : cairo_set_source_rgba (&cr, 0.1, 1, 0.1,1);
-             break;
-            case ROUGE  : cairo_set_source_rgba (&cr, 1, 0.1, 0.1,1);
-             break;
-            case GRIS   : cairo_set_source_rgba (&cr, .90, .90, .90,1);
-             break;
-            case ORANGE :  cairo_set_source_rgba (&cr, 1, .6, 0,2);
-             break;
-            default :
-             break;
-      }*/
-   /* Affectation de la couleur de fond */
-   /* Remplissage de la surface du widget */
-     /* cairo_rectangle (&cr, 0, 0, allocation.width, allocation.height);
-      cairo_fill(&cr);
-
-      gtk_widget_draw (widget,&cr);*/
+      g_object_unref(atk);
   }
 }
 
@@ -576,6 +554,7 @@ void callback_color_competence_cellrender (GtkComboBox *combobox,FenetrePerso * 
       widget = gtk_accessible_get_widget ((GtkAccessible*)atk);
 
       g_signal_connect(G_OBJECT(widget), "draw",G_CALLBACK(couleur_combo) ,_perso->couleur_competence+i);
+      g_object_unref(atk);
   }
 }
 
@@ -591,6 +570,7 @@ void callback_color_classe_cellrender (GtkComboBox *combobox,FenetrePerso * _per
       widget = gtk_accessible_get_widget ((GtkAccessible*)atk);
 
       g_signal_connect(G_OBJECT(widget), "draw",G_CALLBACK(couleur_combo) ,_perso->couleur_classes+_perso->combo_classes[i]);
+      g_object_unref(atk);
   }
 }
 
@@ -606,6 +586,7 @@ void callback_color_armure_cellrender (GtkComboBox *combobox,FenetrePerso * _per
       widget = gtk_accessible_get_widget ((GtkAccessible*)atk);
 
       g_signal_connect(G_OBJECT(widget), "draw",G_CALLBACK(couleur_combo) ,_perso->couleur_armure+i);
+      g_object_unref(atk);
   }
 }
 
@@ -621,6 +602,7 @@ void callback_color_race_cellrender (GtkComboBox *combobox,FenetrePerso * _perso
       widget = gtk_accessible_get_widget ((GtkAccessible*)atk);
 
       g_signal_connect(G_OBJECT(widget), "draw",G_CALLBACK(couleur_combo) ,_perso->couleur_races+_perso->combo_races[i]);
+      g_object_unref(atk);
   }
 }
 

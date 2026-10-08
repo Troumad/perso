@@ -19,3 +19,7 @@ share64/
 perso
 obj/
 token
+vgcore.*
+core
+*.gdb_history
+sortie.valgrind
