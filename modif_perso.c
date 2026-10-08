@@ -180,7 +180,7 @@ void modif_perso(GtkWidget * appel, FenetrePerso * _perso)
             drap=1;
             //_perso->d_m=0; /* remise à zéro dees midifications */
             init_fichier_modif(NULL,_perso);
-            /* gtk_builder_connect_signals(_perso->modif->builder,_perso); connexion déjà faite par ouverture_glade_retour(GLADE_CONNECT) : ne pas reconnecter */
+            gtk_builder_connect_signals(_perso->modif->builder,_perso);
         }
         else
         {
