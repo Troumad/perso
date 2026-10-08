@@ -977,6 +977,7 @@ void verif_XP_niv(FenetrePerso * _perso)
         if (niveau<=0)
         {
             xp_demande=0;
+            xp_nec=0;
             j=niveau;
         }
         else
@@ -993,7 +994,7 @@ void verif_XP_niv(FenetrePerso * _perso)
                 xp_demande=CLASSE[cl].add[vers_OK].XP[j];
             }
         }
-        xp_nec*=m_race;
+        xp_nec=round(xp_nec*m_race);
 
         if (xp<xp_nec)
         {
@@ -1001,7 +1002,7 @@ void verif_XP_niv(FenetrePerso * _perso)
         }
         else
         {
-            xp_demande*=m_race;
+            xp_demande=round(xp_demande*m_race);
 
             if (xp<xp_demande)
             {
