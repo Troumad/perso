@@ -17,6 +17,7 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
     unsigned short i,j, drap;
     char * pt_n=NULL,  * tmp=NULL;
     FILE * fichier=NULL;
+    struct widgets * tmp_modif=NULL;
 
     if (fermeture !=NULL)
     { /* on prend en compte la fermeture de cette fenêtre */
@@ -67,10 +68,11 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 liste_fenetre[nb_fenetre]=NULL;
                 if (retour->modif!=NULL)
                 { /* fermeture de la fenêtre de modification */
-                    gtk_window_close(GTK_WINDOW(retour->modif->window));
-                    g_object_unref(retour->modif->window->builder);
-                    g_free(retour->modif->window);
+                    tmp_modif=retour->modif;
                     retour->modif=NULL;
+                    gtk_window_close(GTK_WINDOW(tmp_modif->window));
+                    g_object_unref(tmp_modif->builder);
+                    g_free(tmp_modif);
                 }
                 else
                 {
