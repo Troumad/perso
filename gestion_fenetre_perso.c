@@ -17,7 +17,6 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
     unsigned short i,j, drap;
     char * pt_n=NULL,  * tmp=NULL;
     FILE * fichier=NULL;
-    struct widgets * tmp_modif=NULL;
 
     if (fermeture !=NULL)
     { /* on prend en compte la fermeture de cette fenêtre */
@@ -131,8 +130,8 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
         retour=(FenetrePerso *)g_malloc(sizeof(FenetrePerso));
         init_fenetre_perso(retour);
         liste_fenetre[nb_fenetre-1]=retour;
-        retour->resume=ouverture_glade_retour("resume.glade",GLADE_CONNECT);
-        g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->modif==NULL?NULL:NULL, NULL);
+        retour->resume=ouverture_glade_retour("resume.glade",GLADE_NON_CONNECT);
+        g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->resume,libere_widgets);
         init_perso(&(retour->perso));
 
         retour->origine=(char **)g_malloc(2*sizeof(char *));
@@ -168,13 +167,13 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 drap=1;
                 if (compare_sans_casse(chemin+strlen(chemin)-5,".pers")==0)
                 { /* ouverture d'un perso */
-                    retour->resume=ouverture_glade_retour("resume.glade",GLADE_CONNECT);
-                    g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->modif==NULL?NULL:NULL, NULL);
+                    retour->resume=ouverture_glade_retour("resume.glade",GLADE_NON_CONNECT);
+                    g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->resume,libere_widgets);
                 }
                 else if (compare_sans_casse(chemin+strlen(chemin)-4,".grp")==0)
                 {   /* ouverture d'un groupe */
-                    retour->resume=ouverture_glade_retour("groupe.glade",GLADE_CONNECT);
-                    g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->modif==NULL?NULL:NULL, NULL);
+                    retour->resume=ouverture_glade_retour("groupe.glade",GLADE_NON_CONNECT);
+                    g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->resume,libere_widgets);
                     for (i=0;i<=POURCENTAGE;i++)
                     { /* on marque que c'est un groupe */
                         retour->perso.caract[i]=-1;
