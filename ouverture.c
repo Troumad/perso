@@ -68,7 +68,7 @@ void  info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets)
                 noded=g_markup_dom_node(nodeo,"perso");
                 if (noded!=NULL && noded->nb_texte>0)
                 {
-                    strcat(ch,noded->texte[0].texte);
+                    g_strlcat(ch,noded->texte[0].texte,LONG);
                 }
                 else
                 {
@@ -76,8 +76,8 @@ void  info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets)
                 noded=g_markup_dom_node(nodeo,"race");
                 if (noded!=NULL && noded->nb_texte>0)
                 {
-                    strcat(ch,", ");
-                    strcat(ch,noded->texte[0].texte);
+                    g_strlcat(ch,", ",LONG);
+                    g_strlcat(ch,noded->texte[0].texte,LONG);
                 }
                 else
                 {
@@ -89,14 +89,14 @@ void  info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets)
                     for (i=0;i<nb;i++)
                     {
 
-                        strcat(ch,", ");
-                        strcat(ch,noded->fils[i].texte[0].texte);
+                        g_strlcat(ch,", ",LONG);
+                        g_strlcat(ch,noded->fils[i].texte[0].texte,LONG);
                         for (j=0;j<noded->fils[i].nb_att;j++)
                         {
                             if (compare_sans_casse(noded->fils[i].attributs[j].nom,"niv")==0)
                             {
-                                strcat(ch," nv ");
-                                strcat(ch,noded->fils[i].attributs[j].value);
+                                g_strlcat(ch," nv ",LONG);
+                                g_strlcat(ch,noded->fils[i].attributs[j].value,LONG);
                             }
                             else
                             {
@@ -122,12 +122,12 @@ void  info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets)
                             {
                                 if (ch[0]!=0)
                                 {
-                                    strcat(ch,", ");
+                                    g_strlcat(ch,", ",LONG);
                                 }
                                 else
                                 {
                                 }
-                                strcat(ch,noded->fils[i].texte[0].texte);
+                                g_strlcat(ch,noded->fils[i].texte[0].texte,LONG);
                             }
                             else
                             { /* pas de texte => pas de nom de fichiers */
@@ -1111,7 +1111,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                         }
                                         else
                                         {
-                                            strcat(ch,".pers");
+                                            g_strlcat(ch,".pers",LONG);
                                         }
                                         k+=nouveau_membre_groupe(_perso,ch,k);
                                     }

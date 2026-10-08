@@ -391,8 +391,7 @@ void feuille_groupe(FenetrePerso * fenetre)
     FILE * fichier;
     signed short pan=0,die=0; /* mémorisation du dieu et du panthéon */
 
-    if (ooo!=NULL);
-
+    if (ooo!=NULL)
     {
         node=g_markup_dom_node (ooo,"office:text");
         if (node->nb_fils < 3)
@@ -1052,22 +1051,25 @@ signed short nouveau_membre_groupe(FenetrePerso * fenetre_perso, char * _nom,uns
         g_signal_connect(wid1, "clicked", G_CALLBACK (callback_suppr_perso_groupe),p_gr);
         if (local->perso.nom!=NULL && local->perso.nom[0]!=0)
         {
-            strcat(strcat(ch,local->perso.nom),"  ");
+            g_strlcat(ch,local->perso.nom,LONG);
+            g_strlcat(ch,"  ",LONG);
         }
         else
         {
-            strcat(strcat(ch,local->perso.nom_fichier),"  ");
+            g_strlcat(ch,local->perso.nom_fichier,LONG);
+            g_strlcat(ch,"  ",LONG);
         }
         if (local->perso.classe[0]!=-1)
         {
-            strcat(ch,CLASSE[local->perso.classe[0]].nom);
+            g_strlcat(ch,CLASSE[local->perso.classe[0]].nom,LONG);
             i=1;
             while(local->perso.classe[i]!=-1)
             {
-                strcat(strcat(ch,"/"),CLASSE[local->perso.classe[i]].nom);
+                g_strlcat(ch,"/",LONG);
+                g_strlcat(ch,CLASSE[local->perso.classe[i]].nom,LONG);
                 i++;
             }
-            strcat(ch,"  ");
+            g_strlcat(ch,"  ",LONG);
         }
         wid1=gtk_label_new(ch);
         gtk_box_pack_end (GTK_BOX(wid),wid1,TRUE,FALSE,0);
