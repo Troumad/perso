@@ -1475,7 +1475,7 @@ signed short dieu_alignement(GMarkupDomNode * node)
     noded=g_markup_dom_node(node,"alignement");
     if (noded && noded->nb_texte>0)
     {
-        g_strlcpy(ch,noded->texte[0].texte,32);
+        g_strlcpy(ch,noded->texte[0].texte,LONG);
         for(s=ch;*s!=0;s++); /* s pointe sur la fin de la chaine */
         while (s>ch)
         {
