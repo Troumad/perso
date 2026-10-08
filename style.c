@@ -295,6 +295,7 @@ void couleur_item(GtkWidget *ChildWidget,signed short couleur)
         else
         {   /* système non initialisé : on prépare la place mémoire */
             pt_couleur=(unsigned short *)g_malloc(sizeof(unsigned short));
+             *pt_couleur=couleur; /* écrire avant d'attacher : un signal draw peut rappeler couleur_item entre-temps */
             g_object_set_data_full(G_OBJECT(ChildWidget), "couleur",pt_couleur,(GDestroyNotify)g_free);
         }
 
