@@ -988,9 +988,9 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     {
                     }
                     sprintf(ch_tmp, "%ld",but_xp_classe(_classe+classe[i],race,niv_cl[i],_version));
-                    strncat(but_xp,ch_tmp,LONG-1);
+                    g_strlcat(but_xp,ch_tmp,LONG);
                     sprintf(ch_tmp,"%lu",_perso->perso.XP[i]);
-                    strncat(actu_xp,ch_tmp,LONG-1);
+                    g_strlcat(actu_xp,ch_tmp,LONG);
 
                      /* calcul des save et taco */
                     if (_classe[classe[i]].add[ADD2].nom==NULL || _version==ADD1)
@@ -1036,11 +1036,11 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                         }
                         if (j==1)
                         {
-                            strncat(bonus_xp," 10 % -",LONG-1);
+                            g_strlcat(bonus_xp," 10 % -",LONG);
                         }
                         else
                         {
-                            strncat(bonus_xp," 0 % -",LONG-1);
+                            g_strlcat(bonus_xp," 0 % -",LONG);
                         }
                         for(niv=0;niv<niv_cl[i] && _classe[classe[i]].add[ADD].backstab[niv]!=FIN;niv++);
                         if (niv>0)
@@ -1089,11 +1089,11 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                         }
                         if (j==1)
                         {
-                            strncat(bonus_xp," 10 % -",LONG-1);
+                            g_strlcat(bonus_xp," 10 % -",LONG);
                         }
                         else
                         {
-                            strncat(bonus_xp," 0 % -",LONG-1);
+                            g_strlcat(bonus_xp," 0 % -",LONG);
                         }
                         for(niv=0;niv<niv_cl[i] && _classe[classe[i]].add[ADD2].backstab[niv]>0;niv++);
                         if (niv>0)
@@ -2553,7 +2553,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     for (i=1;i<=pt_psi;i++)
                     {
                         sprintf(aff," %hu",i);
-                        g_strlcat(ch,aff,LONG-1);
+                        g_strlcat(ch,aff,LONG);
                     }
                     xml_ecrit_dernier_texte(tmp_node->fils+1,ch);
                 }
@@ -3160,7 +3160,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
      else
      {
             sprintf(ch,"erreur lors de la sauvegarde du fichier ");
-            strncat(ch , _perso->perso.nom_fichier,LONG-1);
+            g_strlcat(ch , _perso->perso.nom_fichier,LONG);
             dialogue(ch,0);
      }
      g_free(taco_a);
