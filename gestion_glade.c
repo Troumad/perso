@@ -56,3 +56,10 @@ void ferme_glade(GtkWidget *ChildWidget , struct widgets * widgets)
 
     (void)ChildWidget;
 }
+
+void libere_widgets(gpointer data)
+{
+    struct widgets * w=(struct widgets *)data;
+    g_object_unref(w->builder);
+    g_free(w);
+}

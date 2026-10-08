@@ -616,6 +616,7 @@ void get_widgets(struct widgets *widgets);
 void ouverture_glade(char * nom, unsigned short connect);
 struct widgets * ouverture_glade_retour(char * nom, unsigned short connect); /* paramètre GLADE_?  */
 void ferme_glade(GtkWidget *ChildWidget , struct widgets * widgets);
+void libere_widgets(gpointer data);
 
 /* chaine.c */
 signed char compare_sans_casse(char * s1,char * s2);

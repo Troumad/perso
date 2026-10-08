@@ -68,22 +68,16 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 liste_fenetre[nb_fenetre]=NULL;
                 if (retour->modif!=NULL)
                 { /* fermeture de la fenêtre de modification */
-                    tmp_modif=retour->modif;
+                    gtk_window_close(GTK_WINDOW(retour->modif->window));  /* fermeture seule : la libération                                                                            se fera à la destruction réelle */
                     retour->modif=NULL;
-                    gtk_window_close(GTK_WINDOW(tmp_modif->window));
-                    g_object_unref(tmp_modif->builder);
-                    g_free(tmp_modif);
                 }
                 else
                 {
                 }
                 if (retour->resume->window!=NULL)
                 {
-                    tmp_modif=retour->resume;
+                    gtk_window_close(GTK_WINDOW(retour->resume->window));
                     retour->resume=NULL;
-                    gtk_window_close(GTK_WINDOW(tmp_modif->window));
-                    g_object_unref(tmp_modif->builder);
-                    g_free(tmp_modif);
                 }
                 else
                 {
@@ -137,7 +131,8 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
         retour=(FenetrePerso *)g_malloc(sizeof(FenetrePerso));
         init_fenetre_perso(retour);
         liste_fenetre[nb_fenetre-1]=retour;
-        retour->resume=ouverture_glade_retour("resume.glade",GLADE_NON_CONNECT);
+        retour->resume=ouverture_glade_retour("resume.glade",GLADE_CONNECT);
+        g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->modif==NULL?NULL:NULL, NULL);
         init_perso(&(retour->perso));
 
         retour->origine=(char **)g_malloc(2*sizeof(char *));
@@ -173,11 +168,13 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 drap=1;
                 if (compare_sans_casse(chemin+strlen(chemin)-5,".pers")==0)
                 { /* ouverture d'un perso */
-                    retour->resume=ouverture_glade_retour("resume.glade",GLADE_NON_CONNECT);
+                    retour->resume=ouverture_glade_retour("resume.glade",GLADE_CONNECT);
+                    g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->modif==NULL?NULL:NULL, NULL);
                 }
                 else if (compare_sans_casse(chemin+strlen(chemin)-4,".grp")==0)
                 {   /* ouverture d'un groupe */
-                    retour->resume=ouverture_glade_retour("groupe.glade",GLADE_NON_CONNECT);
+                    retour->resume=ouverture_glade_retour("groupe.glade",GLADE_CONNECT);
+                    g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->modif==NULL?NULL:NULL, NULL);
                     for (i=0;i<=POURCENTAGE;i++)
                     { /* on marque que c'est un groupe */
                         retour->perso.caract[i]=-1;

@@ -30,7 +30,8 @@ void modif_perso(GtkWidget * appel, FenetrePerso * _perso)
     if (_perso->modif==NULL)
     { /* ouverture de la fenêtre */
         drap=0;
-        _perso->modif=ouverture_glade_retour("modification.glade",GLADE_NON_CONNECT);
+        _perso->modif=ouverture_glade_retour("modification.glade",GLADE_CONNECT);
+        g_object_set_data_full(G_OBJECT(_perso->modif->window),"widgets_modif",_perso->modif,libere_widgets);
         if (_perso->modif!=NULL)
         {
             if (_perso->perso.nom!=NULL && _perso->perso.joueur!=NULL)
@@ -300,7 +301,7 @@ void ferme_modif_perso(GtkWidget *wid, FenetrePerso * _perso)
 {
     static char _drap=0;
 
-    if (_drap==0) /* pour éviter un double appel */
+    if (_drap==0) /* éviter double appel et fenêtre déjà fermée/libérée */
     {
         _drap=1;
         gtk_window_close(GTK_WINDOW(_perso->modif->window));
