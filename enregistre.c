@@ -681,18 +681,18 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
             ch[0]=0;
             if (caract[SAGESSE]>18 && _version!=ADD1)
             {
-                strcat(ch,tabl_sagesse[18][9]);
+                g_strlcat(ch,tabl_sagesse[18][9],LONG);
                 for(i=19;i<caract[SAGESSE];i++)
                 {
-                    if (ch[0]!=0) strcat(ch,", ");
-                    strcat(ch,tabl_sagesse[i][9]);
+                    if (ch[0]!=0) g_strlcat(ch,", ",LONG);
+                    g_strlcat(ch,tabl_sagesse[i][9],LONG);
                 }
             }
 
             if (race->add[vers_race].resistance!=NULL)
             {
-                 if (ch[0]!=0) strcat(ch," ,");
-                 strcat(ch,race->add[vers_race].resistance);
+                 if (ch[0]!=0) g_strlcat(ch," ,",LONG);
+                 g_strlcat(ch,race->add[vers_race].resistance,LONG);
                  modif_xml(g_markup_dom_nom (ooo,"resistance","name"),ch);
             }
             else
@@ -725,18 +725,19 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
             aff[0]=0;
             for(i=0;race->add[vers_race].detection[i]!=NULL;i++)
             {
-                if (i!=0)
+                if (i==0)
                 {
-                    strcpy(aff,race->add[vers_race].detection[0]);
+                    g_strlcpy(aff,race->add[vers_race].detection[0],LONG);
                 }
                 else
                 {
-                    strcat(aff,race->add[vers_race].detection[i]);
+                    g_strlcat(aff," ; ",LONG);
+                    g_strlcat(aff,race->add[vers_race].detection[i],LONG);
                 }
             }
             if (aff[0]==0)
             {
-                strcpy(aff," - ");
+                g_strlcpy(aff," - ",LONG);
             }
             else
             { /* La chaîne est déjà écrite */
@@ -964,17 +965,17 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     if (affichage[0]!=0)
                     {
                         sprintf(ch,", %s",_classe[classe[i]].nom);
-                        strcat(affichage,ch);
+                        g_strlcat(affichage,ch,LONG);
                         sprintf(ch,", %hu",niv_cl[i]);
-                        strcat(aff,ch);
+                        g_strlcat(aff,ch,LONG);
                     }
                     else
                     {
-                        strcpy(affichage,"Classe : ");
+                        g_strlcpy(affichage,"Classe : ",LONG);
                         sprintf(aff,"Niveau : ");
-                        strcat(affichage,_classe[classe[i]].nom);
+                        g_strlcat(affichage,_classe[classe[i]].nom,LONG);
                         sprintf(ch,"%hu",niv_cl[i]);
-                        strcat(aff,ch);
+                        g_strlcat(aff,ch,LONG);
                     }
                     if (i!=0)       /* clerc et mag commence à 0 et à chaque classe, ils s'incrémentent si la classe utilisent des sorts de clerc ou de mag */
                     {
@@ -1742,7 +1743,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                      {
                          sprintf(aff,"-");
                      }
-                     strcpy(ch,"Aucune");
+                     g_strlcpy(ch,"Aucune",LONG);
                 }
                 else if (_perso->perso.mag_armure1!=0)
                 { /* armure magique */
@@ -1802,7 +1803,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                      {
                          sprintf(aff,"-");
                      }
-                     strcpy(ch+strlen(ch),"/Aucune");
+                     g_strlcpy(ch+strlen(ch),"/Aucune",LONG);
                 }
                 else if (_perso->perso.mag_armure2!=0)
                 { /* armure magique */
@@ -1892,12 +1893,12 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
 
             sprintf(aff,"%+hd",ca1);
             modif_xml(g_markup_dom_nom (ooo,"ca1","name"),aff);
-            strcpy(affichage,"Classe d’armure : ");
-            strcat(affichage,aff);
-            strcat(affichage," / ");
+            g_strlcpy(affichage,"Classe d’armure : ",LONG);
+            g_strlcat(affichage,aff,LONG);
+            g_strlcat(affichage," / ",LONG);
             sprintf(aff,"%+hd",ca2);
             modif_xml(g_markup_dom_nom (ooo,"ca2","name"),aff);
-            strcat(affichage,aff);
+            g_strlcat(affichage,aff,LONG);
             modif_xml(g_markup_dom_nom (ooo,"ca2","name"),aff);
             modif_xml(g_markup_dom_nom (ooo,"bilan_ca","name"),affichage);
 
@@ -2552,7 +2553,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     for (i=1;i<=pt_psi;i++)
                     {
                         sprintf(aff," %hu",i);
-                        strncat(ch,aff,LONG-1);
+                        g_strlcat(ch,aff,LONG-1);
                     }
                     xml_ecrit_dernier_texte(tmp_node->fils+1,ch);
                 }
@@ -2571,20 +2572,20 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     j+=_perso->perso.pdv[i];
                     if (i!=0)
                     {
-                        strcat(affichage,"+");
+                        g_strlcat(affichage,"+",LONG);
                     }
                     else
                     {
                     }
                     sprintf(ch,"%hd",_perso->perso.pdv[i]);
-                    strcat(affichage,ch);
+                    g_strlcat(affichage,ch,LONG);
                 }
             }
             else
             { /* pas de points de vie */
             }
             sprintf(ch,"=%hd",j);
-            strcat(affichage,ch);
+            g_strlcat(affichage,ch,LONG);
             modif_xml(g_markup_dom_nom (ooo,"pdv","name"),affichage);
             if (j>85) /* il y a 90 pdv max sur la feuille */
             {
@@ -2855,7 +2856,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
         echange_node(g_markup_dom_nom (ooo,"ligne_constitution","name"),g_markup_dom_nom (ooo,"ligne_sagesse","name"));
         echange_node(g_markup_dom_nom (ooo,"ligne_petrification","name"),g_markup_dom_nom (ooo,"ligne_baguette","name"));
 
-        strcpy(aff,ch);
+        g_strlcpy(aff,ch,LONG);
         i=strlen(ch)+1;
         ch[i-5]='_';
         ch[i-4]='a';
