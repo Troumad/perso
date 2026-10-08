@@ -180,8 +180,7 @@ void modif_perso(GtkWidget * appel, FenetrePerso * _perso)
             drap=1;
             //_perso->d_m=0; /* remise à zéro dees midifications */
             init_fichier_modif(NULL,_perso);
-            gtk_builder_connect_signals(_perso->modif->builder,_perso);
-
+            /* gtk_builder_connect_signals(_perso->modif->builder,_perso); connexion déjà faite par ouverture_glade_retour(GLADE_CONNECT) : ne pas reconnecter */
         }
         else
         {
@@ -201,7 +200,7 @@ void ferme_modif(GtkWidget *widget, FenetrePerso * _perso)
   GtkWidget *p_dialog = NULL;
   char ch[LONG];
 
-    if (_perso->d_m==1)
+    if (_perso->d_m==1 && _perso->modif!=NULL)
     {
         if (_perso->perso.nom)
         {
@@ -304,7 +303,9 @@ void ferme_modif_perso(GtkWidget *wid, FenetrePerso * _perso)
     if (_drap==0 && _perso->modif!=NULL) /* éviter double appel et fenêtre déjà fermée/libérée */
     {
         _drap=1;
-        gtk_window_close(GTK_WINDOW(_perso->modif->window));
+        GtkWidget * fen_modif=_perso->modif->window;
+        _perso->modif=NULL;          /* détacher AVANT le close : plus aucun code ne verra la structure */
+        gtk_window_close(GTK_WINDOW(fen_modif));
         _drap=0;
     }
     else
