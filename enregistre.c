@@ -1803,7 +1803,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                      {
                          sprintf(aff,"-");
                      }
-                     g_strlcpy(ch+strlen(ch),"/Aucune",LONG);
+                     g_strlcat(ch,"/Aucune",LONG);
                 }
                 else if (_perso->perso.mag_armure2!=0)
                 { /* armure magique */
