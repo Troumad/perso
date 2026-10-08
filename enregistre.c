@@ -400,7 +400,7 @@ signed long but_xp_classe(struct_classe * s_c,struct_race * s_r,unsigned short n
         if (niv<20 && s_c->add[ADD].pdv[niv-1]==NULL)
         {
             retour=0;
-        }  /* niveau supérieur non ateignable */
+        }  /* niveau supérieur non atteignable */
         else
         {
             for (i=0;i<niv-1 && s_l[i]!=FIN;i++);
@@ -421,7 +421,7 @@ signed long but_xp_classe(struct_classe * s_c,struct_race * s_r,unsigned short n
         if (niv<20 && s_c->add[ADD2].pdv[niv-1]==NULL)
         {
             retour=0;
-        } /* niveau suppérieur non ateignable */
+        } /* niveau supérieur non atteignable */
         else
         {
             for (i=0;i<niv-1 && s_l[i]!=FIN;i++);

@@ -7,6 +7,11 @@
     <property name="can_focus">False</property>
     <property name="stock">gtk-missing-image</property>
   </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">Images/5d6.ico</property>
+  </object>
   <object class="GtkImage" id="image3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -1230,11 +1235,11 @@
         </child>
         <child>
           <object class="GtkButton" id="button2">
-            <property name="label">gtk-apply</property>
+            <property name="label">Tirer un personnage</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="use_stock">True</property>
+            <property name="image">image4</property>
             <signal name="clicked" handler="applique_menu" swapped="no"/>
             <property name="tooltip_text" translatable="yes">Tirer un personnage suivant les choix effectués.</property>
           </object>
