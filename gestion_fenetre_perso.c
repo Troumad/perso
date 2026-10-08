@@ -79,8 +79,11 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 }
                 if (retour->resume->window!=NULL)
                 {
-                    gtk_window_close(GTK_WINDOW(retour->resume->window));
+                    tmp_modif=retour->resume;
                     retour->resume=NULL;
+                    gtk_window_close(GTK_WINDOW(tmp_modif->window));
+                    g_object_unref(tmp_modif->builder);
+                    g_free(tmp_modif);
                 }
                 else
                 {
@@ -651,6 +654,7 @@ void libere_fenetre_perso(FenetrePerso * f_p)
         f_p->origine=NULL;
     }
     libere_perso(&(f_p->perso));
+    g_free(f_p);
 }
 
 void libere_perso(perso * pers)
