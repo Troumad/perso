@@ -670,6 +670,10 @@ void copie_node(GMarkupDomNode * arrive,GMarkupDomNode * modele)
       arrive->fils[i].niveau=arrive->niveau+1;
       arrive->fils[i].item=modele->fils[i].item;
       arrive->fils[i].nom=NULL;
+      arrive->fils[i].fils=NULL;
+      arrive->fils[i].attributs=NULL;
+      arrive->fils[i].texte=NULL;
+      arrive->fils[i].com=NULL;
       copie_node(arrive->fils+i, modele->fils+i); /* pour y copier les fils de modele */
     }
 
