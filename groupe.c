@@ -85,7 +85,7 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
     else
     {
     }
-    strcpy(chaine,"Fichiers de sauvegarde\n\nSauvegarde pour nouveau travail\n");
+    g_strlcpy(chaine,"Fichiers de sauvegarde\n\nSauvegarde pour nouveau travail\n",LONG);
     g_strlcat(chaine,ch,LONG);
     g_strlcat(chaine,"\n\nRésumé du groupe\n",LONG);
     g_strlcat(chaine,aff,LONG);
@@ -100,7 +100,7 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
     {
         g_fprintf(fichier,"<document type=\"groupe\">\n");
         tmp2=NULL;
-        strcpy(chemin_gr,fenetre->perso.nom_fichier);
+        g_strlcpy(chemin_gr,fenetre->perso.nom_fichier,LONG);
         for(i=strlen(chemin_gr)-1;i>=0 && chemin_gr[i]!=SEPARATEUR;i--);
         if (i>=0) /* on ne retient que le chemin, le nom est au bout */
         {
@@ -113,7 +113,7 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
         {
             for(i=0;fenetre->uri[i]!=NULL;i++) /*i */
             {
-                strcpy(chaine,fenetre->uri[i]);
+                g_strlcpy(chaine,fenetre->uri[i],LONG);
                 for(j=strlen(chaine)-1;j>=0 && chaine[j]!=SEPARATEUR;j--);
                 if (compare_sans_casse(chaine+strlen(chaine)-5,".pers")==0)
                 {
@@ -173,17 +173,17 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
                                 {
                                     aff[0]='.';
                                     aff[1]='.';
-                                    for (i=0;ch[i]!=0 && i<LONG-2;i++)
+                                    for (j=0;ch[j]!=0 && j<LONG-2;j++)
                                     {
-                                        aff[i+2]=ch[i];
+                                        aff[j+2]=ch[j];
                                     }
-                                    if (i<LONG-2)
+                                    if (j<LONG-2)
                                     {
-                                        aff[i+2]=0;
+                                        aff[j+2]=0;
                                     }
                                     else
                                     {
-                                        aff[LONG]=0;
+                                        aff[LONG-1]=0;
                                     }
                                 }
                                 else
@@ -191,7 +191,7 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
                                     aff[0]='.';
                                     aff[1]='.';
                                     aff[2]=SEPARATEUR;
-                                    for (j=0;ch[j]!=0 && i<LONG-3;j++)
+                                    for (j=0;ch[j]!=0 && j<LONG-3;j++)
                                     {
                                         aff[j+3]=ch[j];
                                     }
@@ -201,10 +201,10 @@ void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
                                     }
                                     else
                                     {
-                                        aff[LONG]=0;
+                                        aff[LONG-1]=0;
                                     }
                                 }
-                                strcpy(ch,aff);
+                                g_strlcpy(ch,aff,LONG);
                             }
                             else
                             {
@@ -391,7 +391,8 @@ void feuille_groupe(FenetrePerso * fenetre)
     FILE * fichier;
     signed short pan=0,die=0; /* mémorisation du dieu et du panthéon */
 
-    if (ooo!=NULL)
+    if (ooo!=NULL);
+
     {
         node=g_markup_dom_node (ooo,"office:text");
         if (node->nb_fils < 3)
@@ -400,7 +401,7 @@ void feuille_groupe(FenetrePerso * fenetre)
         }
         else
         { /* À partir d'ici, node->nb_fils >= 3 est garanti → tous les accès à node->fils+node->nb_fils-3 sont sûrs */
-            strcpy(ch,fenetre->perso.nom_fichier);
+            g_strlcpy(ch,fenetre->perso.nom_fichier,LONG);
             tmp1=ch-1;
             for (tmp=ch;*tmp!=0;tmp++)
             { /* isolé le nom du fichier de la chaîne complète */
@@ -518,7 +519,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                             ch[0]=0;
                             if (tmp_node->nb_texte>0 && tmp_node->texte->texte!=0)
                             {
-                                strcpy(ch,tmp_node->texte->texte);
+                                g_strlcpy(ch,tmp_node->texte->texte,LONG);
                             }
                             else
                             { /* Pas de nom de personnage */
@@ -557,7 +558,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                                     {
                                         if (strcmp(tmp_node->fils[i].attributs[k].nom,"niv")==0)
                                         {
-                                            g_strlcat(ch+j,tmp_node->fils[i].attributs[k].value,LONG);
+                                            g_strlcat(ch,tmp_node->fils[i].attributs[k].value,LONG);
                                             k=0;
                                             sscanf(tmp_node->fils[i].attributs[k].value,"%hd",&k);
 
@@ -895,7 +896,7 @@ void feuille_groupe(FenetrePerso * fenetre)
             fichier=enregistre_tmp_xml(ooo,&nom_de_fichier);
             tmp1=chemin_exe();
             sprintf(affichage,"%s%cLibO%cgroupe.zip",tmp1,SEPARATEUR,SEPARATEUR);
-            strcpy(aff,fenetre->perso.nom_fichier);
+            g_strlcpy(aff,fenetre->perso.nom_fichier,LONG);
             if (compare_sans_casse(aff+strlen(aff)-4,".grp")==0)
             {
                 i=strlen(aff)-4;
@@ -904,7 +905,7 @@ void feuille_groupe(FenetrePerso * fenetre)
             {
                 i=strlen(aff);
             }
-            strcpy(aff+i,"_grp.odt");
+            g_strlcpy(aff+i,"_grp.odt",LONG-i);
             copie_fichier(aff,affichage);
             if (nom_de_fichier)
             { /* cas Linux */
@@ -941,7 +942,7 @@ void feuille_groupe(FenetrePerso * fenetre)
                 xml_ecrit_dernier_attribut(g_markup_dom_nom (ooo,"case_baguette","name"),"name","f_case_baguette");
             }
             fichier=enregistre_tmp_xml(ooo,&nom_de_fichier);
-            strcpy(aff+i,"_grp_add2.odt");
+            g_strlcpy(aff+i,"_grp_add2.odt",LONG-i);
             copie_fichier(aff,affichage);
             if (nom_de_fichier)
             { /* cas linux */
@@ -1191,7 +1192,7 @@ void nouveau_groupe(GtkWidget *ChildWidget, FenetrePerso * _perso_appel)
     }
     else
     {
-        strcpy(ch,"Impossible 'd'ouvrir le fichier ");
+        g_strlcpy(ch,"Impossible 'd'ouvrir le fichier ",LONG);
         g_strlcat(ch,tmp,LONG);
         dialogue(ch,0);
     }
