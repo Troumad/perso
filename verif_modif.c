@@ -1,5 +1,6 @@
 #include "include.h"
 #include <string.h>
+#include <math.h>
 
 char * pdv_classe(signed short _classe,signed short niv,signed short _version);
 signed short classes_race(signed short nb_race,signed short * nb_classe,signed short version);
