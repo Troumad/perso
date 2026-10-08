@@ -68,6 +68,8 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 if (retour->modif!=NULL)
                 { /* fermeture de la fenêtre de modification */
                     gtk_window_close(GTK_WINDOW(retour->modif->window));
+                    g_object_unref(retour->modif->window->builder);
+                    g_free(retour->modif->window);
                     retour->modif=NULL;
                 }
                 else

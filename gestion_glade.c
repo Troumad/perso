@@ -12,7 +12,7 @@ void ouverture_glade(char * _nom, unsigned short connect)
     widgets=ouverture_glade_retour(_nom,connect);
     if (widgets!=NULL)
     {
-        //g_free(widgets);
+        g_free(widgets);
     }
 }
 
