@@ -71,50 +71,35 @@ void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch1)
                 xml_ajoute_fin_texte(node);
                 xml_ecrit_dernier_texte(node,ch);
         }
-        g_free(ch0);
     }
+    g_free(ch0);
 }
 
 char * verif_ext(char * _nom,char * ext)
 {
-    signed short i;
     char * pt=NULL;
-    signed short drap=1;
+    signed short l=strlen(_nom)-strlen(ext);
 
-    if (strlen(ext)<strlen(_nom))
-    {
-        pt=_nom+strlen(_nom)-strlen(ext);
-        for(i=strlen(ext)-1;i>=0;i--)
+    if (l>=0 && compare_sans_casse(_nom+l,ext)==0)
+    { /* l'extension est déjà là */
+        if (l>0)
         {
-            if (pt[i]!=ext[i])
-            {
-                drap=0;
-                i=0; /* sortir de la boucle */
-            }
-            else
-            { /* même valeur */
-            }
-        }
-        if (drap==0)
-        {
-            pt=(char *)g_malloc((strlen(ext)+strlen(_nom)+1)*sizeof(char));
-            sprintf(pt,"%s%s",_nom,ext);
-            /*g_free(_nom);*/
+            pt=g_strdup(_nom);
         }
         else
-        { /* c'est bon, on a l'extention */
-            pt=g_strdup(_nom);
-            /*pt=_nom;*/
+        {/* cas farfelu où le nom est uniquement l'extension : je refuse */
+            pt=(char *)g_malloc((strlen(ext)*2)*sizeof(char));
+            sprintf(pt,"%s%s",ext+1,ext);
         }
     }
     else
-    {
+    { /* ajouter l'extension */
         pt=(char *)g_malloc((strlen(ext)+strlen(_nom)+1)*sizeof(char));
         sprintf(pt,"%s%s",_nom,ext);
-        /*g_free(_nom);*/
     }
     return pt;
 }
+
 void force_xml(GMarkupDomNode * ooo,gchar * ch2,gchar * ch3,gchar * ch4,gchar * ch5,gchar * ch6)
 {
     modif_xml(g_markup_dom_nom (ooo,"force2","name"),ch2);

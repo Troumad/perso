@@ -3211,9 +3211,10 @@
 	"include.h"
 	<string.h>
 
-1791442589 source:/home/troumad/Documents/perso/verif_modif.c
+1791449009 source:/home/troumad/Documents/perso/verif_modif.c
 	"include.h"
 	<string.h>
+	<math.h>
 
 1790183569 source:/home/troumad/Documents/perso/xml.c
 	"include.h"
