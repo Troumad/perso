@@ -1304,7 +1304,7 @@ void callback_aff_menu_recent(GtkMenuItem *menuitem, struct widgets * widgets)
             {
                 gtk_widget_destroy(GTK_WIDGET(gl->data));
             }
-            g_free(gl);
+            g_list_free(gl);
         }
     }
 

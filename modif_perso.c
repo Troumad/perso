@@ -1366,10 +1366,10 @@ void valid_fichier_modif(GtkWidget *appel, FenetrePerso * _perso)
         /* les dieux */
         g_free(_perso->perso.pantheon);
         combo=GTK_COMBO_BOX(gtk_get_widget_by_name(GTK_CONTAINER(gtk_builder_get_object(_perso->modif->builder,"bt_pantheon")),"pantheon"));
-        _perso->perso.pantheon=g_strdup(gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo)));
+        _perso->perso.pantheon=gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo));
         g_free(_perso->perso.dieu);
         combo=GTK_COMBO_BOX(gtk_get_widget_by_name(GTK_CONTAINER(gtk_builder_get_object(_perso->modif->builder,"bt_dieu")),"dieu"));
-        _perso->perso.dieu=g_strdup(gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo)));
+        _perso->perso.dieu=gtk_combo_box_text_get_active_text (GTK_COMBO_BOX_TEXT(combo));
 
         /* alignement */
         for (i=0;i<9;i++)

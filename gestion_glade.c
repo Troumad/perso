@@ -52,6 +52,7 @@ struct widgets * ouverture_glade_retour(char * _nom, unsigned short connect)
 void ferme_glade(GtkWidget *ChildWidget , struct widgets * widgets)
 {
     gtk_widget_destroy(GTK_WIDGET(widgets->window)); /* vide widgets-> builder et le met à NULL */
+    g_free(widgets);
 
     (void)ChildWidget;
 }
