@@ -651,7 +651,6 @@ void libere_fenetre_perso(FenetrePerso * f_p)
         f_p->origine=NULL;
     }
     libere_perso(&(f_p->perso));
-    g_free(f_p);
 }
 
 void libere_perso(perso * pers)
