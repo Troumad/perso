@@ -17,6 +17,7 @@ void modif_perso_mag_niv(GtkWidget *appel, FenetrePerso * _perso);
 void valid_perso_mag(FenetrePerso * _perso);
 void init_mag(FenetrePerso * _perso);
 void init_psi(FenetrePerso * _perso);
+static gboolean sauvegarde_differee(gpointer data);
 
 
 
@@ -355,8 +356,7 @@ void init_fichier_modif(GtkWidget *appel, FenetrePerso * _perso)
             switch(gtk_dialog_run(GTK_DIALOG(p_dialog)))
             {
                 case GTK_RESPONSE_NO:
-                    while (drap==0); /* on attend son tour */
-                    valid_fichier_modif(NULL,_perso);
+                    g_idle_add((GSourceFunc)sauvegarde_differee,_perso);   /* on rend la main : GTK rappellera quand drap vaudra 1 */
                     break; /* on sort du programme */
                 default :
                     break;
@@ -2086,4 +2086,16 @@ void init_psi(FenetrePerso * _perso)
         printf("On ne devrait pas initiliser les psis i les onglets sont fermés\n");
     }
 
+}
+
+static gboolean sauvegarde_differee(gpointer data)
+{
+    FenetrePerso * _perso=(FenetrePerso *)data;
+
+    if (drap==0)
+    {
+        return TRUE;                       /* init encore en cours : redemander au prochain temps libre */
+    }
+    valid_fichier_modif(NULL,_perso);       /* c'est notre tour */
+    return FALSE;                          /* c'est fait : se retirer de la file */
 }
