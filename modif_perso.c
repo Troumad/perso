@@ -217,7 +217,7 @@ void ferme_modif(GtkWidget *widget, FenetrePerso * _perso)
             case GTK_RESPONSE_NO:
                 break; /* on sort du programme */
             default :
-                g_idle_add((GSourceFunc)sauvegarde_differee,_perso); /* on rend la main : GTK rappellera quand drap vaudra 1 */
+                sauvegarde_differee (_perso);
                 break;
         }
         gtk_widget_destroy(p_dialog);
@@ -304,7 +304,7 @@ void ferme_modif_perso(GtkWidget *wid, FenetrePerso * _perso)
     {
         _drap=1;
         GtkWidget * fen_modif=_perso->modif->window;
-        gtk_window_close(GTK_WINDOW(fen_modif));
+        //gtk_window_close(GTK_WINDOW(fen_modif));
         _drap=0;
     }
     else
