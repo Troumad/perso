@@ -304,7 +304,6 @@ void ferme_modif_perso(GtkWidget *wid, FenetrePerso * _perso)
     {
         _drap=1;
         GtkWidget * fen_modif=_perso->modif->window;
-        _perso->modif=NULL;          /* détacher AVANT le close : plus aucun code ne verra la structure */
         gtk_window_close(GTK_WINDOW(fen_modif));
         _drap=0;
     }
