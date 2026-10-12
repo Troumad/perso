@@ -8,6 +8,7 @@ void init_perso(perso * pers);
 void init_fenetre_perso(FenetrePerso * _perso);
 void libere_perso(perso * pers);
 void destroy_fenetre_perso(GtkWidget *wid, FenetrePerso * perso);
+static gboolean libere_final_fenetre(gpointer data);
 
 FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, FenetrePerso * fermeture)
 { /* chemin ne peut être qu'un .pers ou un .grp */
@@ -67,7 +68,7 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 liste_fenetre[nb_fenetre]=NULL;
                 if (retour->modif!=NULL)
                 { /* fermeture de la fenêtre de modification */
-                    gtk_window_close(GTK_WINDOW(retour->modif->window));
+                    gtk_window_close(GTK_WINDOW(retour->modif->window));  /* fermeture seule : la libération                                                                            se fera à la destruction réelle */
                     retour->modif=NULL;
                 }
                 else
@@ -81,9 +82,11 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 else
                 {
                 }
+                FenetrePerso * a_liberer=retour;
                 libere_fenetre_perso(retour);
                 retour=NULL;
                 liste_fenetre[nb_fenetre]=NULL;
+                g_idle_add((GSourceFunc)libere_final_fenetre,a_liberer);  /* exemple : voir point 3 */
             }
             else
             {
@@ -131,13 +134,14 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
         init_fenetre_perso(retour);
         liste_fenetre[nb_fenetre-1]=retour;
         retour->resume=ouverture_glade_retour("resume.glade",GLADE_NON_CONNECT);
+        g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->resume,libere_widgets);
         init_perso(&(retour->perso));
 
-        retour->origine=(char **)malloc(2*sizeof(char *));
+        retour->origine=(char **)g_malloc(2*sizeof(char *));
         retour->ori_add1_add2=1;
         for (i=0;i<2;i++)
         {
-            retour->origine[i]=(char *)malloc(NB_ORIGINE[i]*sizeof(char));
+            retour->origine[i]=(char *)g_malloc(NB_ORIGINE[i]*sizeof(char));
             for (j=0;j<NB_ORIGINE[i];j++)
             {
                 retour->origine[i][j]=1; /* par défaut, on autorise toutes les origines */
@@ -167,10 +171,12 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
                 if (compare_sans_casse(chemin+strlen(chemin)-5,".pers")==0)
                 { /* ouverture d'un perso */
                     retour->resume=ouverture_glade_retour("resume.glade",GLADE_NON_CONNECT);
+                    g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->resume,libere_widgets);
                 }
                 else if (compare_sans_casse(chemin+strlen(chemin)-4,".grp")==0)
                 {   /* ouverture d'un groupe */
                     retour->resume=ouverture_glade_retour("groupe.glade",GLADE_NON_CONNECT);
+                    g_object_set_data_full(G_OBJECT(retour->resume->window),"widgets_resume",retour->resume,libere_widgets);
                     for (i=0;i<=POURCENTAGE;i++)
                     { /* on marque que c'est un groupe */
                         retour->perso.caract[i]=-1;
@@ -232,11 +238,11 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
         {
             retour->perso.tab_voleur[i]=0;
         }
-        retour->origine=(char **)malloc(2*sizeof(char *));
+        retour->origine=(char **)g_malloc(2*sizeof(char *));
         retour->ori_add1_add2=1;
         for (i=0;i<2;i++)
         {
-            retour->origine[i]=(char *)malloc(NB_ORIGINE[i]*sizeof(char));
+            retour->origine[i]=(char *)g_malloc(NB_ORIGINE[i]*sizeof(char));
             for (j=0;j<NB_ORIGINE[i];j++)
             {
                 retour->origine[i][j]=1; /* par défaut, on autorise toutes les origines */
@@ -578,6 +584,7 @@ void init_fenetre_perso(FenetrePerso * _perso)
     _perso->resume=NULL;
     _perso->modif=NULL;
     _perso->uri=NULL;
+    _perso->origine=NULL;
     _perso->d_m=0;
     _perso->d_r=0;
     _perso->classe_modif=(signed short *)g_malloc(sizeof(unsigned short)); /* -1 pour le dernier */
@@ -588,13 +595,13 @@ void init_fenetre_perso(FenetrePerso * _perso)
     _perso->competence_modif[0]=-1;
     _perso->niv_classe_modif=(signed short *)g_malloc(sizeof(unsigned short)); /* -1 pour le dernier */
     _perso->niv_classe_modif[0]=-1;
-    _perso->couleur_armes     =(unsigned short *)g_malloc(NB_ARME      *sizeof(unsigned short));
-    _perso->couleur_classes   =(unsigned short *)g_malloc(NB_CLASSE    *sizeof(unsigned short));
-    _perso->combo_classes     =(unsigned short *)g_malloc(NB_CLASSE    *sizeof(unsigned short));
-    _perso->couleur_armure    =(unsigned short *)g_malloc(NB_ARMURE    *sizeof(unsigned short));
-    _perso->couleur_competence=(unsigned short *)g_malloc(NB_COMPETENCE*sizeof(unsigned short));
-    _perso->couleur_races     =(unsigned short *)g_malloc(NB_RACE      *sizeof(unsigned short));
-    _perso->combo_races       =(unsigned short *)g_malloc(NB_RACE      *sizeof(unsigned short));
+    _perso->couleur_armes     =(unsigned short *)g_malloc0(NB_ARME      *sizeof(unsigned short));
+    _perso->couleur_classes   =(unsigned short *)g_malloc0(NB_CLASSE    *sizeof(unsigned short));
+    _perso->combo_classes     =(unsigned short *)g_malloc (NB_CLASSE    *sizeof(unsigned short));
+    _perso->couleur_armure    =(unsigned short *)g_malloc0(NB_ARMURE    *sizeof(unsigned short));
+    _perso->couleur_competence=(unsigned short *)g_malloc0(NB_COMPETENCE*sizeof(unsigned short));
+    _perso->couleur_races     =(unsigned short *)g_malloc0(NB_RACE      *sizeof(unsigned short));
+    _perso->combo_races       =(unsigned short *)g_malloc (NB_RACE      *sizeof(unsigned short));
     _perso->psi=0;
     _perso->mag=0;
     _perso->race_modif=0;
@@ -614,25 +621,38 @@ void init_fenetre_perso(FenetrePerso * _perso)
 void libere_fenetre_perso(FenetrePerso * f_p)
 {
     unsigned short i;
-
-    if (f_p->uri!=NULL)
-    {
-        for (i=0;f_p->uri[i]!=NULL;i++)
+        if (f_p->uri!=NULL)
         {
-            g_free(f_p->uri[i]);
+            for (i=0;f_p->uri[i]!=NULL;i++)
+            {
+                g_free(f_p->uri[i]);
+            }
+            g_free(f_p->uri);
+            f_p->uri=NULL;
         }
-        g_free(f_p->uri);
-        f_p->uri=NULL;
-    }
-    else
-    {
-    }
-    g_free(f_p->couleur_armes);
-    g_free(f_p->couleur_classes);
-    g_free(f_p->couleur_competence);
-    g_free(f_p->couleur_races);
-    libere_perso(&(f_p->perso));
-    /*g_free(f_p);*/
+        else
+        {
+        }
+        g_free(f_p->couleur_armes);
+        g_free(f_p->couleur_classes);
+        g_free(f_p->couleur_competence);
+        g_free(f_p->couleur_races);
+        g_free(f_p->couleur_armure);
+        g_free(f_p->combo_classes);
+        g_free(f_p->combo_races);
+        g_free(f_p->classe_modif);
+        g_free(f_p->armes_modif);
+        g_free(f_p->competence_modif);
+        g_free(f_p->niv_classe_modif);
+        if (f_p->origine!=NULL)
+        {
+            g_free(f_p->origine[0]);
+            g_free(f_p->origine[1]);
+            g_free(f_p->origine);
+            f_p->origine=NULL;
+        }
+        libere_perso(&(f_p->perso));
+
 }
 
 void libere_perso(perso * pers)
@@ -688,8 +708,11 @@ void libere_perso(perso * pers)
     g_free(pers->niv_psi);
     g_free(pers->sociale);
     g_free(pers->natif_psi);
-    g_free(pers->origine[0]);
-    g_free(pers->origine[1]);
+    if (pers->origine!=NULL)
+    {
+        g_free(pers->origine[0]);
+        g_free(pers->origine[1]);
+    }
     g_free(pers->origine);
     pers->origine=NULL;
 }
@@ -749,14 +772,20 @@ void init_perso(perso * pers)
     {
         pers->tab_voleur[i]=0;
     }
-    pers->origine=(char **)malloc(2*sizeof(char*));
+    pers->origine=(char **)g_malloc(2*sizeof(char*));
     pers->ori_add1_add2=1;
     for (j=0;j<2;j++)
     {
-        pers->origine[j]=(char *)malloc(sizeof(char)*NB_ORIGINE[j]);
+        pers->origine[j]=(char *)g_malloc(sizeof(char)*NB_ORIGINE[j]);
         for (i=0;i<NB_ORIGINE[j];i++)
         {
             pers->origine[j][i]=1; /* par défaut, on active toutes les origines */
         }
     }
+}
+
+static gboolean libere_final_fenetre(gpointer data)
+{
+    g_free(data);
+    return FALSE;  /* une seule fois */
 }

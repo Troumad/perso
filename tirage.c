@@ -39,14 +39,14 @@ void init_caract_voleur(FenetrePerso * _perso);
 
 void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
 {
-    FenetrePerso * _perso;
-    GtkWidget * wid;
-    char ch[16], * pt_ch;
+    FenetrePerso * _perso=NULL;
+    GtkWidget * wid=NULL;
+    char ch[16], * pt_ch=NULL;
     signed short * caract,caract_min[6]={3,3,3,3,3,3},caract_pref[6]={0,3,4,2,1,5},caract_max[7]={18,18,18,18,18,18,100};
     signed char pl_c_min_max[8]={0,1,2,3,4,5,6,7},pl_tr[8]={0,1,2,3,4,5,6,7};
     signed short niv=1,i,j,m,im,t,tmp,nb;
-    struct cl_add * classe;
-    signed short * tab_max, * tab_min, * tab_race;
+    struct cl_add * classe=NULL;
+    signed short * tab_max=NULL, * tab_min=NULL, * tab_race=NULL;
     unsigned short (*pf)()=NULL; /* pointeur sur la fonction de tirage de dès */
     unsigned short (*tirage_pdv)(unsigned short)=NULL; /* pointeur sur la méthode de tirage des pdv */
     unsigned short constit=0,constitg=0, ** pdv,nb_des,de;
@@ -85,7 +85,7 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
             {
                 _perso->perso.version=ADD2;
             }
-            strcpy(ch,"Niveau");
+            g_strlcpy(ch,"Niveau",16);
             for(i=0;i<=20;i++)
             {
                 sprintf(ch+6,"%hd",i);
@@ -96,13 +96,13 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
                     i=20;
                 }
             }
-            b_constit_add2=(signed short *)malloc(niv*sizeof(signed short *));
+            b_constit_add2=(signed short *)g_malloc(niv*sizeof(signed short));
 
             _perso->perso.race=trouve_race(widgets);   /* décompte du nombre de classe              */
             for (i=0;_perso->perso.classe[i]!=-1;i++); /* pour réserver la place mémoire nécessaire */
-            _perso->perso.niveau=(signed short *)malloc(i*sizeof(signed short));
-            _perso->perso.XP=(unsigned long *)malloc(i*sizeof(signed long));
-            pdv=(unsigned short **)malloc(i*sizeof(unsigned short *));
+            _perso->perso.niveau=(signed short *)g_malloc(i*sizeof(signed short));
+            _perso->perso.XP=(unsigned long *)g_malloc(i*sizeof(signed long));
+            pdv=(unsigned short **)g_malloc(i*sizeof(unsigned short *));
 
             for (i=0;_perso->perso.classe[i]!=-1;i++)
             {
@@ -160,7 +160,7 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
                  pl_c_min_max[im]=tmp;
             }
 
-            /* repérage de la méthopde de tirage */
+            /* repérage de la méthode de tirage */
             wid=GTK_WIDGET(gtk_builder_get_object(widgets->builder,"3D6_"));
             if (gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM(wid)))
             {
@@ -214,7 +214,7 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
                 }
             }
 
-            for(i=1;i<6;i++) /* on classe les caractéristiques suivant les préférances */
+            for(i=1;i<6;i++) /* on classe les caractéristiques suivant les préférences */
             {
                  m=caract[caract_pref[i-1]];
                  im=i-1;
@@ -317,10 +317,10 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
               constitg=constit;
             }
 
-            _perso->perso.pdv=(signed short *)malloc((_perso->perso.niveau[0]+1)*sizeof(signed short));
+            _perso->perso.pdv=(signed short *)g_malloc((_perso->perso.niveau[0]+1)*sizeof(signed short));
             for (i=0;_perso->perso.classe[i]!=-1;i++)
             {
-                pdv[i]=(unsigned short *)malloc(_perso->perso.niveau[i]*sizeof(unsigned short));
+                pdv[i]=(unsigned short *)g_malloc(_perso->perso.niveau[i]*sizeof(unsigned short));
                 for (j=0;j<_perso->perso.niveau[i];j++)
                 {
                     pt_ch=CLASSE[_perso->perso.classe[i]].add[_perso->perso.version].pdv[_min(j,19)];
@@ -385,6 +385,29 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
                 {
                 }
             }
+            for(m=0;m<i;m++)
+            {
+                g_free(pdv[m]);
+            }
+            g_free(pdv);
+            g_free(_perso->perso.pantheon);
+            _perso->perso.pantheon=g_strdup("Général");
+            g_free(_perso->perso.dieu);
+            _perso->perso.dieu=g_strdup("Aucun");
+            g_free(_perso->perso.commentaire);
+            _perso->perso.commentaire=g_strdup("");
+            g_free(_perso->perso.joueur);
+            _perso->perso.joueur=g_strdup("");
+            g_free(_perso->perso.nom);
+            _perso->perso.nom=g_strdup("");
+            g_free(_perso->perso.cheveux);
+            _perso->perso.cheveux=g_strdup("");
+            g_free(_perso->perso.yeux);
+            _perso->perso.yeux=g_strdup("");
+            g_free(_perso->perso.peau);
+            _perso->perso.peau=g_strdup("");
+            g_free(_perso->perso.sociale);
+            _perso->perso.sociale=g_strdup("");
             _perso->perso.pdv[j]=0; /* marquer la fin du tirage des pdv */
 
 
@@ -396,6 +419,8 @@ void applique_menu(GtkWidget *wid_appel, struct widgets * widgets)
             gestion_fenetre (NULL,NULL, _perso);
         }
     }
+    g_free(b_constit_add2);
+
     (void)wid_appel;
 }
 

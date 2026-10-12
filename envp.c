@@ -245,6 +245,10 @@ void envp_mem_hist(char * chemin)
 
         if (chemin !=NULL)
         {
+            for (i=0;i<MEM_FICH_MAX;i++)
+            {
+                ch_pers[i]=NULL;
+            }
             ch1=envp_app_data();
             sprintf(aff,"%s%chist",ch1,SEPARATEUR);
             g_free(ch1);
@@ -320,7 +324,6 @@ void envp_mem_hist(char * chemin)
             for (i=0;i<nb_pers;i++)
             {
                 g_fprintf(fp,"%s\n",ch_pers[i]);
-                g_free(ch_pers[i]);
             }
             if (meme_extension(chemin,"grp")==1)
             {
@@ -341,6 +344,10 @@ void envp_mem_hist(char * chemin)
             for (i=0;i<nb_grp;i++)
             {
                 g_fprintf(fp,"%s\n",ch_grp[i]);
+            }
+            for (i=0;i<MEM_FICH_MAX;i++)
+            {
+                g_free(ch_pers[i]);
                 g_free(ch_grp[i]);
             }
             fclose(fp);

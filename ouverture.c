@@ -68,7 +68,7 @@ void  info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets)
                 noded=g_markup_dom_node(nodeo,"perso");
                 if (noded!=NULL && noded->nb_texte>0)
                 {
-                    strcat(ch,noded->texte[0].texte);
+                    g_strlcat(ch,noded->texte[0].texte,LONG);
                 }
                 else
                 {
@@ -76,8 +76,8 @@ void  info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets)
                 noded=g_markup_dom_node(nodeo,"race");
                 if (noded!=NULL && noded->nb_texte>0)
                 {
-                    strcat(ch,", ");
-                    strcat(ch,noded->texte[0].texte);
+                    g_strlcat(ch,", ",LONG);
+                    g_strlcat(ch,noded->texte[0].texte,LONG);
                 }
                 else
                 {
@@ -89,14 +89,14 @@ void  info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets)
                     for (i=0;i<nb;i++)
                     {
 
-                        strcat(ch,", ");
-                        strcat(ch,noded->fils[i].texte[0].texte);
+                        g_strlcat(ch,", ",LONG);
+                        g_strlcat(ch,noded->fils[i].texte[0].texte,LONG);
                         for (j=0;j<noded->fils[i].nb_att;j++)
                         {
                             if (compare_sans_casse(noded->fils[i].attributs[j].nom,"niv")==0)
                             {
-                                strcat(ch," nv ");
-                                strcat(ch,noded->fils[i].attributs[j].value);
+                                g_strlcat(ch," nv ",LONG);
+                                g_strlcat(ch,noded->fils[i].attributs[j].value,LONG);
                             }
                             else
                             {
@@ -122,12 +122,12 @@ void  info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets)
                             {
                                 if (ch[0]!=0)
                                 {
-                                    strcat(ch,", ");
+                                    g_strlcat(ch,", ",LONG);
                                 }
                                 else
                                 {
                                 }
-                                strcat(ch,noded->fils[i].texte[0].texte);
+                                g_strlcat(ch,noded->fils[i].texte[0].texte,LONG);
                             }
                             else
                             { /* pas de texte => pas de nom de fichiers */
@@ -179,6 +179,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                 _perso->perso.nom=g_strdup("");
                                 _perso->perso.joueur=g_strdup("");
                                 _perso->perso.classe=(signed short *)g_malloc(sizeof(signed short));
+                                g_free(_perso->niv_classe_modif);
                                 _perso->niv_classe_modif=NULL;
                                 _perso->perso.niveau=(signed short *)g_malloc(sizeof(signed short));
                                 _perso->perso.XP=(unsigned long *)g_malloc(sizeof(unsigned long));
@@ -204,6 +205,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                 _perso->perso.niv_competence=(signed short *)g_malloc(sizeof(signed short));
                                 _perso->perso.competence[0]=-1;
                                 _perso->perso.niv_competence[0]=0;
+                                g_free(_perso->competence_modif);
                                 _perso->competence_modif=NULL;
 
                                 _perso->perso.arme=(signed short *)g_malloc(sizeof(signed short));
@@ -212,6 +214,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                 _perso->perso.arme_autre_t=(signed short *)g_malloc(sizeof(signed short));
                                 _perso->perso.arme_autre_d=(signed short *)g_malloc(sizeof(signed short));
                                 _perso->perso.arme[0]=-1;
+                                g_free(_perso->armes_modif);
                                 _perso->armes_modif=NULL;
                                 _perso->perso.niv_arme[0]=0;
                                 _perso->perso.mag_arme[0]=0;
@@ -296,6 +299,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                     _perso->perso.niveau[0]=0;
                                     _perso->perso.XP[0]=0;
                                 }
+                                g_free(_perso->niv_classe_modif);
                                 _perso->niv_classe_modif=NULL;
                                 noded=g_markup_dom_node(nodeo,"sexe");
                                 if (noded!=NULL && noded->nb_texte>0 && compare_sans_casse((char *)nom_sexe[0],noded->texte[0].texte)==0)
@@ -511,6 +515,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                     _perso->perso.competence[0]=-1;
                                     _perso->perso.niv_competence[0]=0;
                                 }
+                                g_free(_perso->competence_modif);
                                 _perso->competence_modif=NULL;
                                 noded=g_markup_dom_node(nodeo,"armes");
                                 if (noded!=NULL)
@@ -570,6 +575,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                     _perso->perso.arme_autre_t[0]=0;
                                     _perso->perso.arme_autre_d[0]=0;
                                 }
+                                g_free(_perso->armes_modif);
                                 _perso->armes_modif=NULL;
                                 noded=g_markup_dom_node(nodeo,"alignement");
                                 if (noded!=NULL)
@@ -830,16 +836,16 @@ FenetrePerso * ouvre_perso(char * _nom)
                                                 {
                                                 }
                                             }
-                                            if (nv>0 && nv<=9 && _perso->perso.livre_sorts[nv]==NULL)
-                                            { /* parcours des sorts de niveau nv, premier passage : un second szerait une erreur */
+                                            if (nv>0 && nv<=9 && _perso->perso.livre_sorts[nv-1]==NULL)
+                                            { /* parcours des sorts de niveau nv, premier passage : un second serait une erreur */
                                                 nb=0;
                                                 for (j=0;j<noded->fils[i].nb_fils;j++)
                                                 {
                                                     if (compare_sans_casse("sort",noded->fils[i].fils[j].nom)==0)
                                                     { /* c'est bien une entrée sort */
                                                         nb++;
-                                                        _perso->perso.livre_sorts[nv-1]=(signed long *)realloc(_perso->perso.livre_sorts[nv-1],(nb+1)*sizeof(signed long));
-                                                        _perso->perso.sort_su[nv-1]=(signed short *)realloc(_perso->perso.sort_su[nv-1],(nb+1)*sizeof(signed short));
+                                                        _perso->perso.livre_sorts[nv-1]=(signed long *)g_realloc(_perso->perso.livre_sorts[nv-1],(nb+1)*sizeof(signed long));
+                                                        _perso->perso.sort_su[nv-1]=(signed short *)g_realloc(_perso->perso.sort_su[nv-1],(nb+1)*sizeof(signed short));
                                                         _perso->perso.livre_sorts[nv-1][nb-1]=NON;
                                                         _perso->perso.sort_su[nv-1][nb-1]=NON;
                                                         for (k=0;k<noded->fils[i].fils[j].nb_att;k++)
@@ -995,10 +1001,10 @@ FenetrePerso * ouvre_perso(char * _nom)
                                 }
 
                                 /* origine : on initialise à tout, s'il y aurait un problème, on gère */
-                                _perso->origine=(char **)malloc(2*sizeof(char *));
+                                _perso->origine=(char **)g_malloc(2*sizeof(char *));
                                 for (i=0;i<2;i++)
                                 {
-                                    _perso->origine[i]=(char *)malloc(NB_ORIGINE[i]*sizeof(char));
+                                    _perso->origine[i]=(char *)g_malloc(NB_ORIGINE[i]*sizeof(char));
                                     _perso->origine[i][0]=1; /* OK : manuel du joueur */
                                     for (k=1;k<NB_ORIGINE[i];k++)
                                     {
@@ -1105,7 +1111,7 @@ FenetrePerso * ouvre_perso(char * _nom)
                                         }
                                         else
                                         {
-                                            strcat(ch,".pers");
+                                            g_strlcat(ch,".pers",LONG);
                                         }
                                         k+=nouveau_membre_groupe(_perso,ch,k);
                                     }
@@ -1198,6 +1204,11 @@ unsigned short trouve_origine(GMarkupDomNode * node,char * tab,signed short vers
 
 void  ouverture_liste(GtkWidget *ChildWidget , struct widgets * widgets)
 {  /* ouverture valable même si on a sélectionné plusieurs fichiers */
+  static char _drap=0;
+
+  if (_drap==0)
+  {
+    _drap=1;
     GSList * liste, * tmp;
 
     liste=gtk_file_chooser_get_filenames (GTK_FILE_CHOOSER(gtk_builder_get_object(widgets->builder,"window")));
@@ -1210,6 +1221,8 @@ void  ouverture_liste(GtkWidget *ChildWidget , struct widgets * widgets)
 
     g_slist_free(liste);
     ferme_glade(ChildWidget , widgets);
+    _drap=0;
+  }
 }
 
 void ouvre_recent (GtkRecentChooser *chooser, gpointer          user_data)

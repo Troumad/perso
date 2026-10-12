@@ -8,6 +8,7 @@
 *.swp
 *.swo
 *~
+.~*#
 .DS_Store
 build/
 sorts_dnd/
@@ -18,3 +19,11 @@ share64/
 perso
 obj/
 token
+vgcore.*
+core
+*.gdb_history
+sortie.valgrind
+fichiers/origine_ancien.ods
+test/
+ValgrindOut.xml
+valgrind.xml

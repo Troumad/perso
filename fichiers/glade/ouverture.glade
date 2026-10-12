@@ -10,6 +10,7 @@
   </object>
   <object class="GtkFileChooserDialog" id="window">
     <property name="can_focus">False</property>
+    <property name="use_header_bar">False</property>
     <property name="type_hint">dialog</property>
     <property name="create_folders">False</property>
     <property name="filter">pers</property>

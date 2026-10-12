@@ -355,7 +355,7 @@ typedef struct
   union
   {
 
-    signed char ** _1; /* dimention 1 : un max, dimension 2 le niveau max + les caract correspondantes */
+    signed char ** _1; /* dimension 1 : un max, dimension 2 le niveau max + les caract correspondantes */
     signed char _2[2]; /* case 1 le max, case 2 : option voir les DD2_NIV_MAX_ */
   };
 } struct_niv_classe;
@@ -404,6 +404,7 @@ struct ra_add
   char * var_taille[2];
   float poids[2];
   struct_niv_classe * niv;
+  char * pouvoir;
 };
 
 typedef struct
@@ -483,7 +484,7 @@ struct _FenetrePerso
     signed short version_modif;
     unsigned short sexe_modif;
     signed short race_modif;
-    signed short mag; /* 0 rien d'affiché, 1 à 9 : le niveau affiché */
+    signed char mag; /* 0 rien d'affiché, 1 à 9 : le niveau affiché */
     char psi; /* 0 pas affiché, 1 affiché */
     char ** origine;
     char ori_add1_add2;
@@ -615,6 +616,7 @@ void get_widgets(struct widgets *widgets);
 void ouverture_glade(char * nom, unsigned short connect);
 struct widgets * ouverture_glade_retour(char * nom, unsigned short connect); /* paramètre GLADE_?  */
 void ferme_glade(GtkWidget *ChildWidget , struct widgets * widgets);
+void libere_widgets(gpointer data);
 
 /* chaine.c */
 signed char compare_sans_casse(char * s1,char * s2);
@@ -833,7 +835,7 @@ void ferme_fenetre_perso(GtkWidget *wid, FenetrePerso * widgets);
 void nouveau(GtkWidget *wid, struct widgets * param);
 
 
-/* modif_perso */
+/* modif_perso.c */
 void modif_perso(GtkWidget *wid, FenetrePerso * perso);
 void modif_caract(GtkWidget *appel, FenetrePerso * _perso);
 void modif_race(GtkWidget *appel, FenetrePerso * _perso);

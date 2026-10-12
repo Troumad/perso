@@ -395,7 +395,6 @@ void FeuilleDeChoix(GtkMenuItem *menuitem, struct widgets * _widgets)
         if (_widgets!=NULL)
         {
             gtk_widget_destroy(GTK_WIDGET(widgets->window));
-            g_free(widgets);
             widgets=NULL;
             coche_FeuilleDeChoix(NULL);
         }
@@ -430,6 +429,7 @@ void FeuilleDeChoix(GtkMenuItem *menuitem, struct widgets * _widgets)
                 widgets=(struct widgets *)g_realloc(widgets,2*sizeof(struct widgets));
                 widgets[1].builder=_widgets->builder;
                 widgets[1].window=_widgets->window;
+                g_object_set_data_full(G_OBJECT(widgets[0].window),"widgets_glade_feuille_de_choix",widgets,libere_widgets);
                 gtk_builder_connect_signals(widgets->builder, widgets);
                 /* gestion des races */
                 /* l : nb de lignes pour l'affichage et c : nb de colonnes */
@@ -1304,7 +1304,7 @@ void callback_aff_menu_recent(GtkMenuItem *menuitem, struct widgets * widgets)
             {
                 gtk_widget_destroy(GTK_WIDGET(gl->data));
             }
-            g_free(gl);
+            g_list_free(gl);
         }
     }
 

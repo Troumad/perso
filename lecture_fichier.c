@@ -28,6 +28,7 @@
 #define FEUILLE_VISION      "B17"
 #define FEUILLE_ECOUTE      "B18"
 #define FEUILLE_RESISTANCE  "B19"
+#define FEUILLE_POUVOIR     "B20"
 #define FEUILLE_BONUS_ARME  "B21"
 #define FEUILLE_SAVE_RACE   "B25"
 
@@ -126,7 +127,6 @@ struct_competences * lire_struct_competences(char * chemin,char *** competencesl
 signed char feuille_lire_multiclasse(char * coordonnees,GMarkupDomNode * node);
 void feuille_lire_modif_CA(signed short * modif_CA,char * coordonnees,GMarkupDomNode * node);
 char ** feuille_lire_ligne(char * coordonnees,GMarkupDomNode * node);
-void feuille_lire_compt_spe(char * coordonnees,GMarkupDomNode * node, signed char *** compt_spe);
 signed short * feuille_lire_ligne_arme(char * coordonnees,GMarkupDomNode * node);
 struct_niv_classe * lecture_lim_racce_add2(GMarkupDomNode * node);
 struct_niv_classe * lecture_lim_racce_add1(GMarkupDomNode * node);
@@ -774,7 +774,6 @@ void retourne_classe_version(struct cl_add * classe_add,GMarkupDomNode * node,un
     {
         classe_add->sort_mago_ecole=ecole_id(feuille_lire_ligne(FEUILLE_SORT_M_S,node),&(classe_add->sort_mago_ecole_spe));
         classe_add->sort_clerc_sphere=feuille_lire_ligne(FEUILLE_SORT_C_S,node);
-        feuille_lire_compt_spe(FEUILLE_COMP_C,node,classe_add->compt_spe);
         classe_add->compt_spe[0]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_C,node); /* compétences particulière donnée à la classe */
         classe_add->compt_spe[1]=(signed char **)feuille_lire_ligne(FEUILLE_COMP_CP,node);
         feuille_lire_competences(node,&(classe_add->liste_competences));
@@ -935,84 +934,6 @@ char ** feuille_lire_ligne(char * coordonnees,GMarkupDomNode * node)
 
     return sortie;
 }
-
-void feuille_lire_compt_spe(char * coordonnees,GMarkupDomNode * node, signed char *** compt_spe)
-{
-    unsigned long i,j,c;
-    signed short k,l,m;
-    GMarkupDomNode * info;
-    compt_spe[0]=NULL;
-    compt_spe[1]=NULL;
-
-    for (i=0,j=0;*(coordonnees+j)>='A' && *(coordonnees+j)<='Z';j++)
-    {
-        i=i*26+*(coordonnees+j)-'A'+1;
-    }
-    if (j==0)
-    {
-        compt_spe[0]=NULL; /* aucune lettre devant */
-        compt_spe[1]=NULL; /* aucune lettre devant */
-    }
-    else
-    {
-        c=sscanf(coordonnees+j,"%lu",&j);
-        if (c!=1)
-        {
-            compt_spe[0]=NULL;
-            compt_spe[1]=NULL;
-        }
-        else
-        {
-            /* passage des coordonnées humaines aux coordonnées informatiques */
-
-            for(c=0;(info=donne_case_ij(j-1,i-1+c,node)) && info->nb_texte!=0;c++)
-            {   /* tant qu'il y a des cases, on lit le contenu */
-                compt_spe[0]=(signed char **)g_realloc(compt_spe[0],(c+2)*sizeof(gchar *));
-                compt_spe[1]=(signed char **)g_realloc(compt_spe[1],(c+2)*sizeof(gchar *));
-                ((gchar ***)compt_spe)[0][c]=g_strdup(info->texte->texte);
-                compt_spe[1][c]=(signed char *)malloc(3*sizeof(gchar));
-                if ((info=donne_case_ij(j,i-1+c,node)))
-                {
-                    k=0; /* protection si erreur lecture */
-                    l=1;
-                    m=0;
-                    sscanf(info->texte->texte+1,"%hd/%hd%hd",&k,&l,&m);
-                    compt_spe[1][c][0]=(signed char)k;
-                    if (l==0)
-                    {   /* protection pour ne pas diviser par 0 */
-                        compt_spe[1][c][1]=1;
-                    }
-                    else
-                    {
-                        compt_spe[1][c][1]=(signed char)l;
-                    }
-                    compt_spe[1][c][2]=(signed char)m;
-
-                }
-                else
-                {
-                        /* case vide */
-                    compt_spe[1][c][0]=0;
-                    compt_spe[1][c][1]=1;
-                    compt_spe[1][c][2]=0;
-                }
-            }
-            if (c==0)
-            {
-                compt_spe[0]=(signed char **)g_malloc(sizeof(gchar *));
-                compt_spe[1]=(signed char **)g_malloc(sizeof(gchar *));
-                compt_spe[0][0]=NULL;
-                compt_spe[1][0]=NULL;
-            }
-            else
-            { /* place déjà réservée */
-                compt_spe[0][c]=NULL;
-                compt_spe[1][c]=NULL;
-            }
-        }
-    }
-}
-
 
 signed short * feuille_lire_ligne_arme(char * coordonnees,GMarkupDomNode * node)
 {
@@ -1568,7 +1489,7 @@ void retourne_sort(struct_sort * sort_, char * fichier)
 
 
     ooo = g_markup_dom_new (fichier, NULL);
-    if (sort->type!=NULL)
+    if (sort_->type!=NULL)
     {
         g_free(sort_->type);
         sort_->type=NULL;
@@ -1582,7 +1503,7 @@ void retourne_sort(struct_sort * sort_, char * fichier)
     strncpy(sort_->type,fichier+k,i-k); /* clerc, druide, mago ou druide */
     sort_->type[i-k]=0;
 
-    for (k=1;k<3;k++) /* pour une fois, les structures pour ADD1 et ADD2 sont semblables ! */
+    for (k=0;k<2;k++) /* pour une fois, les structures pour ADD1 et ADD2 sont semblables ! */
     {
         switch(k)
         {
@@ -1604,7 +1525,7 @@ void retourne_sort(struct_sort * sort_, char * fichier)
     }
     if (ooo)
     {
-        for (k=1;k<3;k++) /* pour une fois, les structures pour ADD1 et ADD2 sont semblables ! */
+        for (k=0;k<2;k++) /* pour une fois, les structures pour ADD1 et ADD2 sont semblables ! */
         {
             switch(k)
             {
@@ -1622,6 +1543,7 @@ void retourne_sort(struct_sort * sort_, char * fichier)
             {
              if ((tmp=lecture_case(FEUILLE_NOM,node)))
              {
+                g_free(etude->nom);
                 etude->nom=g_strdup(tmp); /* nom de la classe */
 
                 for(i=0;(info=donne_case_ij(1+i,0,node)) && info->nb_texte!=0;i++);
@@ -1722,7 +1644,10 @@ void retourne_save(struct_save * save_, char * fichier)
                 i=1;
                 dpt=feuille_lire_case_m(FEUILLE_DEPART_SAVE ,node,-1);
                 if (dpt==-1) /* la case est vide : un gros problème */
+                {
+                    g_markup_dom_free(ooo);
                     return;
+                }
                 if (dpt==0) i++; /* pour le cas du guerrier 0 qui est en fait un perso sans classe_ */
                 while(donne_case_ij(i,0,node)!=NULL)
                 {
@@ -1904,7 +1829,7 @@ struct_origine ** lire_struct_origine(char * fichier)
  GMarkupDomNode * node=NULL, *ooo1=NULL;
  struct_origine ** retour=NULL;
 
- retour=(struct_origine **)malloc(2*sizeof(struct_origine *));
+ retour=(struct_origine **)g_malloc(2*sizeof(struct_origine *));
  retour[0]=NULL;
  retour[1]=NULL;
  ooo1 = g_markup_dom_new (fichier, NULL);
@@ -2042,6 +1967,7 @@ void retourne_psi(struct_psi_c * psi_, char * fichier)
     signed short i;
     char * ch;
     float reel;
+    char ** ligne;
 
     if ((ooo1 = g_markup_dom_new (fichier, NULL)))
     {
@@ -2059,10 +1985,18 @@ void retourne_psi(struct_psi_c * psi_, char * fichier)
                         psi_->add2.base[i]=donne_float_ij(1+i,2,ooo);
                         psi_->add2.bonus[i]=donne_float_ij(1+i,3,ooo);
                     }
-                    psi_->add2.debut.base=lire_caract(feuille_lire_ligne(FEUILLE_PSI_DB_BASE,ooo));
-                    psi_->add2.debut.bonus=lire_caract(feuille_lire_ligne(FEUILLE_PSI_DB_BONU,ooo));
-                    psi_->add2.niveau.base=lire_caract(feuille_lire_ligne(FEUILLE_PSI_NV_BASE,ooo));
-                    psi_->add2.niveau.bonus=lire_caract(feuille_lire_ligne(FEUILLE_PSI_NV_BONU,ooo));
+                    ligne=feuille_lire_ligne(FEUILLE_PSI_DB_BASE,ooo);
+                    psi_->add2.debut.base=lire_caract(ligne);
+                    g_strfreev(ligne);
+                    ligne=feuille_lire_ligne(FEUILLE_PSI_DB_BONU,ooo);
+                    psi_->add2.debut.bonus=lire_caract(ligne);
+                    g_strfreev(ligne);
+                    ligne=feuille_lire_ligne(FEUILLE_PSI_NV_BASE,ooo);
+                    psi_->add2.niveau.base=lire_caract(ligne);
+                    g_strfreev(ligne);
+                    ligne=feuille_lire_ligne(FEUILLE_PSI_NV_BONU,ooo);
+                    psi_->add2.niveau.bonus=lire_caract(ligne);
+                    g_strfreev(ligne);
                     reel=donne_float_ij(37,2,ooo);
                     i=0;
                     while (!isnan(reel))
@@ -2265,6 +2199,8 @@ void lecture_race(struct ra_add * race_v,GMarkupDomNode * node,unsigned short ve
     else                                                race_v->ecoute=NULL;
     if ((tmp=lecture_case(FEUILLE_RESISTANCE,node)))    race_v->resistance=g_strdup(tmp);
     else                                                race_v->resistance=NULL;
+    if ((tmp=lecture_case(FEUILLE_POUVOIR,node)))       race_v->pouvoir=g_strdup(tmp);
+    else                                                race_v->pouvoir=NULL;
     race_v->bonus_arme=feuille_lire_race_b_arme(FEUILLE_BONUS_ARME,node);
     feuille_lire_race_save(FEUILLE_SAVE_RACE,race_v->save,node);
     race_v->langue=feuille_lire_ligne(FEUILLE_LANGUE,node);
@@ -3013,7 +2949,8 @@ struct_niv_classe * lecture_lim_racce_add2(GMarkupDomNode * node)
                               else
                               {
                                   /* chaine nulle => pas de limite */
-                                  sortie[i]._2[0]=0;
+                                  sortie[num_classe]._2[0]=0;
+                                  sortie[num_classe]._2[1]=0; /* aussi par précaution */
                               }
                           }
                           num_classe=nb_classe; /* on force la sortie de la boucle */
@@ -3058,6 +2995,7 @@ struct_niv_classe * lecture_lim_racce_add1(GMarkupDomNode * node)
     }
     if (node_lim==NULL)
     {
+        g_free(sortie);
         sortie=NULL; /* aucune lettre devant */
     }
     else

@@ -12,7 +12,9 @@ void ouverture_glade(char * _nom, unsigned short connect)
     widgets=ouverture_glade_retour(_nom,connect);
     if (widgets!=NULL)
     {
-        //g_free(widgets);
+        /* la structure est libérée à la destruction de la fenêtre,
+           pas ici : les handlers du glade l'utilisent comme user_data */
+        g_object_set_data_full(G_OBJECT(widgets->window),"widgets_glade",widgets,libere_widgets);
     }
 }
 
@@ -51,7 +53,16 @@ struct widgets * ouverture_glade_retour(char * _nom, unsigned short connect)
 
 void ferme_glade(GtkWidget *ChildWidget , struct widgets * widgets)
 {
-    gtk_widget_destroy(GTK_WIDGET(widgets->window)); /* vide widgets-> builder et le met à NULL */
+    gtk_widget_hide(GTK_WIDGET(widgets->window));
+    g_signal_handlers_disconnect_matched(widgets->window,G_SIGNAL_MATCH_DATA,0,0,NULL,NULL,widgets);
+    gtk_widget_destroy(GTK_WIDGET(widgets->window));
 
     (void)ChildWidget;
+}
+
+void libere_widgets(gpointer data)
+{
+    struct widgets * w=(struct widgets *)data;
+    g_object_unref(w->builder);
+    g_free(w);
 }

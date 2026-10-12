@@ -1,0 +1,130 @@
+# perso_valgrind.supp — suppressions valgrind (syntaxe classique, valgrind 3.x)
+# Ignore les fuites provenant des bibliothèques et non du code du programme.
+# Usage :
+#   valgrind --leak-check=full --show-leak-kinds=definite \
+#            --suppressions=perso_valgrind.supp ./perso
+
+# --- fontconfig : cache de polices, alloué une fois pour toutes ---
+{
+   fontconfig-generique
+   Memcheck:Leak
+   ...
+   obj:*libfontconfig*
+}
+{
+   fontconfig-fcpatterncreate
+   Memcheck:Leak
+   ...
+   fun:*FcPatternCreate*
+}
+{
+   fontconfig-realloc
+   Memcheck:Leak
+   ...
+   fun:realloc
+   ...
+   obj:*libfontconfig*
+}
+{
+   fontconfig-xml
+   Memcheck:Leak
+   ...
+   fun:*xmlParseChunk*
+   obj:*libxml2*
+   ...
+   obj:*libfontconfig*
+}
+
+# --- pango / harfbuzz : caches de rendu de texte ---
+{
+   pango-language-from-string
+   Memcheck:Leak
+   ...
+   fun:pango_language_from_string*
+}
+{
+   pango-generique
+   Memcheck:Leak
+   ...
+   obj:*libpango*
+}
+{
+   harfbuzz-generique
+   Memcheck:Leak
+   ...
+   obj:*libharfbuzz*
+}
+
+# --- glycin : chargeur d'images de gdk-pixbuf ---
+{
+   glycin-generique
+   Memcheck:Leak
+   ...
+   obj:*libglycin*
+}
+
+# --- gio / gvfs / dconf / dbus : modules chargés dynamiquement ---
+{
+   gio-generique
+   Memcheck:Leak
+   ...
+   obj:*libgio*
+}
+{
+   gio-modules-gvfs
+   Memcheck:Leak
+   ...
+   obj:*gio/modules/*
+}
+{
+   gio-modules-dconf
+   Memcheck:Leak
+   ...
+   obj:*dconf*
+}
+
+# --- glib : threads, TLS, quarks, param specs, init dynamique ---
+{
+   glib-threads
+   Memcheck:Leak
+   ...
+   fun:start_thread
+}
+{
+   glib-tls-allocate_dtv
+   Memcheck:Leak
+   ...
+   fun:_dl_allocate_tls
+}
+{
+   glib-intern-static-string
+   Memcheck:Leak
+   ...
+   fun:g_intern_static_string
+}
+{
+   glib-dl-init
+   Memcheck:Leak
+   ...
+   fun:_dl_init
+   ...
+   obj:*ld-linux*
+}
+
+# --- gtk / gobject : style contexts, memdups internes ---
+{
+   gtk-style-context-memdup
+   Memcheck:Leak
+   ...
+   fun:g_memdup
+   ...
+   obj:*libgtk*
+}
+{
+   gtk-main-loop
+   Memcheck:Leak
+   ...
+   obj:*libgtk-3*
+   ...
+   fun:g_main_loop_run
+}

@@ -39,14 +39,16 @@ void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch); /* Gestion des
 void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch1)
 {     /* avec gestion des sauts de ligne dans un texte */
     char * ch0=g_strdup(ch1); /* mémoriser pour effacer à la fin */
-    char * ch=ch0; /* le début de ce qu'il reste à afficher */
-    char * pt=ch; /* pointe sur le caractère traité */
+    char * ch; /* le début de ce qu'il reste à afficher */
+    char * pt; /* pointe sur le caractère traité */
 
-    if (!(*ch))
+    if (!(*ch0))
     { /* vide */
     }
     else
     {
+        ch=ch0;
+        pt=ch;
         while (* pt)
         {
             if (*pt=='\n')
@@ -69,50 +71,35 @@ void xml_ecrit_dernier_texte_f(GMarkupDomNode * node,gchar * ch1)
                 xml_ajoute_fin_texte(node);
                 xml_ecrit_dernier_texte(node,ch);
         }
-        g_free(ch0);
     }
+    g_free(ch0);
 }
 
 char * verif_ext(char * _nom,char * ext)
 {
-    signed short i;
     char * pt=NULL;
-    signed short drap=1;
+    signed short l=strlen(_nom)-strlen(ext);
 
-    if (strlen(ext)<strlen(_nom))
-    {
-        pt=_nom+strlen(_nom)-strlen(ext);
-        for(i=strlen(ext)-1;i>=0;i--)
+    if (l>=0 && compare_sans_casse(_nom+l,ext)==0)
+    { /* l'extension est déjà là */
+        if (l>0)
         {
-            if (pt[i]!=ext[i])
-            {
-                drap=0;
-                i=0; /* sortir de la boucle */
-            }
-            else
-            { /* même valeur */
-            }
-        }
-        if (drap==0)
-        {
-            pt=(char *)g_malloc((strlen(ext)+strlen(_nom)+1)*sizeof(char));
-            sprintf(pt,"%s%s",_nom,ext);
-            /*g_free(_nom);*/
+            pt=g_strdup(_nom);
         }
         else
-        { /* c'est bon, on a l'extention */
-            pt=g_strdup(_nom);
-            /*pt=_nom;*/
+        {/* cas farfelu où le nom est uniquement l'extension : je refuse */
+            pt=(char *)g_malloc((strlen(ext)*2)*sizeof(char));
+            sprintf(pt,"%s%s",ext+1,ext);
         }
     }
     else
-    {
+    { /* ajouter l'extension */
         pt=(char *)g_malloc((strlen(ext)+strlen(_nom)+1)*sizeof(char));
         sprintf(pt,"%s%s",_nom,ext);
-        /*g_free(_nom);*/
     }
     return pt;
 }
+
 void force_xml(GMarkupDomNode * ooo,gchar * ch2,gchar * ch3,gchar * ch4,gchar * ch5,gchar * ch6)
 {
     modif_xml(g_markup_dom_nom (ooo,"force2","name"),ch2);
@@ -398,7 +385,7 @@ signed long but_xp_classe(struct_classe * s_c,struct_race * s_r,unsigned short n
         if (niv<20 && s_c->add[ADD].pdv[niv-1]==NULL)
         {
             retour=0;
-        }  /* niveau supérieur non ateignable */
+        }  /* niveau supérieur non atteignable */
         else
         {
             for (i=0;i<niv-1 && s_l[i]!=FIN;i++);
@@ -419,7 +406,7 @@ signed long but_xp_classe(struct_classe * s_c,struct_race * s_r,unsigned short n
         if (niv<20 && s_c->add[ADD2].pdv[niv-1]==NULL)
         {
             retour=0;
-        } /* niveau suppérieur non ateignable */
+        } /* niveau supérieur non atteignable */
         else
         {
             for (i=0;i<niv-1 && s_l[i]!=FIN;i++);
@@ -535,8 +522,6 @@ void enregistre_perso_sous(GtkWidget *ChildWidget, FenetrePerso * _perso)
         {
             case GTK_RESPONSE_NO:
                 gtk_widget_destroy(p_dialog);
-                g_free(nom_de_fichier);
-                nom_de_fichier=NULL;
                 break; /* on sort du programme */
             default :
                 gtk_widget_destroy(p_dialog);
@@ -576,7 +561,7 @@ void enregistre_perso_sous(GtkWidget *ChildWidget, FenetrePerso * _perso)
 
 void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
 {
-    signed short i,j,k,l,m,n,pt_psi=0,niv_psi=0;
+    signed short i,j,k,l,lu,m,n,pt_psi=0,niv_psi=0;
     signed short pan=0,die=0; /* mémorisation du dieu et du panthéon */
     signed short * classe=_perso->perso.classe;
     signed short * niv_cl=_perso->perso.niveau;
@@ -588,7 +573,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
     signed short * arme=_perso->perso.arme;
     signed short * competence=_perso->perso.competence;
     struct_classe * _classe=CLASSE;
-    char ch[LONG],aff[LONG],affichage[LONG], * chemin, * tmp1, * nom_de_fichier;
+    char ch[LONG],aff[LONG],affichage[LONG], * chemin=NULL, * tmp1=NULL, * nom_de_fichier=NULL;
     FILE * fichier;
     GMarkupDomNode * ooo,* tmp_node, *tmp1_node,* node;
     signed short bonus=0,taco=20,taco_lan,spmp=20,spp=20,sbb=20,ssou=20,ssor=20,nm=-5,bt=1,taco_tmp=20,bt_tmp=1;
@@ -597,7 +582,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
     char actu_xp[LONG]={0};
     char bonus_xp[LONG]={0};
     char ch_tmp[16];
-    char ** save_race;
+    char ** save_race=NULL;
     unsigned short car;
     float coef;
     signed short vdr=0;
@@ -696,18 +681,18 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
             ch[0]=0;
             if (caract[SAGESSE]>18 && _version!=ADD1)
             {
-                strcat(ch,tabl_sagesse[18][9]);
+                g_strlcat(ch,tabl_sagesse[18][9],LONG);
                 for(i=19;i<caract[SAGESSE];i++)
                 {
-                    strcat(ch,", ");
-                    strcat(ch,tabl_sagesse[i][9]);
+                    if (ch[0]!=0) g_strlcat(ch,", ",LONG);
+                    g_strlcat(ch,tabl_sagesse[i][9],LONG);
                 }
             }
 
             if (race->add[vers_race].resistance!=NULL)
             {
-                 strcat(ch," ,");
-                 strcat(ch,race->add[vers_race].resistance);
+                 if (ch[0]!=0) g_strlcat(ch," ,",LONG);
+                 g_strlcat(ch,race->add[vers_race].resistance,LONG);
                  modif_xml(g_markup_dom_nom (ooo,"resistance","name"),ch);
             }
             else
@@ -721,6 +706,14 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     modif_xml(g_markup_dom_nom (ooo,"resistance","name"),ch);
                 }
             }
+            if (race->add[vers_race].pouvoir!=NULL)
+            {
+                 modif_xml(g_markup_dom_nom (ooo,"pouvoir","name"),race->add[vers_race].pouvoir);
+            }
+            else
+            { /* pas de pouvoirs raciaux */
+                supprime_node(g_markup_dom_nom (ooo,"cadre_race","name"),1);
+            }
             if (race->add[vers_race].vision!=NULL)
             {
                  modif_xml(g_markup_dom_nom (ooo,"vision","name"),race->add[vers_race].vision);
@@ -732,18 +725,19 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
             aff[0]=0;
             for(i=0;race->add[vers_race].detection[i]!=NULL;i++)
             {
-                if (i!=0)
+                if (i==0)
                 {
-                    strcpy(aff,race->add[vers_race].detection[0]);
+                    g_strlcpy(aff,race->add[vers_race].detection[0],LONG);
                 }
                 else
                 {
-                    strcat(aff,race->add[vers_race].detection[i]);
+                    g_strlcat(aff," ; ",LONG);
+                    g_strlcat(aff,race->add[vers_race].detection[i],LONG);
                 }
             }
             if (aff[0]==0)
             {
-                strcpy(aff," - ");
+                g_strlcpy(aff," - ",LONG);
             }
             else
             { /* La chaîne est déjà écrite */
@@ -971,17 +965,17 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     if (affichage[0]!=0)
                     {
                         sprintf(ch,", %s",_classe[classe[i]].nom);
-                        strcat(affichage,ch);
+                        g_strlcat(affichage,ch,LONG);
                         sprintf(ch,", %hu",niv_cl[i]);
-                        strcat(aff,ch);
+                        g_strlcat(aff,ch,LONG);
                     }
                     else
                     {
-                        strcpy(affichage,"Classe : ");
+                        g_strlcpy(affichage,"Classe : ",LONG);
                         sprintf(aff,"Niveau : ");
-                        strcat(affichage,_classe[classe[i]].nom);
+                        g_strlcat(affichage,_classe[classe[i]].nom,LONG);
                         sprintf(ch,"%hu",niv_cl[i]);
-                        strcat(aff,ch);
+                        g_strlcat(aff,ch,LONG);
                     }
                     if (i!=0)       /* clerc et mag commence à 0 et à chaque classe, ils s'incrémentent si la classe utilisent des sorts de clerc ou de mag */
                     {
@@ -994,9 +988,9 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     {
                     }
                     sprintf(ch_tmp, "%ld",but_xp_classe(_classe+classe[i],race,niv_cl[i],_version));
-                    strncat(but_xp,ch_tmp,LONG-1);
+                    g_strlcat(but_xp,ch_tmp,LONG);
                     sprintf(ch_tmp,"%lu",_perso->perso.XP[i]);
-                    strncat(actu_xp,ch_tmp,LONG-1);
+                    g_strlcat(actu_xp,ch_tmp,LONG);
 
                      /* calcul des save et taco */
                     if (_classe[classe[i]].add[ADD2].nom==NULL || _version==ADD1)
@@ -1042,11 +1036,11 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                         }
                         if (j==1)
                         {
-                            strncat(bonus_xp," 10 % -",LONG-1);
+                            g_strlcat(bonus_xp," 10 % -",LONG);
                         }
                         else
                         {
-                            strncat(bonus_xp," 0 % -",LONG-1);
+                            g_strlcat(bonus_xp," 0 % -",LONG);
                         }
                         for(niv=0;niv<niv_cl[i] && _classe[classe[i]].add[ADD].backstab[niv]!=FIN;niv++);
                         if (niv>0)
@@ -1095,11 +1089,11 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                         }
                         if (j==1)
                         {
-                            strncat(bonus_xp," 10 % -",LONG-1);
+                            g_strlcat(bonus_xp," 10 % -",LONG);
                         }
                         else
                         {
-                            strncat(bonus_xp," 0 % -",LONG-1);
+                            g_strlcat(bonus_xp," 0 % -",LONG);
                         }
                         for(niv=0;niv<niv_cl[i] && _classe[classe[i]].add[ADD2].backstab[niv]>0;niv++);
                         if (niv>0)
@@ -1749,7 +1743,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                      {
                          sprintf(aff,"-");
                      }
-                     strcpy(ch,"Aucune");
+                     g_strlcpy(ch,"Aucune",LONG);
                 }
                 else if (_perso->perso.mag_armure1!=0)
                 { /* armure magique */
@@ -1809,7 +1803,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                      {
                          sprintf(aff,"-");
                      }
-                     strcpy(ch+strlen(ch),"/Aucune");
+                     g_strlcat(ch,"/Aucune",LONG);
                 }
                 else if (_perso->perso.mag_armure2!=0)
                 { /* armure magique */
@@ -1899,12 +1893,12 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
 
             sprintf(aff,"%+hd",ca1);
             modif_xml(g_markup_dom_nom (ooo,"ca1","name"),aff);
-            strcpy(affichage,"Classe d’armure : ");
-            strcat(affichage,aff);
-            strcat(affichage," / ");
+            g_strlcpy(affichage,"Classe d’armure : ",LONG);
+            g_strlcat(affichage,aff,LONG);
+            g_strlcat(affichage," / ",LONG);
             sprintf(aff,"%+hd",ca2);
             modif_xml(g_markup_dom_nom (ooo,"ca2","name"),aff);
-            strcat(affichage,aff);
+            g_strlcat(affichage,aff,LONG);
             modif_xml(g_markup_dom_nom (ooo,"ca2","name"),aff);
             modif_xml(g_markup_dom_nom (ooo,"bilan_ca","name"),affichage);
 
@@ -2090,7 +2084,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                         sprintf(affichage,"%hd",j);
                         sprintf(aff,"taco_a%hu",i+1);
                         modif_xml(g_markup_dom_nom (ooo,aff,"name"),affichage);
-                        taco_a=realloc(taco_a,(i+1)*sizeof(signed short));
+                        taco_a=g_realloc(taco_a,(i+1)*sizeof(signed short));
                         taco_a[i]=j;
 
                         sprintf(aff,"bd_f_a%hu",i+1);
@@ -2113,7 +2107,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                         sprintf(aff,"bd_t_a%hu",i+1);
                         sprintf(affichage,"%+hd",k+_perso->perso.mag_arme[i]+_perso->perso.arme_autre_d[i]);
                         modif_xml(g_markup_dom_nom (ooo,aff,"name"),affichage);
-                        degat_a=realloc(degat_a,(i+1)*sizeof(signed short));
+                        degat_a=g_realloc(degat_a,(i+1)*sizeof(signed short));
                         degat_a[i]=k+_perso->perso.mag_arme[i];
 
                         /* CAP-CR : éviter les calculs avec les armes non complètement remplies ou les armes de jet */
@@ -2284,9 +2278,9 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     }
                     else
                     {
-                        degat_a=realloc(degat_a,(i+1)*sizeof(signed short));
+                        degat_a=g_realloc(degat_a,(i+1)*sizeof(signed short));
                         degat_a[i]=0;
-                        taco_a=realloc(taco_a,(i+1)*sizeof(signed short));
+                        taco_a=g_realloc(taco_a,(i+1)*sizeof(signed short));
                         taco_a[i]=0;
                         if (ARME[arme[i]].groupe==2)
                         {
@@ -2496,19 +2490,19 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
 
                                 if (_perso->perso.natif_psi[i]==1)
                                 {
-                                     if (sscanf(TALENTS_PSI[j][k][l].cout,"(i:%hu",&l)==1)
+                                     if (sscanf(TALENTS_PSI[j][k][l].cout,"(i:%hu",&lu)==1)
                                      {
-                                        pt_psi+=l;
+                                        pt_psi+=lu;
                                      }
                                      else
                                      {
                                      }
-                                     for (l=0;TALENTS_PSI[j][k][l].cout[l]!=':' && TALENTS_PSI[j][k][l].cout[l]!=0 ; l++);
-                                     if (TALENTS_PSI[j][k][l].cout[l]==':') /* cout du maintient */
+                                     for (lu=0;TALENTS_PSI[j][k][l].cout[lu]!=':' && TALENTS_PSI[j][k][l].cout[lu]!=0 ; lu++);
+                                     if (TALENTS_PSI[j][k][l].cout[lu]==':') /* cout du maintient */
                                      {
-                                        if (sscanf(TALENTS_PSI[j][k][l].cout+l+1,"%hu",&l)==1)
+                                        if (sscanf(TALENTS_PSI[j][k][l].cout+lu+1,"%hu",&lu)==1)
                                         {
-                                             pt_psi+=4*l;
+                                             pt_psi+=4*lu;
                                         }
                                         else
                                         {
@@ -2559,7 +2553,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     for (i=1;i<=pt_psi;i++)
                     {
                         sprintf(aff," %hu",i);
-                        strncat(ch,aff,LONG-1);
+                        g_strlcat(ch,aff,LONG);
                     }
                     xml_ecrit_dernier_texte(tmp_node->fils+1,ch);
                 }
@@ -2578,20 +2572,20 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     j+=_perso->perso.pdv[i];
                     if (i!=0)
                     {
-                        strcat(affichage,"+");
+                        g_strlcat(affichage,"+",LONG);
                     }
                     else
                     {
                     }
                     sprintf(ch,"%hd",_perso->perso.pdv[i]);
-                    strcat(affichage,ch);
+                    g_strlcat(affichage,ch,LONG);
                 }
             }
             else
             { /* pas de points de vie */
             }
             sprintf(ch,"=%hd",j);
-            strcat(affichage,ch);
+            g_strlcat(affichage,ch,LONG);
             modif_xml(g_markup_dom_nom (ooo,"pdv","name"),affichage);
             if (j>85) /* il y a 90 pdv max sur la feuille */
             {
@@ -2628,22 +2622,31 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                     xml_ajoute_fin_texte(tmp_node->fils+tmp_node->nb_fils-1);
                     k=0;
                     for (l=0;classe[l]>=0;l++) /* on vérifie si la compétence est aussi une compétence de classe */
-                    { /* bonus du à la classe */
+                    { /* bonus dû à la classe */
                         if (_classe[classe[l]].add[ADD2].nom!=NULL)
                         {
                             k=0;
                             for (j=0;_classe[classe[l]].add[ADD2].compt_spe[0][j]!=NULL;j++)
                             {
                                 if (compare_sans_casse((char *)_classe[classe[l]].add[ADD2].compt_spe[0][j],COMPETENCE[competence[i]].nom)==0)
-                                { /* competence spéciale de la classe trouvée */
-                                             k=_classe[classe[l]].add[ADD2].compt_spe[1][j][0]
-                                                *(_perso->perso.niveau[l]-1)/_classe[classe[l]].add[ADD2].compt_spe[1][j][1]
-                                                +1 /* +1 car la présence seule de la compétance augmente de 1 la maîtrise */
-                                                +_classe[classe[l]].add[ADD2].compt_spe[1][j][2];
+                                { /* compétence spéciale de la classe trouvée */
+                                    signed short num=0,denom=1,_bonus=0;
+                                    if (sscanf((char *)_classe[classe[l]].add[ADD2].compt_spe[1][j],"'%hd/%hd%hd",&num,&denom,&_bonus)!=3)
+                                    {
+                                        printf("Erreur lecture compétence %s de la classe %s : %s\n",COMPETENCE[i].nom,_classe[classe[l]].add[ADD2].nom,_classe[classe[l]].add[ADD2].compt_spe[1][j]);
+                                    }
+                                    if (denom==0)
+                                    {
+                                        printf("Erreur lecture dénominateur compétence %s de la classe %s : %s\n",COMPETENCE[i].nom,_classe[classe[l]].add[ADD2].nom,_classe[classe[l]].add[ADD2].compt_spe[1][j]);
+                                        denom=1;
+                                    }
+                                    k=num*_perso->perso.niveau[l]/denom
+                                        +1 /* +1 car la présence seule de la compétence augmente de 1 la maîtrise */
+                                        +_bonus;
                                 }
                                 else
                                 {
-                                    /* pas la bonne compétance */
+                                    /* pas la bonne compétence */
                                 }
                             }
                         }
@@ -2664,7 +2667,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                 vdr=i; /*mémorisation du nombre de compétences sues */
             }
             else
-            { /* pas de competence */
+            { /* pas de compétence */
                 vdr=0;
             }
             if (classe!=NULL)
@@ -2707,7 +2710,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
                                     xml_ajoute_fin_texte(tmp_node->fils+tmp_node->nb_fils-1);
                                     if (COMPETENCE[i].caract!=POURCENTAGE) /* % pour le cas NA */
                                     {
-                                        sprintf(ch,"%hd",caract[COMPETENCE[i].caract]+COMPETENCE[i].modif+num*(_perso->perso.niveau[n]-1)/denom+_bonus);
+                                        sprintf(ch,"%hd",caract[COMPETENCE[i].caract]+COMPETENCE[i].modif+num*_perso->perso.niveau[n]/denom+_bonus);
                                         xml_ecrit_dernier_texte(tmp_node->fils+tmp_node->nb_fils-1,ch);
                                         //xml_ecrit_dernier_texte(tmp_node,ch);
                                     }
@@ -2793,7 +2796,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
          }
          else
          {
-             /* le fichier n'exite pas */
+             /* le fichier n'existe pas */
          }
          tmp1=chemin_exe();
          nom_de_fichier=NULL;
@@ -2853,7 +2856,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
         echange_node(g_markup_dom_nom (ooo,"ligne_constitution","name"),g_markup_dom_nom (ooo,"ligne_sagesse","name"));
         echange_node(g_markup_dom_nom (ooo,"ligne_petrification","name"),g_markup_dom_nom (ooo,"ligne_baguette","name"));
 
-        strcpy(aff,ch);
+        g_strlcpy(aff,ch,LONG);
         i=strlen(ch)+1;
         ch[i-5]='_';
         ch[i-4]='a';
@@ -3151,17 +3154,17 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
          }
          g_fprintf(fichier," </origines>\n");
          g_fprintf(fichier,"</document>\n");
-         g_free(taco_a);
-         g_free(degat_a);
-        fclose(fichier);
+         g_fclose(fichier);
         _perso->d_r=0;
      }
      else
      {
             sprintf(ch,"erreur lors de la sauvegarde du fichier ");
-            strncat(ch , _perso->perso.nom_fichier,LONG-1);
+            g_strlcat(ch , _perso->perso.nom_fichier,LONG);
             dialogue(ch,0);
      }
+     g_free(taco_a);
+     g_free(degat_a);
      /* FIN DE LA SAUVEGARDE DU FICHIER .PERS */
     }
     else

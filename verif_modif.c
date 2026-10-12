@@ -1,5 +1,6 @@
 #include "include.h"
 #include <string.h>
+#include <math.h>
 
 char * pdv_classe(signed short _classe,signed short niv,signed short _version);
 signed short classes_race(signed short nb_race,signed short * nb_classe,signed short version);
@@ -242,7 +243,7 @@ void verif_voleur(FenetrePerso * _perso)
     { /* le bon nombre de point de compétence ont été attribués */
         if (*ch==0)
         { /* tout est parfait */
-            strcpy(ch,"Bonne distribution des points de compétences.\n");
+            g_strlcpy(ch,"Bonne distribution des points de compétences.\n",LONG);
         }
         else
         {
@@ -405,11 +406,11 @@ void verif_psi(FenetrePerso * _perso)
 
         ch=g_strdup("Bilan des choix :\n\n\n");
         wid_util=GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,"notebook_psi"));
-        ratio_psi=(signed short **)malloc(NB_DISCIPLINE_PSI*sizeof(signed short *));
+        ratio_psi=(signed short **)g_malloc(NB_DISCIPLINE_PSI*sizeof(signed short *));
         for(i=0;i<NB_DISCIPLINE_PSI;i++)
         { /* remise à zéro */
             discipline=0;
-            ratio_psi[i]=(signed short *)malloc(2*NB_DISCIPLINE_PSI*sizeof(signed short));
+            ratio_psi[i]=(signed short *)g_malloc(2*NB_DISCIPLINE_PSI*sizeof(signed short));
             wid_util=GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,"notebook_psi"));
             for (j=0;j<2;j++)
             { /* science dévotion */
@@ -695,9 +696,7 @@ void verif_psi(FenetrePerso * _perso)
                 else
                 { /* on ne compare pas la discipline primaire à elle-même */
                 }
-                g_free(ratio_psi[i]);
             }
-            g_free(ratio_psi);
             if (j==0)
             {
                 sprintf(ch_tmp,"La discipline primaire est %s\n\n",DISCIPLINE_PSI[niv].nom);
@@ -731,6 +730,11 @@ void verif_psi(FenetrePerso * _perso)
 
         gtk_label_set_text(GTK_LABEL(gtk_builder_get_object(_perso->modif->builder,"info_psi")),ch);
         g_free(ch);
+        for(i=0;i<NB_DISCIPLINE_PSI;i++)
+        {
+            g_free(ratio_psi[i]);
+        }
+        g_free(ratio_psi);
     }
     else
     {
@@ -944,10 +948,21 @@ void verif_XP_niv(FenetrePerso * _perso)
 {
     signed short _version=_perso->version_modif,vers_OK;
     GtkWidget * wid=GTK_WIDGET(gtk_builder_get_object(_perso->modif->builder,"grille_classes"));
-    signed long xp,xp_demande;
+    signed long xp,xp_demande,xp_nec;
     signed short cl,niveau,i,j;
     signed short * classe=_perso->classe_modif;
     signed short * niv=_perso->niv_classe_modif;
+    float m_race;
+    struct_race * s_r=RACE+_perso->perso.race;
+
+    if (s_r->add[ADD2].nom==NULL || _version==ADD1)
+    {
+        m_race=s_r->add[ADD].xp;
+    }
+    else
+    {
+        m_race=s_r->add[ADD2].xp;
+    }
 
     for (i=0;classe[i]!=-1;i++)
     { /* parcours des classes */
@@ -966,6 +981,7 @@ void verif_XP_niv(FenetrePerso * _perso)
         if (niveau<=0)
         {
             xp_demande=0;
+            xp_nec=0;
             j=niveau;
         }
         else
@@ -973,42 +989,24 @@ void verif_XP_niv(FenetrePerso * _perso)
             for(j=0;j<niveau && CLASSE[cl].add[vers_OK].XP[j]!=FIN;j++);
             if (CLASSE[cl].add[vers_OK].XP[j]==FIN)
             {
-                xp_demande=CLASSE[cl].add[vers_OK].XP[j-1]*(niveau-j+1);
+                xp_demande=CLASSE[cl].add[vers_OK].XP[j-1]*(niveau-j+2);
+                xp_nec=CLASSE[cl].add[vers_OK].XP[j-1]*(niveau-j+1);
             }
             else
             {
-                xp_demande=CLASSE[cl].add[vers_OK].XP[j-1];
+                xp_nec=CLASSE[cl].add[vers_OK].XP[j-1];
+                xp_demande=CLASSE[cl].add[vers_OK].XP[j];
             }
         }
-        if (xp<xp_demande)
+        xp_nec=round(xp_nec*m_race);
+
+        if (xp<xp_nec)
         {
             couleur_item(gtk_grid_get_child_at (GTK_GRID(wid),4,i+1),ROUGE);
         }
         else
         {
-            if (j<=0 || CLASSE[cl].add[vers_OK].XP[j]!=-1)
-            { /* on était encore dans les clous */
-                j++;
-            }
-            else
-            { /* on n'est plus dans les clous */
-            }
-            if (j==0)
-            {
-                xp_demande=1;
-            }
-            else if (CLASSE[cl].add[vers_OK].XP[j-1]==FIN)
-            {
-                xp_demande=CLASSE[cl].add[vers_OK].XP[j-2]*(niveau-j+3);
-            }
-            else if (CLASSE[cl].add[vers_OK].XP[j]==FIN)
-            {
-                xp_demande=CLASSE[cl].add[vers_OK].XP[j-1]*(niveau-j+2);
-            }
-            else
-            {
-                xp_demande=CLASSE[cl].add[vers_OK].XP[j-1];
-            }
+            xp_demande=round(xp_demande*m_race);
 
             if (xp<xp_demande)
             {

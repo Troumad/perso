@@ -53,7 +53,7 @@ void tableau_competences(GtkWidget *appel, FenetrePerso * _perso)
                 wid=gtk_spin_button_new_with_range(0,99,1);
                 pt_competence=(unsigned short *)g_malloc(sizeof(unsigned short));
                 *pt_competence=i+dimension*j;
-                g_object_set_data(G_OBJECT(wid), "competence",pt_competence);
+                g_object_set_data_full(G_OBJECT(wid), "competence",pt_competence,(GDestroyNotify)g_free);
                 sprintf(ch,"sp_%hu",i+dimension*j);
                 gtk_widget_set_name (wid,ch);
                 gtk_grid_attach(GTK_GRID(grille),wid,j*4+1,i,1,1);
@@ -122,7 +122,7 @@ void tableau_arme(GtkWidget *appel, FenetrePerso * _perso)
                 wid=gtk_spin_button_new_with_range(0,3,1);
                 pt_arme=(unsigned short *)g_malloc(sizeof(unsigned short));
                 *pt_arme=i+dimension*j;
-                g_object_set_data(G_OBJECT(wid), "arme",pt_arme);
+                g_object_set_data_full(G_OBJECT(wid), "arme",pt_arme,(GDestroyNotify)g_free);
                 sprintf(ch,"sp_niv_%hu",i+dimension*j);
                 gtk_widget_set_name (wid,ch);
                 gtk_grid_attach(GTK_GRID(grille),wid,j*6+2,i,1,1);
@@ -130,7 +130,7 @@ void tableau_arme(GtkWidget *appel, FenetrePerso * _perso)
                 wid=gtk_spin_button_new_with_range(-9,9,1);
                 pt_arme=(unsigned short *)g_malloc(sizeof(unsigned short));
                 *pt_arme=i+dimension*j;
-                g_object_set_data(G_OBJECT(wid), "arme",pt_arme);
+                g_object_set_data_full(G_OBJECT(wid), "arme",pt_arme,(GDestroyNotify)g_free);
                 sprintf(ch,"sp_mag_%hu",i+dimension*j);
                 gtk_widget_set_name (wid,ch);
                 gtk_grid_attach(GTK_GRID(grille),wid,j*6+3,i,1,1);
@@ -206,7 +206,7 @@ void tableau_classe(GtkWidget *appel, FenetrePerso * _perso)
                 wid=gtk_spin_button_new_with_range(0,99,1);
                 pt_classe=(unsigned short *)g_malloc(sizeof(unsigned short));
                 *pt_classe=i+dimension*j;
-                g_object_set_data(G_OBJECT(wid), "classe",pt_classe);
+                g_object_set_data_full(G_OBJECT(wid), "classe",pt_classe,(GDestroyNotify)g_free);
                 sprintf(ch,"sp_niv_%hu",i+dimension*j);
                 gtk_widget_set_name (wid,ch);
                 gtk_grid_attach(GTK_GRID(grille),wid,j*6+2,i,1,1);
@@ -214,7 +214,7 @@ void tableau_classe(GtkWidget *appel, FenetrePerso * _perso)
                 wid=gtk_spin_button_new_with_range(0,99999999,1);
                 pt_classe=(unsigned short *)g_malloc(sizeof(unsigned short));
                 *pt_classe=i+dimension*j;
-                g_object_set_data(G_OBJECT(wid), "classe",pt_classe);
+                g_object_set_data_full(G_OBJECT(wid), "classe",pt_classe,(GDestroyNotify)g_free);
                 sprintf(ch,"sp_XP_%hu",i+dimension*j);
                 gtk_widget_set_name (wid,ch);
                 gtk_grid_attach(GTK_GRID(grille),wid,j*6+3,i,1,1);
