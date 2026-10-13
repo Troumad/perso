@@ -7,6 +7,7 @@ void command_line (GtkApplication *app, GApplicationCommandLine *cmdline,gpointe
 
 void cb_save (GtkMenuItem *menuitem, struct widgets *widgets);
 gboolean cb_quit (GtkWidget *widget, GdkEvent  *event, struct widgets *widgets);
+void cb_quit_menu (GtkMenuItem *menuitem, struct widgets *widgets);
 
 int main(int argc, char **argv)
 {
@@ -131,10 +132,9 @@ int main(int argc, char **argv)
 
   return TRUE;
 }*/
-
 gboolean cb_quit (GtkWidget *widget, GdkEvent  *event, struct widgets *widgets)
 {
-  static gboolean en_cours=FALSE; /* garde réentrant : variable de la fonction */
+  static gboolean en_cours=FALSE;
   GList * fen, * l;
   GtkWidget * w;
   gboolean reste;
@@ -152,16 +152,16 @@ gboolean cb_quit (GtkWidget *widget, GdkEvent  *event, struct widgets *widgets)
     {
       w=GTK_WIDGET(l->data);
       if (w!=GTK_WIDGET(widgets->window) && gtk_widget_get_visible(w))
-      { /* fermeture d'une seule fenêtre par tour, comme un clic sur son X */
-        g_object_ref(w);   /* empêche la finalisation pendant le pump : tests sûrs */
+      {
+        g_object_ref(w);
         gtk_window_close(GTK_WINDOW(w));
         while (gtk_events_pending()) gtk_main_iteration();
         if (gtk_widget_get_visible(w))
-        { /* la fenêtre a refusé de se fermer : on annule tout */
+        { /* fermeture refusée : on annule tout */
           g_object_unref(w);
           g_list_free(fen);
           en_cours=FALSE;
-          return TRUE;   /* la fenêtre principale reste ouverte */
+          return TRUE;
         }
         reste=TRUE;
         g_object_unref(w);
@@ -176,6 +176,11 @@ gboolean cb_quit (GtkWidget *widget, GdkEvent  *event, struct widgets *widgets)
   (void) event;
 
   return TRUE;
+}
+
+void cb_quit_menu (GtkMenuItem *menuitem, struct widgets *widgets)
+{
+  cb_quit(GTK_WIDGET(menuitem), NULL, widgets);
 }
 
 void command_line (GtkApplication *app, GApplicationCommandLine *cmdline,gpointer param)
