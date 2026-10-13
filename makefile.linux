@@ -3,6 +3,7 @@ CC=gcc
  CFLAGS= -Wshadow  -Winit-self  -Wredundant-decls  -Wcast-align  -Wundef  -Wfloat-equal  -Winline  -Wunreachable-code  -Wmissing-declarations  -Wmissing-include-dirs  -Wswitch-enum  -Wswitch-default  -Wmain  -Wall  `pkg-config gtk+-3.0 --cflags` -export-dynamic -g
   
   LDFLAGS=`pkg-config gtk+-3.0 --libs` -export-dynamic  -lzip -lm
+  PREFIX=$(HOME)/.local
    
    EXEC=perso
    SRC= $(wildcard *.c)
@@ -16,3 +17,11 @@ $(EXEC) : $(OBJ)
 		  
 %.o: %.c include.h
 		$(CC) -o $@ -c $< $(CFLAGS)
+		
+install: all
+	install -D -m 755 perso $(PREFIX)/bin/perso
+	cp -r fichiers $(PREFIX)/share/perso/
+	install -D -m 644 fichiers/glade/Images/add.png $(PREFIX)/share/icons/hicolor/64x64/apps/perso.png
+	@printf '[Desktop Entry]\nType=Application\nName=perso\nExec=%s/bin/perso\nIcon=perso\nStartupWMClass=perso\nCategories=Game;\n' "$${PREFIX}" > $(PREFIX)/share/applications/perso.desktop
+	-update-desktop-database $(PREFIX)/share/applications || true
+	-touch $(PREFIX)/share/icons/hicolor

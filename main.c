@@ -20,6 +20,7 @@ int main(int argc, char **argv)
   GApplication *app=NULL;
   gboolean vrai;
 
+  g_set_prgname("perso");
   gtk_init(&argc, &argv);
   srand((unsigned int)time(0)); /* initialisation de l'aléatoire */
   ici=chemin_exe();
@@ -87,9 +88,11 @@ int main(int argc, char **argv)
           }
           g_free(chemin);
 
-          chemin=g_build_path (G_DIR_SEPARATOR_S,ici,"fichiers","glade","Images","add.ico",NULL);
-printf("%s\n",chemin);
-          gtk_window_set_default_icon_from_file(chemin, NULL);
+          chemin=g_build_path (G_DIR_SEPARATOR_S,ici,"fichiers","glade","Images","add.png",NULL);
+          if (!gtk_window_set_default_icon_from_file (chemin, &error))
+          {
+            printf("icone impossible : %s\n", error==NULL?"erreur inconnue":error->message);
+          }
           g_free(chemin);
 
           get_widgets(&widgets);
