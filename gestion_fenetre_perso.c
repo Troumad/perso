@@ -63,7 +63,7 @@ FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin, Fenetre
             {
                 retour=liste_fenetre[i];
                 nb_fenetre--;
-                /* remplacer la fenêtre supprimmée par la dernière fenêtre */
+                /* remplacer la fenêtre supprimée par la dernière fenêtre */
                 liste_fenetre[i]=liste_fenetre[nb_fenetre];
                 liste_fenetre[nb_fenetre]=NULL;
                 if (retour->modif!=NULL)
@@ -353,9 +353,9 @@ void ferme_fenetre_perso(GtkWidget *wid, FenetrePerso * _perso)
     (void)wid;
 }
 
+
 void destroy_fenetre_perso(GtkWidget *wid, FenetrePerso * _perso)
 {
-    //_perso->resume=NULL;
     ferme_fenetre_perso(wid, _perso);
 }
 

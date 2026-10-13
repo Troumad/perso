@@ -119,7 +119,7 @@ int main(int argc, char **argv)
   exit(EXIT_SUCCESS);
 }
 
-gboolean cb_quit (GtkWidget *widget, GdkEvent  *event, struct widgets *widgets)
+/*gboolean cb_quit (GtkWidget *widget, GdkEvent  *event, struct widgets *widgets)
 {
   FeuilleDeChoix(NULL,NULL);
   gtk_main_quit();
@@ -128,6 +128,52 @@ gboolean cb_quit (GtkWidget *widget, GdkEvent  *event, struct widgets *widgets)
     (void)widget;
     (void)widgets;
     (void)event;
+
+  return TRUE;
+}*/
+
+gboolean cb_quit (GtkWidget *widget, GdkEvent  *event, struct widgets *widgets)
+{
+  static gboolean en_cours=FALSE; /* garde réentrant : variable de la fonction */
+  GList * fen, * l;
+  GtkWidget * w;
+  gboolean reste;
+  if (en_cours)
+  {
+    return TRUE;
+  }
+  en_cours=TRUE;
+  FeuilleDeChoix(NULL,NULL);
+  do
+  {
+    reste=FALSE;
+    fen=gtk_window_list_toplevels();
+    for (l=fen ; l!=NULL && !reste ; l=g_list_next(l))
+    {
+      w=GTK_WIDGET(l->data);
+      if (w!=GTK_WIDGET(widgets->window) && gtk_widget_get_visible(w))
+      { /* fermeture d'une seule fenêtre par tour, comme un clic sur son X */
+        g_object_ref(w);   /* empêche la finalisation pendant le pump : tests sûrs */
+        gtk_window_close(GTK_WINDOW(w));
+        while (gtk_events_pending()) gtk_main_iteration();
+        if (gtk_widget_get_visible(w))
+        { /* la fenêtre a refusé de se fermer : on annule tout */
+          g_object_unref(w);
+          g_list_free(fen);
+          en_cours=FALSE;
+          return TRUE;   /* la fenêtre principale reste ouverte */
+        }
+        reste=TRUE;
+        g_object_unref(w);
+      }
+    }
+    g_list_free(fen);
+  } while (reste);
+  en_cours=FALSE;
+  gtk_main_quit();
+
+  (void) widget;
+  (void) event;
 
   return TRUE;
 }
