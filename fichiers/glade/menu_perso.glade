@@ -1272,7 +1272,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="use_stock">True</property>
-            <signal name="clicked" handler="cb_quit" swapped="no"/>
+            <signal name="clicked" handler="cb_quit_menu" swapped="no"/>
             <property name="tooltip_text" translatable="yes">Fermer le programme</property>
           </object>
           <packing>
