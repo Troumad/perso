@@ -86,6 +86,14 @@ int main(int argc, char **argv)
           {       /* ouverture OK du css */
           }
           g_free(chemin);
+          chemin=g_build_path (G_DIR_SEPARATOR_S,ici,"fichiers","glade","Images","add.ico",NULL);
+          if (!gtk_window_set_default_icon_from_file (chemin, &error))
+          {
+              g_warning("%s", error->message);
+              g_error_free(error);
+              error=NULL;
+          }
+          g_free(chemin);
 
           get_widgets(&widgets);
           gtk_builder_connect_signals(widgets.builder, &widgets);
