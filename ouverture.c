@@ -1145,23 +1145,24 @@ FenetrePerso * ouvre_perso(char * _nom)
                 }
                 else
                 {
-                    printf("Erreur lors de l'ouverture du fichier %s\n",_nom);
+                    /* passer devant le perso déjà ouvert   */
+                    /* c'est géré par gestion fenêtre       */
                 }
 
             }
             else
-            {   /* passer devant le perso déjà ouvert   */
-                /* c'est géré par gestion fenêtre       */
+            {
+                printf("Erreur lors de l'ouverture du fichier %s\n",_nom);
             }
         }
         else
         {
-            printf("Problème avec le perso %s\n",_nom);
+            printf("Problème avec le perso %s lors de son ouverture.\n",_nom);
         }
     }
     else
     {
-        /* arrivée avec un nom nul : anormal ! */
+        printf("Ouverture.c, fonction ouvre_perso : arrivée avec un nom nul : anormal !\n");
     }
 
     return _perso;

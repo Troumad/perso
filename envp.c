@@ -248,6 +248,8 @@ void envp_mem_hist(char * chemin)
             for (i=0;i<MEM_FICH_MAX;i++)
             {
                 ch_pers[i]=NULL;
+                ch_grp[i]=NULL;
+
             }
             ch1=envp_app_data();
             sprintf(aff,"%s%chist",ch1,SEPARATEUR);
@@ -348,7 +350,7 @@ void envp_mem_hist(char * chemin)
             for (i=0;i<MEM_FICH_MAX;i++)
             {
                 g_free(ch_pers[i]);
-                g_free(ch_grp[i]);
+                //g_free(ch_grp[i]);
             }
             fclose(fp);
         }

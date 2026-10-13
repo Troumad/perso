@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1791460220 source:/home/troumad/Documents/perso/aide_modif.c
+1791811033 source:/home/troumad/Documents/perso/aide_modif.c
 	<string.h>
 	"include.h"
 
-1791734330 /home/troumad/Documents/perso/include.h
+1791811033 /home/troumad/Documents/perso/include.h
 	<sys/types.h>
 	<unistd.h>
 	<time.h>
@@ -3127,82 +3127,82 @@
 1789927383 source:/home/troumad/Documents/perso/ajouter_enlever_modif.c
 	"include.h"
 
-1791451820 source:/home/troumad/Documents/perso/chaine.c
+1791811033 source:/home/troumad/Documents/perso/chaine.c
 	"include.h"
 	<ctype.h>
 
-1791742081 source:/home/troumad/Documents/perso/change_modif.c
+1791811033 source:/home/troumad/Documents/perso/change_modif.c
 	"include.h"
 	<string.h>
 
-1791452306 source:/home/troumad/Documents/perso/dieux.c
+1791811033 source:/home/troumad/Documents/perso/dieux.c
 	"include.h"
 	<string.h>
 
-1791800482 source:/home/troumad/Documents/perso/enregistre.c
+1791811033 source:/home/troumad/Documents/perso/enregistre.c
 	"include.h"
 	<string.h>
 	<zip.h>
 	<math.h>
 
-1791792256 source:/home/troumad/Documents/perso/envp.c
+1791819572 source:/home/troumad/Documents/perso/envp.c
 	"include.h"
 	<string.h>
 	<sys/stat.h>
 	<unistd.h>
 
-1791737362 source:/home/troumad/Documents/perso/gestion_fenetre_perso.c
+1791811033 source:/home/troumad/Documents/perso/gestion_fenetre_perso.c
 	"include.h"
 	<string.h>
 
-1791745172 source:/home/troumad/Documents/perso/gestion_glade.c
+1791811033 source:/home/troumad/Documents/perso/gestion_glade.c
 	"include.h"
 
-1791456296 source:/home/troumad/Documents/perso/groupe.c
+1791811033 source:/home/troumad/Documents/perso/groupe.c
 	"include.h"
 	<string.h>
 	<zip.h>
 
-1791804678 source:/home/troumad/Documents/perso/lecture_fichier.c
+1791811033 source:/home/troumad/Documents/perso/lecture_fichier.c
 	"include.h"
 	<dirent.h>
 	<string.h>
 	<math.h>
 
-1790253887 source:/home/troumad/Documents/perso/lire_odc.c
+1791811033 source:/home/troumad/Documents/perso/lire_odc.c
 	"include.h"
 	<string.h>
 	<math.h>
 
-1791457092 source:/home/troumad/Documents/perso/main.c
+1791811033 source:/home/troumad/Documents/perso/main.c
 	"include.h"
 	<locale.h>
 
-1791793652 source:/home/troumad/Documents/perso/menu.c
+1791811033 source:/home/troumad/Documents/perso/menu.c
 	"include.h"
 	<string.h>
 
 1789927383 source:/home/troumad/Documents/perso/messages.c
 	"include.h"
 
-1791793695 source:/home/troumad/Documents/perso/modif_perso.c
+1791811033 source:/home/troumad/Documents/perso/modif_perso.c
 	"include.h"
 	<string.h>
 
-1791744818 source:/home/troumad/Documents/perso/ouverture.c
+1791822556 source:/home/troumad/Documents/perso/ouverture.c
 	"include.h"
 	<string.h>
 
 1789927383 source:/home/troumad/Documents/perso/poids_taille.c
 	"include.h"
 
-1791477347 source:/home/troumad/Documents/perso/style.c
+1791811033 source:/home/troumad/Documents/perso/style.c
 	"include.h"
 
 1789927383 source:/home/troumad/Documents/perso/tableaux.c
 	"include.h"
 
-1791798808 source:/home/troumad/Documents/perso/tirage.c
+1791811033 source:/home/troumad/Documents/perso/tirage.c
 	"include.h"
 	<string.h>
 	<time.h>
@@ -3211,12 +3211,12 @@
 	"include.h"
 	<string.h>
 
-1791742336 source:/home/troumad/Documents/perso/verif_modif.c
+1791811033 source:/home/troumad/Documents/perso/verif_modif.c
 	"include.h"
 	<string.h>
 	<math.h>
 
-1791470936 source:/home/troumad/Documents/perso/xml.c
+1791819714 source:/home/troumad/Documents/perso/xml.c
 	"include.h"
 	<ctype.h>
 	<glib.h>
@@ -3229,7 +3229,7 @@
 	<zip.h>
 	<errno.h>
 
-1791806938 source:/home/troumad/Documents/perso/sorts.c
+1791811033 source:/home/troumad/Documents/perso/sorts.c
 	"include.h"
 	<string.h>
 

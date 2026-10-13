@@ -165,7 +165,10 @@ g_fprintf(sortie,">");
 #ifdef PRESENTATION
             INDENT (root->niveau + 1,sortie);
 #endif
-            ecrit_xml(sortie,root->texte[texte].texte);
+            if (root->texte[texte].texte!=NULL)
+            {
+                ecrit_xml(sortie,root->texte[texte].texte);
+            }
             //fputc('\n',sortie);
             texte++;
         }

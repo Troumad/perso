@@ -69,6 +69,7 @@ int main(int argc, char **argv)
 
           css_provider= gtk_css_provider_new();
           chemin=g_build_path (G_DIR_SEPARATOR_S,ici,"fichiers","mongtk.css",NULL);
+          gtk_window_set_default_icon_from_file("fichiers/glade/Images/add.ico", NULL);
           display = gdk_display_get_default();
           screen = gdk_display_get_default_screen(display);
           gtk_style_context_add_provider_for_screen(screen,
