@@ -470,12 +470,8 @@ void Modif_dieu (GtkWidget *ChildWidget, struct widgets * _widgets)
     GtkWidget * label=NULL, * radio0=NULL, *radio=NULL;
     char ch[32];
 
-    if (widgets==NULL || widgets->builder==NULL) /* pour ne pas ouvrir la fenêtre deux fois */
-    {                                            /* widgets->builder est mis automatiquement à NULL quand on ferme la fenêtre */
-        if (widgets!=NULL)
-        {
-            g_free(widgets);
-        }
+    if (widgets==NULL) /* pour ne pas ouvrir la fenêtre deux fois */
+    {
         widgets=ouverture_glade_retour("Dieux.glade",1);
         if (widgets!=NULL)
         {
