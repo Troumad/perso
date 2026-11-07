@@ -20,7 +20,6 @@ void Aff_liste_pan(struct widgets *widgets,unsigned short num_pan);
 void init_dieu(dieux * dieu);
 void libere_dieu(dieux * dieu);
 void annuler_sphere(GtkWidget *ChildWidget, struct widgets *widgets);
-void finir_dieu(GtkWidget *ChildWidget, struct widgets *widgets);
 signed short dieu_alignement(GMarkupDomNode * node);
 void dieu_competence_plus(GtkWidget *ChildWidget, struct widgets *widgets);
 void dieu_competence_moins(GtkWidget *ChildWidget, struct widgets *widgets);
@@ -914,15 +913,6 @@ void Modif_Sphere(GtkWidget *ChildWidget, struct widgets *widgets)
 
     (void)ChildWidget;
 }
-
-
-void finir_dieu(GtkWidget *ChildWidget, struct widgets *widgets)
-{
-    widgets->builder=NULL;
-
-    (void)ChildWidget;
-}
-
 
 void annuler_sphere(GtkWidget *ChildWidget, struct widgets *widgets)
 {
