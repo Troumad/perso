@@ -24,6 +24,7 @@ void finir_dieu(GtkWidget *ChildWidget, struct widgets *widgets);
 signed short dieu_alignement(GMarkupDomNode * node);
 void dieu_competence_plus(GtkWidget *ChildWidget, struct widgets *widgets);
 void dieu_competence_moins(GtkWidget *ChildWidget, struct widgets *widgets);
+static void cb_ferme_dieux (GtkWidget *wid, gpointer data);
 
 pant * pantheons=NULL;
 signed short nb_pantheons=0;
@@ -454,6 +455,12 @@ unsigned long tabl_sphere(char * liste)
     return retour;
 }
 
+static void cb_ferme_dieux (GtkWidget *wid, gpointer data)
+{ /* destruction de la fenêtre Dieux : on remet à NULL le static de Modif_dieu,
+     dont l'adresse a été passée en user_data */
+    *(struct widgets **)data=NULL;
+    (void)wid;
+}
 
 void Modif_dieu (GtkWidget *ChildWidget, struct widgets * _widgets)
 {
@@ -472,6 +479,8 @@ void Modif_dieu (GtkWidget *ChildWidget, struct widgets * _widgets)
         widgets=ouverture_glade_retour("Dieux.glade",1);
         if (widgets!=NULL)
         {
+            g_object_set_data_full(G_OBJECT(widgets->window),"widgets_glade",widgets,libere_widgets);
+            g_signal_connect(widgets->window,"destroy",G_CALLBACK(cb_ferme_dieux),&widgets);
             grille = GTK_GRID((gtk_builder_get_object(widgets->builder,"Grille_Sphere")));
             if (grille!=NULL)
             {
@@ -632,7 +641,6 @@ void Appli_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
             lit_dieu(pantheons[j].dieu,widgets);
             Aff_liste_pan(widgets,j);
             Modif_Pan(ChildWidget,widgets,0);
-            g_free(_nom);
         }
         else if (dieu==-1)
         {
