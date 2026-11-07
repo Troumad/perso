@@ -359,6 +359,105 @@ void destroy_fenetre_perso(GtkWidget *wid, FenetrePerso * _perso)
     ferme_fenetre_perso(wid, _perso);
 }
 
+void ouvre_odt_perso(GtkWidget *wid, FenetrePerso * _perso)
+{
+    char ch[LONG];
+    FILE * fichier=NULL;
+    GtkWidget *p_dialog = NULL;
+
+    (void)wid;
+    if (_perso==NULL || _perso->resume==NULL || _perso->perso.nom_fichier==NULL || strlen(_perso->perso.nom_fichier)<5)
+    { /* pas encore de fichier enregistré : la feuille .odt n'existe pas */
+        p_dialog = gtk_message_dialog_new (NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_INFO,GTK_BUTTONS_CLOSE,"Enregistrez d'abord le personnage : c'est l'enregistrement qui crée sa feuille .odt");
+        gtk_dialog_run(GTK_DIALOG(p_dialog));
+        gtk_widget_destroy(p_dialog);
+        return;
+    }
+    /* la feuille .odt porte le même nom que le fichier .pers */
+    g_strlcpy(ch,_perso->perso.nom_fichier,LONG);
+    strcpy(ch+strlen(ch)-4,"odt");
+    fichier = g_fopen(ch, "rb");
+    if (fichier==NULL)
+    { /* la feuille n'existe pas encore */
+        p_dialog = gtk_message_dialog_new (GTK_WINDOW(_perso->resume->window),GTK_DIALOG_MODAL,GTK_MESSAGE_WARNING,GTK_BUTTONS_CLOSE,"La feuille\n%s\nn'existe pas encore : enregistrez d'abord le personnage.",ch);
+        gtk_dialog_run(GTK_DIALOG(p_dialog));
+        gtk_widget_destroy(p_dialog);
+        return;
+    }
+    fclose(fichier);
+#ifdef __linux__
+    {
+        char * argv[3];
+        GError * err=NULL;
+        argv[1]=ch;
+        argv[2]=NULL;
+        argv[0]=(char *)"soffice";
+        if (!g_spawn_async(NULL,argv,NULL,G_SPAWN_SEARCH_PATH,NULL,NULL,NULL,&err))
+        {
+            argv[0]=(char *)"libreoffice";
+            if (!g_spawn_async(NULL,argv,NULL,G_SPAWN_SEARCH_PATH,NULL,NULL,NULL,&err))
+            {
+                p_dialog = gtk_message_dialog_new (GTK_WINDOW(_perso->resume->window),GTK_DIALOG_MODAL,GTK_MESSAGE_ERROR,GTK_BUTTONS_CLOSE,"LibreOffice introuvable (ni soffice ni libreoffice dans le PATH) :\n%s",err!=NULL?err->message:"");
+                gtk_dialog_run(GTK_DIALOG(p_dialog));
+                gtk_widget_destroy(p_dialog);
+            }
+        }
+        if (err!=NULL)
+        {
+            g_clear_error(&err);
+        }
+    }
+#else
+    { /* windows : recherche de soffice.exe dans les répertoires d'installation usuels */
+        char soffice[LONG],args[LONG+8];
+        const char * pf;
+        signed short trouve=0;
+        HINSTANCE ret;
+        fichier=NULL;
+        pf=getenv("ProgramFiles");
+        if (pf!=NULL)
+        {
+            g_sprintf(soffice,"%s\\LibreOffice\\program\\soffice.exe",pf);
+            fichier = g_fopen(soffice, "rb");
+            if (fichier!=NULL)
+            {
+                fclose(fichier);
+                trouve=1;
+            }
+        }
+        if (!trouve)
+        {
+            pf=getenv("ProgramFiles(x86)");
+            if (pf!=NULL)
+            {
+                g_sprintf(soffice,"%s\\LibreOffice\\program\\soffice.exe",pf);
+                fichier = g_fopen(soffice, "rb");
+                if (fichier!=NULL)
+                {
+                    fclose(fichier);
+                    trouve=1;
+                }
+            }
+        }
+        g_sprintf(args,"\"%s\"",ch);
+        if (trouve)
+        {
+            ret=ShellExecuteA(NULL,"open",soffice,args,NULL,SW_SHOWNORMAL);
+        }
+        else
+        { /* pas de soffice.exe trouvé : on ouvre avec l'application associée au .odt */
+            ret=ShellExecuteA(NULL,"open",ch,NULL,NULL,SW_SHOWNORMAL);
+        }
+        if ((INT_PTR)ret<=32)
+        {
+            p_dialog = gtk_message_dialog_new (GTK_WINDOW(_perso->resume->window),GTK_DIALOG_MODAL,GTK_MESSAGE_ERROR,GTK_BUTTONS_CLOSE,"Impossible d'ouvrir\n%s\navec LibreOffice.",ch);
+            gtk_dialog_run(GTK_DIALOG(p_dialog));
+            gtk_widget_destroy(p_dialog);
+        }
+    }
+#endif
+}
+
 
 void affiche_resume(FenetrePerso * _perso)
 {

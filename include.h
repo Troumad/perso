@@ -832,6 +832,7 @@ signed short nouveau_membre_groupe(FenetrePerso * fenetre_perso, char * nom,unsi
 FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin,FenetrePerso * fermeture);
 void affiche_resume(FenetrePerso * perso);
 void ferme_fenetre_perso(GtkWidget *wid, FenetrePerso * widgets);
+void ouvre_odt_perso(GtkWidget *wid, FenetrePerso * perso);
 void nouveau(GtkWidget *wid, struct widgets * param);
 
 
