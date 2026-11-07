@@ -7,6 +7,7 @@ void libere_fenetre_perso(FenetrePerso * f_p);
 void init_perso(perso * pers);
 void init_fenetre_perso(FenetrePerso * _perso);
 void libere_perso(perso * pers);
+static void ouvre_odt(FenetrePerso * _perso, char * chemin);
 void destroy_fenetre_perso(GtkWidget *wid, FenetrePerso * perso);
 static gboolean libere_final_fenetre(gpointer data);
 
@@ -359,6 +360,142 @@ void destroy_fenetre_perso(GtkWidget *wid, FenetrePerso * _perso)
     ferme_fenetre_perso(wid, _perso);
 }
 
+void ouvre_odt_perso(GtkWidget *wid, FenetrePerso * _perso)
+{
+    char ch[LONG];
+    GtkWidget *p_dialog = NULL;
+
+    (void)wid;
+    if (_perso==NULL || _perso->resume==NULL || _perso->perso.nom_fichier==NULL || strlen(_perso->perso.nom_fichier)<5)
+    { /* pas encore de fichier enregistré : la feuille .odt n'existe pas */
+        p_dialog = gtk_message_dialog_new (NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_INFO,GTK_BUTTONS_CLOSE,"Enregistrez d'abord le personnage : c'est l'enregistrement qui crée sa feuille .odt");
+        gtk_dialog_run(GTK_DIALOG(p_dialog));
+        gtk_widget_destroy(p_dialog);
+    }
+    else
+    {
+        /* la feuille .odt porte le même nom que le fichier .pers */
+        g_strlcpy(ch,_perso->perso.nom_fichier,LONG);
+        strcpy(ch+strlen(ch)-4,"odt");
+        ouvre_odt(_perso,ch);
+    }
+}
+
+void ouvre_odt_groupe(GtkWidget *wid, FenetrePerso * _perso)
+{
+    char ch[LONG];
+    GtkWidget *p_dialog = NULL;
+    unsigned short i;
+
+    (void)wid;
+    if (_perso==NULL || _perso->resume==NULL || _perso->perso.nom_fichier==NULL || strlen(_perso->perso.nom_fichier)<5)
+    { /* pas encore de fichier enregistré : la feuille .odt n'existe pas */
+        p_dialog = gtk_message_dialog_new (NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_INFO,GTK_BUTTONS_CLOSE,"Enregistrez d'abord le groupe : c'est l'enregistrement qui crée sa feuille .odt");
+        gtk_dialog_run(GTK_DIALOG(p_dialog));
+        gtk_widget_destroy(p_dialog);
+    }
+    else
+    {
+        /* la feuille du groupe s'appelle <nom du .grp sans extension>_grp.odt (même règle que enregistre_groupe, groupe.c:54) */
+        g_strlcpy(ch,_perso->perso.nom_fichier,LONG);
+        i=strlen(ch);
+        if (compare_sans_casse(ch+i-4,".grp")==0)
+        {
+            ch[i-4]=0; /* on retire l'extension .grp */
+        }
+        g_strlcat(ch,"_grp.odt",LONG);
+        ouvre_odt(_perso,ch);
+    }
+}
+
+static void ouvre_odt(FenetrePerso * _perso, char * chemin)
+{
+    FILE * fichier=NULL;
+    GtkWidget *p_dialog = NULL;
+
+    fichier = g_fopen(chemin, "rb");
+    if (fichier==NULL)
+    { /* la feuille n'existe pas encore */
+        p_dialog = gtk_message_dialog_new (GTK_WINDOW(_perso->resume->window),GTK_DIALOG_MODAL,GTK_MESSAGE_WARNING,GTK_BUTTONS_CLOSE,"La feuille\n%s\nn'existe pas encore : enregistrez-la d'abord.",chemin);
+        gtk_dialog_run(GTK_DIALOG(p_dialog));
+        gtk_widget_destroy(p_dialog);
+    }
+    else
+    {
+        fclose(fichier);
+    #ifdef __linux__
+        {
+            char * argv[3];
+            GError * err=NULL;
+            argv[1]=chemin;
+            argv[2]=NULL;
+            argv[0]=(char *)"soffice";
+            if (!g_spawn_async(NULL,argv,NULL,G_SPAWN_SEARCH_PATH,NULL,NULL,NULL,&err))
+            {
+                argv[0]=(char *)"libreoffice";
+                if (!g_spawn_async(NULL,argv,NULL,G_SPAWN_SEARCH_PATH,NULL,NULL,NULL,&err))
+                {
+                    p_dialog = gtk_message_dialog_new (GTK_WINDOW(_perso->resume->window),GTK_DIALOG_MODAL,GTK_MESSAGE_ERROR,GTK_BUTTONS_CLOSE,"LibreOffice introuvable (ni soffice ni libreoffice dans le PATH) :\n%s",err!=NULL?err->message:"");
+                    gtk_dialog_run(GTK_DIALOG(p_dialog));
+                    gtk_widget_destroy(p_dialog);
+                }
+            }
+            if (err!=NULL)
+            {
+                g_clear_error(&err);
+            }
+        }
+    #else
+        { /* windows : recherche de soffice.exe dans les répertoires d'installation usuels */
+            char soffice[LONG],args[LONG+8];
+            const char * pf;
+            signed short trouve=0;
+            HINSTANCE ret;
+            fichier=NULL;
+            pf=getenv("ProgramFiles");
+            if (pf!=NULL)
+            {
+                g_sprintf(soffice,"%s\\LibreOffice\\program\\soffice.exe",pf);
+                fichier = g_fopen(soffice, "rb");
+                if (fichier!=NULL)
+                {
+                    fclose(fichier);
+                    trouve=1;
+                }
+            }
+            if (!trouve)
+            {
+                pf=getenv("ProgramFiles(x86)");
+                if (pf!=NULL)
+                {
+                    g_sprintf(soffice,"%s\\LibreOffice\\program\\soffice.exe",pf);
+                    fichier = g_fopen(soffice, "rb");
+                    if (fichier!=NULL)
+                    {
+                        fclose(fichier);
+                        trouve=1;
+                    }
+                }
+            }
+            g_sprintf(args,"\"%s\"",chemin);
+            if (trouve)
+            {
+                ret=ShellExecuteA(NULL,"open",soffice,args,NULL,SW_SHOWNORMAL);
+            }
+            else
+            { /* pas de soffice.exe trouvé : on ouvre avec l'application associée au .odt */
+                ret=ShellExecuteA(NULL,"open",chemin,NULL,NULL,SW_SHOWNORMAL);
+            }
+            if ((INT_PTR)ret<=32)
+            {
+                p_dialog = gtk_message_dialog_new (GTK_WINDOW(_perso->resume->window),GTK_DIALOG_MODAL,GTK_MESSAGE_ERROR,GTK_BUTTONS_CLOSE,"Impossible d'ouvrir\n%s\navec LibreOffice.",chemin);
+                gtk_dialog_run(GTK_DIALOG(p_dialog));
+                gtk_widget_destroy(p_dialog);
+            }
+        }
+    #endif
+    }
+}
 
 void affiche_resume(FenetrePerso * _perso)
 {

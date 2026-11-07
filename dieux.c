@@ -500,7 +500,7 @@ void Modif_dieu (GtkWidget *ChildWidget, struct widgets * _widgets)
                     gtk_widget_set_halign(radio,GTK_ALIGN_CENTER);
                     gtk_widget_show(radio);
 
-                    if (i+NB_SPHERE/2+1<=NB_SPHERE) /* ne pas prendre en compte la dernière sphère s'il y en a un nombre impair */
+                    if (i+NB_SPHERE/2+1<NB_SPHERE) /* ne pas prendre en compte la dernière sphère s'il y en a un nombre impair */
                     {
                         label=gtk_label_new (SPHERE[ADD2][i+NB_SPHERE%2+NB_SPHERE/2].nom);
                         gtk_grid_attach(grille,label,4,i+1,1,1);
@@ -615,7 +615,7 @@ void Appli_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
     {
         if (panth==-1) /* nouveau panthéon */
         {
-            _nom=g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Pantheon")))));
+            _nom=gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Pantheon"))));
             for (j=1;pantheons[j].nom!=NULL;j++);                       /* chercher le dernier panthéon dans la liste */
             pantheons=(pant *)g_realloc(pantheons,(j+2)*sizeof(pant));  /* on commence la recherche à 1 car pantheon[0] est réservé pour le général */
             pantheons[j+1]=pantheons[j];                                /* général : clerc, paladin... */
@@ -632,10 +632,11 @@ void Appli_dieu (GtkWidget *ChildWidget , struct widgets * widgets)
             lit_dieu(pantheons[j].dieu,widgets);
             Aff_liste_pan(widgets,j);
             Modif_Pan(ChildWidget,widgets,0);
+            g_free(_nom);
         }
         else if (dieu==-1)
         {
-            _nom=g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Dieu")))));
+            _nom=gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Dieu"))));
             for (j=1;pantheons[panth].dieu[j].nom!=NULL;j++); /* chercher le dernier dieu du panthéon dans la liste */
             pantheons[panth].dieu=(dieux *)g_realloc(pantheons[panth].dieu,(j+2)*sizeof(dieux));
             pantheons[panth].dieu[j+1]=pantheons[panth].dieu[j];
@@ -784,7 +785,7 @@ void Modif_Sphere(GtkWidget *ChildWidget, struct widgets *widgets)
                if (strncmp(gtk_widget_get_name (GTK_WIDGET(gl->data)),"radio_sphere_",13)==0)
                {
                         sscanf(gtk_widget_get_name (GTK_WIDGET(gl->data)),"radio_sphere_%hd_%hd",&i,&j);
-                        if (maj_min[i]==j)
+                        if (i<NB_SPHERE && maj_min[i]==j)
                         {
                              gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(gl->data),1);
                         }
@@ -1109,7 +1110,7 @@ void lit_dieu(dieux * dieu,struct widgets * widgets)
            }
     }
     g_list_free(gl1);
-    dieu->nom=g_strdup(gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Dieu")))));
+    dieu->nom=gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT((gtk_builder_get_object(widgets->builder,"Liste_Dieu"))));
 
     g_strlcpy(ch,"Al_",32);
     for(i=0;i<9;i++)

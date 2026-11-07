@@ -66,10 +66,18 @@
 		</Unit>
 		<Unit filename="fichiers/dieux.add" />
 		<Unit filename="fichiers/glade/ChoixTirage.glade" />
+		<Unit filename="fichiers/glade/Dieux.glade" />
+		<Unit filename="fichiers/glade/Explication.glade" />
+		<Unit filename="fichiers/glade/GPL.glade" />
+		<Unit filename="fichiers/glade/boite_supprime.glade" />
+		<Unit filename="fichiers/glade/groupe.glade" />
 		<Unit filename="fichiers/glade/info_modif.glade" />
 		<Unit filename="fichiers/glade/menu_perso.glade" />
 		<Unit filename="fichiers/glade/modification.glade" />
+		<Unit filename="fichiers/glade/nom_groupe.glade" />
+		<Unit filename="fichiers/glade/nom_perso.glade" />
 		<Unit filename="fichiers/glade/ouverture.glade" />
+		<Unit filename="fichiers/glade/resume.glade" />
 		<Unit filename="fichiers/mongtk.css" />
 		<Unit filename="gestion_fenetre_perso.c">
 			<Option compilerVar="CC" />

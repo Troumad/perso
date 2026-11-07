@@ -823,7 +823,7 @@ void callback_ouvre_perso(GtkButton *button, char * ch);
 FenetrePerso * ouvre_perso(char * nom);
 void info_fichier(GtkFileChooser *chooser,  struct widgets * _widgets);
 
-/* groupe.c*/
+/* groupe.c */
 void enregistre_groupe(GtkWidget *ChildWidget, FenetrePerso * fenetre);
 void callback_suppr_perso_groupe(GtkButton *button, perso_groupe * p_gr);
 signed short nouveau_membre_groupe(FenetrePerso * fenetre_perso, char * nom,unsigned short nb);
@@ -832,6 +832,8 @@ signed short nouveau_membre_groupe(FenetrePerso * fenetre_perso, char * nom,unsi
 FenetrePerso * gestion_fenetre (struct widgets * widgets, char * chemin,FenetrePerso * fermeture);
 void affiche_resume(FenetrePerso * perso);
 void ferme_fenetre_perso(GtkWidget *wid, FenetrePerso * widgets);
+void ouvre_odt_perso(GtkWidget *wid, FenetrePerso * perso);
+void ouvre_odt_groupe(GtkWidget *wid, FenetrePerso * perso);
 void nouveau(GtkWidget *wid, struct widgets * param);
 
 

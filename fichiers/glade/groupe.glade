@@ -45,14 +45,15 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button2">
-                <property name="label">gtk-save</property>
+              <object class="GtkButton" id="button5">
+                <property name="label">gtk-open</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
                 <property name="halign">end</property>
                 <property name="use-stock">True</property>
-                <signal name="clicked" handler="enregistre_groupe" swapped="no"/>
+                <property name="tooltip_text" translatable="yes">Ouvrir la feuille du groupe (_grp.odt) avec LibreOffice</property>
+                <signal name="clicked" handler="ouvre_odt_groupe" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -87,13 +88,14 @@
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <child>
-              <object class="GtkButton" id="button4">
-                <property name="label">gtk-save-as</property>
+              <object class="GtkButton" id="button2">
+                <property name="label">gtk-save</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="halign">end</property>
                 <property name="use-stock">True</property>
-                <signal name="clicked" handler="enregistre_groupe_sous" swapped="no"/>
+                <signal name="clicked" handler="enregistre_groupe" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -113,6 +115,32 @@
               </packing>
             </child>
             <child>
+              <object class="GtkButton" id="button4">
+                <property name="label">gtk-save-as</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="use-stock">True</property>
+                <signal name="clicked" handler="enregistre_groupe_sous" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkButton" id="button3">
                 <property name="label">gtk-close</property>
                 <property name="visible">True</property>
@@ -125,7 +153,7 @@
                 <property name="expand">False</property>
                 <property name="fill">False</property>
                 <property name="pack-type">end</property>
-                <property name="position">2</property>
+                <property name="position">4</property>
               </packing>
             </child>
           </object>
