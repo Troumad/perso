@@ -1733,6 +1733,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
             {
                 if (strncmp(ARMURE[_perso->perso.armure1].nom,"Aucune",6)==0)
                 {
+                     ca1=race->add[vers_race].CA+ca1-10; /* on remplace le 10 de départ par la CA naturel du perso */
                      sprintf(affichage,"%+hd",race->add[vers_race].CA);
                      if (_perso->perso.bague && bonus_ca==0)
                      {
@@ -1793,6 +1794,7 @@ void enregistre_perso(GtkWidget *ChildWidget, FenetrePerso * _perso)
             {
                 if (strncmp(ARMURE[_perso->perso.armure2].nom,"Aucune",6)==0)
                 {
+                     ca2=race->add[vers_race].CA+ca2-10; /* on remplace le 10 de départ par la CA naturel du perso */
                      sprintf(affichage,"%+hd",race->add[vers_race].CA);
                      if (_perso->perso.bague && bonus_ca==0)
                      {
