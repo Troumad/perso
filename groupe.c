@@ -350,21 +350,31 @@ void callback_add_perso_groupe(GtkWidget *ChildWidget, struct callback_nv_nom * 
     for (tmp=liste;tmp!=NULL;tmp=tmp->next)
     {
         c_b->fenetre_perso->uri=(char **)g_realloc(c_b->fenetre_perso->uri,(nb+2)*sizeof(char *));
+        c_b->fenetre_perso->uri[nb]=NULL;
+        c_b->fenetre_perso->uri[nb+1]=NULL;
         /* vérifier s'il n'est pas déjà dans la liste */
         for (i=0;i<nb && compare_sans_casse((char *)tmp->data,c_b->fenetre_perso->uri[i])!=0;i++)
         {
         }
         if (i==nb)
         { /* nouveau nom dans la liste */
-            nouveau_membre_groupe(c_b->fenetre_perso,(char *)tmp->data,nb);
+            if (nouveau_membre_groupe(c_b->fenetre_perso,(char *)tmp->data,nb)==1)
+            {
+                nb++;
+            }
+            else
+            {
+            }
         }
         else
         {
             ouvre_perso((char *)tmp->data);/* un nom déjà dans la liste */
         }
-        nb++; /* avant de passer au suivant, on incrémente */
     }
-    c_b->fenetre_perso->uri[nb]=NULL;
+    if (c_b->fenetre_perso->uri!=NULL)
+    {
+        c_b->fenetre_perso->uri[nb]=NULL;
+    }
 
     g_slist_free(liste);
     ferme_glade(ChildWidget , c_b->widgets_fichier);
@@ -1054,22 +1064,34 @@ signed short nouveau_membre_groupe(FenetrePerso * fenetre_perso, char * _nom,uns
             g_strlcat(ch,local->perso.nom,LONG);
             g_strlcat(ch,"  ",LONG);
         }
-        else
+        else if (local->perso.nom_fichier!=NULL)
         {
             g_strlcat(ch,local->perso.nom_fichier,LONG);
             g_strlcat(ch,"  ",LONG);
         }
-        if (local->perso.classe[0]!=-1)
+        else
+        {
+        }
+        if (local->perso.classe!=NULL && local->perso.classe[0]>=0 && local->perso.classe[0]<NB_CLASSE)
         {
             g_strlcat(ch,CLASSE[local->perso.classe[0]].nom,LONG);
             i=1;
             while(local->perso.classe[i]!=-1)
             {
-                g_strlcat(ch,"/",LONG);
-                g_strlcat(ch,CLASSE[local->perso.classe[i]].nom,LONG);
+                if (local->perso.classe[i]>=0 && local->perso.classe[i]<NB_CLASSE)
+                {
+                    g_strlcat(ch,"/",LONG);
+                    g_strlcat(ch,CLASSE[local->perso.classe[i]].nom,LONG);
+                }
+                else
+                {
+                }
                 i++;
             }
             g_strlcat(ch,"  ",LONG);
+        }
+        else
+        {
         }
         wid1=gtk_label_new(ch);
         gtk_box_pack_end (GTK_BOX(wid),wid1,TRUE,FALSE,0);
