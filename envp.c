@@ -2,7 +2,7 @@
     Génération de feuille de personnage complète AD&D 1 et 2
     Génération aléatoire de personnage
 
-    Copyright (C) 2011 Bernard SIAUD
+    Copyright (C) 2011-2026 Bernard SIAUD
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -481,33 +481,48 @@ GtkWidget * deja_edite(char * nom_de_fichier)
     return retour;
 }
 
-char * chemin_absolu(char * chemin)
+char * chemin_absolu(const char * chemin)
 {
-    unsigned char i;
-    char * tmpo, tmp1[LONG];
+    char * retour=NULL, * arg=NULL, * absolu=NULL;
+#ifndef G_OS_WIN32
+    char * canon=NULL;
+#endif
 
-      if (chemin!=NULL && chemin[0]=='.')
-      { /* on passe en chemin absolu */
-          getcwd(tmp1,LONG-1); /* tmp1 : chemin actuel */
-          for(tmpo=tmp1;*tmpo!=0;tmpo++); /* tmpo : fin de la chaine de caractère du chemin actuel */
-          i=0;
-          while ( chemin[i]=='.' && chemin[i+1]=='.' && (chemin[i+2]==SEPARATEUR || (chemin[i+2]==0)) && tmpo>tmp1)
-          {
-              i+=3;
-              for(;*tmpo!=SEPARATEUR && tmpo>=tmp1;tmpo--);
-              tmpo--; /* retour avant le séparatateur */
-          }
-          if (tmpo>tmp1) *(tmpo+1)=0; /* s'arrêter au séparateur */
-          if (chemin[i]==SEPARATEUR)
-            i++;
-          tmpo=(char *)g_malloc(strlen(tmp1)+strlen(chemin+i)+2);
-          sprintf(tmpo,"%s%c%s",tmp1,SEPARATEUR,chemin+i);
-          g_free(chemin);
-          chemin = tmpo;
-      }
-      else
-      {
-      }
-      return chemin;
+    if (chemin==NULL)
+    {
+        retour= NULL;
+    }
+    else
+    {
+        if (strncmp(chemin,"file://",7)==0)
+        { /* URI file:// (menu "récents") : décodage en chemin local, %20 compris */
+            arg=g_filename_from_uri(chemin,NULL,NULL);
+            if (arg==NULL)
+            {
+                retour = NULL; /* URI file:// invalide */
+            }
+        }
+        else
+        {
+            arg=g_strdup(chemin);
+        }
+        if (arg!=NULL)
+        {
+            absolu=g_canonicalize_filename(arg,NULL); /* absolu (par rapport au CWD si relatif) + résolution de . et .. ; glib >= 2.58 */
+            g_free(arg);
+            if (absolu!=NULL)
+            {
+#ifndef G_OS_WIN32
+                canon=realpath(absolu,NULL); /* si le fichier existe : résout aussi les liens symboliques */
+                if (canon!=NULL)
+                {
+                    g_free(absolu);
+                    absolu=canon;
+                }
+#endif
+                retour=absolu;
+            }
+        }
+    }
+    return retour;
 }
-

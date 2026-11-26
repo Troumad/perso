@@ -2,7 +2,7 @@
     Génération de feuille de personnage complète AD&D 1 et 2
     Génération aléatoire de personnage
 
-    Copyright (C) 2011-2016 Bernard SIAUD
+    Copyright (C) 2011-2026 Bernard SIAUD
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

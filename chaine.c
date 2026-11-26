@@ -1,3 +1,23 @@
+/*
+    Génération de feuille de personnage complète AD&D 1 et 2
+    Génération aléatoire de personnage
+
+    Copyright (C) 2011-2026 Bernard SIAUD
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    a1024 with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include "include.h"
 #include <ctype.h>
 
@@ -103,7 +123,7 @@ char * simplifie_uri(char * _nom)
 
  retour=_nom;
  g_strstrip(_nom);
- while((s=g_strstr_len (_nom,-1,"/./"))) /* tant qu'on trouve cette occurence */
+ while((s=g_strstr_len (_nom,-1,"/./"))) /* tant qu'on trouve cette occurrence */
  {
      for (i=1;s[i+2]!=0;i++)
      {
@@ -112,7 +132,7 @@ char * simplifie_uri(char * _nom)
      s[i]=s[i+2];
  }
 
- while((s=g_strstr_len (_nom,-1,"/../"))) /* tant qu'on trouve cette occurence */
+ while((s=g_strstr_len (_nom,-1,"/../"))) /* tant qu'on trouve cette occurrence */
  {
      *s=0;
      s1=g_strrstr(_nom,"/");
@@ -131,6 +151,5 @@ char * simplifie_uri(char * _nom)
      }
  }
 
- /*s=g_strrstr_len()*/
  return retour;
 }

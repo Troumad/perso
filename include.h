@@ -1,3 +1,23 @@
+/*
+    Génération de feuille de personnage complète AD&D 1 et 2
+    Génération aléatoire de personnage
+
+    Copyright (C) 2011-2026 Bernard SIAUD
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    a1024 with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #ifndef INCLUDE_H_INCLUDED
 #define INCLUDE_H_INCLUDED
 
@@ -777,7 +797,7 @@ void envp_mem_hist_supp(char * chemin);
 char * windows_home(char * chemin);
 /* void  menu_va_hist(GtkWidget *wid, gpointer * param); */
 GtkWidget * deja_edite(char * nom_de_fichier);
-char * chemin_absolu(char * chemin);
+char * chemin_absolu(const char * chemin);
 
 /* lire_odc.c */
 GMarkupDomNode * donne_case_ij(unsigned long i, unsigned long j,GMarkupDomNode * ooo); /* la première case est la case (0,0) */
@@ -810,6 +830,7 @@ gchar * nb_texte(gchar * ch,unsigned short nb);
 unsigned short place_max(unsigned short * tab, unsigned short taille);
 void g_fclose(FILE * ptf);
 signed short meme_extension(char * _nom,char * ext);
+char * chemin_odt(char * chemin_pers, signed short version); /* mettre ou pas le _add2 dans le nom du fichier */
 
 /* zip.c */
 char * content_libo(char * fichierZIP,size_t * longueur);
@@ -834,6 +855,7 @@ void affiche_resume(FenetrePerso * perso);
 void ferme_fenetre_perso(GtkWidget *wid, FenetrePerso * widgets);
 void ouvre_odt_perso(GtkWidget *wid, FenetrePerso * perso);
 void ouvre_odt_groupe(GtkWidget *wid, FenetrePerso * perso);
+void ouvre_odt(FenetrePerso * _perso, char * chemin);
 void nouveau(GtkWidget *wid, struct widgets * param);
 
 

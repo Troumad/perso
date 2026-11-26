@@ -1,3 +1,23 @@
+/*
+    Génération de feuille de personnage complète AD&D 1 et 2
+    Génération aléatoire de personnage
+
+    Copyright (C) 2011-2026 Bernard SIAUD
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    a1024 with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include "include.h"
 #include <string.h>
 
@@ -435,4 +455,40 @@ signed short meme_extension(char * _nom,char * ext)
     return drap;
 }
 
+char * chemin_odt(char * chemin_pers, signed short version)
+{
+    char * retour=(char *)g_malloc(LONG);
+    FILE * f=NULL;
+    unsigned short i;
+    signed short v;
 
+    for (v=0;v<2;v++)
+    { /* d'abord la variante de la version demandée, puis l'autre */
+        g_strlcpy(retour,chemin_pers,LONG);
+        i=strlen(retour);
+        if (i>5 && compare_sans_casse(retour+i-5,".pers")==0)
+        {
+            retour[i-5]=0; /* retire .pers */
+        }
+        else if (i>4 && compare_sans_casse(retour+i-4,".grp")==0)
+        {
+            retour[i-4]=0; /* retire .grp */
+            g_strlcat(retour,"_grp",LONG);
+        }
+        else
+        {
+        }
+        g_strlcat(retour,version==ADD2?"_add2.odt":".odt",LONG);
+        f=g_fopen(retour,"rb");
+        if (f!=NULL)
+        {
+            fclose(f);
+            v=2; /* variante trouvée : je n'aime pas voir un break et on peut savoir pourquoi on est sorti de la boucle : v=3 => fichier trouvé  */
+        }
+        else
+        {
+            version=!version;   /* inversion de ADD et ADD2 pour essayer l'autre : l'une fait 0 et 1, c'est volontairement binaire */
+        }                       /* les autres versions de donjons et dragons sont trop différentes pour être aussi traitées ici */
+    }
+    return retour; /* aucune variante : on renvoie la dernière essayée (dialogue "n'existe pas" la nommera) */
+}

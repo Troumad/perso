@@ -1,3 +1,23 @@
+/*
+    Génération de feuille de personnage complète AD&D 1 et 2
+    Génération aléatoire de personnage
+
+    Copyright (C) 2011-2026 Bernard SIAUD
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    a1024 with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include "include.h"
 #include <string.h>
 
@@ -7,7 +27,6 @@ void libere_fenetre_perso(FenetrePerso * f_p);
 void init_perso(perso * pers);
 void init_fenetre_perso(FenetrePerso * _perso);
 void libere_perso(perso * pers);
-static void ouvre_odt(FenetrePerso * _perso, char * chemin);
 void destroy_fenetre_perso(GtkWidget *wid, FenetrePerso * perso);
 static gboolean libere_final_fenetre(gpointer data);
 
@@ -364,8 +383,9 @@ void ouvre_odt_perso(GtkWidget *wid, FenetrePerso * _perso)
 {
     char ch[LONG];
     GtkWidget *p_dialog = NULL;
+    char * odt=chemin_odt(_perso->perso.nom_fichier,_perso->perso.version);
+    ouvre_odt(_perso,odt);
 
-    (void)wid;
     if (_perso==NULL || _perso->resume==NULL || _perso->perso.nom_fichier==NULL || strlen(_perso->perso.nom_fichier)<5)
     { /* pas encore de fichier enregistré : la feuille .odt n'existe pas */
         p_dialog = gtk_message_dialog_new (NULL,GTK_DIALOG_MODAL,GTK_MESSAGE_INFO,GTK_BUTTONS_CLOSE,"Enregistrez d'abord le personnage : c'est l'enregistrement qui crée sa feuille .odt");
@@ -377,15 +397,20 @@ void ouvre_odt_perso(GtkWidget *wid, FenetrePerso * _perso)
         /* la feuille .odt porte le même nom que le fichier .pers */
         g_strlcpy(ch,_perso->perso.nom_fichier,LONG);
         strcpy(ch+strlen(ch)-4,"odt");
-        ouvre_odt(_perso,ch);
+        ouvre_odt(_perso,odt);
     }
+
+    free(odt);
+    (void)wid;
 }
 
 void ouvre_odt_groupe(GtkWidget *wid, FenetrePerso * _perso)
 {
     char ch[LONG];
     GtkWidget *p_dialog = NULL;
-    unsigned short i;
+    signed short version=ADD;
+    char * odt=NULL;
+    GMarkupDomNode * pers=NULL, * nod=NULL;
 
     (void)wid;
     if (_perso==NULL || _perso->resume==NULL || _perso->perso.nom_fichier==NULL || strlen(_perso->perso.nom_fichier)<5)
@@ -396,19 +421,45 @@ void ouvre_odt_groupe(GtkWidget *wid, FenetrePerso * _perso)
     }
     else
     {
-        /* la feuille du groupe s'appelle <nom du .grp sans extension>_grp.odt (même règle que enregistre_groupe, groupe.c:54) */
-        g_strlcpy(ch,_perso->perso.nom_fichier,LONG);
-        i=strlen(ch);
-        if (compare_sans_casse(ch+i-4,".grp")==0)
+       /* la feuille du groupe s'appelle <nom du .grp sans extension>_grp.odt ou _grp_add2.odt (même règle que enregistre_groupe, groupe.c:54) */
+        if (_perso->uri!=NULL && _perso->uri[0]!=NULL)
         {
-            ch[i-4]=0; /* on retire l'extension .grp */
+            pers=g_markup_dom_new(_perso->uri[0],NULL); /* uri[0] : chemin canonique du premier .pers */
+            if (pers!=NULL)
+            {
+                nod=g_markup_dom_node(pers,"version");
+                if (nod!=NULL && nod->nb_texte>0 && compare_sans_casse((char *)vers[ADD2],nod->texte[0].texte)==0)
+                {
+                    version=ADD2;
+                }
+                else
+                {
+                }
+                g_markup_dom_free(pers);
+            }
+            else
+            {
+            }
+            odt=chemin_odt(_perso->perso.nom_fichier,version); /* .grp -> _grp.odt / _grp_add2.odt, avec repli */
+            ouvre_odt(_perso,odt);
+            g_free(odt);
         }
-        g_strlcat(ch,"_grp.odt",LONG);
-        ouvre_odt(_perso,ch);
+        else
+        { /* groupe vide */
+            if (_perso->perso.nom_fichier!=NULL)
+            {
+                g_sprintf(ch,"Le groupe %s est vide : ajoutez d'abord un personnage.",_perso->perso.nom_fichier);
+            }
+            else
+            {   /* on ne devrait jamais passer par là, mais, c'est une sécurité */
+                g_sprintf(ch,"Veuillez enregistrer le groupe avant : officiellement, il n'existe pas !");
+            }
+            donne_info(ch);
+        }
     }
 }
 
-static void ouvre_odt(FenetrePerso * _perso, char * chemin)
+void ouvre_odt(FenetrePerso * _perso, char * chemin)
 {
     FILE * fichier=NULL;
     GtkWidget *p_dialog = NULL;

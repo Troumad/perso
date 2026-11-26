@@ -2,7 +2,7 @@
     Génération de feuille de personnage complète AD&D 1 et 2
     Génération aléatoire de personnage
 
-    Copyright (C) 2015 Bernard SIAUD
+    Copyright (C) 2015-2026 Bernard SIAUD
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -159,11 +159,22 @@ FenetrePerso * ouvre_perso(char * _nom)
     unsigned short i, j ,k;
     FenetrePerso * _perso=NULL;
     char ch[LONG];
+    char * nom_abs=NULL;
+
     if (_nom!=NULL)
     {
         if (simplifie_uri(_nom)!=NULL)
         {
-            _perso=gestion_fenetre (NULL, _nom, NULL);
+            nom_abs=chemin_absolu(_nom);
+            if (nom_abs!=NULL)
+            {
+                _perso=gestion_fenetre (NULL,nom_abs, NULL);
+                _nom=nom_abs;
+            }
+            else
+            {
+                _perso=gestion_fenetre (NULL, _nom, NULL);
+            }
             if (_perso!=NULL)
             {
                 if (_perso->perso.nom==NULL) /* si ce n'est pas un perso déjà ouvert */
@@ -1164,6 +1175,10 @@ FenetrePerso * ouvre_perso(char * _nom)
     {
         printf("Ouverture.c, fonction ouvre_perso : arrivée avec un nom nul : anormal !\n");
     }
+    if (nom_abs!=NULL)
+    {
+        g_free(nom_abs);
+    }
 
     return _perso;
 }
@@ -1230,7 +1245,7 @@ void ouvre_recent (GtkRecentChooser *chooser, gpointer          user_data)
 {
     if (strncmp("file://",gtk_recent_chooser_get_current_uri (chooser),7)==0)
     {
-        ouvre_perso(gtk_recent_chooser_get_current_uri (chooser)+7);
+        ouvre_perso(gtk_recent_chooser_get_current_uri (chooser));
     }
     else
     {

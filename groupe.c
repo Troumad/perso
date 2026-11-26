@@ -1,5 +1,5 @@
 /******************************************************************************
- *    Copyright (C) 2010-2015 by SIAUD Bernard                                *
+ *    Copyright (C) 2010-2026 by SIAUD Bernard                                *
  *    troumad@siaud.org                                                       *
  *                                                                            *
  *    This program is free software; you can redistribute it and/or modify    *
@@ -31,6 +31,7 @@ void ferme_nv_nom(GtkWidget *ChildWidget , GtkWidget * fenetre);
 void feuille_groupe(FenetrePerso * fenetre);
 void nouveau_groupe(GtkWidget *ChildWidget, FenetrePerso * _perso_appel);
 char * chaine_groupe_armure(GMarkupDomNode * tmp_node, char * ch);
+void callback_ouvre_odt_perso_groupe(GtkButton *button, perso_groupe * p_gr);
 
 void enregistre_groupe(GtkWidget *ChildWidget , FenetrePerso * fenetre)
 {
@@ -347,24 +348,28 @@ void callback_add_perso_groupe(GtkWidget *ChildWidget, struct callback_nv_nom * 
     {
         for (nb=0;c_b->fenetre_perso->uri[nb]!=NULL;nb++); /* trouver le dernier groupe */
     }
-    for (tmp=liste;tmp!=NULL;tmp=tmp->next)
+    for (tmp=liste;tmp!=NULL;tmp=tmp->next) /* liste des persos sélectionnés dans l'interface graphique */
     {
-        c_b->fenetre_perso->uri=(char **)g_realloc(c_b->fenetre_perso->uri,(nb+2)*sizeof(char *));
         /* vérifier s'il n'est pas déjà dans la liste */
         for (i=0;i<nb && compare_sans_casse((char *)tmp->data,c_b->fenetre_perso->uri[i])!=0;i++)
         {
         }
         if (i==nb)
         { /* nouveau nom dans la liste */
-            nouveau_membre_groupe(c_b->fenetre_perso,(char *)tmp->data,nb);
+            if (nouveau_membre_groupe(c_b->fenetre_perso,(char *)tmp->data,nb)==1)
+            {
+                nb++;
+            }
+            else
+            {
+                /* on n'incrémente pas : le nouveau perso n'est pas valide */
+            }
         }
         else
         {
             ouvre_perso((char *)tmp->data);/* un nom déjà dans la liste */
         }
-        nb++; /* avant de passer au suivant, on incrémente */
     }
-    c_b->fenetre_perso->uri[nb]=NULL;
 
     g_slist_free(liste);
     ferme_glade(ChildWidget , c_b->widgets_fichier);
@@ -1004,87 +1009,120 @@ signed short nouveau_membre_groupe(FenetrePerso * fenetre_perso, char * _nom,uns
 {
     GtkWidget * wid=NULL, *wid1=NULL;
     perso_groupe * p_gr=NULL;
-    FenetrePerso * local=NULL;
-    GdkRectangle rr;
-    unsigned short hauteur=600, largeur=800;
     signed short retour;
     char ch[LONG]="  ";
-    signed short i;
+    signed short i,nb_cl;
+    char * membre=NULL, * nom_perso=NULL;
+    signed short * classe=NULL;
+    GMarkupDomNode * pers=NULL, * nod=NULL;
 
-
-    local=ouvre_perso(_nom); /* ouverture de la fenêtre perso */
-    if (local!=NULL)
+    membre=chemin_absolu(_nom);
+    if (membre==NULL)
     {
-        /* placement de la fenêtre sur l'écran pour éviter que les fenêtres d'un groupe se chevauchent */
-#if GTK_CHECK_VERSION(3, 22, 0)
-        if (gdk_display_get_default() && gdk_display_get_primary_monitor (gdk_display_get_default()))
+        membre=g_strdup(_nom);
+    }
+    pers=g_markup_dom_new(membre,NULL);
+    if (pers==NULL)
+    {
+        retour=0;
+        g_free(membre);
+    }
+    else
+    {
+        nod=g_markup_dom_node(pers,"perso");
+        if (nod!=NULL && nod->nb_texte>0)
         {
-            gdk_monitor_get_geometry(gdk_display_get_primary_monitor (gdk_display_get_default()), &rr);
-            hauteur=rr.height-100;
-            largeur=rr.width-100;
+            nom_perso=g_strdup(nod->texte[0].texte);
         }
         else
         {
-            hauteur=600;
-            largeur=800;
+            nom_perso=g_strdup("Vérifier son nom !");
         }
-#else
-        hauteur=gdk_screen_get_height(gdk_screen_get_default ())-100;
-        largeur=gdk_screen_get_width(gdk_screen_get_default ())-100;
-#endif // GTK_CHECK_VERSION
-        gtk_window_move (GTK_WINDOW(local->resume->window),(20+13*nb)%largeur,(60+37*nb)%hauteur);
+        nod=g_markup_dom_node(pers,"profession");
+        if (nod!=NULL && nod->nb_fils>0)
+        {
+            nb_cl=nod->nb_fils;
+            classe=(signed short *)g_malloc((nb_cl+1)*sizeof(signed short));
+            for (i=0;i<nb_cl;i++)
+            {
+                if (nod->fils[i].nb_texte>0)
+                {
+                    classe[i]=classe_entier(nod->fils[i].texte[0].texte);
+                }
+                else
+                {
+                    classe[i]=NON;
+                }
+            }
+            classe[nb_cl]=-1;
+        }
+        else
+        {
+            classe=(signed short *)g_malloc(sizeof(signed short));
+            classe[0]=-1;
+        }
+        g_markup_dom_free(pers);
+
         /* mise en place de la chaîne des persos (paramètre uri) d'un groupe */
         fenetre_perso->uri=(char **)g_realloc(fenetre_perso->uri,(nb+2)*sizeof(char *));
         fenetre_perso->uri[nb+1]=NULL;
-        fenetre_perso->uri[nb]=g_strdup(local->perso.nom_fichier);  /* on mémorise le nouveau nom */
+        fenetre_perso->uri[nb]=membre;  /* on mémorise le nouveau nom */
 
-        /* mise en place des boutons dans la fenetre groupe */
+        /* mise en place des boutons dans la fenêtre groupe */
         wid=gtk_box_new (GTK_ORIENTATION_HORIZONTAL,0); /* le conteneur horizontal */
         p_gr=(perso_groupe *)g_malloc(sizeof(perso_groupe)); /* pour passer l'info par callback */
         p_gr->wid=wid; /* le nom et les 3 boutons dans la fenêtre de groupe */
-        p_gr->nom=g_strdup(local->perso.nom_fichier);
+        p_gr->nom=g_strdup(membre);
         p_gr->groupe=fenetre_perso;
-        //wid1=gtk_button_new_with_label("Enlever du groupe");
         wid1=gtk_button_new_from_icon_name("edit-delete",GTK_ICON_SIZE_BUTTON);
         gtk_button_set_label (GTK_BUTTON(wid1),"Enlever du groupe");
         gtk_box_pack_end (GTK_BOX(wid),wid1,FALSE,FALSE,0);
         g_signal_connect(wid1, "clicked", G_CALLBACK (callback_suppr_perso_groupe),p_gr);
-        if (local->perso.nom!=NULL && local->perso.nom[0]!=0)
+
+        g_strlcat(ch,nom_perso,LONG);
+        g_strlcat(ch," ,  ",LONG);
+
+
+        i=0;
+        while(classe[i]!=-1)
         {
-            g_strlcat(ch,local->perso.nom,LONG);
-            g_strlcat(ch,"  ",LONG);
-        }
-        else
-        {
-            g_strlcat(ch,local->perso.nom_fichier,LONG);
-            g_strlcat(ch,"  ",LONG);
-        }
-        if (local->perso.classe[0]!=-1)
-        {
-            g_strlcat(ch,CLASSE[local->perso.classe[0]].nom,LONG);
-            i=1;
-            while(local->perso.classe[i]!=-1)
+            if (i!=0)
             {
                 g_strlcat(ch,"/",LONG);
-                g_strlcat(ch,CLASSE[local->perso.classe[i]].nom,LONG);
-                i++;
             }
-            g_strlcat(ch,"  ",LONG);
+            if (classe[i]>=0 && classe[i]<NB_CLASSE)
+            {
+                g_strlcat(ch,CLASSE[classe[i]].nom,LONG);
+            }
+            else /* ne devrait jamais arriver */
+            {
+                g_strlcat(ch,"Erreur profession",LONG);
+            }
+            i++;
         }
+        if (i==0)
+        {
+            g_strlcat(ch,"Erreur pas de profession  ",LONG);
+        }
+        g_strlcat(ch,"  ",LONG);
         wid1=gtk_label_new(ch);
         gtk_box_pack_end (GTK_BOX(wid),wid1,TRUE,FALSE,0);
-        //wid1=gtk_button_new_with_label("Éditer le personnage");
+
+        wid1=gtk_button_new_from_icon_name("document-open",GTK_ICON_SIZE_BUTTON);
+        gtk_button_set_label (GTK_BUTTON(wid1),"Ouvrir la feuille");
+        g_signal_connect(wid1, "clicked", G_CALLBACK (callback_ouvre_odt_perso_groupe),p_gr);
+        gtk_box_pack_end (GTK_BOX(wid),wid1,FALSE,FALSE,0);
+
         wid1=gtk_button_new_from_icon_name("document-page-setup",GTK_ICON_SIZE_BUTTON);
         gtk_button_set_label (GTK_BUTTON(wid1),"Éditer le personnage");
         g_signal_connect(wid1, "clicked", G_CALLBACK (callback_ouvre_perso),fenetre_perso->uri[nb]);
         gtk_box_pack_end (GTK_BOX(wid),wid1,FALSE,FALSE,0); /* le dernier bouton dans wid */
+
         gtk_box_pack_end (GTK_BOX(gtk_builder_get_object(fenetre_perso->resume->builder,"v_box_groupe")),wid,FALSE,FALSE,0); /* wid dans le fenêtre */
         gtk_widget_show_all(wid);
+        g_free(nom_perso);
+        g_free(classe);
         retour=1;
-    }
-    else
-    {
-        retour=0;
     }
 
     return retour;
@@ -1268,4 +1306,37 @@ char * chaine_groupe_armure(GMarkupDomNode * tmp_node, char * ch)
         }
 
         return ch;
+}
+
+void callback_ouvre_odt_perso_groupe(GtkButton *button, perso_groupe * p_gr)
+{
+    char * odt=NULL;
+    signed short version=ADD;
+    GMarkupDomNode * pers=NULL, * nod=NULL;
+    char ch[LONG];
+
+    pers=g_markup_dom_new(p_gr->nom,NULL); /* p_gr->nom = chemin canonique du .pers */
+    if (pers!=NULL)
+    {
+        nod=g_markup_dom_node(pers,"version");
+        if (nod!=NULL && nod->nb_texte>0 && compare_sans_casse((char *)vers[ADD2],nod->texte[0].texte)==0)
+        {
+            version=ADD2;
+        }
+        else
+        {
+        }
+        g_markup_dom_free(pers);
+
+        odt=chemin_odt(p_gr->nom,version); /* version lue dans le .pers au moment du clic */
+        ouvre_odt(p_gr->groupe,odt); /* fenêtre parent = celle du groupe ; affiche le dialogue si le .odt n'existe pas */
+        g_free(odt);
+    }
+    else
+    {
+        g_sprintf(ch,"Par sécurité, sauvegardez avant si possible le personnage %s : le .pers a disparu.\n",p_gr->nom);
+        donne_info(ch);
+    }
+
+    (void)button;
 }
